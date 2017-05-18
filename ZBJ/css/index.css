@@ -854,6 +854,7 @@ right: 0px;
 	width: 100%;
 	padding: 25px;
 	background: #f6f6f6;
+	margin-bottom: 20px;
 }
 .facilitator .fa-list ul{
 	height: 332px;
@@ -900,4 +901,11 @@ right: 0px;
 .facilitator .fa-list ul li .fa-level{
 	margin-left: 7px;
 }
-
+.facilitator .fa-method{
+	height: 35px;
+	background: #f6f6f6;
+	font-size: 12px;
+	width: calc(100%-26px);
+	padding: 0 13px;
+}
+/*服务商推荐 end*/
