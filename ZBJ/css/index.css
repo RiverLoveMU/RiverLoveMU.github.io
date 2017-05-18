@@ -831,7 +831,7 @@ right: 0px;
 	overflow: hidden;
 	width: 1190px;
 	margin: auto;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 .facilitator .fa-tit{
 	height: 40px;
@@ -907,5 +907,144 @@ right: 0px;
 	font-size: 12px;
 	width: calc(100%-26px);
 	padding: 0 13px;
+	line-height: 35px;
+	color: #666;
+}
+.facilitator .fa-method .question{
+	font-size: 16px;
+}
+.facilitator .fa-method ul .method span{
+	color: #f60;
+	margin: 0 10px;
+	font-size: 14px;
+}
+.facilitator .fa-method ul .space{
+	width: 40px;
+	height: 35px;
 }
 /*服务商推荐 end*/
+/*需求推荐 begin*/
+.demand{
+	overflow: hidden;
+	width: 1190px;
+	margin: auto;
+	margin-bottom: 40px;
+}
+.demand .de-tit{
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 3px solid #e8e8e8;
+	margin-bottom: 5px;
+}
+.demand .de-tit .sub-tit{
+	font-size: 16px;
+	color: #999;
+	margin-right: 20px;
+	display: inline-block;
+	border-bottom: 3px solid #e8e8e8;
+	float: left;
+}
+.demand .de-tit span{
+	float: left;
+	color: #999;
+	line-height: 42px;
+	margin-right: 20px;
+}
+.demand .de-tit .sub-tit.cur{
+	border-bottom: 3px solid #ff6600;
+}
+.demand .de-tit .de-more{
+	font-size: 12px;
+	margin-left: 40px;
+	color: #ff6702;
+	line-height: 42px;
+	float: left;
+}
+.demand .de-list{
+	float: left;
+	overflow: hidden;
+	width: 974px;
+	border-right: 1px solid gainsboro;
+}
+.demand .de-list .sub-de-list{
+	float: left;
+	padding: 8px 0px;
+	width: 290px;
+	margin-right: 30px;
+}
+.demand .de-list .sub-de-list p{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 12px;
+	color: #999;
+	line-height: 20px;
+}
+.demand .de-list .sub-de-list p .de-money{
+	color: #ff8400;
+	margin-right: 5px;
+	font-size: 14px;
+}
+.demand .de-list .sub-de-list p .de-position{
+	font-size: 14px;
+}
+.demand .de-list .sub-de-list p .de-promulgator{
+	margin-right: 8px;
+}
+.demand .de-free{
+	float: right;
+	width: 200px;
+	height: 383px;
+	padding: 15px 0 0 15px;
+	overflow: hidden;
+}
+.demand .de-free .de-btn{
+	height: 40px;
+	line-height: 40px;
+	font-family: simsun, serif;
+	font-weight: bold;
+	color: #fff;
+	background: #f60;
+	font-size: 14px;
+	text-align: center;
+	width: 100%;
+}
+.demand .de-free .free-list{
+	padding-top: 6px;
+}
+.demand .de-free .free-list li{
+	padding: 10px 0;
+}
+.demand .de-free .free-list li p{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 12px;
+	color: #999;
+}
+.demand .de-free .free-list li p .free-money{
+	color: #ff8400;
+	margin-right: 5px;
+}
+.demand .de-method{
+	height: 35px;
+	background: #f6f6f6;
+	font-size: 12px;
+	width: 1164px;
+	padding: 0 13px;
+	line-height: 35px;
+	color: #666;
+}
+.demand .de-method .question{
+	font-size: 16px;
+}
+.demand .de-method ul .method span{
+	color: #f60;
+	margin: 0 10px;
+	font-size: 14px;
+}
+.demand .de-method ul .space{
+	width: 40px;
+	height: 35px;
+}
+/*需求推荐 end*/
