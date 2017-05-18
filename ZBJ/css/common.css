@@ -1,0 +1,62 @@
+body{
+	font-family: "微软雅黑";
+	line-height: 1.5;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.full-width{
+	width: 100%;
+	min-width: 1200px;
+}
+.clear{
+	clear: left;
+}
+.bg-f8f8f8{
+	background-color: #f8f8f8;
+}
+.bg-ff6901{
+	background-color: #ff6901;
+}
+.bg-ff9125{
+	background-color: #ff9125;
+}
+.color-ff797c{
+	color: #ff797c;
+}
+.color-b444fc{
+	color: #b444fc;
+}
+.color-ffc293{
+	color: #ffc293;
+}
+.color-37c2ff{
+	color: #37c2ff;
+}
+.color-ff4547{
+	color: #ff4547;
+}
+.color-ff9c30{
+	color: #ff9c30;
+}
+.bg-fff1f1{
+	background-color: #fff1f1;
+}
+.bg-f8ecff{
+	background-color: #f8ecff;
+}
+.bg-fff7e8{
+	background-color: #fff7e8;
+}
+.bg-ebf8ff{
+	background-color: #ebf8ff;
+}
+.bg-ffeef9{
+	background-color: #ffeef9;
+}
+.bg-fff3e9{
+	background-color: #fff3e9;
+}
