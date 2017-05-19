@@ -4,7 +4,7 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 100;
+	z-index: 50;
 }
 .top .top-nav{
 	width: 1190px;
@@ -85,6 +85,7 @@
 	font-weight: 600;
 	padding-left: 7px;
 	padding-right: 8px;
+	position: relative;
 }
 .search .city .more{
 	color: #bbb;
@@ -94,9 +95,10 @@
 	padding-left: 7px;
 }
 .search .city .name .iconfont{
-	font-size: 12px;
-	line-height: 16px;
-	padding-left: 18px;
+	font-size: 8px;
+	position: absolute;
+	top: 7px;
+	left: 60px;
 }
 /*改变城市 end*/
 .search .gif{
@@ -135,12 +137,14 @@
 	clear: left;
 	font-size: 12px;
 	color: #ccc;
+	position: relative;
 }
 .search .search-box .input-box input{
 	width: 368px;
 	padding: 7px 6px 6px 90px;
 	height: 20px;
 	border: 3px solid #ff6901;
+	float: left;
 }
 .search .search-box .input-box button{
 	text-align: center;
@@ -149,16 +153,39 @@
 	height: 39px;
 	width: 56px;
 	font-size: 16px;
+	float: left;
 }
 .search .search-box .input-box span{
 	padding: 0 9px 0 15px;
+	line-height: 39px;
+	float: left;
 }
 .search .search-box .input-box .demand{
 	width: 120px;
+	float: left;
 }
 .search .search-box .input-box .demand .iconfont{
+	font-size: 8px;
+	padding-left: 6px;
+	vertical-align: middle;
+}
+.search .search-box .input-box .sort{
+	position: absolute;
+	width: 75px;
+	padding: 7px 0px 6px 15px;
+	height: 20px;
+	border: 3px solid #ff6901;
+	border-right: none;
+	z-index: 10;
+	color: #7d7d7d;
 	font-size: 12px;
-	padding-left: 2px;
+	line-height: 20px;
+	top: 0;
+	left: 0;
+}
+.search .search-box .input-box .sort .iconfont{
+	vertical-align: middle;
+	margin-left: 15px;
 }
 .search .search-box ul{
 	clear: both;
@@ -802,7 +829,7 @@ right: 0px;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	margin: 0 15px;
+	margin: 0 14px;
 }
 .guess ul li p.guess-name{
 	margin: 13px 15px;
@@ -819,11 +846,15 @@ right: 0px;
 .guess ul li p.guess-deal{
 	font-size: 11px;
 	color: #999;
-	margin-left: 17px;
 }
 .guess ul li p.guess-location{
 	font-size: 12px;
 	color: #999;
+}
+.guess ul li p.guess-location .iconfont{
+	font-size: 11px;
+	margin-right: 6px;
+	vertical-align: middle;
 }
 /*猜你喜欢 end*/
 /*服务商推荐 begin*/
@@ -928,7 +959,7 @@ right: 0px;
 	overflow: hidden;
 	width: 1190px;
 	margin: auto;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 }
 .demand .de-tit{
 	height: 40px;
@@ -1048,3 +1079,354 @@ right: 0px;
 	height: 35px;
 }
 /*需求推荐 end*/
+/*第四个广告 begin*/
+.fourth-adv{
+	width: 1190px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+/*第四个广告 end*/
+/*案例 begin*/
+.case{
+	overflow: hidden;
+	width: 1190px;
+	margin: auto;
+	margin-bottom: 20px;
+}
+.case .case-tit{
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 3px solid #e8e8e8;
+	margin-bottom: 20px;
+}
+.case .case-tit .sub-tit{
+	font-size: 16px;
+	color: #333333;
+	padding: 0 20px;
+	display: inline-block;
+	border-bottom: 3px solid #e8e8e8;
+	float: left;
+}
+.case .case-tit .case-more{
+	font-size: 12px;
+	color: #ff6702;
+	line-height: 42px;
+	float: left;
+}
+.case .case-left{
+	float: left;
+	width: 290px;
+	margin-right: 40px;
+	position: relative;
+	overflow: hidden;
+}
+.case .case-left .case-name{
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	text-align: center;
+	color: white;
+	background: #ff9000;
+	margin-top: -6px;
+	width: 288px;
+}
+.case .case-middle{
+	margin-right: 8px;
+	float: left;
+	overflow: hidden;
+	text-align: center;
+	font-size: 14px;
+	width: 650px;	
+}
+.case .case-middle li{
+	margin-right: 12px;
+	margin-bottom: 12px;
+	float: left;
+	position: relative;
+}
+.case .case-middle li img{
+	height: 140px;
+	min-width: 200px;
+}
+.case .case-middle li .case-name{
+	height: 39px;
+	line-height: 39px;
+	background: #fbfbfb;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-top: -6px;
+}
+.case .case-right{
+	float: right;
+	overflow: hidden;
+	width: 200px;
+	font-size: 12px;
+	color: #999;
+}
+.case .case-right img{
+	height: 220px;
+	width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.case .case-right .case-top{
+	margin-top: 12px;
+	margin-bottom: 28px;
+	color: #333;
+}
+.case .case-right .case-center .case-money{
+	color: #ff8400;;
+}
+.case .case-right .case-center .case-service{
+	color: #333;
+}
+.case .case-right .case-btn{
+	margin-top: 12px;
+	color: #fff;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	font-family: "Microsoft YaHei", sans-serif;
+	font-size: 14px;
+	background: #f60;
+}
+/*案例 end*/
+/*八戒热门 begin*/
+.hot{
+	overflow: hidden;
+	width: 1190px;
+	margin: auto;
+	margin-bottom: 20px;
+}
+.hot .hot-tit{
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 3px solid #e8e8e8;
+}
+.hot .hot-tit .sub-tit{
+	color: #333;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 0 20px;
+	display: inline-block;
+	border-bottom: 3px solid #e8e8e8;
+	float: left;
+}
+.hot .hot-list1{
+	float: left;
+	width: 375px;
+	padding-right: 15px;
+}
+.hot .hot-list2{
+	float: left;
+	width: 375px;
+	padding: 0 15px;
+	border-left: 1px solid gainsboro;
+}
+.hot .hot-list3{
+	float: left;
+	width: 375px;
+	padding-left: 15px;
+	border-left: 1px solid gainsboro;
+}
+.hot .hot-name{
+	overflow: hidden;
+	margin: 12px 0 7px;
+}
+.hot .hot-name .name{
+	float: left;
+	color: #f60;
+	font-size: 16px;
+	font-weight: 500;
+}
+.hot .hot-name .hot-more{
+	float: right;
+	line-height: 28px;
+	font-size: 12px;
+}
+.hot .sub-hot-list li{
+	border-top: 1px dotted #ccc;
+	padding: 10px 0;
+	overflow: hidden;
+	color: #999;
+}
+.hot .sub-hot-list li.hot-first{
+	border-top: none;
+}
+.hot .sub-hot-list li.hot-first .hot-pic{
+	width: 140px;
+	height: 110px;
+	margin-right: 15px;
+	float: left;
+}
+.hot .sub-hot-list li.hot-first .hot-pic img{
+	height: 100%;
+	width: 100%;
+}
+.hot .sub-hot-list li.hot-first .list-name{
+	float: left;
+	width: 220px;
+}
+.hot .sub-hot-list li.hot-first .text{
+	float: left;
+	width: 220px;
+	height: 54px;
+	margin-bottom: 5px;
+}
+.hot .sub-hot-list li.hot-first .time{
+	float: left;
+}
+.hot .sub-hot-list li .list-name{
+	font-size: 14px;
+	font-weight: 500;
+	margin-bottom: 8px;
+	height: 21px;
+	overflow: hidden;
+}
+.hot .sub-hot-list li .list-name a{
+	color: #555;
+}
+.hot .sub-hot-list li .text{
+	height: 34px;
+	font-size: 12px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+.hot .sub-hot-list li .time{
+	font-size: 12px;
+}
+/*八戒热门 end*/
+/*第五个广告 begin*/
+.fifth-adv{
+	width: 1190px;
+	margin: 30px auto 20px;
+}
+/*第五个广告 end*/
+/*第一个页脚 begin*/
+.first-footer{
+	padding: 30px 0;
+	margin-bottom: 15px;
+	background: url(../img/lbg.jpg) no-repeat;
+	background-size: 100%;
+}
+.first-footer a{
+	color: #999;
+}
+.first-footer .w{
+	width: 1190px;
+	margin: auto;
+}
+.first-footer .w ul{
+	overflow: hidden;
+}
+.first-footer .w ul li{
+	float: left;
+	width: 16.6%;
+	padding-left: 83px;
+}
+.first-footer .w ul li h3{
+	font-size: 16px;
+	font-weight: normal;
+	margin-bottom: 15px;
+}
+.first-footer .w ul li h3 a{
+	display: inline-block;
+	height: 24px;
+}
+.first-footer .w ul li h3 .iconfont{
+	margin-right: 5px;
+	font-size: 20px;
+	vertical-align: bottom;
+	line-height: 24px;
+}
+.first-footer .w ul li p{
+	width: 49%;
+	float: left;
+	height: 24px;
+	line-height: 24px;
+	font-size: 12px;
+}
+/*第一个页脚 end*/
+/*第二个页脚 begin*/
+.second-footer{
+	width: 1190px;
+	margin: 0 auto 20px;
+	color: #999;
+	font-size: 12px;
+	text-align: center;
+}
+.second-footer .site-link{
+	line-height: 30px;
+}
+.second-footer .site-link a{
+	color: #666;
+}
+.second-footer .site-link span{
+	margin: 0 5px;
+	color: #eee;
+}
+.second-footer .friend-link{
+	height: 24px;
+	line-height: 24px;
+}
+.second-footer .friend-link a{
+	color: #999;
+	margin-right: 5px;
+}
+.second-footer .copyright{
+	margin-bottom: 10px;
+}
+.second-footer .copyright a{
+	color: #999;
+}
+.second-footer .copyright a img{
+	vertical-align: middle;
+}
+.second-footer .pic-link a{
+	margin-left: 20px;
+}
+.second-footer .pic-link a img{
+	height: 47px;
+}
+/*第二个页脚 end*/
+/*右侧固定栏 begin*/
+.right-sidebar{
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	right: 0px;
+	-webkit-transition: right .6s;
+	transition: right .6s;
+	width: 35px;
+	min-height: 600px;
+	height: 100%;
+	background-color: #7d7d7d;
+}
+.right-sidebar a{
+	color: white;
+}
+.right-sidebar .right-sidebar-top{
+	position: absolute;
+	bottom: 52%;
+}
+.right-sidebar ul li{
+	color: #fff;
+	width: 23px;
+	text-align: center;
+	font-size: 12px;
+	padding: 3px 6px;
+}
+.right-sidebar  ul li.first-icon{
+	padding-bottom: 6px;
+}
+.right-sidebar .iconfont{
+	color: white;
+	font-size: 25px;	
+}
+.right-sidebar .right-sidebar-bottom{
+	position: absolute;
+	bottom: 5%;
+}
+/*右侧固定栏 end*/
