@@ -846,10 +846,12 @@ right: 0px;
 .guess ul li p.guess-deal{
 	font-size: 11px;
 	color: #999;
+	margin-right: 0;
 }
 .guess ul li p.guess-location{
-	font-size: 12px;
+	font-size: 11px;
 	color: #999;
+	margin-left: 0;
 }
 .guess ul li p.guess-location .iconfont{
 	font-size: 11px;
