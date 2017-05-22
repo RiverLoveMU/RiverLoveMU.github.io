@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"><!--字符编码-->
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge"><!--匹配最新的IE浏览器，做兼容-->
+	    <meta name="viewport" content="width=device-width, initial-scale=1"><!--视口-->
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.wrap{
+				width: 90%;
+				margin: 20px auto;
+				text-align: center;
+				overflow: hidden;
+			}
+			.wrap div{
+				margin-bottom: 10px;
+				width: calc(100%-40px);
+				padding: 30px 20px;
+			}
+			.wrap .header,
+			.wrap .footer,
+			.wrap .nav{
+				background: #CCCCCC;
+				font-weight: bold;
+				clear: both;
+			}
+			.wrap .content{
+				background: #DDEFCB;
+				font-size: 12px;
+				word-break: break-all;
+				overflow: hidden;
+			}
+			.wrap .sidebar{
+				font-size: 12px;
+				background: #FFCBDD;
+				word-break: break-all;
+				overflow: hidden;
+			}
+			.wrap h6{
+				font-size: 16px;
+				margin-bottom: 30px;
+			}
+			@media (min-width: 700px) {
+				.wrap .sidebar{
+					float: right;
+					width: 35%;
+					padding: 30px 10px;
+					height: 350px;
+					box-sizing: border-box;
+				}
+				.wrap .content{
+					float: left;
+					width: 63%;
+					padding: 30px 10px;
+					height: 350px;
+					box-sizing: border-box;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="header">页头</div>
+			<div class="nav">导航</div>
+			<div class="content">
+				<h6>主题</h6>
+				<p>从前，有位县督学来到县立中学视察工作。他一进校门，便见到该校的壁报上写有杜牧的诗句：停车坐爱枫林晚，霜叶红于二月花。  　　督学的文学底子很厚，看到杜牧的诗句，油然想起《阿房宫赋》，于是顺口问起了学生： “你们知道阿房宫是谁烧的？”学生们一脸惶恐，不住地摇头：“不是我烧的，不是我烧的！”  　　看到眼前的窘迫情景，督学啼笑皆非。他立即来到校长室，对校长指责道：“贵校学生国文程度低下，居然说阿房宫不是他烧的。”  　　校长心平气和地说：“本校学生一向诚实，既然说不是他烧的，就一定不是他烧的。”  　　督学非常气恼，他万万没有想到大名鼎鼎的校长居然不知道阿房宫是怎么一回事！他一气之下，写了一封呈文，给教育局长，禀明原委。  　　不久，督学收到局长复函：“烧掉就算了，再拨经费重建阿房宫。”  　　督学看后，目瞪口呆。</p>
+			</div>
+			<div class="sidebar">
+				<h6>边栏</h6>
+				<p>韩国“News 1”网站21日称，韩国相关业界乐观推测，中国对韩“萨德”反制措施之一的“团客禁韩令”可能很快解禁，“最快下周中国团体客就将到访韩国”。报道称，虽然目前大多数中国旅行社都没有韩国观光商品，但最近阿里巴巴旗下的旅行网站开始推出类似赴韩自由行的内容。有韩国旅游业相关人士表示，目前中国国内咨询韩国旅游的情况正在增多，对中国早日解除对韩旅游制裁充满期待。文章说，不仅如此，此前一度中断的中韩交流也出现回暖征兆，釜山市已经准备在中国开展旅游推广活动，今年3月下线的乐天超市中国网站最近也重新上线，中国网络上关于“韩流”文化的视频和韩国明星消息也屡屡出现。</p>
+			</div>
+			<div class="footer">页脚</div>
+		</div>
+	</body>
+</html>
