@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#photo{
+				height: 100px;
+				width: 100px;
+				border: 1px solid red;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="photo" src="img/头像10.jpg"/>
+		<!--<div id="photo"></div>-->
+	</body>
+	<script type="text/javascript">
+		var oPhoto=document.getElementById('photo');
+		var control=1;
+		oPhoto.onclick=function(){
+			
+//			console.log(oPhoto.src);
+			if(control==1){
+				oPhoto.src='img/头像1.jpg';
+				control=0;
+			}else{
+				oPhoto.src='img/头像10.jpg';
+				control=1;
+			}
+		}
+	</script>
+</html>

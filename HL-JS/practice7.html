@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="pic" src="img/头像1.jpg"/>
+	</body>
+	<script type="text/javascript">
+		var oImg = document.getElementById('pic');
+		var num = 1;
+		var arr = ['img/头像1.jpg','img/头像10.jpg','img/back.png'];
+		oImg.onclick = function () {
+			oImg.src = arr[num];
+			num = (++num) % arr.length;
+		};
+	</script>
+</html>

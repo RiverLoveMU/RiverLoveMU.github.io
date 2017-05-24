@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			h1{
+				display: inline-block;
+				line-height: 43px;
+				vertical-align: middle;
+			}
+			button{
+				display: inline-block;
+				height: 43px;
+				margin-left: 50px;
+				border: none;
+				border-radius: 20px;
+				background: blue;
+				color: white;
+			}
+			#confirm,#reset{
+				margin-top: 20px;
+				height: 20px;
+				background: blue;
+				color: white;
+				margin-left: 80px;
+			}
+			#changebox{
+				margin-top: 50px;
+				width: 300px;
+				height: 300px;
+				border: 3px solid green;
+			}
+			#cover{
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,0.5);
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			#cover .selectbox{
+				width: 320px;
+				padding-top: 20px;
+				height: 200px;
+				background: white;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -110px;
+				margin-left: -160px;
+				cursor: pointer;
+			}
+			#cover .selectbox table{
+				text-align: center;
+			}
+			#cover .selectbox table td:hover{
+				background: lightgoldenrodyellow;
+			}
+			#cover .selectbox table #red:hover{
+				background: red;
+			}
+			#cover .selectbox table #yellow:hover{
+				background: yellow;
+			}
+			#cover .selectbox table #blue:hover{
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>请为下面的DIV设置样式</h1>
+		<button id="mainbutton">点击设置</button>
+		<div id="changebox"></div>
+		<div id="cover">
+			<div class="selectbox">
+				<table border="0" cellspacing="" cellpadding="10px">
+					<tr>
+						<th>请选择颜色</th>
+						<td id="red">红</td>
+						<td id="yellow">黄</td>
+						<td id="blue">蓝</td>
+					</tr>
+					<tr>
+						<th>请选择高度</th>
+						<td id="small-height">150px</td>
+						<td id="middle-height">200px</td>
+						<td id="large-height">250px</td>
+					</tr>
+					<tr>
+						<th>请选择宽度</th>
+						<td id="small-width">150px</td>
+						<td id="middle-width">200px</td>
+						<td id="large-width">250px</td>
+					</tr>
+				</table>
+				<button id="reset">恢复</button>
+				<button id="confirm">确定</button>
+			</div>
+		</div>
+		<script type="text/javascript">
+			document.getElementById('mainbutton').onclick = function () {
+				document.getElementById('cover').style.display = 'block';
+				document.getElementById('mainbutton').style.outline = 'none'
+			}
+			document.getElementById('confirm').onclick = function () {
+				document.getElementById('cover').style.display = 'none';
+				document.getElementById('confirm').style.outline = 'none'
+			}
+			document.getElementById('red').onclick = function () {
+				document.getElementById('changebox').style.background='red';
+			}
+			document.getElementById('yellow').onclick = function () {
+				document.getElementById('changebox').style.background='yellow';
+			}
+			document.getElementById('blue').onclick = function () {
+				document.getElementById('changebox').style.background='blue';
+			}
+			document.getElementById('small-height').onclick = function () {
+				document.getElementById('changebox').style.height='150px';
+			}
+			document.getElementById('middle-height').onclick = function () {
+				document.getElementById('changebox').style.height='200px';
+			}
+			document.getElementById('large-height').onclick = function () {
+				document.getElementById('changebox').style.height='250px';
+			}
+			document.getElementById('small-width').onclick = function () {
+				document.getElementById('changebox').style.width='150px';
+			}
+			document.getElementById('middle-width').onclick = function () {
+				document.getElementById('changebox').style.width='200px';
+			}
+			document.getElementById('large-width').onclick = function () {
+				document.getElementById('changebox').style.width='250px';
+			}
+			document.getElementById('reset').onclick = function () {
+				document.getElementById('changebox').style.width='300px';
+				document.getElementById('changebox').style.background='white';
+				document.getElementById('changebox').style.height='300px';
+				document.getElementById('reset').style.outline = 'none'
+			}
+		</script>
+	</body>
+</html>

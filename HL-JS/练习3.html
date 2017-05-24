@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="plus">+</button>
+		<button id="minus">-</button>
+		<p id="text">阿三的良好而已 阿三的良好而已 阿三的良好而已 阿三的良好而已 阿三的良好而已</p>
+		<script type="text/javascript">
+			var num = 16;
+			document.getElementById('plus').onclick = function() {
+				num++;
+				document.getElementById('text').style.fontSize = num + 'px';
+			}
+			document.getElementById('minus').onclick = function() {
+				num--;
+				document.getElementById('text').style.fontSize = num + 'px';
+			}
+		</script>
+	</body>
+</html>

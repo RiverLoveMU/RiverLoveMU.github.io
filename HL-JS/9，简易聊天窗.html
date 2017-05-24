@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 200px;
+				height: 350px;
+				border: 1px solid black;
+				padding: 0 10px;
+				overflow: scroll;
+			}
+			#box div{
+				/*border: 1px solid black;*/
+				overflow: hidden;
+			}
+			#box p{
+				line-height: 30px;
+				border-radius: 5px;
+				color: #FFF;
+				display: inline-block;
+				padding:0 10px;
+				word-break: break-all;
+			}
+			.boy{
+				background: cornflowerblue;
+			}
+			.girl{
+				background: hotpink;
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<!--<p class="boy">
+				一起聊天
+				一起聊天
+				一起聊天
+				一起聊天
+				一起聊天
+				
+			</p>
+			<p class="girl">
+				聊天
+				聊天
+			</p>-->
+		</div>
+		<input type="text" name="input1" id="input1" />
+		<button id="btn">小明</button>
+		<br />
+		<input type="text" name="input2" id="input2" />
+		<button id="btn1">小红</button>
+	</body>
+	<script type="text/javascript">
+		var oBox=document.getElementById('box');
+		var oInput=document.getElementById('input1');
+		var oInput2=document.getElementById('input2');
+		var oBtn=document.getElementById('btn');
+		var oBtn1=document.getElementById('btn1');
+		oBtn.onclick=function(){
+//			oBox.innerHTML=oBox.innerHTML+oInput.value;
+			oBox.innerHTML='<div><p class="boy">'+ oInput.value+'</p></div>'+oBox.innerHTML;
+		}
+		oBtn1.onclick=function(){
+//			oBox.innerHTML=oBox.innerHTML+oInput.value;
+			oBox.innerHTML='<div><p class="girl">'+ oInput2.value+'</p></div>'+oBox.innerHTML;
+		}
+	</script>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.content{
+				overflow: hidden;
+			}
+			#prev,#next{
+				float: left;
+				clear: left;
+				position: relative;
+				cursor: pointer;
+			}
+			#prev img,
+			#next img{
+				height: 150px;
+				width: 245px;
+			}
+			#prev-text,#next-text,#intro{
+				position: absolute;
+				color: white;
+				bottom: 0;
+				background: rgba(0,0,0,0.5);
+				text-align: center;
+				width: 245px;
+			}
+			#prev-text{
+				bottom: 5px;
+			}
+			#intro{
+				width: 240px;
+				left: 245px;
+				top: 289px;
+				height: 22px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<img id="pic" src="img/mu1.jpg"/>
+			<div id="prev">
+				<img src="img/origin.jpg"/>
+				<div id="prev-text">
+					上一张
+				</div>
+			</div>
+			<div id="next">
+				<img src="img/new.jpg"/>
+				<div id="next-text">
+					下一张
+				</div>
+			</div>
+			<div id="intro">
+				1 德赫亚
+			</div>
+		</div>
+		<button id="order">顺序切换</button>
+		<button id="cycle">循环切换</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<span id="mode">
+			你正处在顺序切换模式
+		</span>
+	</body>
+	<script type="text/javascript">
+		var oMode = document.getElementById('mode')
+		var oPic = document.getElementById('pic');
+		var oPrev = document.getElementById('prev');
+		var oNext = document.getElementById('next');
+		var oIntro = document.getElementById('intro');
+		var oOrder = document.getElementById('order');
+		var oCycle = document.getElementById('cycle');
+		var arrImg = ['img/mu1.jpg','img/mu2.jpg','img/mu3.jpg','img/mu4.jpg','img/mu5.jpg','img/mu6.jpg','img/mu7.jpg','img/mu8.jpg','img/mu9.jpg','img/mu10.jpg','img/mu11.jpg','img/mu12.jpg',
+		'img/mu13.jpg','img/mu14.jpg','img/mu15.jpg','img/mu16.jpg','img/mu17.jpg','img/mu18.jpg','img/mu19.jpg','img/mu20.jpg','img/mu21.jpg','img/mu22.jpg','img/mu23.jpg','img/mu24.jpg',
+		'img/mu25.jpg','img/mu26.jpg','img/mu27.jpg','img/mu28.jpg'];
+		var arrText = ['1 德赫亚','3 拜利','4 琼斯','5 罗霍','6 博格巴','8 马塔','9 伊布拉希莫维奇','10 鲁尼','11 马夏尔','12 斯莫林','14 林加德','15 贾鲁扎伊','16 卡里克','17 布林德','18 杨','19拉什福德',
+		'20 罗梅罗','21 埃雷拉','22 肖','24 扶苏-门萨','25 瓦伦西亚','27 费莱尼','32 约翰斯通','36 达米安','43 博思维克-杰克逊','44 佩雷拉','0 瓦雷拉','0 威尔逊'];
+		var num = 0;
+		var sw = 0;
+		oOrder.onclick = function () {
+			sw = 0;
+			oMode.innerHTML = '你正处在顺序切换模式';
+		}
+		oCycle.onclick = function () {
+			sw = 1;
+			oMode.innerHTML = '你正处在循环切换模式';
+		}
+		oNext.onclick = function() {
+			if ( sw == 0) {
+				if (num < arrImg.length-1) {
+					num++;
+				} else{
+					alert('到头了');
+				}
+			} else{
+				num = (++num)%arrImg.length;
+				
+			}
+			oPic.src = arrImg[num];
+			oIntro.innerHTML = arrText[num];
+		}
+		oPrev.onclick = function() {
+			if ( sw == 0) {
+				if (num > 0) {
+					num--;
+				} else{
+					alert('没有了');
+				}
+			} else{
+				if ( num == 0) {
+					num = arrImg.length - 1;
+				}else{
+					num --;
+				}
+			}
+			oPic.src = arrImg[num];
+			oIntro.innerHTML = arrText[num];
+		}
+	</script>
+</html>

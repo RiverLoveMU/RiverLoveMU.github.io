@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.list>li{
+				float: left;
+				margin: 10px;
+				border: 1px solid red;
+				padding: 10px;
+				position: relative;
+			}
+			.list li ul{
+				position: absolute;
+				top: 42px;
+				left: -20px;
+				display: none;
+			}
+			.list li ul li{
+				line-height: 30px;
+				background: #d8d8d8;
+				padding: 10px 5px;
+				width: 100px;
+				text-align: center;
+				cursor: pointer;
+			}
+			.list li ul li:hover{
+				background: #9b9b9b;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="list">
+			<li>首页</li>
+			<li id="nav">
+				图标库
+				<ul id="dropList">
+					<li>官方图标</li>
+					<li>官方图标</li>
+					<li>官方图标</li>
+				</ul>
+			</li>
+			<li>
+				图标管理
+			</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+//		巴勃罗·迭戈·何塞·弗朗西斯科·德·保拉·胡安
+//		·尼波穆切诺·玛丽亚·德·洛斯雷梅迪奥斯·西普里亚诺
+//		·德拉圣蒂西马·特林尼达德·鲁伊斯·毕加索。
+
+//		毕加索
+		
+	</script>
+	<script type="text/javascript">
+		var oNav = document.getElementById('nav');
+		var oDrop= document.getElementById('dropList');
+		var num=123;
+		var str='yooye'
+		alert(str);
+		oNav.onmouseover=function(){
+			oDrop.style.display='block';
+		}
+		
+		oNav.onmouseout=function(){
+			oDrop.style.display='none';
+		}
+	</script>
+</html>

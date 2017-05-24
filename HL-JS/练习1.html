@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			ul{
+				color: #848391;
+				background: #0a0724;
+			}
+			ul li{
+				float: left;
+				padding: 15px;
+			}
+			#fontbox,
+			#manage,
+			#help{
+				position: relative;
+			}
+			#fontbox #fontbox-list,
+			#manage #manage-list,
+			#help #help-list{
+				position: absolute;
+				top: 50px;
+				left: 0px;
+				display: none;
+				width: 100%;
+				font-size: 12px;
+				text-align: center;
+			}
+			#fontbox #fontbox-list li,
+			#manage #manage-list li,
+			#help #help-list li{
+				float: none;
+				padding: 15px 0px;
+			}
+			.clear{
+				clear: both;
+			}
+			#fontbox #fontbox-list li:hover,
+			#manage #manage-list li:hover,
+			#help #help-list li:hover{
+				color: white;
+				background-color: #BFC7AF;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>首页</li>
+			<li id='fontbox'>
+				图标库
+				<ul id='fontbox-list'>
+					<li>官方图标库</li>
+					<li>多色图标库</li>
+					<li>所有图标库</li>
+				</ul>
+			</li>
+			<li id='manage'>
+				图标管理
+				<ul id="manage-list">
+					<li>我的图标</li>
+					<li>我的项目</li>
+					<li>我的收藏</li>
+				</ul>
+			</li>
+			<li id="help">
+				帮助
+				<ul id="help-list">
+					<li>功能介绍</li>
+					<li>相关文章</li>
+					<li>代码应用</li>
+					<li>图标绘制</li>
+				</ul>
+			</li>
+			<div class="clear"></div>
+		</ul>
+		<script type="text/javascript">
+			document.getElementById('fontbox').onmouseover=function(){
+				document.getElementById('fontbox-list').style.display='block';
+				document.getElementById('fontbox').style.color='white';
+			}
+			document.getElementById('fontbox').onmouseout=function(){
+				document.getElementById('fontbox-list').style.display='none';
+				document.getElementById('fontbox').style.color='#848391';
+			}
+			document.getElementById('manage').onmouseover=function(){
+				document.getElementById('manage-list').style.display='block';
+				document.getElementById('manage').style.color='white';
+			}
+			document.getElementById('manage').onmouseout=function(){
+				document.getElementById('manage-list').style.display='none';
+				document.getElementById('manage').style.color='#848391';
+			}
+			document.getElementById('help').onmouseover=function(){
+				document.getElementById('help-list').style.display='block';
+				document.getElementById('help').style.color='white';
+			}
+			document.getElementById('help').onmouseout=function(){
+				document.getElementById('help-list').style.display='none';
+				document.getElementById('help').style.color='#848391';
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="" id="input1" value="" />
+		<select id="selec" name="">
+			<option value="北京">北京</option>
+			<option value="上海">上海</option>
+		</select>
+		<button id="btn">按钮</button>
+		<br />
+		<img id="img1" src="img/头像1.jpg"/>
+	</body>
+	<script type="text/javascript">
+//		1,属性的读取  元素.属性名
+		var oInput=document.getElementById('input1');
+		var oBtn=document.getElementById('btn');
+		var oSelec=document.getElementById('selec');
+		var oImg=document.getElementById('img1');
+//		alert(oInput.value);
+//		oBtn.onclick=function(){
+////			alert(oInput.value);
+//			alert(oSelec.value);
+//		}
+//		2,字符串的拼接
+//		oBtn.onclick=function(){
+////			alert(oInput.value);
+//			alert(oInput.value +'在'+oSelec.value);
+//		}
+//		3,属性的写操作
+//		oBtn.onclick=function(){
+////			alert(oInput.value);
+////			一个等号是赋值操作,不是比较
+//			oInput.value = 'js添加的文字';
+//			
+//		}
+		oBtn.onclick=function(){
+			oImg.src='img/头像10.jpg';
+		}
+	</script>
+</html>

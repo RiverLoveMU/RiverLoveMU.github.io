@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#chatBox{
+				width: 1020px;
+				height: 580px;
+				margin: auto;
+				background: url(img/back.png) no-repeat 50% 50%;
+				background-color: rgba(0,0,0,0.5);
+				position: relative;
+				overflow: auto;
+			}
+			input{
+				border: 1px solid gainsboro;
+				border-radius: 8px;
+			}
+			input:focus{
+				outline: none;
+			}
+			button{
+				background: greenyellow;
+				border: none;
+				color: white;
+				border-radius: 8px;
+			}
+			#tomChat{
+				margin-right: 600px;
+			}
+			.chat-box{
+				width: 1020px;
+				margin: auto;
+			}
+			.tom-box{
+				color: white;
+				background: lightblue;
+				padding: 0 10px;
+				min-width: 20px;
+				max-width: 500px;
+				min-height: 30px;
+				line-height: 30px;
+				border-radius: 10px;
+				margin-bottom: 10px;
+				float: left;
+				margin-left: 30px;
+				clear: both;
+			}
+			.jerry-box{
+				color: white;
+				background: lightblue;
+				padding: 0 10px;
+				min-width: 20px;
+				max-width: 500px;
+				min-height: 30px;
+				line-height: 30px;
+				border-radius: 10px;
+				margin-bottom: 10px;
+				margin-right: 30px;
+				float: right;
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="chatBox"></div>
+		<div class="chat-box">
+			<input type="text" name="tom" id="tom" value="" />
+			<button id="tomChat">Tom</button>
+			<input type="text" name="tom" id="jerry" value="" />
+			<button id="jerryChat">Jerry</button>
+		</div>
+		<script type="text/javascript">
+			document.getElementById('tomChat').onclick = function() {
+				document.getElementById('tomChat').style.outline = 'none';
+				document.getElementById('chatBox').innerHTML = '<p class="tom-box">' + document.getElementById('tom').value + '</p>' + document.getElementById('chatBox').innerHTML ;
+			}
+			document.getElementById('jerryChat').onclick = function() {
+				document.getElementById('jerryChat').style.outline = 'none';
+				document.getElementById('chatBox').innerHTML = '<p class="jerry-box">' + document.getElementById('jerry').value + '</p>' + document.getElementById('chatBox').innerHTML ;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+		<style type="text/css">
+			body{
+				background: black;
+				margin: 30px;
+				font-family: "微软雅黑";
+			}
+			#chatBox{
+				padding: 35px 35px 0;
+				width: 430px;
+				height: 888px;
+				border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+				background: #f2f9ff;
+				position: relative;
+				color: #484f93;
+			}
+			.fl{
+				float: left;
+			}
+			.fr{
+				float: right;
+			}
+			#name{
+				margin: 0 auto;
+				width: 300px;
+				text-align: center;
+				font-weight: normal;
+			}
+			.nav i{
+				position: absolute;
+				font-size: 32px;
+			}
+			.left{
+				left: 35px;
+				font-weight: bold;
+				top: 35px;
+			}
+			.right{
+				right: 35px;
+				top: 28px;
+			}
+			#chatCont{
+				overflow: auto;
+				width:100%;
+				padding-right: 35px;
+				height: 845px;
+			}
+			#footer{
+				height: 76px;
+				border-top: 1px solid gainsboro;
+				width: 500px;
+				border-bottom-left-radius: 10px;
+				border-bottom-right-radius: 10px;
+				background: white;
+				overflow: hidden;
+			}
+			#footer .plus{
+				display: block;
+				height: 100%;
+				/*padding: 18px 0px 0px;*/
+				font-size: 32px;
+				font-weight: bold;
+				text-align: center;
+				width: 20%;
+				color: #01bfff;
+				float: left;
+			}
+			#footer .plus #photo{
+				height: 100%;
+				width: 100%;
+			}
+			#footer #btn{
+				display: block;
+				height: calc(100% - 18px);
+				padding: 26px 0px 0px;
+				float: left;
+				width: 20%;
+				border-left: 1px solid gainsboro;
+				background: #7ea1f3;
+				color: white;
+				text-align: center;
+			}
+			#footer #input:focus{
+				outline: none;
+			}
+			#input{
+				float: left;
+				border: none;
+				height: 74px;
+				width: calc(60% - 3px);
+				font-size: 32px;
+			}
+			.alice-box{
+				float: left;
+				clear: both;
+				margin-top: 20px;
+				overflow: hidden;
+			}
+			.alice-box img{
+				float: left;
+				height: 50px;
+				width: 50px;
+				border-radius: 25px
+			}
+			.alice-box .word-box{
+				float: left;
+				font-size: 32px;
+				padding: 0 5px;
+				margin-left: 10px;
+				min-height: 50px;
+				min-width: 50px;
+				max-width: 250px;
+				line-height: 50px;
+				color: white;
+				background: pink;
+				border-radius: 10px;
+				border-top-left-radius: 0;
+				word-break: break-all;
+				/*-moz-box-shadow: 10px 10px 5px #888888;
+				box-shadow: 10px 20px 0px black;*/
+			}
+			.tom-box{
+				float: right;
+				clear: both;
+				margin-top: 20px;
+				overflow: hidden;
+			}
+			.tom-box img{
+				float: right;
+				height: 50px;
+				width: 50px;
+				border-radius: 25px
+			}
+			.tom-box .word-box{
+				float: right;
+				font-size: 32px;
+				padding: 0 5px;
+				margin-right: 10px;
+				min-height: 50px;
+				min-width: 50px;
+				max-width: 250px;
+				line-height: 50px;
+				color: white;
+				background: lightblue;
+				border-radius: 10px;
+				border-top-right-radius: 0;
+				word-break: break-all;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="chatBox">
+			<div class="nav">
+				<h1 id="name">Tom</h1>
+				<i class="left"><</i>
+				<i class="right">. . .</i>	
+			</div>
+			<div id="chatCont">
+				<!--<div class="alice-box">
+					<img src="img/头像1.jpg"/>
+					<div class="word-box">
+						asda123333333123333333
+					</div>
+				</div><div class="tom-box">
+					<img src="img/头像1.jpg"/>
+					<div class="word-box">
+						asda123333333123333333
+					</div>
+				</div>-->
+			</div>
+		</div>
+		<div id="footer">
+			<i class="plus">
+				<img id="photo" src="img/头像1.jpg"/>
+			</i>
+			<input type="text" name="input"" id="input" value="" />
+			<i id="btn">请输入</i>
+		</div>
+		<script type="text/javascript">
+			var oBtn = document.getElementById('btn');
+			var oPhoto = document.getElementById('photo');
+			var oName = document.getElementById('name');
+			var oChatCont = document.getElementById('chatCont');
+			var oInput = document.getElementById('input');
+			var control = 0;
+			oPhoto.onclick = function() {
+				if (control == 0) {
+					oPhoto.src = "img/头像10.jpg";
+					oName.innerHTML = 'Alice';
+					control = 1;
+				} else{
+					oPhoto.src = "img/头像1.jpg";
+					control = 0;
+					oName.innerHTML = 'Tom';
+				}
+			}
+			oBtn.onclick = function() {
+				if (control == 0) {
+					oChatCont.innerHTML += '<div class="alice-box"> <img src="img/头像1.jpg"/> <div class="word-box">' + oInput.value +'</div> </div>'
+				} else{
+					oChatCont.innerHTML += '<div class="tom-box"> <img src="img/头像10.jpg"/> <div class="word-box">' + oInput.value +'</div> </div>'
+				}
+			}
+		</script>
+	</body>
+</html>
