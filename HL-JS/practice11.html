@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#big-box{
+				height: 490px;
+				width: 490px;
+				border-top: 1px solid red;
+				border-left: 1px solid red;
+				border-right: none;
+				border-bottom: none;
+				position: relative;
+			}
+			div{
+				height: 48px;
+				width: 48px;
+				border-bottom: 1px solid red;
+				border-right: 1px solid red;
+				position: absolute;
+				text-align: center;
+				line-height: 48px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="big-box">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+//		var str = '';
+//		var aDiv =document.getElementById('big-box').getElementsByTagName('div');
+//		for (var i=0;i<100;i++) {
+//			str += '<div></div>';
+//		}
+//		document.getElementById('big-box').innerHTML= str;
+//		var length = Math.sqrt(aDiv.length);
+//		for (var i=0;i<length;i++) {
+//			for (var j=0;j<length;j++) {
+//				aDiv[i*length + j].style.left = j*49 + 'px';
+//				aDiv[i*length + j].style.top = i*49 + 'px';
+//				aDiv[i*length + j].innerHTML = String(i) + String(j);
+//			}
+//		}
+		for (i=0;i<10;i++) {
+			for (j=0;j<10;j++) {
+				document.getElementById('big-box').innerHTML += '<div style="left:'+ j*49 +'px;top:'+ i*49 +'px;">'+i+j+'</div>'
+			}
+		}
+	</script>
+</html>

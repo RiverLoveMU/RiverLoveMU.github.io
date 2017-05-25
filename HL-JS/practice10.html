@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			div{
+				position: absolute;
+				height: 50px;
+				width: 50px;
+				background: lightblue;
+				text-align: center;
+				color: black;
+				line-height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="create">生成</button>
+	</body>
+	<script type="text/javascript">
+		var oCreate = document.getElementById('create');
+		var aDiv = document.getElementsByTagName('div');
+		var num = 0;
+		var k = 0;
+		var str = '';
+//		oCreate.onclick = function() {
+//			oCreate.style.display = 'none';
+//			for (var i=0;i<5;i++) {
+//				document.body.innerHTML += '<div></div>';
+//				aDiv[i].style.left = 50*i + 'px';
+//				aDiv[i].style.top = 50*k + 'px';
+//				aDiv[i].innerHTML = i;
+//				if (num < 2) {
+//					num ++;
+//					k++;
+//				} else{
+//					k--;
+//				}
+//			}
+//		}
+		oCreate.onclick = function() {
+			oCreate.style.display = 'none';
+			for(i=0;i<11;i++){
+				str += '<div></div>';
+			}
+			document.body.innerHTML = str;
+			var length = aDiv.length;
+			for (i=0;i<length;i++) {
+				aDiv[i].style.left = 50*i + 'px';
+				if (i<=(length-1)/2) {
+					aDiv[i].style.top = 50*i + 'px'
+				} else{
+					aDiv[i].style.top = (length - i - 1)*50 + 'px';
+				}
+			}
+		}
+			
+	</script>
+</html>
