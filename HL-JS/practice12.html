@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			li{
+				float: left;
+				margin: 10px;
+				height: 20px;
+				width: 20px;
+				border-radius: 50%;
+				background: #D8D8D8;
+			}
+			.active{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="pic" src="img/mu1.jpg"/>
+		<ul>
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var oPic = document.getElementById('pic');
+		var aLi = document.getElementsByTagName('li');
+		var arrImg = ['img/mu1.jpg','img/mu2.jpg','img/mu3.jpg','img/mu4.jpg','img/mu5.jpg','img/mu6.jpg'];
+		for (var i=0;i<aLi.length;i++) {
+			aLi[i].index = i;
+			aLi[i].onclick = function(){
+				oPic.src = arrImg[this.index];
+				for (var j=0;j<aLi.length;j++) {
+					aLi[j].className= '';
+				}
+				aLi[this.index].className = 'active';
+			}
+		}
+	</script>
+</html>

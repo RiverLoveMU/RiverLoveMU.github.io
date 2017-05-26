@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div id="box" style="" class="" index=""></div>-->
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<!--<div></div>
+		<div></div>
+		<div></div>-->
+	</body>
+	<script type="text/javascript">
+//		1，什么是自定义属性?
+//		var oBox=document.getElementById('box');
+//		oBox.index=1;
+//		alert(oBox.index);
+//		aDiv[0].index=0;
+//		aDiv[1].index=1;
+//		aDiv[2].index=2;
+//		aDiv[3].index=3;
+		
+//		alert(aDiv[2].index);
+//		for(var i=0;i<aDiv.length;i++){
+//			aDiv[i].index=i;
+//		}
+		
+//		alert(aDiv[3].index);
+
+//		使用场景
+//		1,切换单个元素的状态
+//		var aDiv=document.getElementsByTagName('div')[0];
+//		var num=1;
+//		aDiv.onclick=function(){
+//			if(num==1){
+//				this.style.background='blue';
+//				num=0;
+//			}else{
+//				this.style.background='red';
+//				num=1;
+//			}
+//		}
+//		2,给多个元素添加状态切换
+		var aDiv=document.getElementsByTagName('div');
+//		var num=1;
+		for(var i=0;i<aDiv.length;i++){
+			aDiv[i].num=1;
+			aDiv[i].onclick=function(){
+//				this.num
+				if(this.num==1){
+					this.style.background='blue';
+					this.num=0;
+				}else{
+					this.style.background='red';
+					this.num=1;
+				}
+			}
+		}
+	</script>
+</html>

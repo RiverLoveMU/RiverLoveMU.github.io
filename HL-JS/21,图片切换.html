@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			img{
+				height: 200px;
+			}
+			li{
+				height: 20px;
+				width: 20px;
+				background: #D8D8D8;
+				border-radius: 50%;
+				float: left;
+				margin: 0 5px;
+			}
+			li.active{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="pic" src="img/animal1.jpeg"/>
+		<ul id="list">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var oPic=document.getElementById('pic');
+		var oList=document.getElementById('list');
+		var aLi=oList.getElementsByTagName('li');
+		
+		var arrImg=['img/animal1.jpeg','img/animal2.jpg','img/animal3.gif','img/animal4.jpg']
+		
+		for(var i=0;i<aLi.length;i++){
+			aLi[i].num=i;   //添加自定义属性，为了给每个li编号
+			aLi[i].onclick=function(){
+//				alert(this.num);
+				oPic.src=arrImg[this.num]; //拿li的编号去对应取arrImg里的值，并赋值给图片作为新的路径
+				for(var i=0;i<aLi.length;i++){
+					aLi[i].style.background='#d8d8d8';
+					//点击的时候把所有li的背景色改为灰色
+				};
+				this.style.background='red';
+				//把当前被点击的li的背景色改为红色
+			}
+		}
+		
+	</script>
+</html>

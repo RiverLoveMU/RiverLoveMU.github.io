@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+	</body>
+	<script type="text/javascript">
+//		1,
+//		alert(this);  //object window
+		function fn(){
+			alert(this);
+		}
+//		2,
+//		fn();   //window
+		
+//		3,
+		var oBtn=document.getElementById('btn');
+//		oBtn.onclick=function(){
+//			alert(this);
+//		}
+//		4,
+//		oBtn.onclick=fn;
+
+//		5,
+		oBtn.onclick=function(){
+			fn();
+		}
+	</script>
+</html>

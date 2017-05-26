@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#big-box{
+				border-top: 1px solid red;
+				border-left: 1px solid red;
+				border-right: none;
+				border-bottom: none;
+				position: relative;
+				display: none;
+			}
+			div{
+				height: 48px;
+				width: 48px;
+				border-bottom: 1px solid red;
+				border-right: 1px solid red;
+				position: absolute;
+				text-align: center;
+				line-height: 48px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="amount" id="amount" value="100" />
+		<button id="btn">请输入人数（能被开平方）</button>
+		<button id="btn2">清空</button>
+		<div id="big-box">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		var oBigBox = document.getElementById('big-box');
+		var aDiv = oBigBox.getElementsByTagName('div');
+		var oBtn = document.getElementById('btn');
+		var oBtn2 = document.getElementById('btn2');
+		var oAmount = document.getElementById('amount');
+		oBtn.onclick = function(){
+			var str = ''; 
+			var num = oAmount.value;
+			oBigBox.style.display = 'block';
+	 		for (var i=0;i<num;i++) {
+				str += '<div></div>';
+			}
+			oBigBox.innerHTML= str;
+			var length = Math.sqrt(aDiv.length);
+			oBigBox.style.width = length*49 + 'px';
+			oBigBox.style.height = length*49 + 'px';
+			for (var i=0;i<length;i++) {
+				for (var j=0;j<length;j++) {
+					aDiv[i*length + j].style.left = j*49 + 'px';
+					aDiv[i*length + j].style.top = i*49 + 'px';
+					aDiv[i*length+j].index = i*length + j + 1;
+				}
+			}
+			for (i=0;i<aDiv.length;i++) {
+				aDiv[i].onclick = function(){
+					alert('恭喜'+this.index+'号员工中奖')
+				}
+			}
+		}
+//		for (i=0;i<10;i++) {
+//			for (j=0;j<10;j++) {
+//				document.getElementById('big-box').innerHTML += '<div style="left:'+ j*49 +'px;top:'+ i*49 +'px;">'+i+j+'</div>'
+//			}
+//		}
+	</script>
+</html>
