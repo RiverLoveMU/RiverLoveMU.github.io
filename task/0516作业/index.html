@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+    <style type="text/css">
+    	.mui-slider-indicator.mui-segmented-control{
+    		position: fixed;
+    		top: 0;
+    		left: 0;
+    	}
+    	.mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-progress-bar{
+    		margin-top: 60px;
+    		background-color: white;
+    	}
+    	.mui-slider-indicator{
+    		background: #e1741f;
+    	}
+    	.mui-segmented-control .mui-control-item{
+    		line-height: 62px;
+    	}
+    	.mui-segmented-control.mui-segmented-control-inverted .mui-control-item,
+    	.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+    		color: white;
+    	}
+    	.mui-table-view-cell{
+    		height: 110px;
+    		background: white;
+    		width: 90%;
+    		border-radius: 8px;
+    		margin: auto;
+    		margin-top: 15px;
+    		box-shadow: 3px 3px 6px 1px gray;
+    	}
+    	.mui-table-view{
+    		margin-top: 40px;
+    		background: transparent;
+    	}
+    	.mui-table-view-cell::after{
+    		height: 0px;
+    	}
+    	.mui-slider .mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-group .mui-slider-item{
+    		border: none;
+    	}
+    	.mui-switch{
+    		position: absolute;
+    		right: 10px;
+    		top: 50%;
+    		margin-top: -23px;
+    	}
+    	h1.time{
+    		margin-top: 15px;
+    		color: #e1741f;
+    	}
+    	h1.time span{
+    		font-size: 12px;
+    		margin-left: 10px;
+    		color: black;
+    	}
+    	h1.time ~ p{
+    		margin-top: 15px;
+    		font-size: 12px;
+    	}
+    	h1.time ~ p span{
+    		float: right;
+    	}
+    	.mui-switch.mui-active{
+    		border-color: #eee5d4;
+			background-color: #eee5d4;
+			border-width: 1px;
+    	}
+    	.mui-switch{
+    		border-color: gray;
+    		border-width: 1px;
+    	}
+    	.mui-switch::before{
+    		content: '';
+    	}
+    	.mui-switch.mui-active::before {
+   			right: auto;
+		    left: 15px;
+		    content: '';
+		    color: #eee5d4;
+		}
+		.mui-switch .mui-switch-handle{
+			background-color: #cccccc;
+			height: 24px;
+			width: 24px;
+			top: 1px;
+			left: 2px;
+		}
+		.mui-switch.mui-active .mui-switch-handle{
+			background-color: #e1741f;
+			height: 24px;
+			width: 24px;
+			top: 2px;
+			right: 2px;
+		}
+		.mui-btn-block {
+		    font-size: 18px;
+		    display: block;
+		    width: 110px;
+		    height: 110px;
+		    border-radius: 55px;
+		    background-color: #e2741b;
+		    border: none;
+		    margin: auto;
+		    margin-top: -10px;
+		    margin-bottom: 10px;
+		    box-shadow: 3px 3px 6px 1px gray;
+		}
+		.mui-btn-block > p{
+			font-size: 50px;
+			color: white;
+			font-weight: bold;
+		}
+    </style>
+</head>
+<body>
+    <div class="mui-slider">
+        <div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+            <a class="mui-control-item" href="#item1">选项卡1</a>
+            <a class="mui-control-item" href="#item2">选项卡2</a>
+            <a class="mui-control-item" href="#item1">选项卡1</a>
+            <a class="mui-control-item" href="#item2">选项卡2</a>
+        </div>
+        <div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-3"></div>
+        <div class="mui-slider-group">
+            <div id="item1" class="mui-slider-item mui-control-content mui-active">
+                    <ul class="mui-table-view">
+                        <li class="mui-table-view-cell mui-media">
+                            <a href="javascript:;">
+                                
+                                <div class="mui-media-body">
+									<h1 class="time">06:15<span>get up</span></h1>
+                                    <p class="mui-ellipsis">Mon&nbsp;&nbsp;&nbsp;Tue&nbsp;&nbsp;&nbsp;Wed&nbsp;&nbsp;&nbsp;Thu&nbsp;&nbsp;&nbsp;Fri<span>5 hours 10 minutes bell</span></p>
+		                            <div class="mui-switch mui-active">
+		                                <div class="mui-switch-handle"></div>
+		                            </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell mui-media">
+                            <a href="javascript:;">
+                                
+                                 <div class="mui-media-body">
+									<h1 class="time">06:15<span>get up</span></h1>
+                                    <p class="mui-ellipsis">Mon&nbsp;&nbsp;&nbsp;Tue&nbsp;&nbsp;&nbsp;Wed&nbsp;&nbsp;&nbsp;Thu&nbsp;&nbsp;&nbsp;Fri<span>5 hours 10 minutes bell</span></p>
+		                            <div class="mui-switch mui-active">
+		                                <div class="mui-switch-handle"></div>
+		                            </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell mui-media">
+                            <a href="javascript:;">
+                               
+                                 <div class="mui-media-body">
+									<h1 class="time">06:15<span>get up</span></h1>
+                                    <p class="mui-ellipsis">Mon&nbsp;&nbsp;&nbsp;Tue&nbsp;&nbsp;&nbsp;Wed&nbsp;&nbsp;&nbsp;Thu&nbsp;&nbsp;&nbsp;Fri<span>5 hours 10 minutes bell</span></p>
+		                            <div class="mui-switch mui-active">
+		                                <div class="mui-switch-handle"></div>
+		                            </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell mui-media">
+                            <a href="javascript:;">
+                               
+                                 <div class="mui-media-body">
+									<h1 class="time">06:15<span>get up</span></h1>
+                                    <p class="mui-ellipsis">Mon&nbsp;&nbsp;&nbsp;Tue&nbsp;&nbsp;&nbsp;Wed&nbsp;&nbsp;&nbsp;Thu&nbsp;&nbsp;&nbsp;Fri<span>5 hours 10 minutes bell</span></p>
+		                            <div class="mui-switch mui-active">
+		                                <div class="mui-switch-handle"></div>
+		                            </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <button type="button" class="mui-btn mui-btn-blue mui-btn-block"><p>+</p></button>
+            </div>
+            <div id="item2" class="mui-slider-item mui-control-content">
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell">第2个选项卡子项</li>
+                    <li class="mui-table-view-cell">第2个选项卡子项</li>
+                </ul>
+            </div>
+            <div id="item3" class="mui-slider-item mui-control-content">
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell">第1个选项卡子项</li>
+                    <li class="mui-table-view-cell">第1个选项卡子项</li>
+                </ul>
+            </div>
+            <div id="item4" class="mui-slider-item mui-control-content">
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell">第2个选项卡子项</li>
+                    <li class="mui-table-view-cell">第2个选项卡子项</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+mui.init()
+</script>
+</html>

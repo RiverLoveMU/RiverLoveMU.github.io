@@ -1,0 +1,127 @@
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.iconfont.icon-shoujichongzhi,
+.iconfont.icon-shuidianmei,
+.iconfont.icon-zhuanzhang,
+.iconfont.icon-mayijubao,
+.iconfont.icon-jipiao,
+.iconfont.icon-qua-copy,
+.iconfont.icon-hongbao1,
+.iconfont.icon-jizhang{
+	color: #0598db;
+}
+.iconfont.icon-hongbao,
+.iconfont.icon-icon,
+.iconfont.icon-taobaodianying,
+.iconfont.icon-tianmaobao,
+.iconfont.icon-jiaoyujiaofei{
+	color: #f85649;
+}
+.iconfont.icon-didichuxing,
+.iconfont.icon-xinyongqiahuankuan{
+	color: #e1a135;
+}
+.iconfont.icon-fuwuchuangb{
+	color: #06bc89;
+}
+.mui-bar.mui-bar-nav{
+	height: 245px;
+	background-color: #3a3a3a;
+}
+.mui-bar-tab{
+	background: white;
+}
+.mui-grid-view.mui-grid-9{
+	background: white;
+}
+.top{
+	height: 75px;
+	font-size: 29px;
+	line-height: 75px;
+	color: white;
+	font-weight: bold;
+}
+.top p{
+	color: white;
+	font-size: 16px;
+	line-height: 73px;
+	margin-bottom: 0;
+	cursor: pointer;
+}
+.top .iconfont{
+	display: block;
+	font-size: 29px;
+	margin-left: 29px;
+	cursor: pointer;
+}
+.top .iconfont.icon-shape{
+	margin-left: 0;
+	margin-right: 10px;
+}
+.mui-bar.mui-bar-nav .mui-grid-view.mui-grid-9{
+	background-color: inherit;
+	margin-top: 20px;
+	border: 0;
+}
+.mui-bar.mui-bar-nav .mui-grid-view.mui-grid-9 .mui-table-view-cell{
+	border: 0;
+}
+.mui-bar.mui-bar-nav .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body{
+	color: white;
+}
+.mui-bar.mui-bar-nav .mui-grid-view.mui-grid-9 .mui-media .mui-icon {
+    font-size: 3em;
+    color: white;
+}
+.mui-bar-nav ~ .mui-content {
+    padding-top: 245px;
+}
+.mui-content .mui-grid-view.mui-grid-9{
+	border-left: 0;
+	border-top: 1px solid gainsboro;
+	margin-top: 0;
+}
+.mui-content .mui-grid-view.mui-grid-9 .mui-table-view-cell{
+	border-right: 1px solid gainsboro;
+	border-bottom: 1px solid gainsboro;
+}
+.mui-content .mui-grid-view.mui-grid-9 .mui-table-view-cell.last{
+	border-right: 0;
+}
+.mui-content .mui-grid-view.mui-grid-9 .mui-media .mui-icon {
+    font-size: 2em;
+}
+.mui-slider{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	height: 130px;
+}
+.mui-slider .mui-slider-group .mui-slider-item img {
+    width: 100%;
+    height: 130px;
+}
+.mui-bar-tab ~ .mui-content{
+	padding-bottom: 80px;
+}
+.mui-bar-tab{
+	height: 80px;
+}
+.mui-bar-tab .mui-tab-item .mui-icon{
+	height: 35px;
+	width: 35px;
+}
+.mui-bar .mui-icon{
+	font-size: 35px;
+}
+.mui-bar-tab .mui-tab-item .mui-icon ~ .mui-tab-label{
+	font-size: 15px;
+}
+.mui-icon .mui-badge{
+	min-height: 12px;
+	min-width: 12px;
+	font-size: 13px;
+}

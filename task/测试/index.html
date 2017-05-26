@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			body{
+				padding: 0 170px;
+				background-color: #eaebef;
+				margin: 0;
+				width: 895px;
+				overflow: hidden;
+			}
+			.left{
+				width: 375px;
+				padding-right: 70px;
+				height: 115px;
+				border-right: 5px solid #f2a312;
+				clear: right;
+				position: relative;
+			}
+			.left .jiantou{
+				position: absolute;
+				left: 374px;
+				top: 80px;
+			}
+			.left.second .jiantou{
+				position: absolute;
+				left: 374px;
+				top: 50px;
+			}
+			.left.first{
+				padding-top: 36px;
+			}
+			.left.first .circle{
+				position: absolute;
+				height: 74px;
+				width: 74px;
+				border-radius: 37px;
+				border: 2px solid gray;
+				background-color: white;
+				top: 55px;
+				left: 407px;
+				z-index: 10;
+			}
+			.left.first .small-circle{
+				height: 64px;
+				width: 64px;
+				border-radius: 32px;
+				background-color: #ffa705;
+				margin: 5px;
+				text-align: center;
+				line-height: 64px;
+				color: white;
+				font-size: 32px;
+			}
+			.left.second .circle{
+				position: absolute;
+				height: 74px;
+				width: 74px;
+				border-radius: 37px;
+				border: 2px solid gray;
+				background-color: white;
+				top: 25px;
+				left: 407px;
+				z-index: 10;
+			}
+			.left .circle .small-circle{
+				height: 64px;
+				width: 64px;
+				border-radius: 32px;
+				background-color: #ffa705;
+				margin: 5px;
+				text-align: center;
+				line-height: 64px;
+				color: white;
+				font-size: 32px;
+			}
+			.right .circle{
+				position: absolute;
+				height: 74px;
+				width: 74px;
+				border-radius: 37px;
+				border: 2px solid gray;
+				background-color: white;
+				top: 18px;
+				left: -42px;
+				z-index: 10;
+			}
+			.right .circle .small-circle{
+				height: 64px;
+				width: 64px;
+				border-radius: 32px;
+				background-color: #ffa705;
+				margin: 5px;
+				text-align: center;
+				line-height: 64px;
+				color: white;
+				font-size: 32px;
+			}
+			.right{
+				width: 375px;
+				float: right;
+				padding-left: 70px;
+				height: 115px;
+				border-left: 5px solid #f2a312;
+				position: relative;
+			}
+			.right .jiantou{
+				position: absolute;
+				left: 52px;
+				top: 45px;
+			}
+			.chat-box{
+				height: 81px;
+				width: 315px;
+				padding: 17px 30px;
+				background: url(img/heart.png) no-repeat;
+				background-position: 240px 27px;
+				background-color: white;
+			}
+			.chat-box img{
+				float: left;
+				height: 80px;
+				width: 80px;
+				border-radius: 40px;
+				margin-right: 18px;
+			}
+			.chat-box .detail{
+				float: left;
+			}
+			.chat-box .name{
+				margin-top: 20px;
+				font-weight: bold;
+				margin-bottom: 3px;
+			}
+			.chat-box .work{
+				font-size: 16px;
+				color: gray;
+			}
+			.chat-box .interst{
+				float: right;
+				padding: 10px 0;
+				height: 61px;
+			}
+			.chat-box .interst .number{
+				margin-left: 40px;
+				margin-right: 20px;
+				margin-bottom: 10px;
+				color: #fd8b06;
+			}
+			.chat-box .interst .confirm{
+				width: 100%;
+				height: 35px;
+				background-color: #fd8b06;
+				border-radius: 5px;
+				line-height: 35px;
+				text-align: center;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="left first">
+			<div class="chat-box">
+				<img src="img/头像2.jpg"/>
+				<div class="detail">
+					<p class="name">朴信惠</p>
+					<p class="work">外媒编辑</p>
+				</div>
+				<div class="interst">
+					<div class="number">
+						135687
+					</div>
+					<div class="confirm">
+						+ 关注
+					</div>
+				</div>
+			</div>
+			<div class="jiantou">
+				<img src="img/左箭头.png"/>
+			</div>
+			<div class="circle">
+				<div class="small-circle">
+					1
+				</div>
+			</div>
+		</div>
+		<div class="right">
+			<div class="chat-box">
+				<img src="img/头像2.jpg"/>
+				<div class="detail">
+					<p class="name">朴信惠</p>
+					<p class="work">外媒编辑</p>
+				</div>
+				<div class="interst">
+					<div class="number">
+						135687
+					</div>
+					<div class="confirm">
+						+ 关注
+					</div>
+				</div>
+			</div>
+			<div class="jiantou">
+				<img src="img/右键头.png"/>
+			</div>
+			<div class="circle">
+				<div class="small-circle">
+					1
+				</div>
+			</div>
+		</div>
+		<div class="left second">
+			<div class="chat-box">
+				<img src="img/头像2.jpg"/>
+				<div class="detail">
+					<p class="name">朴信惠</p>
+					<p class="work">外媒编辑</p>
+				</div>
+				<div class="interst">
+					<div class="number">
+						135687
+					</div>
+					<div class="confirm">
+						+ 关注
+					</div>
+				</div>
+			</div>
+			<div class="jiantou">
+				<img src="img/左箭头.png"/>
+			</div>
+			<div class="circle">
+				<div class="small-circle">
+					1
+				</div>
+			</div>
+		</div>
+		<div class="right">
+			<div class="chat-box">
+				<img src="img/头像2.jpg"/>
+				<div class="detail">
+					<p class="name">朴信惠</p>
+					<p class="work">外媒编辑</p>
+				</div>
+				<div class="interst">
+					<div class="number">
+						135687
+					</div>
+					<div class="confirm">
+						+ 关注
+					</div>
+				</div>
+			</div>
+			<div class="jiantou">
+				<img src="img/右键头.png"/>
+			</div>
+			<div class="circle">
+				<div class="small-circle">
+					1
+				</div>
+			</div>
+		</div>
+		<div class="left second">
+			<div class="chat-box">
+				<img src="img/头像2.jpg"/>
+				<div class="detail">
+					<p class="name">朴信惠</p>
+					<p class="work">外媒编辑</p>
+				</div>
+				<div class="interst">
+					<div class="number">
+						135687
+					</div>
+					<div class="confirm">
+						+ 关注
+					</div>
+				</div>
+			</div>
+			<div class="jiantou">
+				<img src="img/左箭头.png"/>
+			</div>
+			<div class="circle">
+				<div class="small-circle">
+					1
+				</div>
+			</div>
+		</div>
+		<div class="right">
+			<div class="chat-box">
+				<img src="img/头像2.jpg"/>
+				<div class="detail">
+					<p class="name">朴信惠</p>
+					<p class="work">外媒编辑</p>
+				</div>
+				<div class="interst">
+					<div class="number">
+						135687
+					</div>
+					<div class="confirm">
+						+ 关注
+					</div>
+				</div>
+			</div>
+			<div class="jiantou">
+				<img src="img/右键头.png"/>
+			</div>
+			<div class="circle">
+				<div class="small-circle">
+					1
+				</div>
+			</div>
+		</div>
+		<div class="left second">
+			<div class="chat-box">
+				<img src="img/头像2.jpg"/>
+				<div class="detail">
+					<p class="name">朴信惠</p>
+					<p class="work">外媒编辑</p>
+				</div>
+				<div class="interst">
+					<div class="number">
+						135687
+					</div>
+					<div class="confirm">
+						+ 关注
+					</div>
+				</div>
+			</div>
+			<div class="jiantou">
+				<img src="img/左箭头.png"/>
+			</div>
+			<div class="circle">
+				<div class="small-circle">
+					1
+				</div>
+			</div>
+		</div>
+		<div class="right">
+			<div class="chat-box">
+				<img src="img/头像2.jpg"/>
+				<div class="detail">
+					<p class="name">朴信惠</p>
+					<p class="work">外媒编辑</p>
+				</div>
+				<div class="interst">
+					<div class="number">
+						135687
+					</div>
+					<div class="confirm">
+						+ 关注
+					</div>
+				</div>
+			</div>
+			<div class="jiantou">
+				<img src="img/右键头.png"/>
+			</div>
+			<div class="circle">
+				<div class="small-circle">
+					1
+				</div>
+			</div>
+		</div>
+		<div class="left second">
+			<div class="chat-box">
+				<img src="img/头像2.jpg"/>
+				<div class="detail">
+					<p class="name">朴信惠</p>
+					<p class="work">外媒编辑</p>
+				</div>
+				<div class="interst">
+					<div class="number">
+						135687
+					</div>
+					<div class="confirm">
+						+ 关注
+					</div>
+				</div>
+			</div>
+			<div class="jiantou">
+				<img src="img/左箭头.png"/>
+			</div>
+			<div class="circle">
+				<div class="small-circle">
+					1
+				</div>
+			</div>
+		</div>
+		<div class="right">
+			<div class="chat-box">
+				<img src="img/头像2.jpg"/>
+				<div class="detail">
+					<p class="name">朴信惠</p>
+					<p class="work">外媒编辑</p>
+				</div>
+				<div class="interst">
+					<div class="number">
+						135687
+					</div>
+					<div class="confirm">
+						+ 关注
+					</div>
+				</div>
+			</div>
+			<div class="jiantou">
+				<img src="img/右键头.png"/>
+			</div>
+			<div class="circle">
+				<div class="small-circle">
+					1
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

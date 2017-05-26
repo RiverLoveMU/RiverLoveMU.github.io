@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+    <style type="text/css">
+    	.mui-bar{
+    		background-color: #ff5000;
+    	}
+    	.mui-bar .mui-title{
+    		color: white;
+    	}
+    	.mui-bar-nav.mui-bar .mui-icon{
+    		color: white;
+    	}
+ 		.mui-bar.mui-bar-tab{
+ 			background: white;
+ 		}
+ 		.mui-content > .mui-table-view:first-child{
+ 			margin-top: 0;
+ 		}
+ 		.mui-table-view-cell.mui-checkbox input[type="checkbox"]{
+ 			top: 50%;
+ 			left: 3%;
+ 			margin-top: -14px;
+ 		}
+ 		.mui-table-view-cell.special > a:not(.mui-btn) {
+ 			padding-left: 15%;
+ 		}
+ 		.mui-table-view .mui-media-object{
+ 			height: 80px;
+ 			max-width: 80px;
+ 			width: 80px;
+ 		}
+ 		.mui-table-view-cell p{
+ 			margin-top: 30px;
+ 			color: #ff5000;
+ 			font-size: 16px;
+ 		}
+ 		.mui-table-view-cell.second > a:not(.mui-btn){
+ 			color: gray;
+ 		}
+ 		.mui-table-view-cell.second .mui-navigate-right::after{
+ 			content: '编辑';
+ 		}
+ 		#price{
+ 			float: right;	
+ 		}
+ 		#price span{
+ 			color: #ff5000;
+ 		}
+ 		.mui-bar .mui-btn{
+ 			float: right;
+ 			margin-right:10px ;
+ 			color: white;
+ 			background: #fe6659;
+ 			border: #fe6659;
+ 			margin-top: -5px;
+ 		}
+ 		.mui-bar-tab ~ .mui-content {
+   			 padding-bottom: 70px;
+		}
+    </style>
+</head>
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">购物车</h1>
+    </header>
+    <nav class="mui-bar mui-bar-tab">
+       <ul class="mui-table-view">
+           <li class="mui-table-view-cell mui-media mui-checkbox special">
+		        <a href="javascript:;">
+		        	<input name="Checkbox" type="checkbox" checked>
+		            <div class="mui-media-body">
+		                全选
+		                <span id="price">
+		                	共一件商品 合计：<span>178元</span>
+		                </span>
+		            </div>
+		        </a>
+		    </li>
+       </ul>
+         <button type="button" class="mui-btn mui-btn-blue">按钮</button>
+    </nav>
+    <div class="mui-content">
+        <ul class="mui-table-view">
+                <li class="mui-table-view-cell second">
+                    <a class="mui-navigate-right">
+                        陶然居 （重庆会馆）
+                    </a>
+                </li>
+		</ul>
+		<ul class="mui-table-view">
+		    <li class="mui-table-view-cell mui-media mui-checkbox special">
+		        <a href="javascript:;">
+		        	<input name="Checkbox" type="checkbox" checked>
+		            <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+		            <div class="mui-media-body">
+		                蛋糕2选1 ，约八英寸 ，圆形
+		                <p class="mui-ellipsis">￥157元</p>
+		            </div>
+		        </a>
+		    </li>
+		     <li class="mui-table-view-cell mui-media mui-checkbox special">
+		        <a href="javascript:;">
+		        	<input name="Checkbox" type="checkbox" checked>
+		            <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+		            <div class="mui-media-body">
+		                蛋糕2选1 ，约八英寸 ，圆形
+		                <p class="mui-ellipsis">￥157元</p>
+		            </div>
+		        </a>
+		    </li>
+		     <li class="mui-table-view-cell mui-media mui-checkbox special">
+		        <a href="javascript:;">
+		        	<input name="Checkbox" type="checkbox" checked>
+		            <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+		            <div class="mui-media-body">
+		                蛋糕2选1 ，约八英寸 ，圆形
+		                <p class="mui-ellipsis">￥157元</p>
+		            </div>
+		        </a>
+		    </li>
+		     <li class="mui-table-view-cell mui-media mui-checkbox special">
+		        <a href="javascript:;">
+		        	<input name="Checkbox" type="checkbox" checked>
+		            <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+		            <div class="mui-media-body">
+		                蛋糕2选1 ，约八英寸 ，圆形
+		                <p class="mui-ellipsis">￥157元</p>
+		            </div>
+		        </a>
+		    </li>
+		     <li class="mui-table-view-cell mui-media mui-checkbox special">
+		        <a href="javascript:;">
+		        	<input name="Checkbox" type="checkbox" checked>
+		            <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+		            <div class="mui-media-body">
+		                蛋糕2选1 ，约八英寸 ，圆形
+		                <p class="mui-ellipsis">￥157元</p>
+		            </div>
+		        </a>
+		    </li>
+		     <li class="mui-table-view-cell mui-media mui-checkbox special">
+		        <a href="javascript:;">
+		        	<input name="Checkbox" type="checkbox" checked>
+		            <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+		            <div class="mui-media-body">
+		                蛋糕2选1 ，约八英寸 ，圆形
+		                <p class="mui-ellipsis">￥157元</p>
+		            </div>
+		        </a>
+		    </li>
+		</ul>
+    </div>
+</body>
+<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+mui.init()
+</script>
+</html>

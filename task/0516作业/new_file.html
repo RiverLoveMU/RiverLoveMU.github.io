@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+    <style type="text/css">
+    	.mui-title{
+    		color: #9e9497;
+    	}
+    	.mui-icon-bars::before{
+    		color: #9e9497;
+    	}
+    	.mui-bar .mui-title .mui-icon.mui-icon-camera{
+    		position: absolute;
+    		top: 10px;
+    		right: 0px;
+    	}
+    	.mui-table-view.mui-grid-view{
+    		margin-top: 10px;
+    		margin-right: 20px;
+    		background-color: transparent;
+    	}
+    	.mui-table-view::before,
+    	.mui-table-view::after{
+    		height: 0px;
+    	}
+    	.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body{
+    		background: white;
+    		padding: 5px 5px;
+    		margin-top: -4px;
+    		color: #9e9497;
+    		text-align: left;
+    		height: auto;
+    		overflow: hidden;
+    	}
+    	.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body p{
+    		float: left;
+    	}
+    	.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body i{
+    		float: right;
+    		font-size: 12px;
+    		color: pink;
+    	}
+    	.mui-bar-tab{
+    		background-color: #82787b;
+    	}
+    	.mui-bar-tab .mui-tab-item.mui-active {
+    		color: white;
+    		background-color: #f47596;
+		}
+		.mui-scroll-wrapper.sub{
+			background-color: #6e6366;
+		}
+		.sub .first a{
+			background-color: #f47596;
+		}
+		.sub a{
+			background-color: #6e6366;
+		}
+		.sub .mui-table-view-cell::after{
+			background-color: white;
+		}
+		.sub .mui-table-view-cell.first::after{
+			height: 0;
+		}
+		.sub .mui-table-view-cell.first > a:not(.mui-btn){
+			text-align: left;
+		}
+		.sub .mui-table-view-cell > a:not(.mui-btn){
+			color: white;
+			text-align: center;
+		}
+		.sub .mui-navigate-right::after{
+			content: '';
+		}
+		.sub h2{
+			color: #655c5f;
+			text-align: center;
+			position: absolute;
+			bottom: 10px;
+			width: 100%;
+		}
+    </style>
+</head>
+<body>
+    <!-- 主界面菜单同时移动 -->
+        <!-- 侧滑导航根容器 -->
+        <div class="mui-off-canvas-wrap mui-draggable">
+            <!-- 主页面容器 -->
+            <div class="mui-inner-wrap">
+                <!-- 菜单容器 -->
+                <aside class="mui-off-canvas-left" id="offCanvasSide">
+                    <div class="mui-scroll-wrapper sub">
+                    	    <h2>
+                                	美一天商街<br />
+                                	miyiti.com
+                            </h2>
+                        <div class="mui-scroll">
+                            <!-- 菜单具体展示内容 -->
+                            <ul class="mui-table-view">
+                                    <li class="mui-table-view-cell first">
+                                        <a class="mui-navigate-right">
+                                            选择风格
+                                        </a>
+                                    </li>
+                                    <li class="mui-table-view-cell">
+                                        <a class="mui-navigate-right">
+                                             时尚达人
+                                        </a>
+                                    </li>
+                                    <li class="mui-table-view-cell">
+                                        <a class="mui-navigate-right">
+                                             文艺青年
+                                        </a>
+                                    </li>
+                                    <li class="mui-table-view-cell">
+                                        <a class="mui-navigate-right">
+                                            运动达人
+                                        </a>
+                                    </li>
+                                    <li class="mui-table-view-cell">
+                                        <a class="mui-navigate-right">
+                                             热情咖啡
+                                        </a>
+                                    </li>
+                                    <li class="mui-table-view-cell">
+                                        <a class="mui-navigate-right">
+                                             浪漫满屋
+                                        </a>
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                </aside>
+                <!-- 主页面标题 -->
+                <header class="mui-bar mui-bar-nav">
+                    <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left" href="#offCanvasSide"></a>
+                    <h1 class="mui-title">M Y I T I<i class="mui-icon mui-icon-camera mui-pull-right"></i></h1>
+                </header>
+                <nav class="mui-bar mui-bar-tab">
+        		    <a class="mui-tab-item mui-active">
+        		        <span class="mui-icon mui-icon-home"></span>
+        		        <span class="mui-tab-label">首页</span>
+        		    </a>
+        		    <a class="mui-tab-item">
+        		        <span class="mui-icon mui-icon-phone"></span>
+        		        <span class="mui-tab-label">电话</span>
+        		    </a>
+        		    <a class="mui-tab-item">
+        		        <span class="mui-icon mui-icon-email"></span>
+        		        <span class="mui-tab-label">邮件</span>
+        		    </a>
+        		    <a class="mui-tab-item">
+        		        <span class="mui-icon mui-icon-gear"></span>
+        		        <span class="mui-tab-label">设置</span>
+        		    </a>
+        		    <a class="mui-tab-item">
+        		        <span class="mui-icon mui-icon-home"></span>
+        		        <span class="mui-tab-label">首页</span>
+        		    </a>
+        		</nav>
+                <!-- 主页面内容容器 -->
+                <div class="mui-content mui-scroll-wrapper">
+                    <div class="mui-scroll">
+                        <!-- 主界面具体展示内容 -->
+                        <ul class="mui-table-view mui-grid-view">
+                            <li class="mui-table-view-cell mui-media mui-col-xs-6 first">
+                                <a href="#">
+                                    <img class="mui-media-object" src="img/xiaojiejie.jpg">
+                                    <div class="mui-media-body">
+                                    	<p>$ 288.00</p>
+                                    	<i class="mui-icon mui-icon-star"></i>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                                <a href="#">
+                                    <img class="mui-media-object" src="img/xiaojiejie.jpg">
+                                    <div class="mui-media-body">
+                                    	<p>$ 288.00</p>
+                                    	<i class="mui-icon mui-icon-star"></i>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="mui-table-view mui-grid-view">
+                            <li class="mui-table-view-cell mui-media mui-col-xs-6 first">
+                                <a href="#">
+                                    <img class="mui-media-object" src="img/xiaojiejie.jpg">
+                                    <div class="mui-media-body">
+                                    	<p>$ 288.00</p>
+                                    	<i class="mui-icon mui-icon-star"></i>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                                <a href="#">
+                                    <img class="mui-media-object" src="img/xiaojiejie.jpg">
+                                    <div class="mui-media-body">
+                                    	<p>$ 288.00</p>
+                                    	<i class="mui-icon mui-icon-star"></i>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="mui-table-view mui-grid-view">
+                            <li class="mui-table-view-cell mui-media mui-col-xs-6 first">
+                                <a href="#">
+                                    <img class="mui-media-object" src="img/xiaojiejie.jpg">
+                                    <div class="mui-media-body">
+                                    	<p>$ 288.00</p>
+                                    	<i class="mui-icon mui-icon-star"></i>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                                <a href="#">
+                                    <img class="mui-media-object" src="img/xiaojiejie.jpg">
+                                    <div class="mui-media-body">
+                                    	<p>$ 288.00</p>
+                                    	<i class="mui-icon mui-icon-star"></i>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="mui-table-view mui-grid-view">
+                            <li class="mui-table-view-cell mui-media mui-col-xs-6 first">
+                                <a href="#">
+                                    <img class="mui-media-object" src="img/xiaojiejie.jpg">
+                                    <div class="mui-media-body">
+                                    	<p>$ 288.00</p>
+                                    	<i class="mui-icon mui-icon-star"></i>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                                <a href="#">
+                                    <img class="mui-media-object" src="img/xiaojiejie.jpg">
+                                    <div class="mui-media-body">
+                                    	<p>$ 288.00</p>
+                                    	<i class="mui-icon mui-icon-star"></i>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+           	 <div class="mui-off-canvas-backdrop"></div>
+            </div>
+        </div>
+</body>
+<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+mui.init()
+</script>
+</html>

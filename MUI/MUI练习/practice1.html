@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+    <style type="text/css">
+    	.mui-input-group .mui-input-row{
+    		height: 60px;
+    	}
+    	.mui-input-row label{
+    		width: 20%;
+    		padding-bottom: 20px;
+    		padding-top: 20px;
+    	}
+    	.mui-input-row label ~ input{
+    		width: 80%;
+    		padding-top: 20px;
+    		padding-bottom: 20px;
+    		height: 60px;
+    	}
+    	.mui-input-row .iconfont{
+    		line-height: 23px;
+    		font-size:28px ;
+    	}
+    	.mui-btn-block{
+    		width: 96%;
+    		margin: 10px auto;
+    	}
+    	.mui-btn-blue{
+    		background-color: #48D2DC;
+    		border: none;
+    	}
+    </style>
+</head>
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">注册</h1>
+    </header>
+	<div class="mui-content">
+	    <form class="mui-input-group">
+	        <div class="mui-input-row">
+	            <label><i class="iconfont icon-shejiao"></i></label>
+	            <input type="text" class="mui-input-clear" placeholder="请输入用户名">
+	        </div>
+	        <div class="mui-input-row">
+	            <label><i class="iconfont icon-shejiao"></i></label>
+	            <input type="tel" class="mui-input-clear" placeholder="请输入手机号码">
+	        </div>
+	        <div class="mui-input-row">
+	            <label><i class="iconfont icon-shejiao"></i></label>
+	            <input type="text" class="mui-input-clear" placeholder="请输入邮箱">
+	        </div>
+	        <div class="mui-input-row">
+	            <label><i class="iconfont icon-shejiao"></i></label>
+	            <input type="text" class="mui-input-clear" placeholder="请输入支付宝提现账号">
+	        </div>
+	        <div class="mui-input-row">
+	            <label><i class="iconfont icon-shejiao"></i></label>
+	            <input type="password" class="mui-input-clear" placeholder="请输入密码">
+	        </div>
+	    </form>
+		<button type="button" class="mui-btn mui-btn-blue mui-btn-block">按钮</button>
+	</div>
+</body>
+<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+mui.init()
+</script>
+</html>
