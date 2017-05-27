@@ -7,24 +7,38 @@
 	<body>
 	</body>
 	<script type="text/javascript">
-		function Person(){
-		}
+//		var name = "The Window";
+//
+//	　　var object = {
+//	　　　　name : "My Object",
+//	
+//	　　　　getNameFunc : function(){
+//	　　　　　　return function(){
+//	　　　　　　　　return this.name;
+//	　　　　　　};
+//	
+//	　　　　}
+//	
+//	　　};
+//	
+//	　　alert(object.getNameFunc()());
 		
-		Person.prototype.name="sss";
-		Person.prototype.age=29;
-		Person.prototype.job='good';
-		Person.prototype.sayName=function(){
-			alert(this.name);
-		};
-		
-		var person1 =new Person();
-		var person2 = new Person();
-		
-		person1.name = 'bbb';
-//		alert(person1.name);
-//		alert(person2.name);
-		person1.sayName();
-		person2.sayName();
+		var name = "The Window";
+
+	　　var object = {
+	　　　　name : "My Object",
+	
+	　　　　getNameFunc : function(){
+	　　　　　　var that = this;
+	　　　　　　return function(){
+	　　　　　　　　return that.name;
+	　　　　　　};
+	
+	　　　　}
+	
+	　　};
+	
+	　　alert(object.getNameFunc()()); 
 	</script>
 
 </html>
