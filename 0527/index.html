@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				width: 500px;
+				height: 335px;
+				overflow: hidden;
+				position: relative;
+			}
+			.cont img{
+				height: 100%;
+				width: 100%;
+			}
+			.cont ul{
+				position: absolute;
+				background: rgba(255,255,255,0.5);
+				bottom: 15px;
+				left: 50%;
+				border-radius: 11px;
+				cursor: pointer;
+			}
+			.cont ul li{
+				height: 12px;
+				width: 12px;
+				float: left;
+				border-radius: 50%;
+				background: white;
+				margin: 5px 8px;
+				position: relative;
+			}
+			.cont ul li .small-pic{
+				height: 67px;
+				width: 100px;
+				background: white;
+				border: 1px solid gainsboro;
+				position: absolute;
+				left: -50px;
+				top: -80px;
+				z-index: 10;
+			}
+			.cont ul li .small-pic img{
+				border: 1px solid gainsboro;
+				height: 62px;
+				width: 96px;
+				margin-left: 1px;
+				margin-top: 2px;
+			}
+			.cont ul li.active{
+				background: #98DCA3;
+			}
+			#prev,#next{
+				height: 50px;
+				width: 50px;
+				background: rgba(152, 220, 163, 0.2);
+				line-height: 50px;
+				text-align: center;
+				color: white;
+				position: absolute;
+				top: 50%;
+				margin-top: -25px;
+				border-radius: 50%;
+				font-size: 25px;
+				display: none;
+				cursor: pointer;
+			}
+			#prev{
+				left: 10px;
+			}
+			#next{
+				right: 10px;
+			}
+			#prev:hover {
+				background: rgba(152, 220, 163, 0.6);
+			}
+			#next:hover {
+				background: rgba(152, 220, 163, 0.6);
+			}
+			.cont:hover #prev,
+			.cont:hover #next{
+				display: block;
+			}
+			.clear{
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<img id="pic" src="img/pic1.jpg"/>
+			<ul id="list">
+				<li class="active"> </li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<span class="clear"></span>
+			</ul>
+			<div id="prev">
+				<
+			</div>
+			<div id="next">
+				>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var arrImg = ['img/pic1.jpg','img/pic2.jpg','img/pic3.jpg','img/pic4.jpg','img/pic5.jpg','img/pic6.jpg','img/pic7.jpg','img/pic8.jpg','img/pic9.jpg','img/pic10.jpg'];
+		var oPrev = document.getElementById('prev');
+		var oNext = document.getElementById('next');
+		var oPic = document.getElementById('pic');
+		var oList = document.getElementById('list')
+		var aLi = oList.getElementsByTagName('li');
+		var num = 0;
+		var len = aLi.length;
+		oList.style.marginLeft = '-' + len*28/2 + 'px';
+		function change(num) {
+			oPic.src = arrImg[num];
+			for (i=0;i<len;i++) {
+				aLi[i].className = '';
+			}
+			aLi[num].className ='active';
+		}
+		for (i=0;i<len;i++) {
+			aLi[i].index = i;
+			aLi[i].onclick = function () {
+				change(this.index);
+				num = this.index;
+			}
+			aLi[i].onmousemove = function () {
+				this.innerHTML = '<div class="small-pic"><img src="'+ arrImg[this.index] +'"/></div>';
+			}
+			aLi[i].onmouseleave = function () {
+				this.innerHTML = '';
+			}
+		}
+		oPrev.onclick = function () {
+			if (num == 0) {
+				num = len - 1;
+			} else{
+				num--;
+			}
+			change(num);
+		}
+		oNext.onclick = function () {
+			if (num == len - 1) {
+				num = 0;
+			} else{
+				num++;
+			}
+			change(num);
+		}
+	</script>
+</html>
