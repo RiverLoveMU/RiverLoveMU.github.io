@@ -15,15 +15,16 @@
 				height: 100%;
 				width: 100%;
 			}
-			.cont ul{
+			.cont #list{
 				position: absolute;
 				background: rgba(255,255,255,0.5);
 				bottom: 15px;
 				left: 50%;
 				border-radius: 11px;
+				display: none;
 				cursor: pointer;
 			}
-			.cont ul li{
+			.cont #list li{
 				height: 12px;
 				width: 12px;
 				float: left;
@@ -32,7 +33,7 @@
 				margin: 5px 8px;
 				position: relative;
 			}
-			.cont ul li .small-pic{
+			.cont #list li .small-pic{
 				height: 61px;
 				width: 94px;
 				background: white;
@@ -43,7 +44,7 @@
 				z-index: 10;
 				padding: 3px;
 			}
-			.cont ul li.active{
+			.cont #list li.active{
 				background: #98DCA3;
 			}
 			#prev,#next{
@@ -74,7 +75,8 @@
 				background: rgba(152, 220, 163, 0.6);
 			}
 			.cont:hover #prev,
-			.cont:hover #next{
+			.cont:hover #next,
+			.cont:hover #list{
 				display: block;
 			}
 			.clear{
