@@ -17,90 +17,9 @@
 		</style>
 	</head>
 	<body>
-		<div class="goods">
-			<button>-</button>
-			<input type="text" name="" id="" value="0" />
-			<button>+</button>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="uprice">
-				每件<em>32.5</em>元
-			</span>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="number">
-				共计<em>0</em>件
-			</span>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="price">
-				共计<em>0</em>元
-			</span>
-		</div>
-		<div class="goods">
-			<button>-</button>
-			<input type="text" name="" id="" value="0" />
-			<button>+</button>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="uprice">
-				每件<em>11.8</em>元
-			</span>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="number">
-				共计<em>0</em>件
-			</span>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="price">
-				共计<em>0</em>元
-			</span>
-		</div>
-		<div class="goods">
-			<button>-</button>
-			<input type="text" name="" id="" value="0" />
-			<button>+</button>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="uprice">
-				每件<em>9.1</em>元
-			</span>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="number">
-				共计<em>0</em>件
-			</span>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="price">
-				共计<em>0</em>元
-			</span>
-		</div>
-		<div class="goods">
-			<button>-</button>
-			<input type="text" name="" id="" value="0" />
-			<button>+</button>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="uprice">
-				每件<em>128</em>元
-			</span>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="number">
-				共计<em>0</em>件
-			</span>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="price">
-				共计<em>0</em>元
-			</span>
-		</div>
-		<div class="goods">
-			<button>-</button>
-			<input type="text" name="" id="" value="0" />
-			<button>+</button>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="uprice">
-				每件<em>99.9</em>元
-			</span>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="number">
-				共计<em>0</em>件
-			</span>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="price">
-				共计<em>0</em>元
-			</span>
+		<button id="buy">购买</button>
+		<div id="content">
+			
 		</div>
 		<div class="total">
 			<span class="number">
@@ -112,52 +31,65 @@
 		</div>
 	</body>
 	<script type="text/javascript">
+		var oBuy = document.getElementById('buy');
+		var oCont = document.getElementById('content');
 		var aGoods = document.getElementsByClassName('goods');
 		var oTotal = document.getElementsByClassName('total')[0];
 		var oTprice = oTotal.getElementsByTagName('span')[1].getElementsByTagName('em')[0];
 		var oTnumber = oTotal.getElementsByTagName('span')[0].getElementsByTagName('em')[0];
-		var arrNumber = [0,0,0,0,0];
-		var arrPrice = [0,0,0,0,0];
-		for (i=0;i<aGoods.length;i++) {
-			aGoods[i].index = i;
-			change(aGoods[i]);
-		}
-		function change (obj) {
-			var oMinus = obj.getElementsByTagName('button')[0];
-			var oPlus = obj.getElementsByTagName('button')[1];
-			var oInput = obj.getElementsByTagName('input')[0];
-			var oPrice = obj.getElementsByTagName('span')[2].getElementsByTagName('em')[0];
-			var oNumber = obj.getElementsByTagName('span')[1].getElementsByTagName('em')[0];
-			var oUprice = obj.getElementsByTagName('span')[0].getElementsByTagName('em')[0];
-			var num = oInput.value;
-			var index =obj.index;
-			oMinus.onclick = function () {
-				if (num>0){
-					oInput.value--;
-					num = oInput.value;
+		var arrNumber = [0];
+		var arrPrice = [0];
+		oBuy.onclick = function () {
+			oCont.innerHTML += '<div class="goods"> <button>-</button> <input type="text" name="" id="" value="" /> <button>+</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="uprice"> 每件<em></em>元 </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="number"> 共计<em>0</em>件 </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="price"> 共计<em>0.0</em>元 </span> </div>';
+			for (i=0;i<aGoods.length;i++) {
+				aGoods[i].index = i;
+				if (arrNumber[i] > 0 & aGoods[i].getElementsByTagName('span')[0].getElementsByTagName('em')[0].innerHTML != 0) {
+					aGoods[i].getElementsByTagName('input')[0].value=arrNumber[i];
+				} else{
+					aGoods[i].getElementsByTagName('span')[0].getElementsByTagName('em')[0].innerHTML = (Math.random()*i*200 +1).toFixed(1);
+					arrPrice[i] = 0;
+					arrNumber[i] = 0;
+					aGoods[i].getElementsByTagName('input')[0].value= 0;
 				}
-				showPrice(num,index);
-			};
-			oPlus.onclick =function () {
-				oInput.value++;
-				num = oInput.value;
-				showPrice(num,index);
-			};
-			oInput.onchange = function () {
-				num = oInput.value;
-				showPrice(num,index);
+				change(aGoods[i]);
 			}
-			function showPrice (number,index){
-				number = parseFloat(number);
-				oPrice.innerHTML = (parseFloat(oUprice.innerHTML) *number).toFixed(1);
-				oNumber.innerHTML = number;
-				arrNumber[index] = oNumber.innerHTML;
-				arrPrice[index] = oPrice.innerHTML;
-				oTprice.innerHTML = 0;
-				oTnumber.innerHTML = 0;
-				for (i=0;i<arrNumber.length;i++) {
-					oTprice.innerHTML = (parseFloat(oTprice.innerHTML) + parseFloat(arrPrice[i])).toFixed(1);
-					oTnumber.innerHTML = parseFloat(oTnumber.innerHTML) + parseFloat(arrNumber[i]);
+			function change (obj) {
+				var oMinus = obj.getElementsByTagName('button')[0];
+				var oPlus = obj.getElementsByTagName('button')[1];
+				var oInput = obj.getElementsByTagName('input')[0];
+				var oPrice = obj.getElementsByTagName('span')[2].getElementsByTagName('em')[0];
+				var oNumber = obj.getElementsByTagName('span')[1].getElementsByTagName('em')[0];
+				var oUprice = obj.getElementsByTagName('span')[0].getElementsByTagName('em')[0];
+				var num = oInput.value;
+				var index =obj.index;
+				oMinus.onclick = function () {
+					if (num>0){
+						oInput.value--;
+						num = oInput.value;
+					}
+					showPrice(num,index);
+				};
+				oPlus.onclick =function () {
+					oInput.value++;
+					num = oInput.value;
+					showPrice(num,index);
+				};
+				oInput.onchange = function () {
+					num = oInput.value;
+					showPrice(num,index);
+				}
+				function showPrice (number,index){
+					number = parseFloat(number);
+					oPrice.innerHTML = (parseFloat(oUprice.innerHTML) *number).toFixed(1);
+					oNumber.innerHTML = number;
+					arrNumber[index] = oNumber.innerHTML;
+					arrPrice[index] = oPrice.innerHTML;
+					oTprice.innerHTML = 0;
+					oTnumber.innerHTML = 0;
+					for (i=0;i<arrNumber.length;i++) {
+						oTprice.innerHTML = (parseFloat(oTprice.innerHTML) + parseFloat(arrPrice[i])).toFixed(1);
+						oTnumber.innerHTML = parseFloat(oTnumber.innerHTML) + parseFloat(arrNumber[i]);
+					}
 				}
 			}
 		}
