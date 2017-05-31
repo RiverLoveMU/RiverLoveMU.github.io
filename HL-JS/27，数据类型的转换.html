@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 10px;
+				border: 1px solid #D8D8D8;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="" id="input1" value="" />
+		<input type="text" name="" id="input2" value="" />
+		<button id="btn">相加</button>
+	</body>
+	<script type="text/javascript">
+		var oInput1=document.getElementById('input1');
+		var oInput2=document.getElementById('input2');
+		var oBtn=document.getElementById('btn');
+		
+		oBtn.onclick=function(){
+//			alert(typeof Number(oInput1.value));
+//			alert(Number(oInput1.value)+Number(oInput2.value));
+		}
+		
+//		一，显式类型转换
+//		1,Number(需要转换的变量)
+//		var a='000111000';
+//		alert(Number(a));
+//		var a='-100';   可以判断正负
+//		alert(Number(a));
+		
+//		var a='';
+//		alert(Number(a));
+		
+//		var a=false;
+//		alert(Number(a));
+		
+//		var a=['112','11'];
+//		alert(Number(a));
+		
+//		var a=null;
+//		alert(Number(a));
+//		var a='abc';
+//		alert(Number(a));
+//		NaN: not a number
+		
+//		2,
+//		var h='100px';
+//		alert(parseInt(h));
+//		var money='100.86亿元';
+//		alert(parseInt(money));
+		
+//		3,parseFloat()
+//		var money='100.86亿元';
+//		alert(parseFloat(money));
+		
+//		二,隐式类型转换
+//		var a='10';
+//		var b=10;
+//		alert(a%b);
+//		(1)+ :  习惯性的把数字转换成字符串
+//		(2)- * / % : 转换为数字
+//		var a=100;
+//		var b=10;
+//		alert(a%b);
+//		var num=0;
+//		var c=3;
+		
+//		0%3= 0 
+//		1%3= 1
+//		2%3= 2
+//		3%3= 0
+		var arrColor=['red','blue','yellow','green'];
+		for(var i=0;i<100;i++){
+			document.body.innerHTML+='<div style="background: '+ arrColor[i%4] +';"></div>'
+		}
+//		(3)++ --  转换为数字
+//		var num='10';
+//		num--;
+//		alert(num);
+		
+//		(4)> <  转换为数字
+//		alert('10'>'9');
+		
+//		(5) ! 取反  
+//		alert(!'10');
+		
+//		(6)==   
+//		alert('110'==110);
+//		(7)===  全等（值跟类型都要相等）
+//		alert('110'===110);
+		
+//		三,isNaN()
+		
+//		is not a number ? 
+//		alert(isNaN('0'));
+	</script>
+</html>

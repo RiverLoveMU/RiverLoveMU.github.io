@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+			<li>
+				<button >-</button>
+				<input type="text" name="" id="" value="0" />
+				<button>+</button>
+			</li>
+			<li>
+				<button >-</button>
+				<input type="text" name="" id="" value="0" />
+				<button>+</button>
+			</li>
+			<li>
+				<button >-</button>
+				<input type="text" name="" id="" value="0" />
+				<button>+</button>
+			</li>
+			<li>
+				<button >-</button>
+				<input type="text" name="" id="" value="0" />
+				<button>+</button>
+			</li>
+			<li>
+				<button >-</button>
+				<input type="text" name="" id="" value="0" />
+				<button>+</button>
+			</li>
+			<li>
+				<button >-</button>
+				<input type="text" name="" id="" value="0" />
+				<button>+</button>
+			</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var oList = document.getElementById('list');
+		var aList = oList.getElementsByTagName('li');
+		for (i=0;i<aList.length;i++) {
+			change(aList[i]);
+		}
+		function change (obj) {
+			var oMinusButton = obj.getElementsByTagName('button')[0];
+			var oPlusButton = obj.getElementsByTagName('button')[1];
+			var oInput = obj.getElementsByTagName('input')[0];
+			oMinusButton.onclick = function () {
+				oInput.value--;
+			}
+			oPlusButton.onclick = function () {
+				oInput.value++;
+			}
+		}
+	</script>
+</html>

@@ -39,14 +39,14 @@
 		for (i = 0;i<640;i++) {
 			aDiv[i].index = 0;
 			aDiv[i].onmouseover = function(){
+				if (num<640 & this.index == 0) {
+					this.style.background = 'transparent';
+					this.style.borderColor = 'white';
+				} 
 				if (this.index == 0) {
 					num++;
 					this.index = 1;
 				}
-				if (num<=640) {
-					this.style.background = 'transparent';
-					this.style.borderColor = 'white';
-				} 
 				if (num == 640) {
 					alert('曼联！');
 					for (i=0;i<640;i++) {

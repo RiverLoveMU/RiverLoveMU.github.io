@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				overflow: hidden;
+			}
+			li{
+				float: left;
+				margin: 10px;
+				height: 20px;
+				width: 20px;
+				border-radius: 50%;
+				background: #D8D8D8;
+			}
+			.active{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="cont" class="cont">
+			<img class="pic" src="img/mu1.jpg"/>
+			<ul>
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<div id="cont1" class="cont">
+			<img class="pic" src="img/mu1.jpg"/>
+			<ul>
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var oCont = document.getElementById('cont');
+		var oCont1 = document.getElementById('cont1');
+		var arrImg = ['img/mu1.jpg','img/mu2.jpg','img/mu3.jpg','img/mu4.jpg','img/mu5.jpg','img/mu6.jpg'];
+		function slide (cont) {
+			var oPic = cont.getElementsByClassName('pic')[0];
+			var aLi = cont.getElementsByTagName('li');
+			for (var i=0;i<aLi.length;i++) {
+				aLi[i].index = i;
+				aLi[i].onclick = function(){
+					oPic.src = arrImg[this.index];
+					for (var j=0;j<aLi.length;j++) {
+						aLi[j].className= '';
+					}
+					aLi[this.index].className = 'active';
+				}
+			}
+		}
+		slide(oCont);
+		slide(oCont1);
+	</script>
+</html>
