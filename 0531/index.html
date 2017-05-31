@@ -11,7 +11,7 @@
 				width: 30px;
 			}
 			.uprice,.number{
-				width: 100px;
+				width: 200px;
 				display: inline-block;
 			}
 		</style>
@@ -23,10 +23,11 @@
 		</div>
 		<div class="total">
 			<span class="number">
-				共计<em>0</em>件
+				共计<em>0</em>&nbsp;件
 			</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<span class="price">
-				共计<em>0</em>元
+				共计<em>0</em>&nbsp;元
 			</span>
 		</div>
 	</body>
@@ -40,13 +41,13 @@
 		var arrNumber = [0];
 		var arrPrice = [0];
 		oBuy.onclick = function () {
-			oCont.innerHTML += '<div class="goods"> <button>-</button> <input type="text" name="" id="" value="" /> <button>+</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="uprice"> 每件<em></em>元 </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="number"> 共计<em>0</em>件 </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="price"> 共计<em>0.0</em>元 </span> </div>';
+			oCont.innerHTML += '<div class="goods"> <button>-</button> <input type="text" name="" id="" value="" /> <button>+</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="uprice"> 每件<em></em>&nbsp;元 </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="number"> 共计<em>0</em>&nbsp;件 </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="price"> 共计<em>0.0</em>&nbsp;元 </span> </div>';
 			for (i=0;i<aGoods.length;i++) {
 				aGoods[i].index = i;
-				if (arrNumber[i] > 0 & aGoods[i].getElementsByTagName('span')[0].getElementsByTagName('em')[0].innerHTML != 0) {
+				if (aGoods[i].getElementsByTagName('span')[0].getElementsByTagName('em')[0].innerHTML != 0) {
 					aGoods[i].getElementsByTagName('input')[0].value=arrNumber[i];
 				} else{
-					aGoods[i].getElementsByTagName('span')[0].getElementsByTagName('em')[0].innerHTML = (Math.random()*i*200 +1).toFixed(1);
+					aGoods[i].getElementsByTagName('span')[0].getElementsByTagName('em')[0].innerHTML = (Math.random()*(i+1)*200 +1).toFixed(1);
 					arrPrice[i] = 0;
 					arrNumber[i] = 0;
 					aGoods[i].getElementsByTagName('input')[0].value= 0;
