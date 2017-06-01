@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<style type="text/css">
+			.list{
+				float: left;
+			}
+			.list li{
+				background: #E7E7E7;
+				height: 100px;
+				width: 160px;
+				border-bottom: 1px solid gainsboro;
+				color: #E71052;
+				text-align: center;
+				line-height: 100px;
+			}
+			.list li .iconfont{
+				font-size: 50px;
+			}
+			.list li.active{
+				background: white;
+			}
+			.content{
+				float: left;
+				width: 1000px;
+				height: 404px;
+				float: left;
+				position: relative;
+				background: url(img/pic1.jpg);
+				background-size: 100% 100%;
+			}
+			.content .contlist{
+				overflow: hidden;
+				bottom: 0;
+				left: 0;
+				width: 1000px;
+				position: absolute;
+			}
+			.content .contlist li{
+				float: left;
+				height: 30px;
+				border-left: 1px solid white;
+				width: 499px;
+				background: rgba(0,0,0,0.5);
+				color: white;
+				line-height: 30px;
+				text-align: center;
+				
+			}
+			.content .contlist li:first-child{
+				width: 500px;
+				border-left: none;
+			}
+			.content .contlist li.active{
+				background: #EF3163;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list" class="list">
+			<li class="active">
+				<i class="iconfont icon-icon02"></i>
+			</li>
+			<li>
+				<i class="iconfont icon-jipiao"></i>
+			</li>
+			<li>
+				<i class="iconfont icon-hongbao"></i>
+			</li>
+			<li>
+				<i class="iconfont icon-saoyisao"></i>
+			</li>
+		</ul>
+		<div id="content" class="content">
+			<ul class="contlist">
+				<li class="active">世界地图</li>
+				<li>GENERATION OF CHAOS</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var oList = document.getElementById('list');
+		var oContent = document.getElementById('content');
+		var aList =oList.getElementsByTagName('li');
+		var oContList = oContent.getElementsByClassName('contlist')[0];
+		var aClist = oContList.getElementsByTagName('li');
+		var length = aList.length;
+		var mark = 0;
+		var fir = 0;
+		var arrImg = [
+			['img/pic1.jpg','img/pic2.jpg'],
+			['img/pic3.jpg','img/pic4.jpg','img/pic5.jpg'],
+			['img/pic6.jpg','img/pic7.jpg','img/pic8.jpg','img/pic9.jpg'],
+			['img/pic10.jpg','img/pic11.jpg','img/pic12.jpg','img/pic13.jpg','img/pic14.jpg']
+		]
+		var arrText = [
+			['世界地图','GENERATION OF CHAOS'],
+			['山间小路','玫瑰','承亿文旅'],
+			['行业项目主题','SPRING','女性面膜专家','和谐社会'],
+			['扬帆起航','歌手大赛','HORAL FRAME','SMILE DAYS','燃烧的向日葵']
+		]
+		for (i=0;i<2;i++) {
+			aClist[i].index = i;
+			aClist[i].onmouseover= function () {
+				aClist[fir].className = '';
+				aClist[this.index].className = 'active';
+				fir = this.index;
+				oContent.style.background = 'url(' + arrImg[mark][fir] +')';
+			}
+		}
+		for (i=0;i<length;i++) {
+			aList[i].index = i;
+			aList[i].onmouseover = function () {
+				aList[mark].className = '';
+				aList[this.index].className = 'active';
+				mark = this.index;
+				var aLength = arrImg[mark].length;
+				var str = '';
+				var inMark = 0;
+				oContent.style.background = 'url(' + arrImg[mark][0] +')';
+				for (k=0;k<aLength;k++) {
+					if (k==0) {
+						str += '<li class="active">' + arrText[mark][k] + '</li>'
+					} else{
+						str +='<li>' + arrText[mark][k] + '</li>'
+					}
+				}
+//				alert(str);
+				oContList.innerHTML = str;
+				for (k=0;k<aLength;k++) {
+					aClist[k].style.width = (parseInt(1000/aLength) - 1) + 'px';
+					aClist[k].index = k;
+					aClist[k].onmouseover = function () {
+						aClist[inMark].className = '';
+						aClist[this.index].className = 'active';
+						inMark = this.index;
+						oContent.style.background = 'url(' + arrImg[mark][inMark] +')';
+					}
+				}
+				
+			}
+		}
+	</script>
+</html>

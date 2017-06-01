@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		a();     
+		alert(a);     //代码块function a(){alert(4)}
+		var a=1;    
+		alert(a);    // 1
+		function a(){
+			alert(2);
+		}
+		alert(a);   //1
+		var a=3;  
+		function a(){
+			alert(4)
+		}
+		alert(a);   //3
+		a()  //控制台报错：number is not a function
+	</script>
+</html>

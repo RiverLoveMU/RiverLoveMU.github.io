@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>无标题文档</title>
+	</head>
+
+	<body>
+
+		<ul id="list">
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" /> 单价：
+				<em>12.3元</em> 小计：
+				<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" /> 单价：
+				<em>10.1元</em> 小计：
+				<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" /> 单价：
+				<em>8.5元</em> 小计：
+				<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" /> 单价：
+				<em>8元</em> 小计：
+				<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" /> 单价：
+				<em>14.5元</em> 小计：
+				<span>0元</span>
+			</li>
+		</ul>
+
+		<p>
+			商品合计共：
+			<span id="all">0</span>
+			件，共花费了：
+			<span id="allMoney">0</span>
+			元<br />
+			
+		</p>
+
+	</body>
+	
+	<script type="text/javascript">
+		
+		var oList=document.getElementById('list');
+		var oAll=document.getElementById('all');
+		var oMoney=document.getElementById('allMoney');
+		var aLi=oList.getElementsByTagName('li');
+		var oStrong=oList.getElementsByTagName('strong');
+		var oSpan=oList.getElementsByTagName('span');
+		var Len=aLi.length;
+		
+		for(var i=0;i<Len;i++){
+			buyCar(i);
+		}
+		
+		function buyCar(n){
+			var oMinu=aLi[n].getElementsByTagName('input')[0];
+			var oPlus=aLi[n].getElementsByTagName('input')[1];
+			var oEm=aLi[n].getElementsByTagName('em')[0];
+			
+			oPlus.onclick=function(){
+				fn(true);
+			};
+			
+			oMinu.onclick=function(){
+				fn(false);
+			};
+			
+			function fn(bool){
+				var num=oStrong[n].innerHTML;
+				var price=parseFloat(oEm.innerHTML);
+				if(bool){
+					num++;
+				}else if(!bool && num>0){
+					num--;
+				}
+				oStrong[n].innerHTML=num;
+				oSpan[n].innerHTML=(num*price).toFixed(2);
+				var all=0;
+				var money=0;
+				for(var i=0;i<Len;i++){
+					all+=Number(oStrong[i].innerHTML);
+					money+=parseFloat(oSpan[i].innerHTML);
+				}
+				oAll.innerHTML=all;
+				oMoney.innerHTML=money.toFixed(2);
+			}
+		}
+	</script>
+
+</html>

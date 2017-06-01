@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		函数的内部解析与局部变量
+//		(1) 函数内部执行的时候跟外部js的解析过程是一样的,函数内定义的变量,不会影响外部变量.
+//		   JS的垃圾回收机制
+//		var a=1;
+//		function fn(){
+//			alert(a);
+//			var a=2;
+////			古尔邦节,肉孜节
+//		}
+//		fn();
+//		alert(a);
+		
+		
+//		(2)函数内部遇到一个没定义过的变量该怎么办? 会向外层寻找，如果找到就会进行引用  
+//			作用域链
+//		var a=1;
+//		function fn(){
+//			alert(a);
+//			a=2;
+////		古尔邦节,肉孜节
+//		}
+//		fn();
+//		alert(a);
+//		(3)变量要先声明,后使用
+//		function fn(){
+//			alert(a);
+//		}
+//		fn();
+//		(4)function(a){} 里的参数,相当于在函数内部使用了var定义a一样
+//		function fn(a){
+//			alert(a);
+//		}
+//		fn();
+
+//		总结关键字:
+//		全局变量?
+//		局部变量?
+//		JS的垃圾回收机制?
+//		作用域链?
+	</script>
+</html>
