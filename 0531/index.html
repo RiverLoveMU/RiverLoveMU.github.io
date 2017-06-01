@@ -76,6 +76,9 @@
 					showPrice(num,index);
 				};
 				oInput.onchange = function () {
+					if (oInput.value == '') {
+						oInput.value = 0;
+					}
 					num = oInput.value;
 					showPrice(num,index);
 				}
