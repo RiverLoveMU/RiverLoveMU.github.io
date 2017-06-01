@@ -103,7 +103,7 @@
 			['行业项目主题','SPRING','女性面膜专家','和谐社会'],
 			['扬帆起航','歌手大赛','HORAL FRAME','SMILE DAYS','燃烧的向日葵']
 		]
-		for (i=0;i<2;i++) {
+		for (var i=0;i<2;i++) {
 			aClist[i].index = i;
 			aClist[i].onmouseover= function () {
 				aClist[fir].className = '';
@@ -112,7 +112,7 @@
 				oContent.style.background = 'url(' + arrImg[mark][fir] +')';
 			}
 		}
-		for (i=0;i<length;i++) {
+		for (var i=0;i<length;i++) {
 			aList[i].index = i;
 			aList[i].onmouseover = function () {
 				aList[mark].className = '';
@@ -122,17 +122,20 @@
 				var str = '';
 				var inMark = 0;
 				oContent.style.background = 'url(' + arrImg[mark][0] +')';
-				for (k=0;k<aLength;k++) {
+				for (var k=0;k<aLength;k++) {
 					if (k==0) {
 						str += '<li class="active">' + arrText[mark][k] + '</li>'
 					} else{
 						str +='<li>' + arrText[mark][k] + '</li>'
 					}
 				}
-//				alert(str);
 				oContList.innerHTML = str;
-				for (k=0;k<aLength;k++) {
-					aClist[k].style.width = (parseInt(1000/aLength) - 1) + 'px';
+				for (var k=0;k<aLength;k++) {
+					if (k == 0) {
+						aClist[k].style.width = parseInt(1000/aLength) + 'px';
+					} else{
+						aClist[k].style.width = (parseInt(1000/aLength) - 1) + 'px';
+					}
 					aClist[k].index = k;
 					aClist[k].onmouseover = function () {
 						aClist[inMark].className = '';
