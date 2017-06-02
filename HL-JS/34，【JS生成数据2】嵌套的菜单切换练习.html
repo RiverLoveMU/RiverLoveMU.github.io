@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.main{
+				width: 810px;
+			}
+			#tab li{
+				width: 200px;
+				height: 100px;
+				line-height: 100px;
+				background: #D8D8D8;
+				border-bottom:1px solid #FFF ;
+				text-align: center;
+			}
+			#tab li.active{
+				background: orange;
+			}
+			.cont{
+				height: 404px;
+				width: 600px;
+				border: 1px solid red;
+				overflow: hidden;
+			}
+			.fl{
+				float: left;
+			}
+			.tabCont,
+			.tabCont img{
+				height: 100%;
+				width: 100%;
+				
+			}
+			.tabCont{
+				position: relative;
+			}
+			
+			.tabCont ul{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+			}
+			.tabCont li{
+				float: left;
+				line-height: 30px;
+				background: rgba(0,0,0,0.5);
+				color: #FFF;
+				box-sizing: border-box;
+				border-right: 1px solid #FFF;
+				text-align: center;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<ul id="tab" class="fl">
+				<li class="active">主菜单1</li>
+				<li>主菜单2</li>
+				<li>主菜单3</li>
+				<li>主菜单4</li>
+			</ul>
+			<div class="cont fl">
+				<div class="tabCont bg-red">
+					<img src="img/animal1.jpeg"/>
+					<ul></ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		var arrImg=[
+//			[1,2],
+//			[3,4,5],
+//			[6,7,8,9],
+//			[6,7,8,9,10]
+//		]
+		var oTab=document.getElementById('tab');
+		var aLi=oTab.getElementsByTagName('li');
+		var aTabCont=document.getElementsByClassName('tabCont')[0];
+		var oUl=aTabCont.getElementsByTagName('ul')[0];
+		var oImg=aTabCont.getElementsByTagName('img')[0];
+		
+		var Len=aLi.length;
+		
+		var arrImg=[
+			['img/mu1.jpg','img/mu2.jpg'],
+			['img/mu3.jpg','img/mu4.jpg','img/mu5.jpg'],
+			['img/mu4.jpg','img/mu5.jpg','img/mu6.jpg','img/mu8.jpg'],
+			['img/mu3.jpg','img/mu4.jpg','img/mu5.jpg','img/mu6.jpg','img/mu7.jpg']
+		];
+		var arrText=[
+			['菜单1','菜单2'],
+			['菜单1','菜单2','菜单3'],
+			['菜单1','菜单2','菜单3','菜单4'],
+			['菜单1','菜单2','菜单3','菜单4','菜单5']
+		]
+		
+		creatLi(arrImg[0].length,0);
+		
+		for(var i=0;i<Len;i++){
+			aLi[i].index=i;
+			aLi[i].onclick=function(){
+				var num=arrImg[this.index].length;
+				
+				creatLi(num,this.index);
+				
+				for(var i=0;i<Len;i++){
+					aLi[i].className='';
+				};
+				this.className='active';
+				
+			}
+		}
+		
+		function creatLi(myNum,myIndex){
+			var str='';
+			for(var i=0;i<myNum;i++){
+				str+='<li style="width:'+parseFloat(100/myNum)+'%;">'+arrText[myIndex][i]+'</li>'
+			}
+			oUl.innerHTML=str;
+			
+			innerTab(myIndex);
+		}
+		
+		function innerTab(n){
+			var aInnerTab=aTabCont.getElementsByTagName('li');
+			var innerLen=aInnerTab.length;
+			oImg.src=arrImg[n][0];
+			
+			for(var i=0;i<innerLen;i++){
+				aInnerTab[i].index=i;
+				aInnerTab[i].onmouseover=function(){
+					oImg.src=arrImg[n][this.index];
+				}
+			}
+		}
+		
+	</script>
+</html>

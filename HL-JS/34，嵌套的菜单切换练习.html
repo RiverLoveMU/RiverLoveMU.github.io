@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.main{
+				width: 810px;
+			}
+			#tab li{
+				width: 200px;
+				height: 100px;
+				line-height: 100px;
+				background: #D8D8D8;
+				border-bottom:1px solid #FFF ;
+				text-align: center;
+			}
+			.cont{
+				height: 404px;
+				width: 600px;
+				border: 1px solid red;
+				overflow: hidden;
+			}
+			.fl{
+				float: left;
+			}
+			.tabCont,
+			.tabCont img{
+				height: 100%;
+				width: 100%;
+				
+			}
+			.tabCont{
+				position: relative;
+			}
+			.bg-red{
+				background: red;
+			}
+			.bg-blue{
+				background: cornflowerblue;
+			}
+			.bg-yellow{
+				background: yellowgreen;
+			}
+			.bg-green{
+				background: green;
+			}
+			.tabCont ul{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+			}
+			.tabCont li{
+				float: left;
+				line-height: 30px;
+				background: rgba(0,0,0,0.5);
+				color: #FFF;
+				box-sizing: border-box;
+				border-right: 1px solid #FFF;
+				text-align: center;
+			}
+			.innerTab2 li{
+				width: 50%;
+			}
+			.innerTab3 li{
+				width: 33.33%;
+			}
+			.innerTab4 li{
+				width: 25%;
+			}
+			.innerTab5 li{
+				width: 20%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<ul id="tab" class="fl">
+				<li>主菜单1</li>
+				<li>主菜单2</li>
+				<li>主菜单3</li>
+				<li>主菜单4</li>
+			</ul>
+			<div class="cont fl">
+				<div class="tabCont bg-red">
+					<img src="img/mu1.jpg"/>
+					<ul class="innerTab2">
+						<li>子菜单1</li>
+						<li>子菜单2</li>
+					</ul>
+				</div>
+				<div class="tabCont bg-blue">
+					<img src="img/mu3.jpg"/>
+					<ul class="innerTab3">
+						<li>子菜单1</li>
+						<li>子菜单2</li>
+						<li>子菜单3</li>
+					</ul>
+				</div>
+				<div class="tabCont bg-yellow">
+					<img src="img/mu4.jpg"/>
+					<ul class="innerTab4">
+						<li>子菜单1</li>
+						<li>子菜单2</li>
+						<li>子菜单3</li>
+						<li>子菜单4</li>
+					</ul>
+				</div>
+				<div class="tabCont bg-green">
+					<img src="img/mu3.jpg"/>
+					<ul class="innerTab5">
+						<li>子菜单1</li>
+						<li>子菜单2</li>
+						<li>子菜单3</li>
+						<li>子菜单4</li>
+						<li>子菜单5</li>
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		var arrImg=[
+//			[1,2],
+//			[3,4,5],
+//			[6,7,8,9],
+//			[6,7,8,9,10]
+//		]
+		var oTab=document.getElementById('tab');
+		var aLi=oTab.getElementsByTagName('li');
+		var aTabCont=document.getElementsByClassName('tabCont');
+		var Len=aLi.length;
+		
+		var arrImg=[
+			['img/mu1.jpg','img/mu2.jpg'],
+			['img/mu3.jpg','img/mu4.jpg','img/mu5.jpg'],
+			['img/mu4.jpg','img/mu5.jpg','img/mu6.jpg','img/mu8.jpg'],
+			['img/mu3.jpg','img/mu4.jpg','img/mu5.jpg','img/mu6.jpg','img/mu7.jpg']
+		]
+		
+		for(var i=0;i<Len;i++){
+			aLi[i].index=i;
+			aLi[i].onclick=function(){
+				for(var i=0;i<Len;i++){
+					aTabCont[i].style.display='none';
+					aLi[i].style.background='#d8d8d8';
+				};
+				aTabCont[this.index].style.display='block';
+				this.style.background='orange';
+			}
+		}
+		
+//		var oImg=aTabCont[1].getElementsByTagName('img')[0];
+//		var aInnerTab=aTabCont[1].getElementsByTagName('li');
+//		var innerLen=aInnerTab.length;
+//		for(var i=0;i<innerLen;i++){
+//			aInnerTab[i].index=i;
+//			aInnerTab[i].onmouseover=function(){
+//				oImg.src=arrImg[1][this.index];
+//			}
+//		}
+		for(var i=0;i<Len;i++){
+			innerTab(i);
+		}
+		function innerTab(n){
+			var oImg=aTabCont[n].getElementsByTagName('img')[0];
+			var aInnerTab=aTabCont[n].getElementsByTagName('li');
+			var innerLen=aInnerTab.length;
+			for(var i=0;i<innerLen;i++){
+				aInnerTab[i].index=i;
+				aInnerTab[i].onmouseover=function(){
+					oImg.src=arrImg[n][this.index];
+				}
+			}
+		}
+	</script>
+</html>
