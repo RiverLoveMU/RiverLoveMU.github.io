@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				width: 400px;
+				border: 1px solid #D8D8D8;
+			}
+			.tab{
+				overflow: hidden;
+			}
+			.tab li{
+				padding: 10px 20px;
+				background: #D8D8D8;
+				float: left;
+			}
+			.tab li.active{
+				background: orange;
+			}
+			/*.list{
+				display: none;
+			}
+			.list.active{
+				display: block;
+			}*/
+			.list li{
+				padding: 5px;
+				border-bottom: 1px dashed #D8D8D8;
+				overflow: hidden;
+			}
+			.list li span{
+				display: inline-block;
+				height: 25px;
+				width: 25px;
+				line-height: 25px;
+				text-align: center;
+				background: cornflowerblue;
+				float: left;
+			}
+			.list li img{
+				height: 60px;
+				width: 100px;
+				float: left;
+				display: none;
+				margin: 0 10px;
+			}
+			.list li a{
+				display: inline-block;
+				padding: 4px 10;
+				color: #FFF;
+				float: right;
+				display: none;
+				background: cornflowerblue;
+			}
+			.list li p{
+				line-height: 25px;
+			}
+			.list li.active img,
+			.list li.active a{
+				display: inline-block;
+			}
+			/*.list li:hover{
+				background: cornflowerblue;
+			}*/
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<ul class="tab">
+				<li class="active">每天</li>
+				<li>每周</li>
+				<li>每月</li>
+			</ul>
+			
+			<ul class="list">
+				<!--<li>
+					<span>1</span>
+					<img src="img/animal1.jpeg"/>
+					<p>世界十大未解之谜，百慕大三角~百慕大三角~</p>
+					<button>播放</button>
+				</li>-->
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//		每天每周每月的菜单切换代码
+		var oTab=document.getElementsByClassName('tab')[0];
+		var aTabLi=oTab.getElementsByTagName('li');
+		var aList=document.getElementsByClassName('list')[0];
+		
+		var tabLen=aTabLi.length;
+		
+		var arrLi=[
+			[
+				{
+					'imgSrc':'img/animal1.jpeg',
+					'text':'世界十大未解之谜，百慕大三角~',
+					'myHref':'http://www.qq.com'
+				},
+				{
+					'imgSrc':'img/animal1.jpeg',
+					'text':'世界十大未解之谜，百慕大三角~',
+					'myHref':'http://www.qq.com'
+				},
+				{
+					'imgSrc':'img/animal1.jpeg',
+					'text':'世界十大未解之谜，百慕大三角~',
+					'myHref':'http://www.qq.com'
+				}
+			],
+			[
+				{
+					'imgSrc':'img/animal1.jpeg',
+					'text':'【每周】世界十大未解之谜，百慕大三角~',
+					'myHref':'http://www.qq.com'
+				},
+				{
+					'imgSrc':'img/animal1.jpeg',
+					'text':'世界十大未解之谜，百慕大三角~',
+					'myHref':'http://www.qq.com'
+				},
+				{
+					'imgSrc':'img/animal1.jpeg',
+					'text':'世界十大未解之谜，百慕大三角~',
+					'myHref':'http://www.qq.com'
+				}
+			],
+			[
+				{
+					'imgSrc':'img/animal1.jpeg',
+					'text':'【每月】世界十大未解之谜，百慕大三角~',
+					'myHref':'http://www.qq.com'
+				},
+				{
+					'imgSrc':'img/animal1.jpeg',
+					'text':'世界十大未解之谜，百慕大三角~',
+					'myHref':'http://www.qq.com'
+				},
+				{
+					'imgSrc':'img/animal1.jpeg',
+					'text':'世界十大未解之谜，百慕大三角~',
+					'myHref':'http://www.qq.com'
+				}
+			]
+		];
+		
+		
+		for(var i=0;i<tabLen;i++){
+			aTabLi[i].index=i;
+			aTabLi[i].onclick=function(){
+				for(var i=0;i<tabLen;i++){
+					aTabLi[i].className='';
+//					aList[i].className='list';
+				}
+				this.className='active';
+				
+				creat(this.index);
+			}
+		}
+		
+//		creat函数是生成list内容区里面li 的通用函数
+		function creat(n){
+			var arrLen=arrLi[n].length;
+			var str='';
+			for(var i=0;i<arrLen;i++){
+				str+='<li>'
+						+'<span>'+(i+1)+'</span>'
+						+'<img src="'+arrLi[n][i].imgSrc+'"/>'
+						+'<p>'+arrLi[n][i].text+'</p>'
+						+'<a href="'+arrLi[n][i].myHref+'">播放</a>'
+					+'</li>'
+			}
+			aList.innerHTML=str;
+			tabList();
+		}
+		
+		creat(0);
+		
+//		为了实现list里面li的鼠标移入效果
+		
+//		
+//		for(var i=0;i<3;i++){
+			
+//		}
+//		
+		function tabList(){
+			var aLi=aList.getElementsByTagName('li');
+			var Len=aLi.length;
+//			console.log(Len);
+			for(var i=0;i<Len;i++){
+				aLi[i].onmouseover=function(){
+					for(var i=0;i<Len;i++){
+						aLi[i].className='';
+					}
+					this.className='active';
+				}
+			}
+		}
+//		
+
+		
+	</script>
+</html>
