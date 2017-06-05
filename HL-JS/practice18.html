@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="back">后退</button>
+		<button id="go">前进</button>
+		<div id="box">
+			
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('go').onclick = function () {
+			var mLeft = parseInt(getStyle($('box'),'marginLeft'));
+			$('box').style.marginLeft = (mLeft + 10) + 'px';
+		}
+		$('back').onclick = function () {
+			var mLeft = parseInt(getStyle($('box'),'marginLeft'));
+			$('box').style.marginLeft = (mLeft - 10) + 'px';
+		}
+	</script>
+</html>
