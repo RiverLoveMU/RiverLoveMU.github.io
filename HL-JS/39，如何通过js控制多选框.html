@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<input type="checkbox" name="" id="" value=""/>
+		<input type="checkbox" name="" id="" value="" />
+		<input type="checkbox" name="" id="" value="" />
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+		var aInput=document.getElementsByTagName('input');
+		var change=true;
+		$('btn').onclick=function(){
+			for(var i=0;i<aInput.length;i++){
+//				aInput[i].checked='checked';
+				if(change){
+//					aInput[i].checked='checked';
+					aInput[i].checked=true;
+				}else{
+//					aInput[i].checked='';
+					aInput[i].checked=false;
+				}
+			}
+			change=!change;
+		}
+	</script>
+</html>

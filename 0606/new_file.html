@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#list{
+				margin-left: 32px;
+			}
+		</style>
+	</head>
+	<body>
+		<label for="all">全选</label><input type="checkbox" name="" id="all" value=""/>		
+		<ul id="list">
+			<li><input type="checkbox" name="" id="" value="" /></li>
+			<li><input type="checkbox" name="" id="" value="" /></li>
+			<li><input type="checkbox" name="" id="" value="" /></li>
+			<li><input type="checkbox" name="" id="" value="" /></li>
+			<li><input type="checkbox" name="" id="" value="" /></li>
+			<li><input type="checkbox" name="" id="" value="" /></li>
+			<li><input type="checkbox" name="" id="" value="" /></li>
+			<li><input type="checkbox" name="" id="" value="" /></li>
+			<li><input type="checkbox" name="" id="" value="" /></li>
+			<li><input type="checkbox" name="" id="" value="" /></li>
+		</ul>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var oLi = $('list').getElementsByTagName('input');
+		var Len = oLi.length;
+		var num = 0;
+		$('all').onclick = function () {
+			if ($('all').checked) {
+				for (var i=0;i<Len;i++) {
+					oLi[i].checked = true;
+				}
+				num = Len;
+			}else{
+				for (var i=0;i<Len;i++) {
+					oLi[i].checked = false;
+				}
+				num = 0;
+			}
+		}
+		for (var i=0;i<Len;i++) {
+			oLi[i].onclick = function () {
+				if (this.checked) {
+					num++;
+				} else{
+					num--;
+				}
+				if (num == Len) {
+					$('all').checked = true;
+				}else{
+					$('all').checked = false;
+				}
+			}
+		}
+	</script>
+</html>

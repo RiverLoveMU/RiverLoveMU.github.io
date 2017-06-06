@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				width: 300px;
+				position: relative;
+				margin-top: 200px;
+			}
+			.game{
+				width: 50px;
+				padding:0 5px;
+				text-align: center;
+				float: left;
+				border-bottom: 1px solid red;
+			}
+			.game img{
+				width: 50px;
+				height: 50px;
+			}
+			.intro{
+				height: 100px;
+				width: 150px;
+				background: red;
+				position: absolute;
+				top: -100px;
+				left: 0;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<!--<h4>最新上架</h4>-->
+			<!--<div class="game">
+				<img src="img/animal1.jpeg"/>
+				<h3>娱乐</h3>
+				<p>好玩的</p>
+			</div>-->
+			<div class="intro"></div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+		var oCont=document.getElementsByClassName('cont')[0];
+		var aGame=oCont.getElementsByClassName('game');
+		var str='';
+		for(var i=0;i<20;i++){
+			str+='<div class="game">'
+					+'<img src="img/animal1.jpeg"/>'
+					+'<h3>娱乐</h3>'
+					+'<p>好玩的</p>'
+				+'</div>'
+		}
+		oCont.innerHTML+=str;
+		var Len=aGame.length;
+		var oIntro=oCont.getElementsByClassName('intro')[0];
+		var h=parseInt(getStyle(aGame[0],'height'));
+		console.log(h);
+//		console.log(Len);
+		for(var i=0;i<Len;i++){
+			aGame[i].index=i;
+			aGame[i].onmouseover=function(){
+				oIntro.style.display='block';
+				oIntro.style.left=60*(this.index%5)+'px';
+				oIntro.style.top=-100+h*(parseInt(this.index/5))+'px';
+			}
+		}
+	</script>
+</html>
