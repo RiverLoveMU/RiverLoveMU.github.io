@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			#cont {
+				width: 1000px;
+			}
+			
+			div {
+				display: inline-block;
+				vertical-align: middle;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="cont">
+			<div class="intro">
+				请为这次服务打分
+			</div>
+			<div id="star">
+				<div class="star">
+					<img src="img/star1.png" />
+				</div>
+				<div class="star">
+					<img src="img/star1.png" />
+				</div>
+				<div class="star">
+					<img src="img/star1.png" />
+				</div>
+				<div class="star">
+					<img src="img/star1.png" />
+				</div>
+				<div class="star">
+					<img src="img/star1.png" />
+				</div>
+			</div>
+			<div class="explain">
+				将鼠标移到星星上 点击鼠标左键打分
+			</div>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var aStar = $('cont').getElementsByClassName('star');
+		var oExplain = $('cont').getElementsByClassName('explain')[0];
+		var Len = aStar.length;
+		var arrColor = ['img/star1.png', 'img/star2.png', 'img/star3.png'];
+		var arrText = ['差', '较差', '一般', '较好', '好', '将鼠标移到星星上 点击鼠标左键打分'];
+		var swi = 0;
+		var mark = Len;
+		$('star').onmouseenter = function() {
+			for(var i = 0; i < Len; i++) {
+				aStar[i].index = i;
+				aStar[i].onmouseover = function() {
+					if(swi == 0) {
+						clearColor();
+						checkColor(this.index);
+					}
+				}
+				aStar[i].onclick = function() {
+					if(swi == 0) {
+						swi = 1;
+						mark = this.index;
+					}
+				}
+			}
+		}
+		$('star').onmouseleave = function() {
+			if(swi == 0) {
+				clearColor();
+				if(mark == Len) {
+					
+				} else {
+					checkColor(mark);
+				}
+			}
+			swi = 0;
+		}
+
+		function changeColor(n, k) {
+			var aImg = aStar[n].getElementsByTagName('img')[0];
+			aImg.src = k;
+		}
+
+		function checkColor(n) {
+			for(var i = 0; i < Len; i++) {
+				if(n < 2) {
+					changeColor(i, arrColor[1]);
+				} else {
+					changeColor(i, arrColor[2]);
+				}
+				if(i == n) {
+					break;
+				}
+			}
+			oExplain.innerHTML = arrText[n];
+		}
+		function clearColor() {
+			for(var i = 0; i < Len; i++) {
+				changeColor(i, arrColor[0])
+			}
+			oExplain.innerHTML = arrText[Len];
+		}
+	</script>
+
+</html>
