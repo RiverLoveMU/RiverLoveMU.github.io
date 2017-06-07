@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="back">后退</button>
+		<button id="go">前进</button>
+		<button id="pause">暂停</button>
+		<div id="box">
+			
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var timer = null;
+		$('go').onclick = function () {
+			clearInterval(timer);
+			timer = setInterval(function () {
+				var mLeft = parseInt(getStyle($('box'),'marginLeft'));
+				$('box').style.marginLeft = (mLeft + 10) + 'px';
+			},100)
+		}
+		$('back').onclick = function () {
+			clearInterval(timer);
+			timer = setInterval(function () {
+				var mLeft = parseInt(getStyle($('box'),'marginLeft'));
+				$('box').style.marginLeft = (mLeft - 10) + 'px';
+			},100)
+		}
+		$('pause').onclick = function () {
+			clearInterval(timer);
+		}
+	</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+	</head>
+	<body>
+		<button id="vcode">点击发送验证码</button>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var num = 5;
+		var timer = null;
+		$('vcode').onclick = function () {
+			change();
+			timer = setInterval(change,1000);
+		}
+		function change () {
+			$('vcode').innerHTML = num + 's后重新发送';
+			console.log(num);
+			num--;
+			if (num<0) {
+				$('vcode').innerHTML = '点击发送验证码';
+				num = 5;
+				clearInterval(timer);
+			}
+		}
+	</script>
+</html>
+

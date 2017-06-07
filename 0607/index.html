@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#content{
+				position: relative;
+				width: 790px;
+				height: 340px;
+				overflow: hidden;
+			}
+			ul{
+				position: absolute;
+				background: rgba(255,255,255,0.5);
+				bottom: 15px;
+				overflow: hidden;
+				border-radius: 11px;
+				left: 50%;
+				margin-left: -112px;
+				cursor: pointer;
+			}
+			li{
+				height: 12px;
+				width: 12px;
+				float: left;
+				border-radius: 50%;
+				background: white;
+				margin: 5px 8px;
+			}
+			.active{
+				background: #DB192A;
+			}
+			#prev,#next{
+				position: absolute;
+				width: 30px;
+				height: 60px;
+				top: 50%;
+				margin-top: -30px;
+				background: rgba(0,0,0,0.1);
+				line-height: 60px;
+				color: white;
+				text-align: center;
+				font-size: 20px;
+				display: none;
+				cursor: pointer;
+			}
+			#prev{
+				left: 0;
+			}
+			#next{
+				right: 0;
+			}
+			#content:hover #prev,
+			#content:hover #next{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<img id="pic" src="img/jd1.jpg"/>
+			<ul id="list">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div id="prev">
+				<
+			</div>
+			<div id="next">
+				>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var arrImg = ['img/jd1.jpg','img/jd2.jpg','img/jd3.jpg','img/jd4.jpg','img/jd5.jpg','img/jd6.jpg','img/jd7.jpg','img/jd8.jpg'];
+		var oPrev = document.getElementById('prev');
+		var oNext = document.getElementById('next');
+		var oPic = document.getElementById('pic');
+		var aLi = document.getElementsByTagName('li');
+		var oList = document.getElementById('list');
+		var num = 0;
+		var swi = 0;
+		var timer = setInterval(intervalChange,2000);
+		function intervalChange () {
+			if (swi == 0) {
+				num = (++num)%aLi.length;
+				change(num);
+			}
+		}
+		function change (index) {
+			oPic.src = arrImg[index];
+				for (j=0;j<aLi.length;j++) {
+					aLi[j].className = '';
+				}
+				aLi[index].className = 'active';
+		}
+		for (i=0;i<aLi.length;i++) {
+			aLi[i].index = i;
+			aLi[i].onmouseover = function() {
+				change(this.index);
+				num = this.index;
+			}
+		}
+		oList.onmouseover = function() {
+			swi = 1;
+		}
+		oList.onmouseout = function() {
+			swi = 0;
+		}
+		oPrev.onclick = function() {
+			if (num == 0) {
+				num = aLi.length - 1;
+			} else{
+				num--;
+			}
+			change(num);
+		}
+		oNext.onclick = function() {
+			if (num == aLi.length - 1) {
+				num = 0;
+			} else{
+				num++;
+			}
+			change(num);
+		}
+		oPrev.onmouseover = function() {
+			this.style.background = 'rgba(0,0,0,0.6)';
+			swi = 1;
+		}
+		oPrev.onmouseout = function() {
+			this.style.background = 'rgba(0,0,0,0.1)';
+			swi = 0;
+		}
+		oNext.onmouseover = function() {
+			this.style.background = 'rgba(0,0,0,0.6)';
+			swi = 1;
+		}
+		oNext.onmouseout = function() {
+			this.style.background = 'rgba(0,0,0,0.1)';
+			swi = 0;
+		}
+	</script>
+</html>

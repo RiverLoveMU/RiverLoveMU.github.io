@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#cont{
+				width: 200px;
+				height: 600px;
+				overflow: hidden;
+				position: relative;
+			}
+			#up,#down{
+				width: 200px;
+				height: 50px;
+				text-align: center;
+				line-height: 50px;
+				background: black;
+				color: white;
+			}
+			#down{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+			#main{
+				position: relative;
+				z-index: -1;
+			}
+			#main div{
+				width: 200px;
+				height: 180px;
+				border-bottom: 1px solid gainsboro;
+			}
+			.blue{
+				background: blue;
+			}
+			.yellow{
+				background: yellow;
+			}
+			.red{
+				background: red;
+			}
+			.green{
+				background: green;
+			}
+			.orange{
+				background: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="cont">
+			<div id="up">
+				向上
+			</div>
+			<div id="down">
+				向下
+			</div>
+			<div id="main">
+				<div class="blue">
+					
+				</div>
+				<div class="yellow">
+					
+				</div>
+				<div class="red">
+					
+				</div>
+				<div class="orange">
+					
+				</div>
+				<div class="green">
+					
+				</div>
+				<div class="blue">
+					
+				</div>
+				<div class="yellow">
+					
+				</div>
+				<div class="red">
+					
+				</div>
+				<div class="orange">
+					
+				</div>
+				<div class="green">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var timer = null;
+		var margin = 0;
+		$('up').onmousedown = function () {
+			clearInterval(timer);
+		 	timer = setInterval(function () {
+		 		if (margin>=-1300) {
+		 			margin = parseInt(getStyle($('main'),'marginTop')) - 10;
+		 			$('main').style.marginTop = margin + 'px';
+		 		}
+		 	},100)
+		}
+		$('up').onmouseup = function () {
+			clearInterval(timer);
+		}
+		$('down').onmousedown = function () {
+			clearInterval(timer);
+		 	timer = setInterval(function () {
+		 		if (margin<=-10) {
+		 			margin = parseInt(getStyle($('main'),'marginTop')) + 10;
+		 			$('main').style.marginTop = margin + 'px';
+		 		}
+		 	},100)
+		}
+		$('down').onmouseup = function () {
+			clearInterval(timer);
+		}
+	</script>
+</html>
