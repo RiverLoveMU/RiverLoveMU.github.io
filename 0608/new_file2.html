@@ -114,6 +114,8 @@
 		oMath.onmouseenter = function () {
 			oUp.style.display = 'block';
 			oDown.style.display = 'block';
+			clearInterval(oUp.timer);
+			clearInterval(oDown.timer);
 			oUp.timer = setInterval(function(){
 				var top = parseInt(getStyle(oUp,'top')) - 3;
 				if(top<=-30){
@@ -134,6 +136,8 @@
 			
 		}
 		oMath.onmouseleave = function () {
+			clearInterval(oUp.timer);
+			clearInterval(oDown.timer);
 			oUp.timer = setInterval(function(){
 				var top = parseInt(getStyle(oUp,'top')) + 3;
 				if(top>= 0){
