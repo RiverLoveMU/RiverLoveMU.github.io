@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#cont{
+				height: 300px;
+				width: 150px;
+				border: 1px solid black;
+				position: relative;
+				overflow: hidden;
+			}
+			#cont button{
+				width: 100%;
+				position: absolute;
+				left: 0;
+			}
+			#up{
+				top: 0;
+			}
+			#down{
+				bottom: 0;
+			}
+			#cont li{
+				height: 60px;
+			}
+			#cont li:nth-of-type(2n){
+				background: cadetblue;
+			}
+			#cont li:nth-of-type(2n+1){
+				background: palevioletred;
+			}
+			#cont ul{
+				margin-top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="cont">
+			<button id="up">向上</button>
+			<button id="down">向下</button>
+			<ul id="list">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+		var timer=null;
+		var max=parseInt(getStyle($('list'),'height'))-parseInt(getStyle($('cont'),'height'));
+		$('up').onmousedown=function(){
+			timer = setInterval(function(){
+				var mT= parseInt(getStyle($('list'),'marginTop'));
+				if(mT<-max){
+					clearInterval(timer);
+					return;
+				}
+				$('list').style.marginTop=mT-10+'px';
+			},40)
+//			console.log(mT);
+		}
+		$('up').onmouseup=function(){
+			clearInterval(timer);
+		}
+		
+		$('down').onmousedown=function(){
+			timer = setInterval(function(){
+				var mT= parseInt(getStyle($('list'),'marginTop'));
+				if(mT>0){
+					clearInterval(timer);
+					return;
+				}
+				$('list').style.marginTop=mT+10+'px';
+			},40)
+//			console.log(mT);
+		}
+		$('down').onmouseup=function(){
+			clearInterval(timer);
+		}
+	</script>
+</html>

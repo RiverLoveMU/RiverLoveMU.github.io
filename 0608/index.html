@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				height: 100px;
+				width: 100px;
+				background: red;
+				margin: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="up">向上</button>
+		<br />
+		<button id="back">后退</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button id="prev">前进</button>
+		<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button id="down">向下</button>
+		<br />
+		<button id="circle">循环</button>
+		<button id="pause">暂停</button>
+		<br />
+		速度 (<span id="speed">普通</span>)
+		<button id="slow">慢</button>
+		<button id="normal">普通</button>
+		<button id="fast">快</button>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js"></script>
+	<script type="text/javascript">
+		var ma = 4;
+		var speed = 10;
+		$('prev').onclick = function() {
+			ma = 4;
+			go($('box'), speed, 600, 'marginLeft');
+		}
+
+		$('back').onclick = function() {
+			ma = 2;
+			go($('box'), -speed, 0, 'marginLeft');
+		}
+		$('down').onclick = function() {
+			ma = 1;
+			go($('box'), speed, 600, 'marginTop');
+		}
+		$('up').onclick = function() {
+			ma = 3;
+			go($('box'), -speed, 0, 'marginTop');
+		}
+		$('slow').onclick = function() {
+			speed = 5;
+			$('speed').innerHTML = '慢';
+		}
+		$('normal').onclick = function() {
+			speed = 10;
+			$('speed').innerHTML = '普通';
+		}
+		$('fast').onclick = function() {
+			speed = 20;
+			$('speed').innerHTML = '快';
+		}
+		$('circle').onclick = function() {
+			switch (ma){
+				case 4:
+				return goRight();
+					break;
+				case 1:
+				return goDown();
+					break;
+				case 2:
+				return goLeft();
+					break;
+				case 3:
+				return goUp();
+					break;
+				default:
+					break;
+			}
+			goRight();
+		}
+		$('pause').onclick = function() {
+			clearInterval($('box').timer);
+		}
+		function go(obj, direction, target, prop, fn) {
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function() {
+				var Distance = parseInt(getStyle(obj, prop)) + direction;
+				if(Distance > target && direction > 0 || Distance < target && direction < 0) {
+					Distance = target;
+				}
+				obj.style[prop] = Distance + 'px';
+				if (Distance==target) {
+					clearInterval(obj.timer);
+					if(fn){
+						fn();
+					}
+				}
+				if (direction>0) {
+					direction = speed;
+				} else{
+					direction = -speed;
+				}
+			}, 40)
+		}
+		function goLeft () {
+			ma = 2;
+			go($('box'), -speed, 0, 'marginLeft', goUp);
+		}
+		function goDown () {
+			ma = 1;
+			go($('box'), speed, 600, 'marginTop', goLeft);
+		}
+		function goRight () {
+			ma = 4;
+			go($('box'), speed, 600, 'marginLeft', goDown);
+		}
+		function goUp () {
+			ma = 3;
+			go($('box'), -speed, 0, 'marginTop', goRight);
+		}
+		
+	</script>
+
+</html>

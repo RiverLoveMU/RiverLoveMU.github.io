@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#cont{
+				width: 1500px;
+				height: 500px;
+				background: black;
+				margin-left: 0;
+				overflow: hidden;
+			}
+			div{
+				height: 50px;
+				width: 50px;
+				float: left;
+				margin-left: 10px;
+				background: white;
+			}
+			.first{
+				margin-left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="cont">
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var str = '';
+		var oBody = document.getElementsByTagName('body')[0];
+		var aDiv = $('cont').getElementsByTagName('div');
+		var j = true;
+		var z = 0;
+		for (i=0;i<25;i++) {
+			if (i==0) {
+				str += '<div class="first"> </div>';
+			} else{
+				str += '<div> </div>';
+			}
+		}
+		$('cont').innerHTML = str;
+		for (k=0;k<aDiv.length;k++) {
+			aDiv[k].timer = null;
+		}
+		var atimer = null;
+		var timer = null;
+		document.onclick = function () {
+			clearInterval(atimer);
+			clearInterval(timer);
+			for (k=0;k<aDiv.length;k++) {
+				clearInterval(aDiv[k].timer)
+			}
+			if (z==0) {
+				atimer = setInterval(function () {
+				var num = 0;
+				if (j) {
+					clearInterval(timer);
+					timer = setInterval(function () {
+						if (num<25) {
+							Go(aDiv[num],'marginTop',10,450);
+							num++;
+						}
+					},20)
+				} else{
+					clearInterval(timer);
+					timer = setInterval(function () {
+						if (num<25) {
+							Go(aDiv[num],'marginTop',-10,0);
+							num++;
+						}
+					},20)
+				}
+				j = !j;
+				},530)
+				z = 1;
+			} else{
+//				setTimeout(function () {
+//					for (k=0;k<aDiv.length;k++) {
+//							aDiv[k].style.marginTop = 0;
+//					}
+//				},520)
+				z = 0;
+			}
+		}
+		function Go(obj,attr,direct,target){
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function(){
+				var Distance=parseInt(getStyle(obj,attr))+direct;
+				if( Distance>=target && direct>0 || Distance<target && direct<0){ //与运算的优先级大于或运算
+					Distance=target;
+					clearInterval(obj.timer);
+				}
+				obj.style[attr]=Distance+'px';
+			},10)
+		}
+	</script>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.bg{
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+				top: 0;
+				left: 0;
+				overflow: hidden;
+			}
+			.bg img{
+				width: 100%;
+				height: 100%;
+			}
+			#cont{
+				margin: 400px auto 0;
+				height: 60px;
+				width: 660px;
+				position: relative;
+			}
+			#cont .bt{
+				height: 60px;
+				width: 200px;
+				float: left;
+				margin-right: 30px;
+				background: white;
+				line-height: 60px;
+				font-size: 30px;
+				text-align: center;
+				font-weight: bold;
+				border-radius: 20px;
+				position: relative;
+			}
+			#cont .bt.last{
+				margin-right: 0px;
+			}
+			#cont .upBox,
+			#cont .downBox{
+				height: 60px;
+				width: 200px;
+				background: white;
+				line-height: 60px;
+				font-size: 30px;
+				text-align: center;
+				font-weight: bold;
+				border-radius: 20px;
+				position: absolute;
+				top: 0;
+				left: 0px;
+				display: none;
+			}
+			#cont .line{
+				width: 180px;
+				height: 1px;
+				background: gainsboro;
+				position: absolute;
+				top: 30px;
+				left: 10px;
+				display: none;
+			}
+			#cont .upBox{
+				z-index: 3;
+			}
+			#cont .downBox{
+				z-index: 2;
+			}
+			#cont .line{
+				z-index: 4;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="bg" class="bg">
+			<img src="img/bg1.jpg"/>
+		</div>
+		<div id="cont">
+			<div class="bt">
+				语文
+			</div>
+			<div class="bt math">
+				数学
+				<div class="upBox">
+					高等数学
+				</div>
+				<div class="downBox">
+					线性代数
+				</div>
+				<div class="line">
+					
+				</div>
+			</div>	
+			<div class="bt last">
+				英语
+			</div>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var picNum = 0;
+		setInterval(function(){
+			picNum = (++picNum)%5
+			$('bg').getElementsByTagName('img')[0].src = 'img/bg' + (picNum + 1) + '.jpg';
+		},10000)
+		var oMath = $('cont').getElementsByClassName('math')[0];
+		var oUp = $('cont').getElementsByClassName('upBox')[0];
+		var oDown = $('cont').getElementsByClassName('downBox')[0];
+		var oLine = $('cont').getElementsByClassName('line')[0];
+		oMath.onmouseenter = function () {
+			oUp.style.display = 'block';
+			oDown.style.display = 'block';
+			oUp.timer = setInterval(function(){
+				var top = parseInt(getStyle(oUp,'top')) - 3;
+				if(top<=-30){
+					top = -30 + 'px';
+					clearInterval(oUp.timer);
+				}
+				oUp.style.top = top + 'px';
+			},20)
+			oDown.timer = setInterval(function(){
+				var top = parseInt(getStyle(oDown,'top')) + 3;
+				if(top>=30){
+					top = 30 + 'px';
+					clearInterval(oDown.timer);
+				}
+				oDown.style.top = top + 'px';
+			},20)
+			oLine.style.display = 'block';
+			
+		}
+		oMath.onmouseleave = function () {
+			oUp.timer = setInterval(function(){
+				var top = parseInt(getStyle(oUp,'top')) + 3;
+				if(top>= 0){
+					top = 0 + 'px';
+					clearInterval(oUp.timer);
+				}
+				oUp.style.top = top + 'px';
+			},20)
+			oDown.timer = setInterval(function(){
+				var top = parseInt(getStyle(oDown,'top')) - 3;
+				if(top<=0){
+					oDown.style.top = 0 + 'px';
+					clearInterval(oDown.timer);
+				}
+				oDown.style.top = top + 'px';
+			},20)
+			oLine.style.display = 'none';
+			setTimeout(function() {
+				oUp.style.display = 'none';
+				oDown.style.display = 'none';
+			},200)
+		}
+	</script>
+</html>
+
+

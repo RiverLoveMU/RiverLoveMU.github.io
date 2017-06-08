@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: red;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="back">后退</button>
+		<button id="prev">前进</button>
+		<button id="top">向上</button>
+		<button id="bottom">向下</button>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+//		解决定时器多开之后对动画效果的影响
+		var timer=null;
+		$('prev').onclick=function(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+				var mLeft=parseInt(getStyle($('box'),'marginLeft'));
+				mLeft+=10;
+				$('box').style.marginLeft=mLeft+'px';
+			},40)
+		}
+		
+		$('back').onclick=function(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+				var mLeft=parseInt(getStyle($('box'),'marginLeft'));
+				mLeft-=10;
+				$('box').style.marginLeft=mLeft+'px';
+			},40)
+		}
+	</script>
+</html>
