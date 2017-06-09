@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#box{
+				height: 100px;
+				width: 100px;
+				background: red;
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		<button id="show">显示</button>
+		<button id="hide">隐藏</button>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('hide').onclick = function () {
+			changeOpa($('box'),-0.05);
+		}
+		$('show').onclick = function () {
+			changeOpa($('box'),0.05);
+		}
+		
+		function changeOpa (obj,state) {
+			clearInterval(obj.opaTime);
+			if (state>0) {
+				obj.style.display = 'block';
+			}
+			obj.opaTime = setInterval(function () {
+				var opa = parseFloat(getStyle(obj,'opacity')) + state;
+				if (opa>=1 || opa<=0) {
+					state>0 ? opa = 1 : opa = 0;
+					if (opa==0) {
+						obj.style.display = 'none';
+					}
+					clearInterval(obj.opaTime);
+				}
+				obj.style.opacity = opa;
+			},50)
+		}
+	</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: red;
+				margin: 0;
+				opacity: 1;
+			}
+			#box1{
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="show">显示</button>
+		<button id="hide">隐藏</button>
+		<div id="box"></div>
+		<div id="box1"></div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+		$('hide').onclick=function(){
+			$('box').changeOpacity=setInterval(function(){
+				var opa=parseFloat(getStyle($('box'),'opacity'))-0.05;
+				if(opa<=0){
+					opa=0;
+//					$('box').style.display='none';
+					clearInterval($('box').changeOpacity);
+				}
+				$('box').style.opacity=opa;
+				console.log(opa);
+			},50)
+		}
+		
+		$('show').onclick=function(){
+//			$('box').style.display='block';
+			$('box').changeOpacity=setInterval(function(){
+				var opa=parseFloat(getStyle($('box'),'opacity'))+0.05;
+				if(opa>=1){
+					opa=1;
+					clearInterval($('box').changeOpacity);
+				}
+				$('box').style.opacity=opa;
+				console.log(opa);
+			},50)
+		}
+	</script>
+</html>

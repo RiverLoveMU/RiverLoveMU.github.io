@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#cont{
+				margin-top: 300px;
+				height: 100px;
+				width: 600px;
+				border: 1px solid gainsboro;
+				position: relative;
+			}
+			.box{
+				float: left;
+				height: 100px;
+				width: 100px;
+				text-align: center;
+				line-height: 100px;
+				font-size: 50px;
+				position: relative;
+				top: 0;
+			}
+			.color{
+				height: 100px;
+				width: 0;
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: -1;
+				background: lightblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="cont">
+			<div class="box">
+				+1
+			</div>
+			<div class="box">
+				+1
+			</div>
+			<div class="box">
+				+1
+			</div>
+			<div class="box">
+				+1
+			</div>
+			<div class="box">
+				+1
+			</div>
+			<div class="box">
+				+1
+			</div>
+			<span class="color">
+				
+			</span>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var oColor = $('cont').getElementsByClassName('color')[0];
+		var aBox = $('cont').getElementsByClassName('box');
+		var aTimer = null;
+		document.onclick = function () {
+			var n = 0;
+			aTimer = setInterval(function () {
+				Go(aBox[n],'top',-8,-200);
+				changeOpa(aBox[n],-0.05);
+				n++;
+				if (n==aBox.length) {
+					clearInterval(aTimer);
+				}
+			},125)
+			Go(oColor,'width',30,600,function () {
+				changeOpa(oColor,-0.05);
+			});
+		}
+	</script>
+</html>
+

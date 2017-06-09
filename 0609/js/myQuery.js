@@ -18,7 +18,6 @@ function Go(obj, attr, direct, target, endFn) {
 		if(Distance >= target && direct > 0 || Distance < target && direct < 0) { //与运算的优先级大于或运算
 			Distance = target;
 		}
-		//			1+2*3
 		obj.style[attr] = Distance + 'px';
 		//				obj.style.marginLeft
 		if(Distance == target) {
