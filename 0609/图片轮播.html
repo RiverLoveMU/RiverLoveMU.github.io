@@ -68,10 +68,11 @@
 		var oText = $('pic').getElementsByClassName('text')[0];
 		var num = 0;
 		var arrImg = ['img/mu1.jpg', 'img/mu2.jpg', 'img/mu3.jpg', 'img/mu4.jpg', 'img/mu5.jpg'];
-		var arrText = ['德赫亚', '拜利', '琼斯', '罗霍', '博格巴']
+		var arrText = ['德赫亚', '拜利', '琼斯', '罗霍', '博格巴'];
 		function aImg(n) {
 			return aPic[n].getElementsByTagName('img')[0];
 		}
+		oText.innerHTML = arrText[0];
 		Go(oText, 'bottom', 5, 0, function() {
 			setTimeout(function() {
 				oText.style.bottom = -30 + 'px';
