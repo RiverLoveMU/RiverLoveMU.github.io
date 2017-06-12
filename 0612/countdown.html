@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			input{
+				width: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		距离<input type="text" name="" id="goal" value="" />
+		<br />
+		还剩<input type="text" name="" id="last" value="" />
+		<button id="countdown">倒计时开始</button>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('countdown').onclick = function () {
+			var goal = $('goal').value;
+			var currentDate = new Date();
+			var goalDate = new Date(goal);
+			var t = (goalDate - currentDate)/1000;
+			var str=Math.floor(t/86400)+'天'+Math.floor(t%86400/3600)
+				+'时'+Math.floor(t%86400%3600/60)+'分'
+				+Math.floor(t%60)+'秒'; 
+			$('last').value = str;
+			setInterval(function () {
+				currentDate = new Date();
+				t = (goalDate - currentDate)/1000;
+				str = Math.floor(t/86400)+'天'+Math.floor(t%86400/3600)
+					+'时'+Math.floor(t%86400%3600/60)+'分'
+					+Math.floor(t%60)+'秒'; 
+				$('last').value = str;
+			},1000)
+		}
+	</script>
+</html>

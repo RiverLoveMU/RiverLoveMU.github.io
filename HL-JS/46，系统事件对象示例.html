@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var myDate=new Date();
+		var oHour=('0' + myDate.getHours()).slice(-2);
+		var oMinute=('0' + myDate.getMinutes()).slice(-2);
+		var oSecond=('0' + myDate.getSeconds()).slice(-2);
+		document.body.innerHTML=oHour+':'+oMinute+':'+oSecond;
+		setTimeout(function(){
+			myDate=new Date();
+			oHour=('0' + myDate.getHours()).slice(-2);
+			oMinute=('0' + myDate.getMinutes()).slice(-2);
+			oSecond=('0' + myDate.getSeconds()).slice(-2);
+			document.body.innerHTML=oHour+':'+oMinute+':'+oSecond;
+			setInterval(function(){
+			myDate=new Date();
+			oHour=('0' + myDate.getHours()).slice(-2);
+			oMinute=('0' + myDate.getMinutes()).slice(-2);
+			oSecond=('0' + myDate.getSeconds()).slice(-2);
+			document.body.innerHTML=oHour+':'+oMinute+':'+oSecond;
+		},1000)},(1000-myDate.getMilliseconds()))
+	</script>
+</html>

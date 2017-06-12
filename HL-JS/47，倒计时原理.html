@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		var myDate=new Date(2017,5,12,16,50,10);
+		var newDate=new Date('Jun 12,2017 23:00:00');
+		var nowDate=new Date();
+//		alert(newDate-nowDate);
+//		两个时间点相减之后得到毫秒时间
+//		把毫秒转换成秒：(newDate-nowDate)/1000
+//		alert((newDate-nowDate)/1000);
+		var t=(newDate-nowDate)/1000;
+//		剩余的不满一分钟的秒: t%60
+//		剩下的不满一小时的分:Math.floor(t%86400%3600/60)
+//		剩下多少小时:Math.floor(t%86400/3600)
+//		剩下多少天(24*60*60): Math.floor(t/86400);
+		var str=Math.floor(t/86400)+'天'+Math.floor(t%86400/3600)
+				+'时'+Math.floor(t%86400%3600/60)+'分'
+				+Math.floor(t%60)+'秒';
+		alert(str);
+		
+//		Math.floor向下取整
+	</script>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			img{
+				width: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<img src=""/>
+		<img src=""/>
+		<img src=""/>
+		<img src=""/>
+		<img src=""/>
+		<img src=""/>
+		<img src=""/>
+		<img src=""/>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var aImg = document.getElementsByTagName('img');
+		var arrImg = [
+			'img/0.JPG','img/1.JPG','img/2.JPG',
+			'img/3.JPG','img/4.JPG','img/5.JPG',
+			'img/6.JPG','img/7.JPG','img/8.JPG',
+			'img/9.JPG','img/colon.JPG','img/colon1.JPG'
+		];
+		var myDate=new Date();
+		var k =true;
+		if (myDate.getMilliseconds()<500) {
+			aImg[2].src = arrImg[11];
+			aImg[5].src = arrImg[11];
+			setTimeout(function(){
+				aImg[2].src = arrImg[10];
+				aImg[5].src = arrImg[10];
+				blink();
+			},500-myDate.getMilliseconds())
+		} else{
+			aImg[2].src = arrImg[10];
+			aImg[5].src = arrImg[10];
+			setTimeout(function(){
+				aImg[2].src = arrImg[11];
+				aImg[5].src = arrImg[11];
+				k = !k;
+				blink();
+			},1000-myDate.getMilliseconds())
+		}
+		getTime();
+		setTimeout(function(){
+			getTime();
+			setInterval(function(){
+			getTime();
+		},1000)},(1000-myDate.getMilliseconds()))
+		function getTime () {
+			var myDate=new Date();
+			var oHour=('0' + myDate.getHours()).slice(-2);
+			var oMinute=('0' + myDate.getMinutes()).slice(-2);
+			var oSecond=('0' + myDate.getSeconds()).slice(-2);
+			var str=oHour+':'+oMinute+':'+oSecond;
+			for (i=0;i<str.length;i++) {
+				if (i == 2 || i == 5) {
+				} else {
+					aImg[i].src = arrImg[str.charAt(i)];
+				}
+			}
+		}
+		function blink () {
+			setInterval(function(){
+				if (k) {
+					aImg[2].src = arrImg[11];
+					aImg[5].src = arrImg[11];
+				} else{
+					aImg[2].src = arrImg[10];
+					aImg[5].src = arrImg[10];
+				}
+				k = !k;
+			},500)
+		}
+	</script>
+</html>

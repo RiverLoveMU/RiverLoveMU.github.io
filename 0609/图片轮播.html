@@ -51,13 +51,12 @@
 		<div id="cont">
 			<div id="pic">
 				<div class="spic">
-					<img src="img/mu1.jpg" />
+					<img/>
 				</div>
 				<div class="spic">
-					<img src="img/mu2.jpg" />
+					<img/>
 				</div>
 				<div class="text">
-					你好
 				</div>
 			</div>
 		</div>
@@ -72,6 +71,8 @@
 		function aImg(n) {
 			return aPic[n].getElementsByTagName('img')[0];
 		}
+		aImg(0).src = arrImg[0];
+		aImg(1).src = arrImg[1];
 		oText.innerHTML = arrText[0];
 		Go(oText, 'bottom', 5, 0, function() {
 			setTimeout(function() {

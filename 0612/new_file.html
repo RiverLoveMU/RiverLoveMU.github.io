@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			div {
+				float: left;
+				width: 50px;
+				height: 70px;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			img {
+				width: 50px;
+				display: block;
+				height: 70px;
+			}
+			
+			div img:nth-of-type(1) {
+				position: absolute;
+				top: 0;
+			}
+			
+			div img:nth-of-type(2) {
+				position: absolute;
+				top: 70px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="">
+			<img src="" />
+			<img src="" />
+		</div>
+		<div class="">
+			<img src="" />
+			<img src="" />
+		</div>
+		<div class="">
+			<img src="" />
+		</div>
+		<div class="">
+			<img src="" />
+			<img src="" />
+		</div>
+		<div class="">
+			<img src="" />
+			<img src="" />
+		</div>
+		<div class="">
+			<img src="" />
+		</div>
+		<div class="">
+			<img src="" />
+			<img src="" />
+		</div>
+		<div class="">
+			<img src="" />
+			<img src="" />
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var aDiv = document.getElementsByTagName('div');
+		//		var aImg = document.getElementsByTagName('img');
+		function aImg(n) {
+			return aDiv[n].getElementsByTagName('img');
+		}
+		var arrImg = [
+			'img/0.JPG', 'img/1.JPG', 'img/2.JPG',
+			'img/3.JPG', 'img/4.JPG', 'img/5.JPG',
+			'img/6.JPG', 'img/7.JPG', 'img/8.JPG',
+			'img/9.JPG', 'img/colon.JPG', 'img/colon1.JPG'
+		];
+		var myDate = new Date();
+		var k = true;
+		var controlSecondUnit = 1;
+		var controlSecondDecade = 1;
+		var controlMinuteUnit = 1;
+		var controlMinuteDecade = 1;
+		var controlHourUnit = 1;
+		var controlHourDecade = 1;
+		//		var start = true;
+		if(myDate.getMilliseconds() < 500) {
+			aImg(2)[0].src = arrImg[11];
+			aImg(5)[0].src = arrImg[11];
+			setTimeout(function() {
+				aImg(2)[0].src = arrImg[10];
+				aImg(5)[0].src = arrImg[10];
+				blink();
+			}, 500 - myDate.getMilliseconds())
+		} else {
+			aImg(2)[0].src = arrImg[10];
+			aImg(5)[0].src = arrImg[10];
+			setTimeout(function() {
+				aImg(2)[0].src = arrImg[11];
+				aImg(5)[0].src = arrImg[11];
+				k = !k;
+				blink();
+			}, 1000 - myDate.getMilliseconds())
+		}
+		setTimeout(function(){
+			getTime();
+		},1000 - myDate.getMilliseconds())
+		function getTime() {
+			var myDate = new Date();
+			var oHour = ('0' + myDate.getHours()).slice(-2);
+			var oMinute = ('0' + myDate.getMinutes()).slice(-2);
+			var oSecond = ('0' + myDate.getSeconds()).slice(-2);
+			var str = oHour + ':' + oMinute + ':' + oSecond;
+			for(i = 0; i < str.length; i++) {
+				if(i == 2 || i == 5) {} else {
+					aImg(i)[0].src = arrImg[str.charAt(i)];
+					if(i == 6 || i == 3) {
+						aImg(i)[1].src = arrImg[(parseInt(str.charAt(i)) + 1) % 6];
+					} else if(i == 0) {
+						aImg(i)[1].src = arrImg[(parseInt(str.charAt(i)) + 1) % 2];
+					} else {
+						aImg(i)[1].src = arrImg[(parseInt(str.charAt(i)) + 1) % 10];
+					}
+				}
+			}
+			var hSecondUnit = parseInt(str.charAt(7));
+			var hSecondDecade = parseInt(str.charAt(6));
+			var hMinuteUnit = parseInt(str.charAt(4));
+			var hMinuteDecade = parseInt(str.charAt(3));
+			var hHourUnit = parseInt(str.charAt(1));
+			var hHourDecade = parseInt(str.charAt(0));
+			setInterval(function() {
+				if(hSecondUnit == 9) {
+					if(hSecondDecade == 5) {
+						if(hMinuteUnit == 9) {
+							if(hMinuteDecade == 5) {
+								if(hHourUnit == 9) {
+									var str5 = change(hMinuteUnit,2,0,controlMinuteUnit);
+									controlHourDecade = str5.charAt(0);
+									hHourDecade = str5.charAt(1);
+								}
+								var str4 = change(hMinuteUnit,10,1,controlMinuteUnit);
+								controlHourUnit = str4.charAt(0);
+								hHourUnit = str4.charAt(1);
+							}
+							var str3 = change(hMinuteUnit,6,3,controlMinuteUnit);
+							controlMinuteDecade = str3.charAt(0);
+							controlMinuteDecade = str3.charAt(1);
+						}
+						var str2 = change(hMinuteUnit,10,4,controlMinuteUnit);
+						controlMinuteUnit = str2.charAt(0);
+						hMinuteUnit = str2.charAt(1);
+					}
+					var str1 = change(hSecondDecade,6,6,controlSecondDecade);
+					controlSecondDecade = str1.charAt(0);
+					hSecondDecade = str1.charAt(1);
+				}
+				var str = change(hSecondUnit,10,7,controlSecondUnit);
+				controlSecondUnit = str.charAt(0);
+				hSecondUnit = str.charAt(1);
+			}, 1000)
+			//			console.log(control);
+			
+		}
+
+		function blink() {
+			setInterval(function() {
+				if(k) {
+					aImg(2)[0].src = arrImg[11];
+					aImg(5)[0].src = arrImg[11];
+				} else {
+					aImg(2)[0].src = arrImg[10];
+					aImg(5)[0].src = arrImg[10];
+				}
+				k = !k;
+			}, 500)
+		}
+
+		function change(h, z, j, control) {
+			h = (++h) % z;
+			
+			if(control == 1) {
+				Go(aImg(j)[0], 'top', -7, -70, function() {
+					aImg(j)[0].style.top = 70 + 'px';
+					aImg(j)[0].src = arrImg[(h + 1) % z];
+				});
+				Go(aImg(j)[1], 'top', -7, 0);
+				control = 0;
+			} else {
+				Go(aImg(j)[1], 'top', -7, -70, function() {
+					aImg(j)[1].style.top = 70 + 'px';
+					aImg(j)[1].src = arrImg[(h + 1) % z];
+				});
+				Go(aImg(j)[0], 'top', -7, 0);
+				control = 1;
+			}
+			var str = control + '' + h;
+			return str;
+		}
+	</script>
+
+</html>
