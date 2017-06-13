@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				width: 500px;
+				height: 600px;
+				border: 1px solid gainsboro;
+				overflow: hidden;
+			}
+			.cont .head{
+				width: 100%;
+				height: 30px;
+				border-bottom: 1px solid gainsboro;
+				letter-spacing: 0.5em;
+				font-weight: bold;
+				line-height: 30px;
+			}
+			.cont .list{
+				height: 300px;
+				width: 100%;
+				border-bottom: 1px solid gainsboro;
+			}
+			.cont .list li{
+				float: left;
+				width: 166px;
+				border-right: 1px solid gainsboro;
+				height: 300px;
+				position: relative;
+				background: url(img/ove.png) no-repeat center left;
+				background-size: 100%;
+			}
+			.cont .list li:last-child{
+				border-right: none;
+			}
+			.cont .list li .com{
+				height: 100%;
+				width: 100%;
+				position: relative;
+				top: 0;
+				overflow: hidden;
+				background: white;
+			}
+			.cont .list li .com input {
+				width: 100px;
+				margin: 0;
+			} 
+			.cont .list li .com button{
+				width: 52px;
+				margin: 0;
+			}
+			.cont .list li .com img{
+				width: 160px;
+				margin: 3px;
+				height: 200px;
+			}
+			.cont .list li .com .name{
+				margin: 3px;
+				font-size: 12px;
+			}
+			.cont .list li .com .price{
+				margin: 3px;
+				font-size: 12px;
+				color: gray;
+			}
+			.cont .list li .com .price em{
+				font-weight: bold;
+				color: red;
+			}
+			.cont .countdown{
+				margin: 3px;
+				height: 16px;
+				width: 160px;
+				line-height: 16px;
+				font-size: 12px;
+				overflow: hidden;
+				color: lightcoral;
+			}
+			.cont .undercarriage{
+				margin: 3px;
+				width: 494px;
+				overflow: auto;
+				max-height: 220px;
+			}
+			.cont .totalprice{
+				margin: 3px;
+				font-weight: bold;
+				color: red;
+			}
+			.cont .undercarriage .box{
+				height: 80px;
+				width: 492px;
+				border: 1px solid gainsboro;
+				margin: 10px 0;
+				background: lightyellow;
+			}
+			.cont .undercarriage .box .pic{
+				height: 60px;
+				width: 60px;
+				margin: 10px;
+				float: right;
+			}
+			.cont .undercarriage .box .pic img{
+				height: 100%;
+				width: 100%;
+			}
+			.cont .undercarriage .box p{
+				line-height: 80px;
+				margin-left: 30px;
+				color: darkred;
+			}
+			.cont .undercarriage .box p span{
+				margin-left: 30px;
+			}
+			.cont .undercarriage .box p span.price{
+				margin-left: 0;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="head">
+				限购时间
+			</div>
+			<ul id="list" class="list">
+				<li>
+					<div class="com">
+						<input type="text" name="" id="" value="Jun 13,2017 17:10:10" />
+						<button>确定</button>
+						<div class="countdown">倒计时未开始</div>
+						<img src="img/game0.jpg"/>
+						<div class="name">
+							<p>极限竞速地平线3</p>
+						</div>
+						<div class="price">
+							<span>特惠价:</span>
+							<em>200元</em>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="com">
+						<input type="text" name="" id="" value="Jun 13,2017 17:11:30" />
+						<button>确定</button>
+						<div class="countdown">倒计时未开始</div>
+						<img src="img/game1.jpg"/>
+						<div class="name">
+							<p>巫师3</p>
+						</div>
+						<div class="price">
+							<span>特惠价:</span>
+							<em>190元</em>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="com">
+						<input type="text" name="" id="" value="Jun 13,2017 17:12:20" />
+						<button>确定</button>
+						<div class="countdown">倒计时未开始</div>
+						<img src="img/game2.jpg"/>
+						<div class="name">
+							<p>辐射4</p>
+						</div>
+						<div class="price">
+							<span>特惠价:</span>
+							<em>150元</em>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div class="undercarriage" id="undercarriage">
+				<!--<div class="box">
+					<div class="pic">
+						<img src="img/game0.jpg"/>
+					</div>
+					<p>极限竞速地平线3 <span>售价：</span><span class="price">100元</span></p>
+				</div>-->
+			</div>
+			<div class="totalprice" id="totalprice">
+				<span>总计:</span>
+				<em>0.00元</em>
+			</div>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var aBtn = $('list').getElementsByTagName('button');
+		var aCom = $('list').getElementsByClassName('com');
+		var aGoalTime = $('list').getElementsByTagName('input');
+		var aCountDown = $('list').getElementsByClassName('countdown');
+		var aPrice = $('list').getElementsByTagName('em');
+		var aName = $('list').getElementsByTagName('p');
+		var aPic = $('list').getElementsByTagName('img');
+		var oTotalPrice = $('totalprice').getElementsByTagName('em')[0];
+		for (var i=0;i<aBtn.length;i++) {
+			aBtn[i].index = i;
+			aBtn[i].onclick = function () {
+				var _this = this; 
+				clearInterval(this.alltimer);
+				this.alltimer = setInterval(function () {
+					var goalTime = new Date(aGoalTime[_this.index].value);
+					var currentTime = new Date();
+					var gapTime = (goalTime - currentTime)/1000;
+					if (gapTime <= 0) {
+						clearInterval(_this.alltimer);
+						shake(aCom[_this.index],'top',function(){
+							Go(aCom[_this.index],'top',10,250,function(){
+								$('undercarriage').innerHTML += '<div class="box">'
+																	+'<div class="pic">'
+																		+'<img src="' + aPic[_this.index].src + '"/>'
+																	+'</div>'
+																	+'<p>' + aName[_this.index].innerHTML +'<span>售价：</span><span class="price">' + aPrice[_this.index].innerHTML +'</span></p>'
+																+'</div>';
+								var totalPrice = parseFloat(oTotalPrice.innerHTML) + parseFloat(aPrice[_this.index].innerHTML);
+								oTotalPrice.innerHTML = parseFloat(totalPrice).toFixed(2) + '元';							
+							});
+							changeOpa(aCom[_this.index],-0.05);
+						});
+					}else{
+						var day = Math.floor(gapTime/86400) + '天';
+						var hour = Math.floor(gapTime%86400/3600) + '小时';
+						var minute = Math.floor(gapTime%86400%3600/60) + '分';
+						var second = Math.floor(gapTime%60) + '秒';
+						aCountDown[_this.index].innerHTML = day + hour + minute + second;
+					}
+				},1000)
+			}
+		}
+	</script>
+</html>

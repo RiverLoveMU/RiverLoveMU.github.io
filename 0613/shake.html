@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			body{
+				width: 1200px;
+				height: 400px;
+			}
+			img{
+				width: 100px;
+				position: absolute;
+				top: 100px;
+			}
+			#pic1{
+				left: 50px;
+			}
+			#pic2{
+				left: 200px;
+			}
+			#pic3{
+				left: 350px;
+			}
+			#pic4{
+				left: 500px;
+			}
+			#pic5{
+				left: 650px;
+			}
+			#pic6{
+				left: 800px;
+			}
+			#pic7{
+				left: 950px;
+			}
+		</style>
+	</head>
+	<body>
+		<img  id="pic1" src="img/mu1.jpg"/>
+		<img  id="pic2" src="img/mu2.jpg"/>
+		<img  id="pic3" src="img/mu3.jpg"/>
+		<img  id="pic4" src="img/mu4.jpg"/>
+		<img  id="pic5" src="img/mu5.jpg"/>
+		<img  id="pic6" src="img/mu6.jpg"/>
+		<img  id="pic7" src="img/mu7.jpg"/>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('pic1').shakeControl = true;
+		$('pic2').shakeControl = true;
+		$('pic3').shakeControl = true;
+		$('pic4').shakeControl = true;
+		$('pic5').shakeControl = true;
+		$('pic6').shakeControl = true;
+		$('pic7').shakeControl = true;
+		$('pic1').onmouseenter = function () {
+			shake(this, 'top');
+		}
+		$('pic2').onmouseenter = function () {
+			shake(this, 'top');
+		}
+		$('pic3').onmouseenter = function () {
+			shake(this, 'top');
+		}
+		$('pic4').onmouseenter = function () {
+			shake(this, 'top');
+		}
+		$('pic5').onmouseenter = function () {
+			shake(this, 'top');
+		}
+		$('pic6').onmouseenter = function () {
+			shake(this, 'top');
+		}
+		$('pic7').onmouseenter = function () {
+			shake(this, 'top');
+		}
+		function shake (obj, attr, endFn) {
+			if (obj.shakeControl) {
+				var oAttr = parseInt(getStyle(obj,attr));
+				var arr = [];
+				var num = 0
+				for (i=30;i>=0;i-=2) {
+					arr.push(i,-i);
+				}
+				obj.shaker = setInterval(function(){
+					obj.style[attr] = oAttr + arr[num++] + 'px';
+					obj.shakeControl = false;
+					if (num >= arr.length) {
+						clearInterval(obj.shaker);
+						obj.shakeControl = true;
+						if (endFn) {
+							endFn();
+						}
+					}
+				},30)
+			}
+		}
+	</script>
+</html>
+

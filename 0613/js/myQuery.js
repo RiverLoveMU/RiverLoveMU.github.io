@@ -40,14 +40,15 @@ function changeOpa(obj, state) {
 		var opa = parseFloat(getStyle(obj, 'opacity')) + state;
 		if(opa >= 1 || opa <= 0) {
 			state > 0 ? opa = 1 : opa = 0;
-//			if(opa == 0) {
-//				obj.style.display = 'none';
-//			}
+						if(opa == 0) {
+							obj.style.display = 'none';
+						}
 			clearInterval(obj.opaTime);
 		}
 		obj.style.opacity = opa;
 	}, 50)
 }
+
 function shake(obj, attr, endFn) {
 		var oAttr = parseInt(getStyle(obj, attr));
 		var arr = [];
