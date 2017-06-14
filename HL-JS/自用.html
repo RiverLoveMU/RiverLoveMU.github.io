@@ -5,40 +5,13 @@
 		<title></title>
 	</head>
 	<body>
+		<button id="btn">dianji</button>
 	</body>
 	<script type="text/javascript">
-//		var name = "The Window";
-//
-//	　　var object = {
-//	　　　　name : "My Object",
-//	
-//	　　　　getNameFunc : function(){
-//	　　　　　　return function(){
-//	　　　　　　　　return this.name;
-//	　　　　　　};
-//	
-//	　　　　}
-//	
-//	　　};
-//	
-//	　　alert(object.getNameFunc()());
-		
-		var name = "The Window";
-
-	　　var object = {
-	　　　　name : "My Object",
-	
-	　　　　getNameFunc : function(){
-	　　　　　　var that = this;
-	　　　　　　return function(){
-	　　　　　　　　return that.name;
-	　　　　　　};
-	
-	　　　　}
-	
-	　　};
-	
-	　　alert(object.getNameFunc()()); 
+		document.getElementById('btn').onclick = function () {
+			var neww = window.open('http://www.qq.com/','good','height=300,width=300 top=300 left=300');
+			neww.moveTo(500,500);
+		}
 	</script>
 
 </html>

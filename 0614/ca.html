@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<style type="text/css">
+		#origin {
+			height: 450px;
+			width: 500px;
+			font-size: 35px;
+			box-sizing: border-box;
+			border: 1px solid gainsboro;
+			float: left;
+		}
+		
+		#new {
+			height: 450px;
+			width: 500px;
+			font-size: 35px;
+			box-sizing: border-box;
+			border: 1px solid gainsboro;
+			float: left;
+		}
+		
+		#count {
+			height: 448px;
+			width: 300px;
+			float: left;
+			overflow: hidden;
+			border-top: 1px solid gainsboro;
+			border-bottom: 1px solid gainsboro;
+		}
+		
+		.cont {
+			height: 450px;
+			width: 1300px;
+		}
+		
+		.btn {
+			margin: 40px auto 30px;
+			display: block;
+			width: 120px;
+			height: 50px;
+			font-size: 20px;
+		}
+		
+		#cn {
+			height: 60px;
+			width: 250px;
+			margin: auto;
+			text-align: center;
+			line-height: 60px;
+			font-size: 40px;
+			font-weight: bold;
+		}
+		
+		#pic {
+			height: 60px;
+			width: 160px;
+			margin: 30px auto;
+			overflow: hidden;
+			display: none;
+		}
+		
+		#pic div {
+			margin-top: 10px;
+			margin-left: 10px;
+			height: 40px;
+			width: 20px;
+			background: red;
+			float: left;
+		}
+		
+		#pic div.active {
+			background: lightcoral;
+		}
+	</style>
+
+	<body>
+		<div class="cont">
+			<div id="origin">怒发冲冠，凭阑处、潇潇雨歇。抬望眼、仰天长啸，壮怀激烈。三十功名尘与土，八千里路云和月。莫等闲，白了少年头，空悲切。 靖康耻，犹未雪；臣子恨，何时灭。驾长车，踏破贺兰山缺。壮志饥餐胡虏肉，笑谈渴饮匈奴血。待从头、收拾旧山河，朝天阙。</div>
+			<div id="count">
+				<button id="btn" class="btn">开始搬运</button>
+				<button id="btn1" class="btn">反向搬运</button>
+				<div id="cn">
+					<span>0</span> /
+					<span></span>
+				</div>
+				<div id="pic">
+					<div class="active"> </div>
+					<div> </div>
+					<div> </div>
+					<div> </div>
+					<div> </div>
+				</div>
+			</div>
+			<div id="new"></div>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('origin').str = $('origin').innerHTML;
+		$('new').str = $('new').innerHTML;
+		var oTotal = $('cn').getElementsByTagName('span')[1];
+		var oLast = $('cn').getElementsByTagName('span')[0];
+		var aDiv = $('pic').getElementsByTagName('div');
+		var num = 0;
+		var control = true;
+		oTotal.innerHTML = $('origin').str.length;
+		oLast.innerHTML = $('new').str.length;
+		$('btn').onclick = function() {
+			carry($('origin'),$('new'));
+		}
+		$('btn1').onclick = function() {
+			carry($('new'),$('origin'));
+		}
+
+		function carry(obj, obj1) {
+			if(obj.str.length != 0 && control) {
+				control = false;
+				clearInterval($('btn').timer);
+				$('pic').style.display = 'block';
+				$('pic').style.opacity = 1;
+				var timer = setInterval(function() {
+					num = (++num) % aDiv.length;
+					obj1.innerHTML += obj.str.substring(0, 1);
+					obj.innerHTML = obj.str.substring(1, obj.str.length);
+					obj.str = obj.innerHTML;
+					obj1.str = obj1.innerHTML;
+					oLast.innerHTML = obj.str.length;
+					if(obj.str.length == 0) {
+						clearInterval(timer);
+						changeOpa($('pic'), -0.2);
+						control = true;
+					}
+					for(var i = 0; i < aDiv.length; i++) {
+						aDiv[i].className = '';
+					}
+					aDiv[num].className = 'active';
+				}, 100)
+			}
+		}
+	</script>
+
+</html>

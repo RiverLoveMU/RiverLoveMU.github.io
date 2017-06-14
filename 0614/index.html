@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				border: 1px solid gainsboro;
+				overflow: hidden;
+				width: 250px;
+				height: 400px;
+			}
+			.cont .title{
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				background: gainsboro;
+			}
+			.cont .text{
+				height: 370px;
+				overflow: auto;
+			}
+			.cont .text span{
+				width: 50px;
+				display: block;
+				float: left;
+				height: 50px;
+				line-height: 50px;
+				color: black;
+				text-align: center;
+				font-size: 36px;
+			}
+			.bg-red{
+				background: red;
+			}
+			.bg-orange{
+				background: orange;
+			}
+			.bg-yellow{
+				background: yellow;
+			}
+			.bg-green{
+				background: green;
+			}
+			.bg-lightblue{
+				background: lightblue;
+			}
+			.bg-blue{
+				background: blue;
+			}
+			.bg-purple{
+				background: purple;
+			}
+			input{
+				width: 200px;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			button{
+				width: 50px;
+				margin: 0;
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="title">
+				聊天框
+			</div>
+			<div id="text" class="text">
+				
+			</div>
+		</div>
+		<input type="" name="" id="in" value="" />
+		<button id="btn">输入</button>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var str='';
+		var num = 0
+		$('btn').onclick = function () {
+			str = $('in').value;
+			var arr = str.split('');
+			for (var i=0;i<arr.length;i++) {
+				switch (num){
+					case 0:
+						$('text').innerHTML += '<span class="bg-red">' + arr[i] +'</span>';
+						break;
+					case 1:
+						$('text').innerHTML += '<span class="bg-orange">' + arr[i] +'</span>';
+						break;
+					case 2:
+						$('text').innerHTML += '<span class="bg-yellow">' + arr[i] +'</span>';
+						break;
+					case 3:
+						$('text').innerHTML += '<span class="bg-green">' + arr[i] +'</span>';
+						break;
+					case 4:
+						$('text').innerHTML += '<span class="bg-lightblue">' + arr[i] +'</span>';
+						break;
+					case 5:
+						$('text').innerHTML += '<span class="bg-blue">' + arr[i] +'</span>';
+						break;
+					case 6:
+						$('text').innerHTML += '<span class="bg-purple">' + arr[i] +'</span>';
+						break;
+					default:
+						break;
+				}
+				num = (++num)%7;
+			}
+		}
+	</script>
+</html>

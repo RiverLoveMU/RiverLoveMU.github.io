@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				width: 300px;
+				background: purple;
+				line-height: 30px;
+				color: white;
+				overflow: hidden;
+			}
+			.cont p{
+				width: 300px;
+			}
+			.cont span{
+				float: right;
+				margin-right: 20px;
+				color: red;
+				text-decoration: underline;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont" id="cont">
+			<p id='text'>最锋利的学习方式，掌握可以解决大部分问题的基本知识后，立马投入实战，后续进行长线学习</p>
+			<span id='btn'>折叠</span>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var control = true;
+		var str;
+		$('btn').onclick = function () {
+			if (control) {
+				str = $('text').innerHTML;
+				$('text').innerHTML = str.substring(0,8);
+				$('btn').innerHTML = '展开';
+			} else{
+				$('text').innerHTML = str;
+				$('btn').innerHTML = '折叠';
+			}
+			control = !control;
+		}
+	</script>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="input1" value="" placeholder="请输入电话号码"/>
+		<button id="btn">按钮</button>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+//		var str='javascript';
+//		1,字符串的长度
+//		2,str.charAt(下标)
+//		3,str.charCodeAt(下标)  获取字符串里制定下表字符的 编码值
+//		alert(str.charCodeAt(0));
+//		var str='0123456789';
+//		alert(str.charCodeAt(9));
+//		$('btn').onclick=function(){
+//			var str=$('input1').value;
+//			for(var i=0;i<str.length;i++){
+//				var n=str.charCodeAt(i);
+//				if(n<48 || n>57){
+//					alert('请输入数字');
+//				}
+//			}
+//		}
+//		4,String.fromCharCode(字符编码)  获取到该字符编码所对应的具体字符
+		
+//		alert(String.fromCharCode(57));
+		
+//		var str='';
+
+//		for(var i=13000;i<41000;i++){
+//			str+=String.fromCharCode(i);
+//		}
+//		document.body.innerHTML=str;
+//		字符的加密解密练习
+//		var str='0123';
+//		var secret='';
+//		for(var i=0;i<str.length;i++){
+//			var code=str.charCodeAt(i)+1000;
+//			var word=String.fromCharCode(code);
+//			secret+=word;
+//		}
+//		console.log(secret);
+//		5,str.indexOf('某一个或某几个字符')
+//		   查找str中是否存在指定字符或字符串,找到之后返回位置（结束查找）,找不到返回-1
+//		var str='我爱学习，学习让我快乐~';
+//		alert(str.indexOf('痛苦'));
+//		str.indexOf('某一个或某几个字符',从第几位开始找)，指定的位数如果是负值，当做0处理
+//		alert(str.indexOf('我',1));
+		var str='时间就是生命，时间就是金钱，时间就是生产力';
+		var find='时间';
+		var i=0;
+		while(str.indexOf(find,i)!=-1){
+			console.log(str.indexOf(find,i));
+			i=str.indexOf(find,i)+find.length; //修改下次查找的起始位置
+		}
+//		6,字符串的比较
+//		alert('张三'>'李四'); //false
+//		console.log('张三'.charCodeAt(0)); //24352
+//		console.log('李四'.charCodeAt(0)); //26446
+//		7,字符串的截取（重要）
+//		 (1) substring
+//		alert(str.substring());  //不带参数，从开始截取到最后
+//		alert(str.substring(1));  //带一个参数，指定起始位置并截取到最后
+//		alert(str.substring(4,6));  //指定起始位置（其实位置的字符包含在内，结束位置的不包含在内）
+//		alert(str.substring(2,0));  //可以检测到两个参数的大小，以小的值作为起始
+//		alert(str.substring(2,-3));  //负数，当成0处理
+//		(2)slice(),跟substring的某些用法想通
+//		alert(str.slice(2,0)); //不能交换位置，小数字在前，大数字在后
+//		alert(str.slice(-4,-2));  //倒序截取
+//		8,大小写转换
+//		str.toUpperCase();   //转换成大写
+//		str.toLowerCase();   //转换成大写
+//		alert('abc'.toUpperCase());
+//		alert('aBc'.toLowerCase());
+//		9,字符串拆分为数组
+		var str='www.qq.com';
+//		alert(str.split('.'));  //以split()里面传入的参数为界限，将字符串拆成数组，没有传参的话会按照单个字符拆分
+		var arr=str.split('.');
+//		alert(arr[1]);
+//		10,把数组拼接为字符串
+		var str1 = arr.join('-');
+		alert(str1);
+	</script>
+</html>
