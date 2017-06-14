@@ -11,7 +11,7 @@
 				width: 50px;
 				height: 70px;
 				position: relative;
-				overflow: hidden;
+				/*overflow: hidden;*/
 			}
 			
 			img {
@@ -119,7 +119,7 @@
 					if(i == 6 || i == 3) {
 						aImg(i)[1].src = arrImg[(parseInt(str.charAt(i)) + 1) % 6];
 					} else if(i == 0) {
-						aImg(i)[1].src = arrImg[(parseInt(str.charAt(i)) + 1) % 2];
+						aImg(i)[1].src = arrImg[(parseInt(str.charAt(i)) + 1) % 3];
 					} else {
 						aImg(i)[1].src = arrImg[(parseInt(str.charAt(i)) + 1) % 10];
 					}
@@ -137,15 +137,20 @@
 						if(hMinuteUnit == 9) {
 							if(hMinuteDecade == 5) {
 								if(hHourUnit == 9) {
-									var str5 = change(hMinuteUnit,2,0,controlMinuteUnit);
+									str5 = change(hHourDecade,3,0,controlHourDecade);
 									controlHourDecade = str5.charAt(0);
 									hHourDecade = str5.charAt(1);
 								}
-								var str4 = change(hMinuteUnit,10,1,controlMinuteUnit);
+								if (hHourUnit == 3 && hHourDecade == 2) {
+									var str5 = change(hHourDecade,3,0,controlHourDecade);
+									controlHourDecade = str5.charAt(0);
+									hHourDecade = str5.charAt(1);
+								}
+								var str4 = change(hHourUnit,10,1,controlHourUnit);
 								controlHourUnit = str4.charAt(0);
 								hHourUnit = str4.charAt(1);
 							}
-							var str3 = change(hMinuteUnit,6,3,controlMinuteUnit);
+							var str3 = change(hMinuteDecade,6,3,controlMinuteDecade);
 							controlMinuteDecade = str3.charAt(0);
 							controlMinuteDecade = str3.charAt(1);
 						}
