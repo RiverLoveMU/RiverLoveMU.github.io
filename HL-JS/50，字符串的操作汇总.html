@@ -17,15 +17,16 @@
 //		alert(str.charCodeAt(0));
 //		var str='0123456789';
 //		alert(str.charCodeAt(9));
-//		$('btn').onclick=function(){
-//			var str=$('input1').value;
-//			for(var i=0;i<str.length;i++){
-//				var n=str.charCodeAt(i);
-//				if(n<48 || n>57){
-//					alert('请输入数字');
-//				}
-//			}
-//		}
+		$('btn').onclick=function(){
+			var str=$('input1').value;
+			for(var i=0;i<str.length;i++){
+				var n=str.charCodeAt(i);
+				if(n<48 || n>57){
+					alert('请输入数字');
+					break;
+				}
+			}
+		}
 //		4,String.fromCharCode(字符编码)  获取到该字符编码所对应的具体字符
 		
 //		alert(String.fromCharCode(57));
@@ -51,13 +52,13 @@
 //		alert(str.indexOf('痛苦'));
 //		str.indexOf('某一个或某几个字符',从第几位开始找)，指定的位数如果是负值，当做0处理
 //		alert(str.indexOf('我',1));
-		var str='时间就是生命，时间就是金钱，时间就是生产力';
-		var find='时间';
-		var i=0;
-		while(str.indexOf(find,i)!=-1){
-			console.log(str.indexOf(find,i));
-			i=str.indexOf(find,i)+find.length; //修改下次查找的起始位置
-		}
+//		var str='时间就是生命，时间就是金钱，时间就是生产力';
+//		var find='时间';
+//		var i=0;
+//		while(str.indexOf(find,i)!=-1){
+//			console.log(str.indexOf(find,i));
+//			i=str.indexOf(find,i)+find.length; //修改下次查找的起始位置
+//		}
 //		6,字符串的比较
 //		alert('张三'>'李四'); //false
 //		console.log('张三'.charCodeAt(0)); //24352
@@ -78,12 +79,12 @@
 //		alert('abc'.toUpperCase());
 //		alert('aBc'.toLowerCase());
 //		9,字符串拆分为数组
-		var str='www.qq.com';
+//		var str='www.qq.com';
 //		alert(str.split('.'));  //以split()里面传入的参数为界限，将字符串拆成数组，没有传参的话会按照单个字符拆分
-		var arr=str.split('.');
+//		var arr=str.split('.');
 //		alert(arr[1]);
 //		10,把数组拼接为字符串
-		var str1 = arr.join('-');
-		alert(str1);
+//		var str1 = arr.join('-');
+//		alert(str1);
 	</script>
 </html>

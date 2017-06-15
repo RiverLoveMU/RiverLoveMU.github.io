@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				/*height: 600px;*/
+				width: 300px;
+				border: 1px solid gainsboro;
+				overflow: hidden;
+			}
+			.search-box{
+				overflow: hidden;
+			}
+			input{
+				margin: 0;
+				padding: 0;
+				line-height: 30px;
+				height: 30px;
+				font-size: 20px;
+				width: 235px;
+				float: left;
+			}
+			button{
+				margin: 0;
+				padding: 0;
+				line-height: 30px;
+				float: right;
+				width: 60px;
+				font-size: 20px;
+				
+			}
+			#count{
+				width: 100%;
+				height: 25px;
+				line-height: 25px;
+				box-sizing: border-box;
+				padding-left: 10px;
+			}
+			ul{
+				overflow: hidden;
+				width: 100%;
+				border-top: 1px solid gainsboro;
+			}
+			li{
+				height: 121px;
+				width: 300px;
+				box-sizing: border-box;
+				border-bottom: 1px solid gainsboro;
+				padding: 10px;
+				overflow: hidden;
+			}
+			li .pic{
+				height: 100px;
+				width: 70px;
+				margin-right: 10px;
+				float: left;
+			}
+			li .pic img{
+				height: 100%;
+				width: 100%;
+			}
+			li .rate{
+				height: 35px;
+				line-height: 35px;
+			}
+			li .crew{
+				color: gray;
+				font-size: 13px;
+				height: 13px;
+				line-height: 13px;
+				margin-bottom: 3px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="search-box">
+				<input type="text" name="" id="search" value="" placeholder="输入影片名" />
+				<button id="btn">搜索</button>
+			</div>
+			<div id="count">
+				
+			</div>
+			<ul id="movielist">
+				<!--<li>
+					<div class="pic">
+						<img src="http://p2.qhimg.com/d/dy_0c653ae1845ba1f0e41c7459ca91bd1e.jpg"/>
+					</div>
+					<h3>黑客帝国</h3>
+					<div class="rate">
+						<span>评分：</span><em class="point">8.0</em>
+					</div>
+					<div class="crew">
+						<span>导演：</span><em class="director"></em>
+					</div>
+					<div class="crew">
+						<span>演员：</span><em class="actor"></em>
+					</div>
+				</li>
+				<li></li>
+				<li></li>-->
+			</ul>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/json.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('btn').onclick = function () {
+			$('movielist').innerHTML = '';
+			if ($('search').value == jsonData.result.title) {
+				$('count').innerHTML = '共搜索到' + jsonData.result.video_rec.length + '部电影';
+				for (var i=0;i<jsonData.result.video_rec.length;i++) {
+					$('movielist').innerHTML += '<a><li>'
+													+'<div class="pic">'
+													+	'<img/>'
+													+'</div>'
+													+'<h3></h3>'
+													+'<div class="rate">'
+													+	'<span>评分：</span><em class="point"></em>'
+													+'</div>'
+													+'<div class="crew">'
+													+	'<span>导演：</span><em class="director"></em>'
+													+'</div>'
+													+'<div class="crew">'
+													+	'<span>演员：</span><em class="actor"></em>'
+													+'</div>'
+												+'</li></a>'
+					var oList = $('movielist').getElementsByTagName('li')[i];
+					var oA = $('movielist').getElementsByTagName('a')[i];
+					var oHead = oList.getElementsByTagName('h3')[0];
+					var oPic = oList.getElementsByTagName('img')[0];
+					var oRate = oList.getElementsByClassName('point')[0];
+					var oDirector = oList.getElementsByClassName('director')[0];
+					var oActor = oList.getElementsByClassName('actor')[0];
+					oHead.innerText = jsonData.result.video_rec[i].title;
+					oA.href = jsonData.result.video_rec[i].detail_url;
+					oPic.src = jsonData.result.video_rec[i].cover;
+					oRate.innerText = jsonData.result.rating;
+					oDirector.innerText = jsonData.result.dir;
+//					oActor.innerText = jsonData.result.act_s.join('/');
+					var arrName = [];
+					for (var k=0;k<jsonData.result.act_s.length;k++) {
+						arrName.push(jsonData.result.act_s[k].name);
+					}
+					oActor.innerText = arrName.join('/');
+				}
+			}else{
+				$('count').innerHTML = '共搜索到' + jsonData.error_code + '部电影';
+			}
+		}
+	</script>
+</html>

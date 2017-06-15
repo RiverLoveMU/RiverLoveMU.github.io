@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		JSON: 
+//		跟数组同理，都是js中的某种数据格式，适合服务器与JavaScript之间传递数据
+		
+//		1,书写方式
+//		var json={name:'张三',age:18};
+//		var json={'name':'张三','age':18}; //安全格式，推荐给键名加引号
+//		NodeJs，PHP，Java
+//		(1)读取json数据
+//		alert(json.name)
+//		(2)修改json数据
+//		json.name='李四';
+//		var v='name';
+//		json[v]='李四';
+//		alert(json.name)
+//		2,将数组格式写成Json
+//		var arrUrl=['img/1.jpg','img/1.jpg','img/1.jpg'];
+//		var arrText=['图片1','图片1','图片1'];
+//		var imgData={
+//			'url':['img/1.jpg','img/2.jpg','img/3.jpg'],
+//			'text':['图片1','图片2','图片3']
+//		}
+//		alert(imgData.url[1]);
+//		3,Json里键名所对应的键值可以是哪些数据类型?
+//			字符串,数字,数组,json,函数
+
+//		4,数组包含JSON的数据包格式
+//		var arr=[{'name':'张三','age':18},{'name':'李四','age':18}]
+		
+//		console.log(arr[1].name+'今年'+arr[1].age+'岁了');
+		
+//		5,for in 遍历json格式数据
+//		var json={'name':'张三','age':18,'work':'前端开发'};
+////		alert(json.length); //for循环无法遍历json格式的数据
+//		for(var key in json){  //attr相当于形参，是自定义的变量,可以随意取
+////			console.log(attr);
+//			console.log(key+'是'+json[key]);
+//		}
+		
+//		for(var key in imgData){
+////			console.log(imgData[key]);
+//			for(var i=0;i<imgData[key].length;i++){
+//				console.log(imgData[key][i]);
+//			}
+//		}
+		
+//		6,通过for in 遍历对象(document)
+//		'name':'张三'
+//		var str = '';
+//		for (var k in document) {
+//			str += k + ':' + document[k] + '<br/>'
+//		}
+//		document.body.innerHTML = str;
+	</script>
+</html>

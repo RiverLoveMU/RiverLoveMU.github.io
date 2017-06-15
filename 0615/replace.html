@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				height: 500px;
+				width: 600px;
+				background: gainsboro;
+				overflow: hidden;
+			}
+			.text{
+				height: 350px;
+				width: 500px;
+				font-size: 30px;
+				line-height: 30px;
+				background: white;
+				float: left;
+			}
+			.control{
+				float: right;
+				width: 90px;
+				text-align: center;
+				height: 50px;
+				text-align: center;
+				margin-right: 5px;
+				margin-top: 10px;
+				background: gray;
+				line-height: 50px;
+				color: white;
+				font-size: 20px;
+				cursor: pointer;
+			}
+			#replace,#search,#clear{
+				display: none;
+			}
+			.active{
+				background: orange;
+			}
+			#write{
+				height: 130px;
+				width: 500px;
+				box-sizing: border-box;
+				padding: 10px 15px;
+				border: 10px solid red;
+				background: burlywood;
+				margin-top: 360px;
+				display: none;
+			}
+			#text span{
+				background: yellow;
+			}
+			#write .choose{
+				height: 30px;
+				border-bottom: 5px solid red;
+				margin-bottom: 15px;
+			}
+			#write .choose div{
+				height: 30px;
+				width: 55px;
+				line-height: 30px;
+				color: black;
+				font-size: 16px;
+				float: left;
+				text-align: center;
+				color: white;
+				font-weight: bold;
+			}
+			#write .choose div.active{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<p class="text" id="text">怒发冲冠，凭阑处、潇潇雨歇。抬望眼、仰天长啸，壮怀激烈。三十功名尘与土，八千里路云和月。莫等闲，白了少年头，空悲切。 靖康耻，犹未雪；臣子恨，何时灭。驾长车，踏破贺兰山缺。壮志饥餐胡虏肉，笑谈渴饮匈奴血。待从头、收拾旧山河，朝天阙。</p>
+			<div id="unfold" class="control">
+				展开
+			</div>
+			<div id="search" class="control">
+				查找
+			</div>
+			<div id="replace" class="control">
+				替换
+			</div>
+			<div id="clear" class="control">
+				清除标记
+			</div>
+			<div id="write">
+				<div class="choose">
+					<div>
+						查找
+					</div>
+					<div>
+						替换
+					</div>
+				</div>
+				<div class="search-box">
+					<input type="" name="" id="search-in" value="" />
+					<button id="search-btn">查找</button>
+				</div>
+				<div class="replace-box">
+					<input type="" name="" id="replace-origin" value="" />
+					<input type="" name="" id="replace-new" value="" />
+					<button id="replace-btn">替换</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var oSearchBox = $('write').getElementsByClassName('search-box')[0];
+		var oReplaceBox = $('write').getElementsByClassName('replace-box')[0];
+		var oSearchActive = $('write').getElementsByClassName('choose')[0].getElementsByTagName('div')[0];
+		var oReplaceActive = $('write').getElementsByClassName('choose')[0].getElementsByTagName('div')[1];
+		$('unfold').control = true;
+		$('unfold').onclick = function () {
+//			打开关闭侧栏
+			if (this.control) {
+				this.control = false;
+				$('search').style.display = 'block';
+				$('replace').style.display = 'block';
+				$('clear').style.display = 'block';
+			} else{
+				this.control = true;
+				$('search').style.display = 'none';
+				$('replace').style.display = 'none';
+				$('clear').style.display = 'none';
+				$('search').className = 'control';
+				$('replace').className = 'control';
+			}
+		}
+//		打开关闭变换底部内容区域
+		$('search').onclick = function () {
+			this.className = 'control active';
+			$('replace').className = 'control';
+			$('write').style.display = 'block';
+			oSearchBox.style.display = 'block';
+			oReplaceBox.style.display = 'none';
+			oSearchActive.className = 'active';
+			oReplaceActive.className = '';
+		}
+		$('replace').onclick = function () {
+			this.className = 'control active';
+			$('search').className = 'control';
+			$('write').style.display = 'block';
+			oReplaceBox.style.display = 'block';
+			oSearchBox.style.display = 'none';
+			oReplaceActive.className = 'active';
+			oSearchActive.className = '';
+		}
+		var str = $('text').innerHTML;
+//		查找内容
+		$('search-btn').onclick = function () {
+//			分割字符串
+			var arr = str.split($('search-in').value);
+//			判断是否填写或者存在查找内容
+			if (arr.length == str.length) {
+				alert('请输入需要查找的内容');
+			} else if(arr.length == 1){
+				alert('输入的内容不存在')
+			}else{
+//				将查找后被标记的查找内容写入内容区
+				$('text').innerHTML = '';
+				for (var i = 0;i<arr.length;i++) {
+					if (i<(arr.length-1)) {
+						$('text').innerHTML += arr[i] + '<span>' + $('search-in').value + '</span>';
+					} else{
+						$('text').innerHTML += arr[i];
+					}
+				}
+			}
+		}
+//		替换内容
+		$('replace-btn').onclick = function () {
+//			分割字符串
+			var arr = str.split($('replace-origin').value);
+//			判断是否填写或者存在需要被替换的内容
+			if (arr.length == str.length) {
+				alert('请输入需要替换的内容');
+			} else if(arr.length == 1){
+				alert('输入的内容不存在')
+			}else{
+				$('text').innerHTML = '';
+				if ($('replace-new').value == '') {
+//					若没有填写替换内容,则删除被替换的内容
+					for (var i = 0;i<arr.length;i++) {
+						if (i<(arr.length-1)) {
+							$('text').innerHTML += arr[i] + '<span>' + $('replace-origin').value + '</span>';
+						} else{
+							$('text').innerHTML += arr[i];
+						}
+					}
+					var choose = confirm('确定删除吗?');
+//					将删除后的内容写入内容区
+					if (choose) {
+						$('text').innerHTML = '';
+						for (var i = 0;i<arr.length;i++) {
+							if (i<(arr.length-1)) {
+								$('text').innerHTML += arr[i];
+							} else{
+								$('text').innerHTML += arr[i];
+							}
+						}
+//						获取删除后的内容存入内存
+						str = $('text').innerHTML;
+					}
+				} else{
+					for (var i = 0;i<arr.length;i++) {
+//						将需要被替换的内容标记
+						if (i<(arr.length-1)) {
+							$('text').innerHTML += arr[i] + '<span>' + $('replace-origin').value + '</span>';
+						} else{
+							$('text').innerHTML += arr[i];
+						}
+					}
+					var choose = confirm('确定替换吗?');
+					if (choose) {
+//						标记替换后的内容并写入内容区
+						$('text').innerHTML = '';
+						for (var i = 0;i<arr.length;i++) {
+							if (i<(arr.length-1)) {
+								$('text').innerHTML += arr[i] + '<span>' + $('replace-new').value + '</span>';
+							} else{
+								$('text').innerHTML += arr[i];
+							}
+						}
+//						将被替换后未被标记的内容写入内存
+						str = '';
+						for (var i = 0;i<arr.length;i++) {
+							if (i<(arr.length-1)) {
+								str += arr[i] + $('replace-new').value;
+							} else{
+								str += arr[i];
+							}
+						}
+					}
+				}
+			}
+		}
+//		清除标记
+		$('clear').onclick = function () {
+			$('text').innerHTML = str;
+		}
+	</script>	
+</html>
