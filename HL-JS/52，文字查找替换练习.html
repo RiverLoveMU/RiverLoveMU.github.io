@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			span{
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			我们是共产主义接班人，继承革命前辈的光荣传统，爱学习，爱劳动~
+			我们是共产主义接班人，继承革命前辈的光荣传统，爱学习，爱劳动~
+			我们是共产主义接班人，继承革命前辈的光荣传统，爱学习，爱劳动~
+		</div>
+		<input type="text" name="" id="find" value="共产主义" placeholder="请输入查找内容"/>
+		<input type="text" name="" id="replace" value="资本主义" placeholder="请输入新内容"/>
+		<button id="search">查找</button>
+		<button id="btn">替换</button>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+		var str=$('box').innerHTML;
+		$('search').onclick=function(){
+			$('box').innerHTML=str.split($('find').value).join('<span>'+$('find').value+'</span>')
+		}
+		
+		$('btn').onclick=function(){
+			if($('replace').value==''){
+				var conf=confirm('是否要删除？');
+				if(conf){
+					var newStr=str.split($('find').value).join('');
+					$('box').innerHTML=newStr;
+					str=newStr;
+				}
+			}else{
+				$('box').innerHTML=str.split($('find').value).join($('replace').value);
+				str = $('box').innerHTML;
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.big-box{
+				height: 650px;
+				width: 900px;
+				background: #EFF7EF;
+				border: 1px solid gainsboro;
+				padding: 0 30px 0 170px;
+				position: relative;
+			}
+			.head{
+				height: 130px;
+				padding: 20px  0px;
+				text-align: center;
+			}
+			.head p{
+				line-height: 50px;
+			}
+			#btn{
+				width: 100px;
+			}
+			#game{
+				position: absolute;
+				left: 10px;
+				bottom: 30px;
+				height: 460px;
+				width: 1060px;
+				overflow: hidden;
+			}
+			#game .score{
+				height: 80px;
+				width: 140px;
+				background: #EFEFC6;
+				float: left;
+				border: 1px solid #00636B;
+				border-right: none;
+				line-height: 40px;
+				padding-left: 19px;
+			}
+			#game .game-area{
+				width: 898px;
+				height: 458px;
+				float: left;
+				background: white;
+				border: 1px solid #00636B;
+				position: relative;
+			}
+			#game .game-area #pic{
+				background: red;
+				height: 30px;
+				width: 20px;
+				position: absolute;
+				top:-30px;
+				left: 0;
+				cursor: pointer;
+			}
+			#game .game-area #pic img{
+				height: 100%;
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="big-box">
+			<div class="head">
+				<h1>你的鼠标有多快</h2>
+				<p>游戏说明：点击“开始游戏”，随机掉下图片，点击它，千万别让它掉下去</p>
+				<button id="btn">开始游戏</button>
+			</div>
+			<div id="game">
+				<div class="score">
+					得分：
+					<span >
+						0
+					</span>
+					<br />
+					失分：
+					<span >
+						0
+					</span>
+				</div>
+				<div class="game-area">
+					<div id="pic">
+						<img src="img/mu1.jpg"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('btn').control = true;
+		$('pic').control = true;
+		var oGet = $('game').getElementsByTagName('span')[0];
+		var oLost = $('game').getElementsByTagName('span')[1];
+		var oImg = $('pic').getElementsByTagName('img')[0];
+		var getScore = 0;
+		var lostScore = 0;
+		$('pic').style.left = creatNum(0,868) + 'px';
+		$('btn').onclick = function () {
+			getScore = 0;
+			lostScore = 0;
+			oLost.innerHTML = lostScore;
+			oGet.innerHTML = getScore;
+			if ($('btn').control) {
+				oImg.src = 'img/mu1.jpg';
+				$('btn').innerHTML = '游戏进行中';
+				$('btn').control = false;
+				circle(4);
+				$('pic').onmousedown = function () {
+					if ($('pic').control) {
+						$('pic').control = false;
+						oGet.innerHTML = ++getScore;
+						clearInterval($('pic').timer);
+						shake($('pic'),'left',function () {
+							$('pic').control = true;
+							$('pic').style.top = -30 + 'px';
+							$('pic').style.left = creatNum(0,868) + 'px';
+							switch (true){
+								case getScore<5:
+									circle(4);
+									oImg.src = 'img/mu1.jpg';
+									break;
+								case getScore<10:
+									circle(8);
+									oImg.src = 'img/mu2.jpg';
+									break;
+								case getScore<15:
+									circle(12);
+									oImg.src = 'img/mu3.jpg';
+									break;
+								case getScore<20:
+									circle(16);
+									oImg.src = 'img/mu4.jpg';
+									break;
+								case getScore<25:
+									circle(20);
+									oImg.src = 'img/mu5.jpg';
+									break;
+								default:
+									circle(20);
+									oImg.src = 'img/mu5.jpg';
+									break;
+							}
+						})
+					}
+				}
+			}
+		}
+		function circle (speed) {
+			Go($('pic'),'top',speed,458,function() {
+					$('pic').style.top = -30 + 'px';
+					$('pic').style.left = creatNum(0,868) + 'px';
+					oLost.innerHTML = ++lostScore;
+					shake($('game'),'top',function () {
+						if (lostScore<5) {
+							circle(speed);
+						} else{
+							$('btn').innerHTML = '开始游戏';
+							$('btn').control = true;
+							alert('游戏结束，你获得' + getScore + '分');
+						}
+					});
+				});
+		}
+	</script>
+</html>
