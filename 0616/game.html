@@ -103,11 +103,11 @@
 		var lostScore = 0;
 		$('pic').style.left = creatNum(0,868) + 'px';
 		$('btn').onclick = function () {
-			getScore = 0;
-			lostScore = 0;
-			oLost.innerHTML = lostScore;
-			oGet.innerHTML = getScore;
 			if ($('btn').control) {
+				getScore = 0;
+				lostScore = 0;
+				oLost.innerHTML = lostScore;
+				oGet.innerHTML = getScore;
 				oImg.src = 'img/mu1.jpg';
 				$('btn').innerHTML = '游戏进行中';
 				$('btn').control = false;
