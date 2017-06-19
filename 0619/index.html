@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			body{
+				background: #373737;
+				overflow: hidden;
+			}
+			#list {
+				margin: 50px;
+				height: 45px;
+				width: 900px;
+				overflow: hidden;
+				position: relative;
+			}
+			#list li{
+				height: 37px;
+				width: 100px;
+				text-align: center;
+				line-height: 37px;
+				float: left;
+				color: #C4C4AA;
+				font-size: 13px;
+			}
+			#list li.color1{
+				border-top: 8px solid #FBB92E;
+			}
+			#list li.color2{
+				border-top: 8px solid #F8D52F;
+			}
+			#list li.color3{
+				border-top: 8px solid #B4F62F;
+			}
+			#list li.color4{
+				border-top: 8px solid #54F7A8;
+			}
+			#list li.color5{
+				border-top: 8px solid #3FF7F3;
+			}
+			#list li.color6{
+				border-top: 8px solid #3A97FA;
+			}
+			#list li.color7{
+				border-top: 8px solid #6835F9;
+			}
+			#list li.color8{
+				border-top: 8px solid #D544F6;
+			}
+			#list li.color9{
+				border-top: 8px solid #F650AB;
+			}
+			#list li.move{
+				position: absolute;
+				top: 8px;
+				left: -100px;
+				z-index: -1;
+			}
+			#list li:hover{
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+			<li class="color1">Web Design</li>
+			<li class="color2">jQuery</li>
+			<li class="color3">Html5&css3</li>
+			<li class="color4">PHP</li>
+			<li class="color5">Photoshop</li>
+			<li class="color6">Illustrator</li>
+			<li class="color7">Wordpress</li>
+			<li class="color8">Tutorials</li>
+			<li class="color9">Tutorialpot</li>
+			<li class="move"></li>
+		</ul>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var aLi = $('list').getElementsByTagName('li');
+		var oMove = $('list').getElementsByTagName('li')[9];
+		$('list').onmouseenter = function () {
+			var mark = -1;
+			for (var i = 0;i<(aLi.length-1);i++) {
+				aLi[i].index = i;
+				aLi[i].onmouseenter = function () {
+					var index = this.index;
+					var distance = index*100;
+					oMove.style.background = getStyle(aLi[index],'borderTopColor');
+					if (index > mark) {
+						Go(oMove,'left',50,distance);
+					} else{
+						Go(oMove,'left',-50,distance);
+					}
+					mark = index;
+				}
+			}
+		}
+		$('list').onmouseleave = function () {
+			Go(oMove,'left',-50,-100);
+		}
+	</script>
+</html>
