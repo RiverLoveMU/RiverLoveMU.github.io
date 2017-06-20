@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: red;
+			}
+			/*1,使用属性名称去选择,只要标签拥有该属性名称都会被选中*/
+			/*div[myname]{
+				height: 100px;
+				width: 100px;
+				background: red;
+			}*/
+			/*2,属性名称结合属性值选中指定标签*/
+			/*div[myname='Tom active']{
+				background: blue;
+			}*/
+			/*3,属性值里面有多个值{词列表}，只要存在选择器所指定的某一个，则该元素会被选中*/
+			/*div[myname~='Tom']{
+				background: green;
+			}*/
+			/*4,选中属性值以某个或多个字符开头的元素*/
+			/*div[myname^='y']{
+				background: green;
+			}*/
+			/*5,选中属性值以某个或多个字符结尾的元素*/
+			/*div[myname$='e']{
+				background: green;
+			}*/
+			/*6,选中属性值中存在指定字符的元素*/
+			/*div[myname*='m']{
+				background: green;
+			}*/
+			/*7,选中属性值是指定value，或者是以value-开头的元素*/
+			/*div[myname|='Tom']{
+				background: green;
+			}*/
+		</style>
+	</head>
+	<body>
+		<div myname='yooye'></div>
+		<div myname='Tom'></div>
+		<div myname='Tom active'></div>
+		<a href="http://www.baidu.com/file.pdf"></a>
+	</body>
+</html>

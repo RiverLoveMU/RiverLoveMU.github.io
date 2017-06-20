@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			label{
+				border: 1px solid red;
+				display: inline-block;
+				height: 40px;
+				width: 40px;
+				overflow: hidden;
+				position: relative;
+				margin-top: 20px;
+			}
+			label input{
+				position: absolute;
+				top: -20px;
+				left: 0;
+			}
+			span{
+				display: inline-block;
+				height: 100%;
+				width: 100%;
+				background: url(img/uncheck.png) no-repeat center center;
+			}
+			input:checked ~ span{
+				background: url(img/check.png) no-repeat center center;
+			}
+		</style>
+	</head>
+	<body>
+		<label for="r1">
+			<input type="radio" name="r" id="r1" value="" />
+			<span></span>
+		</label>
+		<label for="r2">
+			<input type="radio" name="r" id="r2" value="" />
+			<span></span>
+		</label>
+		<label for="r3">
+			<input type="radio" name="r" id="r3" value="" />
+			<span></span>
+		</label>
+	</body>
+</html>

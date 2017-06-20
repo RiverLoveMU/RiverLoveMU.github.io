@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			a{
+				padding-left: 25px;
+				font-size: 13px;
+				display: block;
+				margin-bottom: 5px;
+			}
+			a[href$='pdf']{
+				background: url(img/icon2.png) no-repeat;
+				background-size: 15px 100%;
+			}
+			a[href$='doc']{
+				background: url(img/icon1.png) no-repeat;
+				background-size: 15px 100%;
+			}
+			a[href$='xls']{
+				background: url(img/icon3.png) no-repeat;
+				background-size: 15px 100%;
+			}
+			a[href$='flash']{
+				background: url(img/icon3.png) no-repeat;
+				background-size: 15px 100%;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var data = [
+			{
+				'href':'apdf',
+				'text':'文档一'
+			},
+			{
+				'href':'apdf',
+				'text':'文档二'
+			},
+			{
+				'href':'adoc',
+				'text':'文档三'
+			},
+			{
+				'href':'axls',
+				'text':'文档四'
+			},
+			{
+				'href':'aflash',
+				'text':'文档五'
+			},
+			{
+				'href':'adoc',
+				'text':'文档六'
+			},
+			{
+				'href':'aflash',
+				'text':'文档七'
+			},
+			{
+				'href':'axls',
+				'text':'文档八'
+			},
+			{
+				'href':'apdf',
+				'text':'文档九'
+			}
+		]
+		for (var i=0;i<data.length;i++) {
+			document.body.innerHTML += '<a href=""></a>';
+		}
+		var aA = document.body.getElementsByTagName('a');
+		for (var i=0;i<data.length;i++) {
+			aA[i].href = data[i].href;
+			aA[i].innerHTML = data[i].text;
+		}
+	</script>
+</html>

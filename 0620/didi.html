@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<style type="text/css">
+			.cont{
+				width: 360px;
+				height: 800px;
+				border: 1px solid gainsboro;
+				position: relative;
+				overflow: hidden;
+			}
+			.cont .user{
+				height: 180px;
+				width: 100%;
+				padding-top: 35px;
+				text-align: center;
+				overflow: hidden;
+			}
+			.cont .user .pic{
+				height: 100px;
+				width: 100px;
+				border-radius: 50px;
+				overflow: hidden;
+				margin: auto;
+				transition: all 1s;
+			}
+			.cont .user .pic img{
+				height: 100%;
+				width: 100%;
+			}
+			.cont .user .name{
+				font-size: 25px;
+				margin: 5px 0 0;
+				transition: all 1s;
+			}
+			.cont .user .vip{
+				font-size: 12px;
+				transition: all 1s;
+			}
+			.cont .list{
+				box-sizing: border-box;
+				width: 100%;
+				padding-left: 30px;
+				transition: all 1s; 
+			}
+			.cont .list li{
+				line-height: 65px;
+				font-size: 25px;
+				font-weight: bold;
+			}
+			.cont .list li .iconfont{
+				font-size: 25px;
+				margin-right: 10px;
+			}
+			.cont .grid{
+				width: 300px;
+				padding: 0 30px;
+				overflow: hidden;
+				position: absolute;
+				bottom: -270px;
+				transition: all 1s;
+				background-color: white; 
+			}
+			.cont .grid li{
+				float: left;
+				height: 90px;
+				width: 100px;
+				text-align: center;
+				font-size: 12px;
+			}
+			.cont .grid li .iconfont{
+				height: 50px;
+				line-height: 50px;
+				width: 50px;
+				margin: 10px auto;
+				font-size: 25px;
+				border: 1px solid gainsboro;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont" id="cont">
+			<div id="user" class="user">
+				<div class="pic">
+					<img src="img/头像10.jpg"/>
+				</div>
+				<p class="name">Tom</p>
+				<div class="vip">
+					普通会员
+				</div>
+			</div>
+			<ul class="list" id="list">
+				<li>
+					<i class="iconfont icon-xingcheng"></i>
+					行程
+				</li>
+				<li>
+					<i class="iconfont icon-qianbao"></i>
+					钱包
+				</li>
+				<li>
+					<i class="iconfont icon-kefu"></i>
+					客服
+				</li>
+				<li>
+					<i class="iconfont icon-shezhi"></i>
+					设置
+				</li>
+			</ul>
+			<ul class="grid" id="grid">
+				<li>
+					<div class="iconfont icon-unie64d">
+					</div>
+					积分商城
+				</li>
+				<li>
+				<div class="iconfont icon-tuijianyoujiang">
+					</div>
+					推荐有奖
+				</li>
+				<li>
+					<div class="iconfont icon-zhaomu">
+					</div>
+					车主招募
+				</li>
+				<li>
+					<div class="iconfont icon-gongyi">
+					</div>
+					滴滴公益
+				</li>
+				<li>
+				<div class="iconfont icon-duihuanma">
+					</div>
+					兑换码
+				</li>
+				<li>
+					<div class="iconfont icon-yinxingqia">
+					</div>
+					办银行卡
+				</li>
+				<li>
+					<div class="iconfont icon-qiyeban">
+					</div>
+					企业版
+				</li>
+				<li>
+				<div class="iconfont icon-cebianlan_jinglao">
+					</div>
+					敬老服务
+				</li>
+				<li>
+					<div class="iconfont icon-chexian">
+					</div>
+					保险车险
+				</li>
+				<li>
+					<div class="iconfont icon-shoujiqia">
+					</div>
+					办手机卡
+				</li>
+				<li>
+				<div class="iconfont icon-liuliang2">
+					</div>
+					流量中心
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('grid').control = true;
+		var oPic = $('user').getElementsByClassName('pic')[0];
+		var oName = $('user').getElementsByClassName('name')[0];
+		var oVip = $('user').getElementsByClassName('vip')[0];
+		$('cont').onclick = function () {
+			if ($('grid').control) {
+				$('grid').style.bottom = 370 + 'px';
+				oName.style.opacity = 0;
+				oVip.style.opacity = 0;
+				oName.style.fontSize = 0;
+				oVip.style.fontSize = 0;
+				oPic.style.marginTop = -20 + 'px';
+				oPic.style.height = 50 + 'px';
+				oPic.style.width = 50 + 'px';
+				$('list').style.opacity = 0;
+			} else{
+				$('grid').style.bottom = -270 + 'px';
+				oName.style.opacity = 1;
+				oVip.style.opacity = 1;
+				oName.style.fontSize = 25 + 'px';
+				oVip.style.fontSize = 12 + 'px';
+				oPic.style.marginTop = 0 + 'px';
+				oPic.style.height = 100 + 'px';
+				oPic.style.width = 100 + 'px';
+				$('list').style.opacity = 1;
+			}
+			$('grid').control = !$('grid').control;
+		}
+	</script>
+</html>

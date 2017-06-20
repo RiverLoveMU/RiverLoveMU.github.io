@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*1,E:nth-child(n) 表示E的父级中的第n个E元素会被选中*/
+				/*li:nth-child(odd){
+					background: red;
+				}
+				li:nth-child(even){
+					background: blue;
+				}*/
+				/*li:nth-child(2n+1){
+					background: red;
+				}
+				li:nth-child(2n){
+					background: blue;
+				}*/
+				/*从后向前选择*/
+				/*li:nth-last-child(odd){
+					background: red;
+				}*/
+			/*2,E:nth-of-type(n) 表示E的父级中的第n个该类型E元素会被选中*/
+				/*li:nth-of-type(1){
+					background: red;
+				}*/
+				/*li:nth-of-type(odd){
+					background: red;
+				}*/
+				/*从后向前选择*/
+				/*li:nth-last-of-type(1){
+					background: blue;
+				}*/
+			/*3,nth-child跟nth-of-type的区别*/
+				/*p:nth-child(odd){
+					background: red;
+				}*/
+				/*p:nth-of-type(odd){
+					background: red;
+				}*/
+			/*4,p:empty{
+				border: 1px solid red;
+			}*/
+			/*5,比较特殊位置的元素选择*/
+			/*li:first-child{
+				background: red;
+			}
+			li:last-child{
+				background: red;
+			}*/
+			/*h1:first-of-type{
+				background: blue;
+			}
+			h1:last-of-type{
+				background: red;
+			}*/
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>我是文字</li>
+			<li>我是文字</li>
+			<li>我是文字</li>
+			<li>我是文字</li>
+			<li>我是文字</li>
+			<li>我是文字</li>
+			<li>我是文字</li>
+			<li>我是文字</li>
+			<li>我是文字</li>
+		</ul>
+		<ul>
+			<li>我是文字</li>
+			<li>我是文字</li>
+			<li>我是文字</li>
+			<li>我是文字</li>
+			<li>我是文字</li>
+			<li>我是文字</li>
+			<li>我是文字</li>
+			<li>我是文字</li>
+		</ul>
+		<div>
+			<p>我是p标签</p>
+			<p>我是p标签</p>
+			<p>我是p标签</p>
+			<h1>我是h1</h1>
+			<h1>我是h1</h1>
+			<h1>我是h1</h1>
+			<p>我是p标签</p>
+			<p>我是p标签</p>
+			<p>我是p标签</p>
+			<h1>我是h1</h1>
+			<h1>我是h1</h1>
+			<h1>我是h1</h1>
+		</div>
+	</body>
+</html>

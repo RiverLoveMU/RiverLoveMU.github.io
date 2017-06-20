@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			label{
+				display: inline-block;
+				margin-top: 30px;
+				height: 50px;
+				width: 80px;
+				line-height: 50px;
+			}
+			label input{
+				display: none;
+			}
+			label span{
+				display: block;
+				height: 50px;
+				width: 35px;
+				margin-right: 5px;
+				float: right;
+				background: url(img/unchecked.png) no-repeat center center;
+			}
+			label input:checked ~ span{
+				background-image: url(img/checked.png);
+			}
+		</style>
+	</head>
+	<body>
+		<label>
+			Jack
+			<input type="radio" name="name" id="" value="" />
+			<span></span>
+		</label>
+		<label>
+			Tom
+			<input type="radio" name="name" id="" value="" />
+			<span></span>
+		</label>
+		<label>
+			Jerry
+			<input type="radio" name="name" id="" value="" />
+			<span></span>
+		</label>
+	</body>
+</html>

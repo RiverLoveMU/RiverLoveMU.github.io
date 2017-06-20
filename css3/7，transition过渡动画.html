@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				height: 50px;
+				width: 50px;
+				background: cadetblue;
+				border-radius: 50%;
+				/*transition: all 1s;*/
+				/*1,需要过渡的样式*/
+				transition-property: margin-left;  
+				/*2,动画持续时间*/
+				transition-duration: 1s;
+				/*3,动画延迟时间*/
+				/*transition-delay: 2s;*/
+				/*4,动画的运动形式(关键字，贝赛尔曲线)*/
+				/*transition-timing-function: linear;*/
+				line-height: 50px;
+				text-align: center;
+				/*5,动画持续时间与动画延迟时间之间的先后顺序有严格要求,后面的时间是延迟*/
+			}
+			.box1{
+				transition-timing-function: ease;
+			}
+			.box2{
+				transition-timing-function: ease-in;
+			}
+			.box3{
+				transition-timing-function: ease-out;
+			}
+			.box4{
+				transition-timing-function: linear;
+			}
+			.box5{
+				transition-timing-function: ease-in-out;
+			}
+			.box6{
+				transition-timing-function: cubic-bezier(0.180, 0.885, 0.290, 1.555);
+			}
+			.cont:hover .box{
+				margin-left: 400px;
+			}
+			.bigBox{
+				height: 100px;
+				width: 100px;
+				background: cornflowerblue;
+				transition: margin-left 1s,margin-top 1s 1s,background-color 1s 2s;
+			}
+			body:hover .bigBox{
+				margin-left: 200px;
+				margin-top: 200px;
+				background-color:red ;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="box"></div>
+			<div class="box box1"></div>
+			<div class="box box2"></div>
+			<div class="box box3"></div>
+			<div class="box box4"></div>
+			<div class="box box5"></div>
+			<div class="box box6">6</div>
+		</div>
+		<div class="bigBox"></div>
+	</body>
+</html>

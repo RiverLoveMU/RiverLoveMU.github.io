@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			input:checked{
+				height: 50px;
+				width: 50px;
+			}
+			input:disabled{
+				height: 50px;
+				width: 50px;
+			}
+			input:enabled{
+				height: 50px;
+				width: 50px;
+			}
+			/*2,修改文字被鼠标拉选之后的背景色*/
+			div::selection{
+				background: orange;
+				color: #FFF;
+			}
+			/*3,模拟单选框*/
+				/*(1):checked
+				(2)label的for属性使用
+				(3).content ~ nav*/
+			/*4,*/
+			div:first-letter{
+				font-size: 30px;
+				color: orange;
+			}
+			div:first-line{
+				font-size: 30px;
+				color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="checkbox" name="" id="" value="" />
+		<input type="checkbox" name="" id="" value="" disabled="disabled"/>
+		<input type="checkbox" name="" id="" value="" />
+		<input type="checkbox" name="" id="" value="" />
+		<div>
+			很多的文字
+			很多的文字
+			很多的文字
+			很多的文字
+			很多的文字
+			很多的文字
+		</div>
+		<label for="boy">男生</label>
+		<input type="radio" name="sex" id="boy" value="" />
+		<label for="girl">女生</label>
+		<input type="radio" name="sex" id="girl" value="" />
+	</body>
+</html>

@@ -5,13 +5,14 @@
 		<title></title>
 	</head>
 	<body>
-		<button id="btn">dianji</button>
+		<input type="radio" name="" id="" value="" />
+		<input type="radio" name="" id="" value="" />
+		<input type="text" name="" id="" value="" />
 	</body>
 	<script type="text/javascript">
-		document.getElementById('btn').onclick = function () {
-			var neww = window.open('http://www.qq.com/','good','height=300,width=300 top=300 left=300');
-			neww.moveTo(500,500);
-		}
+			var aRadio = document.getElementsByTagName('input');
+			aRadio[0].checked = true;
+			aRadio[1].disabled = true;
 	</script>
 
 </html>
