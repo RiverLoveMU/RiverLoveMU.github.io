@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box,.inner{
+				height: 100px;
+				width: 100px;
+				margin: 100px;
+				background: red;
+				transition: all 1s;
+				/*-webkit-transform: rotate(45deg);*/
+				
+			}
+			/*.inner{
+				margin: 0;
+				background: blue;
+				-webkit-transform: rotate(-60deg);
+				-webkit-transform-origin: center top;
+			}*/
+			.box:hover{
+				/*1,旋转*/
+				/*-webkit-transform: rotate(45deg);*/
+				/*transform: rotate(45deg);*/
+				/*2,扭曲*/
+				/*-webkit-transform: skewX(30deg);*/
+				/*-webkit-transform: skewY(30deg);*/
+				/*-webkit-transform: skew(30deg,30deg);*/
+				/*2-1,实现扭曲导航*/
+				/*3,缩放*/
+				/*-webkit-transform: scaleX(2);*/
+				/*-webkit-transform: scaleY(2);*/
+				/*-webkit-transform: scale(0.1);*/
+				/*4,位移*/
+				-webkit-transform: translateX(100px);
+				-webkit-transform: translateY(100px);
+				-webkit-transform: translate(100px,-100px);
+				/*5,旋转基点*/
+				/*-webkit-transform-origin: right top;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="inner"></div>
+		</div>
+	</body>
+</html>

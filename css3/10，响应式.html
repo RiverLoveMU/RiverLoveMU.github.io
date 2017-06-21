@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*需求*/
+			/*1,屏幕宽度小于200px时候,body背景为红色
+			2,屏幕宽度200px~600px之间时候,body背景为蓝色
+			3,屏幕宽度大于600px时候,body背景为绿色*/
+			@media only screen and (max-width:200px) {
+				body{
+					background: red;
+				}
+			}
+			@media only screen and (min-width: 200px) and (max-width: 600px) {
+				body{
+					background: blue;
+				}
+			}
+			@media only screen and (min-width:600px ) {
+				body{
+					background: green;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!--1,响应式，写一套代码，在所有分辨率的终端上都可以使用（媒体查询）-->
+		<!--2,移动端跟PC端分别实现两套不同的代码或设计，在用户访问的时候，服务器进行重定向的处理-->
+		
+	</body>
+</html>

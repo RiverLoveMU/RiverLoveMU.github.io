@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				overflow: hidden;
+				height: 600px;
+				width: 500px;
+			}
+			.handle{
+				width: 0;
+				border: 250px solid #6C3500;
+				border-left-color: transparent;
+				border-right-color: transparent;
+				border-top-color: transparent;
+				-webkit-transform: scaleX(0.1);
+				transform: scaleX(0.1);
+				position: absolute;
+				z-index: -1;
+			}
+			.center{
+				width: 0;
+				border: 20px solid #CD5C5C;
+				border-radius: 50%;
+				border-left-color: #5F9EA0;
+				border-right-color: #5F9EA0;
+				position: absolute;
+				top: 250px;
+				left: 230px;
+				-webkit-transform: rotate(45deg);
+				transform: rotate(45deg);
+				z-index: 2;
+				transition: all 2s;
+			}
+			.f{
+				width: 0;
+				border-width: 90px 35px 90px 35px;
+				border-style: solid; 
+				-webkit-transform-origin: left bottom;
+				position: absolute;
+				left: 250px;
+				top: 90px;
+				z-index: 1;
+			}
+			.top{
+				-webkit-transform: rotate(45deg);
+				transform: rotate(45deg);
+				border-color: transparent transparent #FF0000 #FF0000;
+				transition: all 2s;
+			}
+			.left{
+				-webkit-transform: rotate(135deg);
+				transform: rotate(135deg);
+				border-color: transparent transparent #8A2BE1 #8A2BE1;
+				transition: all 2s;
+			}
+			.right{
+				-webkit-transform: rotate(225deg);
+				transform: rotate(225deg);
+				border-color: transparent transparent #FF0000 #FF0000;
+				transition: all 2s;
+			}
+			.bottom{
+				-webkit-transform: rotate(315deg);
+				transform: rotate(315deg);
+				border-color: transparent transparent #8A2BE1 #8A2BE1;
+				transition: all 2s;
+			}
+			.cont:hover .center{
+				-webkit-transform: rotate(405deg);
+				transform: rotate(405deg);
+			}
+			.cont:hover .top{
+				-webkit-transform: rotate(405deg);
+				transform: rotate(405deg);
+				-webkit-transform-origin: left bottom;
+			}
+			.cont:hover .left{
+				-webkit-transform: rotate(495deg);
+				transform: rotate(495deg);
+				-webkit-transform-origin: left bottom;
+			}
+			.cont:hover .right{
+				-webkit-transform: rotate(585deg);
+				transform: rotate(585deg);
+				-webkit-transform-origin: left bottom;
+			}
+			.cont:hover .bottom{
+				-webkit-transform: rotate(675deg);
+				transform: rotate(675deg);
+				-webkit-transform-origin: left bottom;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="handle"></div>
+			<div class="center"></div>
+			<div class="flabellum">
+				<div class="top f"></div>
+				<div class="left f"></div>
+				<div class="right f"></div>
+				<div class="bottom f"></div>
+			</div>
+		</div>
+	</body>
+</html>

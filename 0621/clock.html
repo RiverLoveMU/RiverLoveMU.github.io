@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.clock{
+				height: 480px;
+				width: 480px;
+				border: 20px solid #363E49;
+				background: #262C33;
+				border-radius: 50%;
+				position: relative;
+			}
+			.clock #scale li{
+				height: 16px;
+				width: 16px;
+				border-radius: 50%;
+				background: white;
+				position: absolute;
+				top: 5px;
+				left: 232px;
+				-webkit-transform-origin: 8px 235px;
+				transform-origin: 8px 235px;
+			}
+			.clock #scale li:nth-child(5n){
+				height: 30px;
+				border-radius: 8px;
+			}
+			.clock .center{
+				height: 50px;
+				width: 50px;
+				background: #C71585;
+				border-radius: 50%;
+				position: absolute;
+				top: 215px;
+				left: 215px;
+				z-index: 100;
+			}
+			.clock .secondhand{
+				height: 200px;
+				width: 10px;
+				overflow: hidden;
+				position: absolute;
+				left: 235px;
+				top: 40px;
+				-webkit-transform-origin: center bottom;
+				transform-origin: center bottom;
+				transition: all 0.5s; 
+			}
+			.clock .secondhand .handle{
+				height: 180px;
+				width: 10px;
+				background: #C71585;
+				margin-top: 20px;
+				position: relative;
+			}
+			.clock .secondhand .arrow{
+				height: 10px;
+				width: 10px;
+				background: #C71585;
+				-webkit-transform: rotate(45deg);
+				position: absolute;
+				top:-5px
+			}
+			.clock .minutehand{
+				height: 150px;
+				width: 20px;
+				overflow: hidden;
+				position: absolute;
+				left: 230px;
+				top: 90px;
+				-webkit-transform-origin: center bottom;
+				transform-origin: center bottom;
+				transition: all 0.5s; 
+			}
+			.clock .minutehand .handle{
+				height: 130px;
+				width: 20px;
+				background: #5F9DA0;
+				margin-top: 20px;
+				position: relative;
+			}
+			.clock .minutehand .arrow{
+				height: 20px;
+				width: 20px;
+				background: #5F9DA0;
+				-webkit-transform: rotate(45deg);
+				position: absolute;
+				top:-10px
+			}
+			.clock .hourhand{
+				height: 100px;
+				width: 30px;
+				overflow: hidden;
+				position: absolute;
+				left: 225px;
+				top: 140px;
+				-webkit-transform-origin: center bottom;
+				transform-origin: center bottom;
+				transition: all 0.5s; 
+			}
+			.clock .hourhand .handle{
+				height: 80px;
+				width: 30px;
+				background: white;
+				margin-top: 20px;
+				position: relative;
+			}
+			.clock .hourhand .arrow{
+				height: 30px;
+				width: 30px;
+				background: white;
+				-webkit-transform: rotate(45deg);
+				position: absolute;
+				top:-10px
+			}
+		</style>
+	</head>
+	<body>
+		<div class="clock">
+			<ul id="scale"></ul>
+			<div class="center"></div>
+			<div class="secondhand" id="second">
+				<div class="handle">
+					<div class="arrow"></div>
+				</div>
+			</div>
+			<div class="minutehand" id="minute">
+				<div class="handle">
+					<div class="arrow"></div>
+				</div>
+			</div>
+			<div class="hourhand" id="hour">
+				<div class="handle">
+					<div class="arrow"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var aLi = $('scale').getElementsByTagName('li');
+		for (var i=0;i<60;i++) {
+			$('scale').innerHTML += '<li></li>';
+		}
+		for (var i=0;i<aLi.length;i++) {
+			aLi[i].style.webkitTransform = 'rotate(' + (i+1)*6 + 'deg)';
+			aLi[i].style.transform = 'rotate(' + (i+1)*6 + 'deg)';
+		}
+		var nDate = new Date();
+		var hour = nDate.getHours();
+		var minute = nDate.getMinutes();
+		var second = nDate.getSeconds();
+		var clockSecond = second*6;
+		var clockMinute = minute*6 + second/60*6;
+		var clockHour = hour%12*30 +  (minute*60 + second)/3600*30;
+		$('second').style.webkitTransform =  'rotate(' + clockSecond + 'deg)';
+		$('minute').style.webkitTransform =  'rotate(' + clockMinute + 'deg)';
+		$('hour').style.webkitTransform =  'rotate(' + clockHour + 'deg)';
+		$('second').style.transform =  'rotate(' + clockSecond + 'deg)';
+		$('minute').style.transform =  'rotate(' + clockMinute + 'deg)';
+		$('hour').style.transform =  'rotate(' + clockHour + 'deg)';
+		setInterval(function(){
+			clockSecond +=6;
+			clockMinute +=0.1;
+			clockHour += 30/3600;
+			$('second').style.webkitTransform =  'rotate(' + clockSecond + 'deg)';
+			$('minute').style.webkitTransform =  'rotate(' + clockMinute + 'deg)';
+			$('hour').style.webkitTransform =  'rotate(' + clockHour + 'deg)';
+			$('second').style.transform =  'rotate(' + clockSecond + 'deg)';
+			$('minute').style.transform =  'rotate(' + clockMinute + 'deg)';
+			$('hour').style.transform =  'rotate(' + clockHour + 'deg)';
+		},1000)
+	</script>
+</html>

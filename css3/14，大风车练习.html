@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.cont{
+				height: 400px;
+				width: 400px;
+				border: 1px solid red;
+				position: relative;
+				overflow: hidden;
+			}
+			.inner{
+				width: 200px;
+				height: 200px;
+				background: green;
+				position: absolute;
+				bottom: -100px;
+				left: 50%;
+				margin-left: -100px;
+				/*-webkit-transform: rotate(80deg);*/
+				-webkit-transform: rotate(45deg) skew(40deg,40deg);
+			}
+			.dot{
+				width: 0;
+				border-width: 20px;
+				border-style: solid;
+				border-color: pink blue pink blue;
+				margin-left: -20px;
+				border-radius: 50%;
+				position: absolute;
+				top: -20px;
+				left: 0;
+				
+			}
+			.dotCont{
+				width: 0;
+				border-width: 20px;
+				border-style: solid;
+				border-color: red blue red blue;
+				position: absolute;
+				top: 130px;
+				left: 50%;
+				margin-left: -20px;
+				transition: all 3s;
+			}
+			.dotCont .swig{
+				display: inline-block;
+				height: 0;
+				width: 0;
+				border-width: 30px 80px 30px 80px;
+				border-style: solid;
+				border-color: red transparent transparent red;
+				position: absolute;
+				top: 0;
+				left: 0;
+				-webkit-transform-origin: left top;
+			}
+			.dotCont .swig:nth-child(2){
+				-webkit-transform: rotate(90deg);
+				border-color: blueviolet transparent transparent blueviolet;
+			}
+			.dotCont .swig:nth-child(3){
+				-webkit-transform: rotate(180deg);
+			}
+			.dotCont .swig:nth-child(4){
+				-webkit-transform: rotate(-90deg);
+				border-color: blueviolet transparent transparent blueviolet;
+			}
+			.cont:hover .dotCont{
+				-webkit-transform: rotate(800deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="inner"></div>
+			<div class="dotCont">
+				<span class="swig"></span>
+				<span class="swig"></span>
+				<span class="swig"></span>
+				<span class="swig"></span>
+				<span class="dot"></span>
+			</div>
+		</div>
+	</body>
+</html>

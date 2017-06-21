@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.cont{
+				height: 300px;
+				width: 300px;
+				border: 2px solid #000;
+				border-radius: 50%;
+				position: relative;
+			}
+			.line{
+				height: 40px;
+				width: 10px;
+				background: #9b9b9b;
+				position: absolute;
+				top: 0;
+				left: 150px;
+				margin-left: -5px;
+				
+				-webkit-transform-origin: 5px 150px;
+				/*-webkit-transform-origin: center center;*/
+			}
+			.line:nth-child(1){
+				-webkit-transform: rotate(45deg);
+				background: red;
+				z-index: 1;
+			}
+			/*.line:nth-child(2){
+				-webkit-transform: rotate(90deg);
+			}
+			.line:nth-child(3){
+				-webkit-transform: rotate(-45deg);
+			}*/
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</div>
+	</body>
+</html>
