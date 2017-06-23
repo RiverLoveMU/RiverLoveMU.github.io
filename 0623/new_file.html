@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				margin: 10px;
+				width: 1050px;
+				height: 500px;
+	        }
+	        .l-button{
+	         	height: 500px;
+	         	width: 150px;
+	         	float: left;
+	         	text-align: center;
+	         }
+	         .r-button{
+	         	height: 500px;
+	         	width: 150px;
+	         	float:right;
+	         	text-align: center;
+	         }
+	         span{
+	         	display: inline-block;
+	         	background: white;
+	         	height: 50px;
+	         	width: 50px;
+	         	margin-top: 225px;
+	         	line-height: 50px;
+	         	border-radius: 50%;
+	         	color: #AA9DA2;
+	         	font-weight: bold;
+	         	box-shadow: 1px 1px 10px 3px #AA9DA2;
+	         }
+	         .pic{
+	         	float: left;
+	         	height: 500px;
+	         	width: 750px;
+	         	position: relative;
+	         	-webkit-transform-style: preserve-3d;
+	         	-webkit-perspective: 1000px;
+	         	transform-style: preserve-3d;
+	         	perspective: 1000px;
+	         }
+	         .pic img{
+	         	height: 100%;
+	         	width: 100%;
+	         	position: absolute;
+	         	-webkit-transform: rotateX(180deg);
+	         	-webkit-transform-origin: center bottom;
+	         	transform: rotateX(180deg);
+	         	transform-origin: center bottom;
+	         	transition: all 1s;
+	         	opacity: 0;
+	         }
+	         .pic img.first{
+	         	-webkit-transform: rotateX(0);
+	         	transform: rotateX(0);
+	         	opacity: 1;
+	         }
+	         .go{
+	         	-webkit-animation: move 2s linear forwards;
+	         	animation: move 2s linear forwards;
+	         }
+	         .back{
+	         	-webkit-animation: goback 2s linear forwards;
+	         	animation: goback 2s linear forwards;
+	         }
+	         .rgo{
+	         	-webkit-animation: rmove 2s linear forwards;
+	         	animation: rmove 2s linear forwards;
+	         }
+	         .rback{
+	         	-webkit-animation: rgoback 2s linear forwards;
+	         	animation: rgoback 2s linear forwards;
+	         }
+	         @-webkit-keyframes move{
+	         	0%{
+	         		-webkit-transform: rotateX(180deg);
+	         		transform: rotateX(180deg);
+	         	}
+	         	70%{
+	         		-webkit-transform: rotateX(360deg);
+	         		transform: rotateX(360deg);
+	         		opacity: 1;
+	         	}
+	         	75%{
+	         		-webkit-transform: rotateX(370deg);
+	         		transform: rotateX(370deg);
+	         	}
+	         	80%{
+	         		-webkit-transform: rotateX(360deg);
+	         		transform: rotateX(360deg);
+	         	}
+	         	85%{
+	         		-webkit-transform: rotateX(350deg);
+	         		transform: rotateX(350deg);
+	         	}
+	         	90%{
+	         		-webkit-transform: rotateX(360deg);
+	         		transform: rotateX(360deg);
+	         	}
+	         	95%{
+	         		-webkit-transform: rotateX(370deg);
+	         		transform: rotateX(370deg);
+	         	}
+	         	100%{
+	         		-webkit-transform: rotateX(360deg);
+	         		transform: rotateX(360deg);
+	         		opacity: 1;
+	         	}
+	         }
+	         @-webkit-keyframes goback{
+	         	from{
+	         		-webkit-transform: rotateX(0deg);
+	         		transform: rotateX(0deg);
+	         		opacity: 1;
+	         		}
+	         	to{
+	         		-webkit-transform: rotateX(180deg);
+	         		transform: rotateX(180deg);
+	         		opacity: 0;
+	         	}
+	         }
+	          @-webkit-keyframes rmove{
+	         	0%{
+	         		-webkit-transform: rotateX(180deg);
+	         		transform: rotateX(180deg);
+	         	}
+	         	70%{
+	         		-webkit-transform: rotateX(0deg);
+	         		transform: rotateX(0deg);
+	         		opacity: 1;
+	         	}
+	         	75%{
+	         		-webkit-transform: rotateX(-10deg);
+	         		transform: rotateX(-10deg);
+	         	}
+	         	80%{
+	         		-webkit-transform: rotateX(0deg);
+	         		transform: rotateX(0deg);
+	         	}
+	         	85%{
+	         		-webkit-transform: rotateX(10deg);
+	         		transform: rotateX(10deg);
+	         	}
+	         	90%{
+	         		-webkit-transform: rotateX(0deg);
+	         		transform: rotateX(0deg);
+	         	}
+	         	95%{
+	         		-webkit-transform: rotateX(-10deg);
+	         		transform: rotateX(-10deg);
+	         	}
+	         	100%{
+	         		-webkit-transform: rotateX(0deg);
+	         		transform: rotateX(0deg);
+	         		opacity: 1;
+	         	}
+	         }
+	         @-webkit-keyframes rgoback{
+	         	from{
+	         		-webkit-transform: rotateX(0deg);
+	         		transform: rotateX(0deg);
+	         		opacity: 1;
+	         		}
+	         	to{
+	         		-webkit-transform: rotateX(-180deg);
+	         		transform: rotateX(-180deg);
+	         		opacity: 0;
+	         	}
+	         }
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="l-button">
+				<span>后</span>
+			</div>
+			<div class="pic">
+				<img class="first" src="img/timg.jpg"/>
+				<img src="img/timg1.jpg"/>
+				<img src="img/timg2.jpg"/>
+				<img src="img/timg3.jpg"/>
+			</div>
+			<div class="r-button">
+				<span>前</span>
+			</div>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var oPrev = document.getElementsByTagName('span')[0];
+		var oNext = document.getElementsByTagName('span')[1];
+		var aPic = document.getElementsByTagName('img');
+		var control = true;
+		var mark = 0;
+		var lastMark = 3;
+		var finalMark = 2;
+		var prevMark = 1;
+		var finalPrevMark = 2;
+		oNext.recognize = 0;
+		oPrev.recognize = 1;
+		oNext.control = true;
+		oPrev.control = true;
+		oNext.onclick = function () {
+			btClick(oNext);
+		}
+		oPrev.onclick = function () {
+			btClick(oPrev);
+		}
+		function btClick (obj) {
+			if (obj.recognize == 1) {
+				clearInterval(oNext.timer);
+				oNext.control = true;
+				oNext.style.background = 'white';
+				oNext.style.color = '#AA9DA2';
+			} else{
+				clearInterval(oPrev.timer);
+				oPrev.control = true;
+				oPrev.style.background = 'white';
+				oPrev.style.color = '#AA9DA2';
+			}
+			if (obj.control) {
+				obj.style.background = '#A3A5A9';
+				obj.style.color = 'white';
+				aPic[0].classList.remove('first');
+				if (obj.recognize == 1) {
+					rchange()
+				} else{
+					change()
+				}
+				obj.timer = setInterval(function(){
+						if (obj.recognize == 1) {
+							rchange()
+						} else{
+							change()
+						}
+				},2500)
+			} else{
+				obj.style.background = 'white';
+				obj.style.color = '#AA9DA2';
+				clearInterval(obj.timer);
+			}
+			obj.control = !obj.control;
+		}
+		function change (){
+			aPic[mark].className = 'back';
+			aPic[lastMark].className = 'go';
+			aPic[finalMark].className = '';
+			finalPrevMark = prevMark;
+			prevMark = mark;
+			mark = lastMark;
+			lastMark = finalMark;
+			if (finalMark == 0) {
+				finalMark = 3;
+			} else{
+				finalMark--;
+			}
+		}
+		function rchange (){
+			aPic[mark].className = 'rback';
+			aPic[prevMark].className = 'rgo';
+			aPic[finalPrevMark].className = '';
+			finalMark = lastMark;
+			lastMark = mark;
+			mark = prevMark;
+			prevMark = finalPrevMark;
+			finalPrevMark = (++finalPrevMark)%4
+		}
+	</script>
+</html>
+

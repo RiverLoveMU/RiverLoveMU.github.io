@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.ball{
+				height: 100px;
+				width: 100px;
+				background: red;
+				border-radius: 50%;
+				-webkit-animation-name: jump;
+				-webkit-animation-duration: 10s;
+				-webkit-animation-timing-function:  cubic-bezier(.94,.1,1,1.2);
+				animation-timing-function:  cubic-bezier(.94,.1,1,1.2);
+				-webkit-animation-iteration-count: infinite;
+				animation-iteration-count: infinite;
+				-webkit-animation-direction: alternate;
+				animation-direction: alternate;
+				animation-name: jump;
+				animation-duration: 10s;
+			}
+			.ground{
+				width: 1600px;
+				height: 1px;
+				background: black;
+				position: absolute;
+				top: 800px;
+			}
+			@-webkit-keyframes jump{
+				0%{
+					
+				}
+				20%{
+					margin-left: 300px;
+					margin-top: 700px;
+				}
+				30%{
+					margin-left: 450px;
+					margin-top: 350px;
+				}
+				40%{
+					margin-left: 600px;
+					margin-top: 700px;
+				}
+				50%{
+					margin-left: 750px;
+					margin-top: 525px;
+				}
+				60%{
+					margin-left: 900px;
+					margin-top: 700px;
+				}
+				70%{
+					margin-left: 1050px;
+					margin-top: 612px;
+				}
+				80%{
+					margin-left: 1200px;
+					margin-top: 700px;
+				}
+				90%{
+					margin-left: 1350px;
+					margin-top: 656px;
+				}
+				100%{
+					margin-left: 1500px;
+					margin-top: 700px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="ball"></div>
+		<div class="ground"></div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript>
+	</script>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			div{
+				height: 200px;
+				width: 200px;
+				line-height: 200px;
+				text-align: center;
+				color: green;
+			}
+			.cont{
+				margin: 200px;
+				position: relative;
+				-webkit-transform-style: preserve-3d;
+				-webkit-perspective: 0px;
+				transform-style: preserve-3d;
+				perspective: 0px;
+				transition: all 10s;
+				-webkit-animation:move 5s normal infinite linear;
+				animation:move 5s normal infinite linear;
+			}
+			.cont div{
+				position: absolute;
+				opacity: 0.5;
+				background-size: 100% 100%;
+			}
+			.left{
+				background: url(img/mu1.jpg);
+				-webkit-transform: rotateY(-90deg) translateX(-100px);
+				-webkit-transform-origin: left;
+				transform: rotateY(-90deg) translateX(-100px);
+				transform-origin: left;
+			}
+			.right{
+				background: url(img/mu2.jpg);
+				-webkit-transform: rotateY(90deg) translateX(100px);
+				-webkit-transform-origin: right;
+				transform: rotateY(90deg) translateX(100px);
+				transform-origin: right;
+			}
+			.top{
+				background: url(img/mu3.jpg);
+				-webkit-transform: rotateX(90deg) translateY(-100px);
+				-webkit-transform-origin: top;
+				transform: rotateX(90deg) translateY(-100px);
+				transform-origin: top;
+			}
+			.bottom{
+				background: url(img/mu4.jpg);
+				-webkit-transform: rotateX(-90deg) translateY(100px);
+				-webkit-transform-origin: bottom;
+				transform: rotatexX(-90deg) translateY(100px);
+				transform-origin: bottom;
+			}
+			.front{
+				background: url(img/mu5.jpg);
+				-webkit-transform: translateZ(100px);
+				transform: translateZ(100px);
+			}
+			.back{
+				background: url(img/mu6.jpg);
+				-webkit-transform: translateZ(-100px);
+				transform: translateZ(-100px);
+			}
+			.cont:hover{
+				-webkit-animation-play-state:paused;
+			}
+			@-webkit-keyframes move{
+				from{
+					
+				}
+				to{
+					-webkit-transform: rotateX(360deg) rotateY(360deg);
+					transform: rotateX(360deg) rotateY(360deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="front"></div>
+			<div class="back"></div>
+			<div class="left"></div>
+			<div class="right"></div>
+			<div class="top"></div>
+			<div class="bottom"></div>
+		</div>
+	</body>
+</html>

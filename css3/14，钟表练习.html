@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#clock{
+				height: 400px;
+				width: 400px;
+				border: 20px solid #363e49;
+				border-radius: 50%;
+				background: #262c33;
+				position: relative;
+			}
+			.cont{
+				height: 440px;
+				width: 440px;
+				border: 1px solid red;
+				position: relative;
+			}
+			#clock li{
+				height: 10px;
+				width: 10px;
+				background: #FFF;
+				position: absolute;
+				top: 10px;
+				left: 50%;
+				margin-left: -5px;
+				border-radius: 5px;
+				-webkit-transform-origin: 5px 190px;
+				transition: all 2s;
+			}
+			#clock li:nth-child(5n+1){
+				height: 25px;
+			}
+			/*#clock:hover li{
+				-webkit-transform: rotate(360deg);
+			}*/
+			#hour{
+				width: 30px;
+				height: 80px;
+				background: #FFF;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -15px;
+				margin-top: -80px;
+				-webkit-transform-origin: 15px 80px;
+				transition: all 1s;
+			}
+			#hour:before{
+				content: '';
+				width: 22px;
+				height: 22px;
+				background: #FFF;
+				position: absolute;
+				top: -10px;
+				left: 4px;
+				-webkit-transform: rotate(45deg);
+			}
+			#minute{
+				width: 20px;
+				height: 100px;
+				background: #5f9da0;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -10px;
+				margin-top: -100px;
+				-webkit-transform-origin: 10px 100px;
+				transition: all 1s;
+			}
+			#minute:before{
+				content: '';
+				width: 14px;
+				height: 14px;
+				background: #5f9da0;
+				position: absolute;
+				top: -7px;
+				left: 3px;
+				-webkit-transform: rotate(45deg);
+				
+			}
+			#second{
+				width: 10px;
+				height: 240px;
+				background: #c81a87;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -5px;
+				margin-top: -180px;
+				-webkit-transform-origin: 5px 180px;
+				transition: all 1s;
+				border-radius: 5px;
+			}
+			#dot{
+				height: 40px;
+				width: 40px;
+				background: #c81a87;
+				border-radius: 50%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin: -20px 0 0 -20px;
+			}
+			/*.cont:hover #hour{
+				-webkit-transform: rotate(180deg);
+			}
+			.cont:hover #minute{
+				-webkit-transform: rotate(270deg);
+			}
+			.cont:hover #second{
+				-webkit-transform: rotate(360deg);
+			}*/
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<ul id="clock"></ul>
+			<div id="hour"></div>
+			<div id="minute"></div>
+			<div id="second"></div>
+			<div id="dot"></div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+		var str='';
+		for(var i=0;i<60;i++){
+			str+='<li style="-webkit-transform:rotate('+i*6+'deg)"></li>'
+		}
+		$('clock').innerHTML=str;
+		setInterval(function(){
+			var myDate=new Date();
+			var oS=myDate.getSeconds();
+			var oM=myDate.getMinutes();
+			var oH=myDate.getHours();
+			$('second').style.webkitTransform='rotate('+oS*6+'deg)';
+			$('minute').style.webkitTransform='rotate('+(oM*6+(6/60)*oS)+'deg)';
+			$('hour').style.webkitTransform='rotate('+(oH*(360/12)+(360/12/60)*oM)+'deg)';
+			
+		},1000)
+	</script>
+</html>

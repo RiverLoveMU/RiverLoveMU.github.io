@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				margin-top: 100px;
+				height: 500px;
+				width: 750px;
+				position: relative;
+				-webkit-transform-style: preserve-3d;
+				-webkit-perspective: 0px;
+				transform-style: preserve-3d;
+				perspective: 0px;
+			}
+			.cont .pic{
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				-webkit-transform-style: preserve-3d;
+				-webkit-perspective: 0px;
+				transform-style: preserve-3d;
+				perspective: 0px;
+				z-index: -1;
+			}
+			.cont .pic div{
+				height: 100%;
+				width: 50px;
+				float: left;
+				transition: all 1s;
+				position: relative;
+				z-index: 100;
+			}
+			.cont .pic:nth-child(1){
+				-webkit-transform: rotateX(-90deg);
+				-webkit-transform-origin: bottom;
+				transform: rotateX(-90deg);
+				transform-origin: bottom;
+			}
+			.cont .pic:nth-child(2){
+				-webkit-transform: rotateX(90deg);
+				-webkit-transform-origin: top;
+				transform: rotateX(90deg);
+				transform-origin: top;
+			}
+			.cont .pic:nth-child(3){
+				-webkit-transform: translateZ(500px);
+				transform: translateZ(500px);
+			}
+			.cont .pic:nth-child(4){
+				-webkit-transform: rotateX(180deg);
+				transform: rotateX(180deg);
+			}
+			.cont .pic.front div{
+				background-image: url(img/timg2.jpg);
+				background-size: 750px 500px;
+			}
+			.cont .pic.bottom div{
+				background-image: url(img/timg.jpg);
+				background-size: 750px 500px;
+			}
+			.cont .pic.top div{
+				background-image: url(img/timg1.jpg);
+				background-size: 750px 500px;
+			}
+			.cont .pic.back div{
+				background-image: url(img/timg3.jpg);
+				background-size: 750px 500px;
+			}
+			button{
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont" id="cont">
+			<div class="pic bottom"> </div>
+			<div class="pic top"> </div>
+			<div class="pic front"> </div>
+			<div class="pic back"> </div>
+		</div>
+		<button id="prev">上一张</button>
+		<button id="next">下一张</button>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var aPic = document.getElementsByClassName('pic');
+		var aBottom = aPic[0].getElementsByTagName('div');
+		var aTop = aPic[1].getElementsByTagName('div');
+		var aFront = aPic[2].getElementsByTagName('div');
+		var aBack = aPic[3].getElementsByTagName('div');
+		var times = 0;
+		var num = 0;
+		for (var i=0;i<aPic.length;i++) {
+			for (var k=0;k<15;k++) {
+				aPic[i].innerHTML += '<div></div>';
+			}
+		}
+		for (var i=0;i<aFront.length;i++) {
+			aFront[i].style.backgroundPosition = (750 - 50*i) + 'px 0px'; 
+		}
+		for (var i=0;i<aBack.length;i++) {
+			aBack[i].style.backgroundPosition = (750 - 50*i) + 'px 0px'; 
+		}
+		for (var i=0;i<aTop.length;i++) {
+			aTop[i].style.backgroundPosition = (750 - 50*i) + 'px 0px'; 
+		}
+		for (var i=0;i<aBottom.length;i++) {
+			aBottom[i].style.backgroundPosition = (750 - 50*i) + 'px 0px'; 
+		}
+		$('next').onclick = function () {
+			num = 0;
+			times++
+			this.timer = setInterval(function(){
+				aTop[num].style.webkitTransform = 'rotateX('+ (-90*times) +'deg)';
+				aTop[num].style.webkitTransformOrigin = 'center center -250px';
+				aBottom[num].style.webkitTransform = 'rotateX('+ (-90*times) +'deg)';
+				aBottom[num].style.webkitTransformOrigin = 'center center -250px';
+				aFront[num].style.webkitTransform = 'rotateX('+ (-90*times) +'deg)';
+				aFront[num].style.webkitTransformOrigin = 'center center -250px';
+				aBack[num].style.webkitTransform = 'rotateX('+ (-90*times) +'deg)';
+				aBack[num].style.webkitTransformOrigin = 'center center -250px';
+				aTop[num].style.transform = 'rotateX('+ (-90*times) +'deg)';
+				aTop[num].style.transformOrigin = 'center center -250px';
+				aBottom[num].style.transform = 'rotateX('+ (-90*times) +'deg)';
+				aBottom[num].style.transformOrigin = 'center center -250px';
+				aFront[num].style.transform = 'rotateX('+ (-90*times) +'deg)';
+				aFront[num].style.transform = 'center center -250px';
+				aBack[num].style.transform = 'rotateX('+ (-90*times) +'deg)';
+				aBack[num].style.transformOrigin = 'center center -250px';
+				num++;
+				if (num == aBottom.length) {
+					clearInterval($('next').timer);
+				}
+			},100)
+		}
+		$('prev').onclick = function () {
+			times--;
+			num = 0;
+			this.timer = setInterval(function(){
+				aTop[num].style.webkitTransform = 'rotateX('+ (-90*times) +'deg)';
+				aTop[num].style.webkitTransformOrigin = 'center center -250px';
+				aBottom[num].style.webkitTransform = 'rotateX('+ (-90*times) +'deg)';
+				aBottom[num].style.webkitTransformOrigin = 'center center -250px';
+				aFront[num].style.webkitTransform = 'rotateX('+ (-90*times) +'deg)';
+				aFront[num].style.webkitTransformOrigin = 'center center -250px';
+				aBack[num].style.webkitTransform = 'rotateX('+ (-90*times) +'deg)';
+				aBack[num].style.webkitTransformOrigin = 'center center -250px';
+				aTop[num].style.transform = 'rotateX('+ (-90*times) +'deg)';
+				aTop[num].style.transformOrigin = 'center center -250px';
+				aBottom[num].style.transform = 'rotateX('+ (-90*times) +'deg)';
+				aBottom[num].style.transformOrigin = 'center center -250px';
+				aFront[num].style.transform = 'rotateX('+ (-90*times) +'deg)';
+				aFront[num].style.transform = 'center center -250px';
+				aBack[num].style.transform = 'rotateX('+ (-90*times) +'deg)';
+				aBack[num].style.transformOrigin = 'center center -250px';
+				num++;
+				if (num == aBottom.length) {
+					clearInterval($('prev').timer);
+				}
+			},100)
+		}
+	</script>
+</html>

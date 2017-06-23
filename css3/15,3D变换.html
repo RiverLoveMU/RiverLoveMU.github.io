@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				/*设置3D控件*/
+				-webkit-transform-style: preserve-3d;  
+				/*设置景深*/
+				-webkit-perspective: 1000px;
+			}
+			.outer{
+				border: 1px solid red;
+				margin: 200px;
+			}
+			.inner{
+				background: cornflowerblue;
+				transition: all 1s;
+			}
+			/*.outer:hover .inner{
+				-webkit-transform: rotateX(360deg);
+			}*/
+			/*.outer:hover .inner{
+				-webkit-transform: rotateY(360deg);
+			}*/
+			
+			/*.outer:hover .inner{
+				-webkit-transform: rotateZ(360deg);
+			}*/
+			/*.outer:hover .inner{
+				-webkit-transform: translateX(-100px);
+			}*/
+			/*.outer:hover .inner{
+				-webkit-transform: translateY(-100px);
+			}*/
+			/*.outer:hover .inner{
+				-webkit-transform: translateZ(100px);
+			}*/
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="inner"></div>
+		</div>
+	</body>
+</html>

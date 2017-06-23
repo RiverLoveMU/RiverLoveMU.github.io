@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*1,动画的关键帧 keyframes*/
+			/*2,调用关键帧 animation*/
+			.box{
+				height: 100px;
+				width: 100px;
+				background: red;
+				/*2,调用关键帧 animation*/
+				/*-webkit-animation:move 1s;*/
+				/*-webkit-animation-name: move;*/  /*所调用的关键帧的名称*/
+				/*-webkit-animation-duration: 2s;*/  /*动画持续时间*/
+				/*-webkit-animation-timing-function: ease-in-out;*/  /*动画运动形式*/
+				/*-webkit-animation-delay: 1s; */ /*动画延迟时间*/
+				/*-webkit-animation-direction: alternate-reverse; */ /*动画执行方向*/
+				/*-webkit-animation-iteration-count:infinite; */ /*动画执行次数,可以是数字固定值,也可以是关键字*/
+				/*-webkit-animation-fill-mode: forwards;*/  /*控制动画结束之后,元素停止的位置*/
+				-webkit-animation: move 4s 2s ease-in-out alternate-reverse infinite;
+			}
+			.box:hover{
+				-webkit-animation-play-state: paused; /*控制动画的执行与停止*/
+			}
+			/*@-webkit-keyframes move{
+				from{
+					background: red;
+					margin-left: 0;
+				}
+				to{
+					background: blue;
+					margin-left: 300px;
+				}
+			}*/
+			@-webkit-keyframes move{
+				0%{
+					background: red;
+					margin-left: 0;
+				}
+				25%{
+					background: blue;
+					margin-left: 300px;
+				}
+				50%{
+					background: yellow;
+					margin-top: 300px;
+				}
+				75%{
+					background: green;
+					margin-left: 0;
+				}
+				100%{
+					background: red;
+					margin-top: 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>
