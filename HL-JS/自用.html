@@ -3,18 +3,28 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#content{
+				height: 300px;
+				width: 300px;
+				background: red;
+			}
+		</style>
 	</head>
 	<body>
 		<!--<input type="radio" name="" id="" value="" />
 		<input type="radio" name="" id="" value="" />
 		<input type="text" name="" id="" value="" />-->
-		<div id="all">
-			<div>
-				<div>
-					
-				</div>
-			</div>
+		<div id="content">
+			<p>this is a <strong>paragraph</strong> with a list following it.</p>
+			<ul>
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+			</ul>
 		</div>
+		
 	</body>
 	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
@@ -22,6 +32,13 @@
 //			aRadio[0].checked = true;
 //			aRadio[1].disabled = true;
 //			location.href='http://www.baidu.com';
+//			$('content').outerHTML = '<p>This is a paragraph.</p>';
+			$('content').style.cssText = 'background: yellow;'
+//			var sheet = null;
+//			for (var i = 0;i<document.styleSheets.length;i++) {
+//				sheet = document.styleSheets[i];
+//				alert(sheet.getstylesh);
+//			}
 	</script>
 
 </html>

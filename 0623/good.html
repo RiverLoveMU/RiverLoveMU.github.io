@@ -12,8 +12,8 @@
 				position: relative;
 				-webkit-transform-style: preserve-3d;
 				-webkit-perspective: 0px;
-				transform-style: preserve-3d;
-				perspective: 0px;
+				-moz-transform-style: preserve-3d;
+				-moz-perspective: 0PX;
 			}
 			.cont .pic{
 				position: absolute;
@@ -21,9 +21,8 @@
 				width: 100%;
 				-webkit-transform-style: preserve-3d;
 				-webkit-perspective: 0px;
-				transform-style: preserve-3d;
-				perspective: 0px;
-				z-index: -1;
+				-moz-transform-style: preserve-3d;
+				-moz-perspective: 0px;
 			}
 			.cont .pic div{
 				height: 100%;
@@ -31,27 +30,28 @@
 				float: left;
 				transition: all 1s;
 				position: relative;
-				z-index: 100;
+				z-index: 3;
 			}
 			.cont .pic:nth-child(1){
 				-webkit-transform: rotateX(-90deg);
 				-webkit-transform-origin: bottom;
-				transform: rotateX(-90deg);
-				transform-origin: bottom;
+				-moz-transform: rotateX(-90deg);
+				-moz-transform-origin: bottom;
 			}
 			.cont .pic:nth-child(2){
 				-webkit-transform: rotateX(90deg);
 				-webkit-transform-origin: top;
-				transform: rotateX(90deg);
-				transform-origin: top;
+				-moz-transform: rotateX(90deg);
+				-moz-transform-origin: top;
 			}
 			.cont .pic:nth-child(3){
 				-webkit-transform: translateZ(500px);
-				transform: translateZ(500px);
+				-moz-transform: translateZ(500px);
+				z-index: 3;
 			}
 			.cont .pic:nth-child(4){
 				-webkit-transform: rotateX(180deg);
-				transform: rotateX(180deg);
+				-moz-transform: rotateX(180deg);
 			}
 			.cont .pic.front div{
 				background-image: url(img/timg2.jpg);
@@ -60,6 +60,7 @@
 			.cont .pic.bottom div{
 				background-image: url(img/timg.jpg);
 				background-size: 750px 500px;
+				z-index: 1;
 			}
 			.cont .pic.top div{
 				background-image: url(img/timg1.jpg);
@@ -70,7 +71,7 @@
 				background-size: 750px 500px;
 			}
 			button{
-				margin-top: 20px;
+				margin-top: 300px;
 			}
 		</style>
 	</head>
@@ -122,14 +123,14 @@
 				aFront[num].style.webkitTransformOrigin = 'center center -250px';
 				aBack[num].style.webkitTransform = 'rotateX('+ (-90*times) +'deg)';
 				aBack[num].style.webkitTransformOrigin = 'center center -250px';
-				aTop[num].style.transform = 'rotateX('+ (-90*times) +'deg)';
-				aTop[num].style.transformOrigin = 'center center -250px';
-				aBottom[num].style.transform = 'rotateX('+ (-90*times) +'deg)';
-				aBottom[num].style.transformOrigin = 'center center -250px';
-				aFront[num].style.transform = 'rotateX('+ (-90*times) +'deg)';
-				aFront[num].style.transform = 'center center -250px';
-				aBack[num].style.transform = 'rotateX('+ (-90*times) +'deg)';
-				aBack[num].style.transformOrigin = 'center center -250px';
+				aTop[num].style.mozTransform = 'rotateX('+ (-90*times) +'deg)';
+				aTop[num].style.tmozTransformOrigin = 'center center -250px';
+				aBottom[num].style.mozTransform = 'rotateX('+ (-90*times) +'deg)';
+				aBottom[num].style.mozTransformOrigin = 'center center -250px';
+				aFront[num].style.mozTransform = 'rotateX('+ (-90*times) +'deg)';
+				aFront[num].style.mozTransformOrigin = 'center center -250px';
+				aBack[num].style.mozTransform = 'rotateX('+ (-90*times) +'deg)';
+				aBack[num].style.mozTransformOrigin = 'center center -250px';
 				num++;
 				if (num == aBottom.length) {
 					clearInterval($('next').timer);

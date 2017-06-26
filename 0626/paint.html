@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.pen{
+				height: 5px;
+				width: 5px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: red;
+			}
+			.cannava{
+				height: 500px;
+				width: 1000px;
+				border: 1px solid red;
+				overflow: hidden;
+				cursor: pointer;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<button id="small">细画笔</button>
+		<button id="large">粗画笔</button>
+		<button id="eraser">橡皮擦</button>
+		<select name="" id="color">
+			<option value="red">红色</option>
+			<option value="blue">蓝色</option>
+			<option value="green">绿色</option>
+			<option value="yellow">黄色</option>
+		</select>
+		<span id="size">5px</span>
+		&nbsp;
+		<span id="use">你不能使用画笔或者橡皮擦</span>
+		<div class="cannava" id="cannava">
+			
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var aPen = document.getElementsByClassName('pen');
+		var size = 5;
+		var control = true;
+		var use = false;
+		$('small').onclick = function(){
+			control = true;
+			size--;
+			if (size==0) {
+				size = 1;
+				return;
+			}
+			$('size').innerHTML = size + 'px';
+		}
+		$('large').onclick = function(){
+			control = true;
+			size++;
+			$('size').innerHTML = size + 'px';
+		}
+		$('eraser').onclick = function(){
+			control = false;
+			$('size').innerHTML = '橡皮擦';
+		}
+		$('cannava').onclick = function (){
+			use = !use;
+			if (use) {
+				$('use').innerHTML = '你可以使用画笔或者橡皮擦'
+			} else{
+				$('use').innerHTML = '你不能使用画笔或者橡皮擦'
+			}
+		}
+		$('cannava').onmousemove= function(ev){
+			var newEvent = ev || event;
+			if (control&&use) {
+				var oDiv = document.createElement('div');
+				oDiv.className = 'pen';
+				oDiv.style.cssText = 'top:'+ newEvent.clientY +'px;left:' + newEvent.clientX + 'px;width:' + size + 'px;height:' + size + 'px;background:' + $('color').value;
+				$('cannava').appendChild(oDiv);		
+			}else if (!control&&use) {
+				for (var i=0;i<aPen.length;i++) {
+					aPen[i].index = i;
+					aPen[i].onmouseover = function(){
+						$('cannava').removeChild(this);
+					}
+				}
+			}
+		}
+	</script>	
+</html>
