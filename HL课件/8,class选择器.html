@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				color: red;
+				border: 1px solid red;
+			}
+			.box{
+				height: 200px;
+				width: 200px;
+				/*外边距控制*/
+				/*margin: 10px;*/
+				margin-top: 20px;
+				background: cadetblue;
+				display: inline-block;
+				/*字体大小控制*/
+				font-size: 50px;
+			}
+			.content{
+				width: 1000px;
+				/*margin的特殊用法,让元素自适应居中（块状元素）*/
+				margin: auto;
+				/*text-align可以让某元素内部的inline元素或inline-block元素居中*/
+				text-align: center;
+			}
+			/*一，class命名规则:*/
+			/*1,不能以数字命名,也不能以数字开头
+			2,名字里可以出现的字符包括:字母(建议小写),中划线,中间或结尾可以出现数字*/
+			/*3,逐步培养以英文单词或缩写命名的习惯,尽量避免拼音命名*/
+			/*二,margin的两种使用场景*/
+		</style>
+	</head>
+	<body>
+		<div>
+			我是div
+		</div>
+		<div class="content">
+			<div class="box">
+				我是div
+			</div>
+			<div class="box">
+				我是div
+			</div>
+			<div class="box">
+				我是div
+			</div>
+			<div class="box">
+				我是div
+			</div>
+			<div class="box">
+				我是div
+			</div>
+			<div class="box">
+				我是div
+			</div>
+			<div class="box">
+				我是div
+			</div>
+			<div class="box">
+				我是div
+			</div>
+		</div>
+	</body>
+</html>

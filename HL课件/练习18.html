@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			body{
+				background: #f1f1f1;
+			}
+			.gray{
+				color: #aeaeae;
+			}
+			.yellow{
+				color: #fcc57d;
+			}
+			.header{
+				position: fixed;
+				width: 92%;
+				padding: 65px 4% 20px;
+				text-align: center;
+				border-bottom: 1px solid #dedede;
+				top: 0;
+				left: 0;
+				background: url(img/left-icon.png) no-repeat 4% 68px;
+				background-color: white;
+				z-index: 10;
+			}
+			.header h1{
+				font-weight: normal;
+			}
+			.recipients{
+				width: 92%;
+				padding: 40px 4% 56px;
+				margin-top: 143px;
+				margin-bottom: 16px;
+				font-size: 20px;
+				background: url(img/location.png) no-repeat 4% 88px;
+				background-color: white;
+				position: relative;
+				border-top: 1px solid #dedede;
+				border-bottom: 1px solid #dedede;
+				
+			}
+			.recipients p{
+				padding-left: 33px;
+			}
+			.recipients .address{
+				margin-top: 18px;
+			}
+			.recipients:before{
+				content: '';
+				height: 2px;
+				width: 100%;
+				position: absolute;
+				background: url(img/line.png);
+				background-size: 100% 100%;
+				top: 0;
+				left: 0;
+			}
+			.recipients:after{
+				content: '';
+				height: 2px;
+				width: 100%;
+				position: absolute;
+				background: url(img/line.png);
+				background-size: 100% 100%;
+				bottom: 0;
+				left: 0;
+			}
+			ul{
+				width: 100%;
+				margin-bottom: 16px;
+				background: white;
+				border-top: 1px solid #dedede;
+				border-bottom: 1px solid #dedede;
+				overflow: hidden;
+			}
+			ul li{
+				width: 92%;
+				padding: 30px 4%;
+				border-bottom: 1px solid #dedede;
+				position: relative;
+				overflow: hidden;
+			}
+			li:last-child{
+				border-bottom: none;
+			}
+			ul li img{
+				margin-right: 33px;
+				float: left;
+			}
+			ul li .name{
+				font-weight: bolder;
+				font-size: 20px;
+				margin-bottom: 6px;
+			}
+			ul li .specifications{
+				color: #cccccc;
+				font-size: 18px;
+				margin-bottom: 45px;
+			}
+			ul li .price{
+				font-size: 25px;
+			}
+			ul li .title{
+				font-size: 22px;
+				float: left;
+			}
+			ul li .detail{
+				height: 100%;
+				font-size: 18px;
+				float: right;
+				line-height: 25px;
+				margin-right: 32px;			
+			}
+			.recipients.right{
+				background: url(img/right-icon2.png) no-repeat 96% center;
+				background-color: white;
+			}
+			ul .right{
+				background: url(img/right-icon.png) no-repeat 96% center;	
+			}
+			.footer{
+				position: fixed;
+				left: 0;
+				bottom: 0;
+				width: 96%;
+				padding-left: 4%;
+				background: white;
+				overflow: hidden;
+				border-top: 1px solid #dedede;
+			}
+			.footer .title{
+				font-size: 22px;
+				margin: 30px 0 30px ;
+				font-weight: bold;
+				float: left;
+			}
+			.footer .confirm{
+				height:90px;
+				background-color: #fcc57d;
+				float: right;
+				padding: 0 5%;
+				line-height: 90px;
+				font-size: 23px;
+				letter-spacing: 3px;
+				color: white;
+			}
+			ul.last{
+				margin-bottom: 450px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<h1>确认订单</h1>
+		</div>
+		<div class="recipients right">
+			<p class="name">李慕白 1880887888</p>
+			<p class="address">四川省成都市高新区金融城金融中心2号楼</p>
+		</div>
+		<ul>
+			<li>
+				<img src="img/oatmeal.png"/>
+				<p class="name">皇家多种谷物混合麦片</p>
+				<p class="specifications">规格：2kg×3  </p>
+				<p class="price">¥235.00</p>
+				
+			</li>
+		</ul>
+		<ul>
+			<li class="right">
+				<p class="title">配送方式</p>
+				<p class="detail">川航快递</p>
+			</li>
+		</ul>
+		<ul>
+			<li class="right">
+				<p class="title">优惠券</p>
+				<p class="detail gray">无可用优惠券</p>
+			</li>
+			<li class="right">
+				<p class="title">使用积分抵扣</p>
+				<p class="detail">抵扣￥10</p>
+			</li>
+			<li>
+				<p class="title">优惠及抵扣</p>
+				<p class="detail yellow">- ￥10.00</p>
+			</li>
+		</ul>
+		<ul class="last">
+			<li>
+				<p class="title">商品总价</p>
+				<p class="detail yellow">￥235.00</p>
+			</li>
+			<li>
+				<p class="title">运费</p>
+				<p class="detail yellow">+ ￥20.00</p>
+			</li>
+		</ul>
+		<div class="footer">
+			<p class="title yellow">合计： ￥235</p>
+			<div class="confirm">
+				确认订单
+			</div>
+		</div>
+	</body>
+</html>

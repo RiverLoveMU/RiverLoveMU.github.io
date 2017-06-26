@@ -1,0 +1,117 @@
+.cont{
+	width: 965px;
+	height: 420px;
+	border: 1px solid gainsboro;
+	border-top: none;
+	margin: 50px;
+	overflow: hidden;
+}
+span{
+	color: gray;
+	font-size: 12px;
+}
+.green{
+	color: #bcd3a7;
+}
+.border-green{
+	border-top: 4px solid #bcd3a7;
+}
+.pink{
+	color: #de8db8;
+}
+.border-pink{
+	border-top: 4px solid #de8db8;
+}
+.gray{
+	color: #a4a4a4;
+}
+.border-gray{
+	border-top: 4px solid #a4a4a4;
+}
+.blue{
+	color: #8dbcce;
+}
+.border-blue{
+	border-top: 4px solid #8dbcce;
+}
+.yellow{
+	color: #d7d082;
+}
+.border-yellow{
+	border-top: 4px solid #d7d082;
+}
+.red{
+	color: #db8794;
+}
+.border-red{
+	border-top: 4px solid #db8794;
+}
+.cont .box{
+	padding: 10px;
+	padding-top: 8px;
+	height: 398px;
+	width: 140px;
+	border-right: 1px solid gainsboro;
+	float: left;
+}
+.cont .noborder{
+	border-right: none;
+}
+.cont .box .classify{
+	height: 20px;
+	padding-bottom: 8px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;
+}
+.cont .box .movie-pic{
+	height: 96px;
+	width: 136px;
+	border: 1px solid gainsboro;
+	padding: 1px;
+	position: relative;
+}
+.cont .box img{
+	height: 100%;
+	width: 100%;
+}
+.cont .box .movie-intro{
+	padding: 3px;
+	padding-right: 10px;
+	margin-bottom: 1px;
+	width: 122px;
+	margin-right: 1px;
+	background-color: rgba(0,0,0,0.5);
+	text-align: right;
+	color: white;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	font-size: 13px;
+}
+.cont .box .movie-name{
+	padding-top: 3px;
+	padding-bottom: 12px;
+	padding-right: 10px;
+	width: 130px;
+	background: url(../img/图标3.png) no-repeat;
+	background-position: right 7px;
+	background-size: 10px 11px;
+	font-size:  14px;
+}
+.cont .box .intro{
+	border-top: 1px dashed gainsboro;
+	padding-top: 8px;
+}
+.cont .box .intro .sub-name{
+	padding-bottom: 6px;
+	font-size:  14px;
+}
+.cont .box .intro .sub-intro{
+	padding-bottom: 8px;
+	font-size:  13px;
+	color: gray;
+}
+.nopadding{
+	padding: none;
+}

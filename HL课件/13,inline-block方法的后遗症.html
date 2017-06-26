@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			/*问题:inline-block元素横向之间有4~5px的缝隙:*/
+			
+			/*解决方案:
+				1,布局的时候把两个行内标签减的换行删除
+				2，布局的时候把两个行内标签减的换行注释掉
+				3，margin负值法：给后一个行内元素添加margin-left:-5px;
+			* */
+			
+			
+			.box{
+				width: 400px;
+				height: 170px;
+				/*border: 1px solid black;*/
+				display: inline-block;
+			}
+			.left{
+				width: 140px;
+				height: 100%;
+				/*border: 1px solid red;*/
+				display: inline-block;
+				vertical-align: top;
+				/*background: #67b687;*/
+				color: #FFF;
+			}
+			/*为同类型标签添加多个class名,实现样式的共用*/
+			.bg-green{
+				background:#67b687;
+			}
+			.bg-red{
+				background:red;
+			}
+			.bg-blue{
+				background:blue;
+			}
+			/*.left1{
+				width: 140px;
+				height: 100%;
+				border: 1px solid red;
+				display: inline-block;
+				vertical-align: top;
+				background: red;
+				color: #FFF;
+			}
+			.left2{
+				width: 140px;
+				height: 100%;
+				border: 1px solid red;
+				display: inline-block;
+				vertical-align: top;
+				background: #498c94;
+				color: #FFF;
+			}*/
+			
+			.box img{
+				/*border: 1px solid blue;*/
+				width: 250px;
+				height: 100%;
+				margin-left: -5px;
+			}
+			.box h3{
+				width: 100px;
+				border-top: 2px solid #FFF;
+				border-bottom: 2px solid #FFF;
+				text-align: center;
+				margin: auto;
+				margin-top: 20px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			.box p{
+				width: 100px;
+				margin: auto;
+				margin-top: 20px;
+			}
+			.cont{
+				width: 810px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="box">
+				<div class="left bg-green">
+					<h3>
+						新品上市
+					</h3>
+					<p>
+						自营珠宝结婚季
+						自营珠宝结婚季
+					</p>
+				</div>
+				<img src="img/img1.png"/>
+				<!--<div class="right"></div>-->
+			</div>
+			<div class="box">
+				<div class="left  bg-red">
+					<h3>
+						新品上市
+					</h3>
+					<p>
+						自营珠宝结婚季
+						自营珠宝结婚季
+					</p>
+				</div>
+				<img src="img/img1.png"/>
+				<!--<div class="right"></div>-->
+			</div>
+			<div class="box">
+				<div class="left bg-blue">
+					<h3>
+						新品上市
+					</h3>
+					<p>
+						自营珠宝结婚季
+						自营珠宝结婚季
+					</p>
+				</div>
+				<img src="img/img1.png"/>
+				<!--<div class="right"></div>-->
+			</div>
+			<div class="box">
+				<div class="left">
+					<h3>
+						新品上市
+					</h3>
+					<p>
+						自营珠宝结婚季
+						自营珠宝结婚季
+					</p>
+				</div><!--
+			--><img src="img/img1.png"/>
+				<!--<div class="right"></div>-->
+			</div>
+		</div>
+	</body>
+</html>

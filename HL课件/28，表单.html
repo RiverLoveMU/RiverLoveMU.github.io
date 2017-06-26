@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--1,表单标签的两个属性
+		  action:表单内容的提交地址
+		  method：内容提交的方法post/get-->
+		  <style type="text/css">
+		  	.myInput{
+		  		height: 100px;
+		  	}
+		  	textarea{
+		  		height: 200px;
+		  		width: 200px;
+		  		resize: none;
+		  		/*是否可以改变多行文本的大小*/
+		  	}
+		  </style>
+	</head>
+	<body>
+		<form action="localhost/index.php" method="post">
+			<!--一，常见表单元素-->
+			<!--1,文本输入-->
+			<input type="text" name="" id="" value="用户名" disabled="disabled"/>
+			<!--2，密码输入框-->
+			<input type="password" name="" id="" value="123" />
+			<!--3,单选按钮
+				一组单选按钮的name必须统一
+			-->
+			<input type="radio" name="sex" id="" value="" checked="checked"/>男
+			<input type="radio" name="sex" id="" value="" />女
+			<!--4，多选按钮-->
+			<input type="checkbox" name="" id="" value="" checked="checked"/>
+			<input type="checkbox" name="" id="" value="" />
+			<input type="checkbox" name="" id="" value="" />
+			<!--5，表单重置-->
+			<input type="reset" name="" id="" value="重置" />
+			<!--6,提交按钮-->
+			<input type="submit" value="提交"/>
+			<!--7，文件浏览-->
+			<input type="file" name="" id="" value="" />
+			<!--8，隐藏输入框
+				后端用的较多
+			-->
+			<input type="hidden" name="" id="" value="" />
+			<input class="myInput" type="text" name="" id="" value="123" placeholder="请输入手机号"/>
+			<!--二，表单的相关属性-->
+			<!--1，type 确定表单类型
+				2，name  表单的名字，用途类似于class名，后端常用
+				3，value 控制表单默认内容
+				4，checked  针对单选与多选，控制是否选中
+				5，disabled  用户禁用
+				6，maxlength   限制用户输入字符长度
+				7，placeholder  输入表单的占位提示
+				8，readonly   表单要元素只读
+			-->
+			<select name="">
+				<option value="">北京</option>
+				<option value="">上海</option>
+				<option value="">广州</option>
+			</select>
+			<textarea name=""></textarea>
+		</form>
+	</body>
+</html>

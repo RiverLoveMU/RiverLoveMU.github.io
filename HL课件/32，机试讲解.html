@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.list{
+				width: 4px;
+				margin: auto;
+				margin-top: 150px;
+			}
+			.list li{
+				width: 4px;
+				height: 150px;
+				background: orange;
+				position: relative;
+			}
+			.list .circle{
+				height: 30px;
+				width: 30px;
+				line-height: 30px;
+				text-align: center;
+				border: 2px solid #D8D8D8;
+				border-radius: 50%;
+				position: absolute;
+				top: -16px;
+				left: -14px;
+				background: #FFF;
+			}
+			.right .info{
+				height: 120px;
+				width: 200px;
+				border: 1px solid blue;
+				position: absolute;
+				top: -61px;
+				left: 40px;
+			}
+			.left .info{
+				height: 120px;
+				width: 200px;
+				border: 1px solid blue;
+				position: absolute;
+				top: -61px;
+				right: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="list">
+			<li class="right">
+				<div class="circle">1</div>
+				<div class="info"></div>
+			</li>
+			<li class="left">
+				<div class="circle">2</div>
+				<div class="info"></div>
+			</li>
+			<li class="right">
+				<div class="circle">1</div>
+				<div class="info"></div>
+			</li>
+			<li class="left">
+				<div class="circle">2</div>
+				<div class="info"></div>
+			</li>
+			<li class="right">
+				<div class="circle">1</div>
+				<div class="info"></div>
+			</li>
+			<li class="left">
+				<div class="circle">2</div>
+				<div class="info"></div>
+			</li>
+		</ul>
+	</body>
+</html>

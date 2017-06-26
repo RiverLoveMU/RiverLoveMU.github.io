@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img:hover{
+				opacity: 0.5;
+			}
+			.list li{
+				line-height: 60px;
+				border-bottom: 1px dashed #d8d8d8;
+			}
+			.list .num{
+				height: 17px;
+				width: 14px;
+				display: inline-block;
+				/*border: 1px solid red;*/
+				line-height: 17px;
+				text-align: center;
+				color: #FFF;
+			}
+			.bg-red{
+				background: url(img/bg_all.png) no-repeat;
+				/*background-size:100% 100%;*/
+			}
+			.bg-blue{
+				background: url(img/bg_all.png) no-repeat;
+				background-position: -16px 0;
+				/*background-size:100% 100%;*/
+			}
+			.bg-gray{
+				background: url(img/bg_all.png) no-repeat;
+				background-position:-32px 0 ;
+				/*background-size:100% 100%;*/
+			}
+			/*图像拼合,雪白图,cssSpirit,精灵图*/
+			/*使用图像拼合技术的目的:
+			优化网站加载速度
+			减少网络请求
+			减轻服务器的负载*/
+		</style>
+	</head>
+	<body>
+		<img src="img/img_16.png"/>
+		<ul class="list">
+			<li>
+				<span class="num bg-red">1</span>
+				网易彩票官网
+			</li>
+			<li>
+				<span class="num bg-blue">2</span>
+				网易彩票官网
+			</li>
+			<li>
+				<span class="num bg-gray">3</span>
+				网易彩票官网
+			</li>
+			<li>
+				<span class="num bg-gray">4</span>
+				网易彩票官网
+			</li>
+		</ul>
+
+	</body>
+</html>

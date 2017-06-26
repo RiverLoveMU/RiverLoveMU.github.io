@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+		.character{
+			color: #a6a6a6;
+			font-size: 11px;
+		}
+		.character2{
+			color: #a6a6a6;
+			font-size: 9px;
+		}
+		.character3{
+			color: #767678;
+			font-size: 12px;
+		}
+		.character4{
+			color: #a6a6a6;
+			font-size: 10px;
+		}
+		.price{
+			color: #9a7f6a;
+		}
+		.int{
+			color: #9c9c9c;
+			text-align: left;
+			font-size: 13px;
+		}
+		.t-size{
+			color:black;
+			font-size: 10px;
+		}
+		span{
+			color: #9d9d9d;
+		}
+		.Garlicpounder{
+			width: 200px;
+			height: 230px;
+			margin-left: -30px;
+		}
+		.tableware{
+			width: 200px;
+			height: 264px;
+			margin-left: 77px;
+			margin-top: -20px;
+		}
+		.ToothpickHolder{
+			width: 252px;
+			height: 200px;
+			margin-left: 20px;
+			margin-top: -20px;
+		}
+		.Storage{
+			width: 280px;
+			height: 193px;
+			margin-left: 10px;
+			margin-top: 10px;
+		}
+		.Pen{
+			width: 260px;
+			height: 130px;
+			margin-left: 0px;
+			margin-top: 40px;
+		}
+		.small .Pen{
+			width: 178px;
+			height: 150px;
+			margin-left: 27px;
+			margin-top: 37px;
+		}
+		.small .ToothpickHolder{
+			width: 196px;
+			height: 150px;
+			margin-left: 18px;
+			margin-top: 37px;
+		}
+		.small .tableware{
+			width: 210px;
+			height: 180px;
+			margin-left: 0px;
+			margin-top: 60px;
+		}
+		.small .Storage{
+			width: 150px;
+			height: 170px;
+			margin-left: 0px;
+			margin-top: 60px;
+		}
+		.show{
+			width: 55px;
+			height: 50px;
+			margin-top: 5px;
+		}
+		.show1{
+			width: 55px;
+			height: 50px;
+			margin-top: 5px;
+			margin-left: 27px;
+		}
+		.manu{
+			height: 100%;
+			width: 100%;
+		}
+		.block{
+			height: 300px;
+			width: 700px;
+			overflow: hidden;
+		}
+		.block .large{
+			height: 100%;
+			width: 70%;
+			display: inline-block;
+			background: gray;
+			overflow: hidden;
+		}
+		.block .small{
+			height: 100%;
+			width: 30%;
+			display: inline-block;
+			background: burlywood;
+			overflow: hidden;
+		}
+		.block .title{
+			margin: 4% 6%;
+			width: 10%;
+			height: 10%;
+		}
+		.block .commodity-small{
+			width: 57%;
+			height: 82%;
+			display: inline-block;
+			overflow: hidden;	
+		}
+		.block .text-small{
+			width: 43%;
+			height: 82%;
+			display: inline-block;
+			overflow: hidden;
+		}
+		.block .commodity{
+			width: 55%;
+			height: 100%;
+			display: inline-block;
+			overflow: hidden;	
+		}
+		.block .text{
+			width: 45%;
+			height: 100%;
+			display: inline-block;
+			overflow: hidden;
+		}
+		.block .Garlicpounder-t{
+			height: 30px;
+			width:  63px;
+			display: inline-block;
+			margin-top: 100px;
+			vertical-align: top;
+			margin-left: 40px;
+			margin-top: 100px;
+		}
+		.block .tableware-t{
+			height: 30px;
+			width:  63px;
+			display: inline-block;
+			margin-top: 100px;
+			vertical-align: top;
+			margin-left: 60px;
+			margin-top: 30px;
+		}
+		.block .ToothpickHolder-t{
+			height: 30px;
+			width:  63px;
+			display: inline-block;
+			vertical-align: top;
+			margin-left: 70px;
+			margin-top: 40px;
+		}
+		.block .Storage-t{
+			height: 30px;
+			width:  63px;
+			display: inline-block;
+			vertical-align: top;
+			margin-left: 190px;
+			margin-top: 30px;
+		}
+		.block .Pen-t{
+			height: 30px;
+			width:  63px;
+			display: inline-block;
+			vertical-align: top;
+			margin-left: 190px;
+			margin-top: 45px;
+		}
+		.block .introdution-t{
+			width: 80px;
+			height: 15px;
+			margin-top: 10px;
+			vertical-align: top;
+			display: inline-block;
+		}
+		.block .introdution-m{
+			width: 220px;
+			height: 70px;
+			margin-top: 10px;
+		}
+		.block .button{
+			width:39px;
+			height: 13px;
+			margin-left: 58px;
+			margin-top: 10px;
+			vertical-align: top;
+			display: inline-block;
+		}
+		.block .button2{
+			width:45px;
+			height: 15px;
+			margin-left: 150px;
+			margin-top: 10px;
+			vertical-align: top;
+		}
+		.block .size{
+			width:200px;
+			height: 26px;
+			margin-top: 35px;
+		}
+		.block .text .introdution-t{
+			width: 80px;
+			height: 15px;
+			margin-top: 45px;
+			margin-left: 27px;
+			vertical-align: top;
+			display: inline-block;
+		}
+		.block .text .introdution-m{
+			width: 210px;
+			height: 70px;
+			margin-top: 10px;
+			margin-left: 27px;
+		}
+		.block .text .button{
+			width:39px;
+			height: 13px;
+			margin-left: 58px;
+			margin-top: 45px;
+			vertical-align: top;
+			display: inline-block;
+		}
+		.block .text .size{
+			width:200px;
+			height: 26px;
+			margin-top: 35px;
+			margin-left: 27px;
+		}
+		.block .chart{
+			height: 30px;
+			width:  170px;
+			margin-top: 5px;
+			margin-left: 20px;
+		}
+		.block .color1{
+			background: #f8f8f8;
+		}
+		.block .color2{
+			background: #c6c6c6;
+		}
+		.block .color3{
+			background: #f2f2f4;
+		}
+		.block .color4{
+			background: #e0e1e5;
+		}
+		.block .color5{
+			background: #f5e8df;
+		}
+		.block .color6{
+			background: #ffffff;
+		}
+		.block .color7{
+			background: #f2f2f2;
+		}
+		.block .color8{
+			background: #f8f8f8;
+		}
+		.block .color9{
+			background: #ebecee;
+		}
+		.block .color10{
+			background: #f3f8fc;
+		}																																																										
+		</style>
+	</head>
+	<body>
+		<div class="block">
+			<div class="large color1">
+				<div class="title">
+					<h3>匠·心</h3>
+					<h6>原木生活</h6>
+				</div>
+				<div class="commodity-small">
+					<div class="Garlicpounder-t">
+						<p class="character">榉木捣蒜器</p>
+						<p class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥88</p>
+					</div>
+					<img src="img/QQ图片20170413092914.png" class="Garlicpounder" />
+				</div><div class="text-small">
+					<div class="introdution-t">
+						<p class="int">产品介绍</p>
+					</div>
+					<img src="img/QQ图片20170413102422.png" class="button" />
+					<div class="introdution-m">
+						<p class="character2">进口榉木，纹理清晰，色调柔和，流畅；</p>
+						<p class="character2">&nbsp;</p>
+						<p class="character2">整体打磨光滑细腻，注重每个细节；</p>
+						<p class="character2">&nbsp;</p>
+						<p class="character2">捣蒜棒弧形设计，拿捏舒适不费力；</p>
+					</div>
+					<div class="size">
+						<p class="t-size">直径<span>：11.4cm</span></p>
+						<p class="t-size">高<span>：6.4cm</span></p>
+					</div>
+					<img src="img/1.png" class="show" />
+					<img src="img/3.png" class="show"  />
+					<img src="img/2.png" class="show" />
+				</div>
+			</div><div class="small color2">
+				<img src="img/4.png" class="manu" />
+			</div>
+		</div>
+		<div class="block">
+			<div class="small color3">
+				<img src="img/QQ图片20170413102422.png" class="button2" />
+				<div class="chart">
+					<p class="character3">原木餐具</p>
+					<p class="character4">天然 简约 手工 质朴</p>
+				</div>
+				<img src="img/9.png" class="tableware"/>
+			</div><div class="large color4">
+				<div class="text">
+					<div class="introdution-t">
+						<p class="int">产品介绍</p>
+					</div>
+					<img src="img/QQ图片20170413102422.png" class="button" />
+					<div class="introdution-m">
+						<p class="character2">天然材质，环保公益，零污染；</p>
+						<p class="character2">&nbsp;</p>
+						<p class="character2">选用天然原材料，每件作品都充满大自然的气息；</p>
+						<p class="character2">&nbsp;</p>
+						<p class="character2">慢工出细活让你的生活与众不同；</p>
+					</div>
+					<div class="size">
+						<p class="t-size">点心盘尺寸<span>：18.5*9.5*1.5cm</span></p>
+						<p class="t-size">餐具尺寸<span>：14.4*2cm</span></p>
+					</div>
+					<img src="img/6.png" class="show1" />
+					<img src="img/7.png" class="show"  />
+					<img src="img/8.png" class="show" />
+				</div><div class="commodity">
+					<div class="tableware-t">
+						<p class="character">餐具套装</p>
+						<p class="price">￥68</p>
+					</div>
+					<img src="img/5.png" class="tableware" />
+				</div>
+			</div>
+		</div>
+		<div class="block">
+			<div class="large color5">
+				<div class="commodity">
+					<div class="ToothpickHolder-t">
+						<p class="character">蘑菇牙签筒</p>
+						<p class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥88</p>
+					</div>
+					<img src="img/12.png" class="ToothpickHolder" />
+				</div><div class="text">
+					<div class="introdution-t">
+						<p class="int">产品介绍</p>
+					</div>
+					<img src="img/QQ图片20170413102422.png" class="button" />
+					<div class="introdution-m">
+						<p class="character2">造型简约、趣味；</p>
+						<p class="character2">&nbsp;</p>
+						<p class="character2">无漆无蜡，可以触摸的自然；</p>
+						<p class="character2">&nbsp;</p>
+						<p class="character2">天然材质，每一块木头都是不一样的存在；</p>
+					</div>
+					<div class="size">
+						<p class="t-size">直径<span>：6cm</span></p>
+						<p class="t-size">高<span>：9.4cm</span></p>
+					</div>
+					<img src="img/10.png" class="show1" />
+					<img src="img/11.png" class="show"  />
+					<img src="img/12.png" class="show" />
+				</div>
+			</div><div class="small color6">
+				<img src="img/QQ图片20170413102422.png" class="button2" />
+				<div class="chart">
+					<p class="character3">生活木器</p>
+					<p class="character4">玩木是技艺，是兴趣，更是生活</p>
+				</div>
+				<img src="img/13.png" class="ToothpickHolder"/>
+			</div>
+		</div>
+		<div class="block">
+			<div class="small color7">
+				<img src="img/QQ图片20170413102422.png" class="button2" />
+				<div class="chart">
+					<p class="character3">木作收纳</p>
+					<p class="character4">你带走的不只是一件木器</p>
+					<p class="character4">更是体验一种自然舒心的生活方式</p>
+				</div>
+				<img src="img/14.png" class="Storage"/>
+			</div><div class="large color8">
+				<div class="text">
+					<div class="introdution-t">
+						<p class="int">产品介绍</p>
+					</div>
+					<img src="img/QQ图片20170413102422.png" class="button" />
+					<div class="introdution-m">
+						<p class="character2">慢工出细活，给懂生活的人；</p>
+						<p class="character2">&nbsp;</p>
+						<p class="character2">用木作演绎都市慢生活；</p>
+						<p class="character2">&nbsp;</p>
+						<p class="character2">没有，张扬只有和格调；</p>
+					</div>
+					<div class="size">
+						<p class="t-size">长方形尺寸<span>：24*13.2*9.3cm</span></p>
+						<p class="t-size">正方形尺寸<span>：13.3*13.3*13.5cm</span></p>
+					</div>
+					<img src="img/15.png" class="show1" />
+					<img src="img/16.png" class="show"  />
+					<img src="img/17.png" class="show" />
+				</div><div class="commodity">
+					<div class="Storage-t">
+						<p class="character">拼木纸巾盒</p>
+						<p class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥98</p>
+					</div>
+					<img src="img/18.png" class="Storage" />
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="block">
+			<div class="large color9">
+				<div class="commodity">
+					<div class="Pen-t">
+						<p class="character">枫木签字笔</p>
+						<p class="price">&nbsp;&nbsp;&nbsp;&nbsp;￥108</p>
+					</div>
+					<img src="img/19.png" class="Pen" />
+				</div><div class="text">
+					<div class="introdution-t">
+						<p class="int">产品介绍</p>
+					</div>
+					<img src="img/QQ图片20170413102422.png" class="button" />
+					<div class="introdution-m">
+						<p class="character2">天然枫木，温润舒适，触发你的灵感；</p>
+						<p class="character2">&nbsp;</p>
+						<p class="character2">原木与金色相结合，彰显高雅与气质；</p>
+						<p class="character2">&nbsp;</p>
+						<p class="character2">漂亮的字还需要一支贴心笔，如行云流水；</p>
+					</div>
+					<div class="size">
+						<p class="t-size">直径<span>：1.3cm</span></p>
+						<p class="t-size">长<span>：13.9cm</span></p>
+					</div>
+					<img src="img/10.png" class="show1" />
+					<img src="img/11.png" class="show"  />
+					<img src="img/12.png" class="show" />
+				</div>
+			</div><div class="small color10">
+				<img src="img/QQ图片20170413102422.png" class="button2" />
+				<div class="chart">
+					<p class="character3">文房木件</p>
+					<p class="character4">匠心手作 随笔而作 淡雅文风</p>
+				</div>
+				<img src="img/20.png" class="Pen"/>
+			</div>
+		</div>
+		<div class="block">
+			<br />
+			<h2 style="text-align: center;">匠·心</h2>
+			<h3 style="text-align: center;">原木生活</h3>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*div:first-letter{
+				color: red;
+				font-size: 30px;
+			}*/
+			/*div:first-line{
+				color: red;
+			}*/
+			div{
+				position: relative;
+				padding: 10px 0;
+				width: 300px;
+				height: 300px;
+				/*background: #C610E8;*/
+				
+			}
+			div:before{
+				height: 2px;
+				width: 100%;
+				
+				content: '';
+				
+				background: url(img/line.png) no-repeat;
+				background-size:100% 100% ;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			div:after{
+				height: 50%;
+				width: 2px;
+				
+				content: '';
+				
+				background: red;
+				position: absolute;
+				bottom: 25%;
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+		</div>
+	</body>
+</html>

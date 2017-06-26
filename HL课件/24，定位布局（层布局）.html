@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				height: 100px;
+				width: 100px;
+				background: red;
+				/*position: relative;
+				top: 100px;
+				left: 100px;*/
+				/*bottom: 100px;
+				right: 100px;*/
+				position: absolute;
+				right: 0;
+				bottom: 0;
+			}
+			.other{
+				height: 100px;
+				width: 100px;
+				background: blue;
+			}
+			.cont{
+				height: 300px;
+				width: 300px;
+				border: 1px solid green;
+				/*position: relative;*/
+			}
+			.outer{
+				height: 500px;
+				width: 500px;
+				border: 1px solid black;
+				position: relative;
+			}
+			.bigBox{
+				height: 200px;
+				width: 200px;
+				background: yellow;
+				position: fixed;
+				bottom: 20px;
+				left: 0;
+			}
+			/*定位的分类:
+			1,相对定位
+				效果特征：
+				（1）脱离正常的文档流
+				（2）相对于自身原来的位置进行定位并移动
+				（3）保留自身原有位置
+			2,绝对定位
+				效果特征：
+				（1）脱离正常文档流
+				（2）相对于离自己最近的有定位的包裹元素进行定位
+					参照物：离自己最近的有定位的元素
+					根据需求决定参照物为relative或者absolute
+				（3）不再保留原有位置
+			3，固定定位
+				效果特征：
+				（1）脱离正常文档流
+				（2）相对于浏览器窗口进行定位
+			* */
+			/*4,控制定位元素的层级
+			 z-index:0;
+			 z-index:10;*/
+			/*层级控制只对定位元素生效*/
+			
+			/*5,布局方式选择的原则*/
+			/*能用流布局就不选浮动布局,
+			能用浮动,就不选定位布局*/
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="cont">
+				<div class="box"></div>
+				<div class="other"></div>
+			</div>
+		</div>
+		<!--<div class="bigBox"></div>-->
+	</body>
+</html>

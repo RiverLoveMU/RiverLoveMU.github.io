@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				height: 620px;
+				width: 620px;
+				border: 2px solid red;
+				position: relative;
+				display: inline-block;
+			}
+			.bg-red{
+				background: red;
+			}
+			.bg-blue{
+				background-color: blue;
+			}
+			.bg-yellow{
+				background-color: yellow;
+			}
+			.bg-lightblue{
+				background-color: #00ccff;
+			}
+			.font-white{
+				color: white;
+			}
+			.font-yellow{
+				color: yellow;
+			}
+			.noborder{
+				border: none;
+			}
+			.box{
+				height: 200px;
+				width: 200px;
+				position: absolute;
+				text-align: center;
+				line-height: 200px;
+				font-size: 50px;
+			}
+			.box2{
+				height: 198px;
+				width: 198px;
+				position: absolute;
+				border: 1px solid red;
+			}
+			.first{
+				top: 10px;
+				left: 10px;
+			}
+			.second{
+				top: 10px;
+				right: 10px;
+			}
+			.third{
+				left: 10px;
+				bottom: 10px;
+			}
+			.fourth{
+				right: 10px;
+				bottom: 10px;
+			}
+			.fifth{
+				left: 210px;
+				top: 210px;
+			}
+			.sixth{
+				left: 310px;
+				top: 310px;
+			}
+			.seventh{
+				left: 110px;
+				top: 110px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont font-white">
+			<div class="box first bg-red">链接</div>
+			<div class="box second bg-red">链接</div>
+			<div class="box third bg-red">链接</div>
+			<div class="box fourth bg-red">链接</div>
+			<div class="box fifth bg-blue font-yellow">链接</div>
+		</div>
+		<div class="cont noborder">
+			<div class="box2 fourth bg-lightblue"></div>
+			<div class="box2 sixth bg-lightblue"></div>
+			<div class="box2 fifth bg-yellow"></div>
+			<div class="box2 seventh bg-lightblue"></div>
+			<div class="box2 first bg-lightblue"></div>
+		</div>
+	</body>
+</html>

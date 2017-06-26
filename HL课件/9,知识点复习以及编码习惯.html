@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				color: blue;  /*内部字体颜色*/
+				background: red;  /*背景色*/
+				border:1px solid red;   /*边框，边框宽度，边框风格，边框的颜色*/
+				width: 300px;   /*宽度，block元素可以，inline-block可以*/
+				height: 200px;  /*高度，block元素可以，inline-block可以*/
+				line-height: 30px;  
+				/*行高,
+				 * 用途:
+				 * （1）实现文字在标签内部上下剧中line-height: 200px;
+				 * （2）控制每行文字之间的上下间距line-height: 30px;
+				 * */
+				font-size: 18px;  /*字体大小*/
+				margin: 0;   /*标签外边距*/
+				
+				display: block;
+				/*display: inline;*/
+				/*display: inline-block;*/
+				/*display: none;*/  /*隐藏元素*/
+				
+				/*两种居中的区别极其使用场景:
+				 text-align:center;  让元素内部的文字，行内元素，inline-block元素居中
+				 margin:auto;   让block元素相对于自己的父级元素进行左右居中 
+				 * */
+				
+				text-align: center;
+				
+				margin: auto;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<!--1，所有父级标签与子集标签之间要有缩进-->
+		<!--2，可以通过在代码编辑区右键整理代码格式（不推荐）-->
+		<!--3,css样式的大括号内回车输入并缩进-->
+		<p>
+			<span class="bg-red">1</span>
+			人类简史：从动物到人类的进化……
+			人类简史：从动物到人类的进化……
+			人类简史：从动物到人类的进化……
+			人类简史：从动物到人类的进化……
+			人类简史：从动物到人类的进化……
+			人类简史：从动物到人类的进化……
+		</p>
+		<p>
+			<span class="bg-red">2</span> 
+			人类简史：从动物到人类的进化……
+		</p>
+		<p>
+			<span>3</span> 
+			人类简史：从动物到人类的进化……
+		</p>
+		<p>
+			<span>4</span> 
+			人类简史：从动物到人类的进化……
+		</p>
+	</body>
+
+</html>

@@ -1,0 +1,102 @@
+body{
+	width: 1145px;
+	overflow: hidden;
+}
+.title-box{
+	width: 137px;
+	height: 166px;
+	background: #ea3524;
+	padding: 25px 27px;
+	color: white;
+	font-size: 13px;
+	float: left;
+}
+.cont-box{
+	height: 180px;
+	width: 954px;
+	float: left;
+	padding: 25px 0 11px 0;
+	overflow: hidden;
+}
+.cont-box .small-box{
+	float: left;
+	border-right: 1px solid gainsboro ;
+	padding-left: 16px;
+	color: #E33A25;
+	height: 165px;
+	padding-top: 15px;
+	width: 174px;
+	position: relative;
+	overflow: hidden;
+}
+.cont-box .small-box:last-child{
+	border-right: none;
+}
+.title-box .tit-name{
+	font-weight: bold;
+	text-align: left;
+	font-size: 28px;
+}
+.title-box .blank{
+	height: 3px;
+	width: 58px;
+	background: white;
+	margin: 12px 0 24px 0;
+}
+.title-box .intro{
+	margin-bottom: 6px;
+}
+.title-box .more{
+	border: 2px solid white;
+	margin-top: 23px;
+	padding:2px 14px;
+}
+.iconfont.icon-weibiaoti1{
+	font-size: 15px;
+}
+.cont-box .small-box .left-box{
+	border-top: 2px solid #e33a25;
+	width: 90px;
+	height: 161px;
+	padding-top: 2px;
+	position: absolute;
+	top: 15px;
+}
+.cont-box .small-box .left-box .price{
+	font-size: 28px;
+	font-weight: bold;
+	background: white;
+}
+.cont-box .small-box .left-box .price span{
+	font-size: 13px;
+}
+.cont-box .small-box .left-box .intro{
+	font-size: 12px;
+	line-height: 18px;
+	background: white;
+}
+.cont-box .small-box .left-box .intro-box{
+	border-top: 2px dashed white;
+	background: #e7e7e7;
+	color: #6f7072;
+	font-size: 12px;
+	height: 50px;
+	padding:13px 13px 0;
+	word-break: break-all;
+}
+.cont-box .small-box .left-box .more{
+	background: #ea3524;
+	color: white;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	padding: 4px 0;
+}
+.cont-box .small-box .right-box{
+	margin-top: 10px;
+	margin-left: 8px;
+	transition: all 1s;
+}
+.cont-box .small-box .right-box:hover{
+	margin-left: 18px;
+}

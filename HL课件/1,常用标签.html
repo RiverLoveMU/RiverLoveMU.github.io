@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--文档申明：告诉浏览器页面是html类型的-->
+<html>
+	<head>
+		<!--head区：控制项-->
+		<!--meta:编码方式的控制-->
+		<meta charset="utf-8" /> 
+		<!--网站选项卡体现网站主要内容-->
+		<title>我的第一个网页</title>
+		<style type="text/css">
+			/*样式控制*/
+			h2{
+				color: red;
+			}
+			div{
+				border: 1px solid red;
+				width: 200px;
+				height: 500px;
+			}
+			span{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<!--1，标签的概念
+			单标签
+			双标签
+		-->
+		
+		<!--我是网页-->
+		<!--凡是html的结构标签都放在body标签内部-->
+		<!--1,标题标签
+		-->
+		<h1>我是h1</h1>
+		<h2>我是h1</h2>
+		<h3>我是h1</h3>
+		<h4>我是h1</h4>
+		<h5>我是h1</h5>
+		<h6>我是h1</h6>
+		<!--2，普通文本标签-->
+		<p>我是文本</p>
+		<!--3，div
+			结构化控制标签，切分页面结构
+			熟悉div + css   HR
+			熟悉HTML + css  正确的说法
+		-->
+		<div>我是div</div>
+		<!--4，表示强调的标签
+			使用常见：商品价格显示
+		-->
+		<strong>我是strong</strong>
+		
+		<!--5，em，也表强调-->
+		<em>我是em</em>
+		
+		<!--6，span标签
+			一行内的多种样式控制
+		-->
+		<p>
+			我是黑色的文字
+			<span>我是红色的文字</span>
+		</p>
+		<!--7,换行标签-->
+		<p>
+			我是黑色的文字
+			<br />
+			<span>我是红色的文字</span>
+		</p>
+		
+		
+		<!--语义化
+			视听障碍：
+			<h1></h1>
+			网站的SEO优化，让网站被搜索引擎跟好的识别
+		-->
+		
+		<!--8，列表标签-->
+		<!--（1）无序列表，标签的嵌套-->
+		<ul>
+			<li>我是li</li>
+			<li>我是li</li>
+			<li>我是li</li>
+			<li>我是li</li>
+			<li>
+				我是li
+				<!--<div></div>-->
+			</li>
+			
+		</ul>
+		<!--（2）有序列表-->
+		<ol>
+			<li>
+				我是有序列表
+				<span>hl</span>
+			</li>
+			<li>我是有序列表</li>
+			<li>我是有序列表</li>
+			<li>我是有序列表</li>
+		</ol>
+		<!--9，超链接-->
+		<a href="http://www.qq.com">
+			跳转链接
+		</a>
+		<a href="new_file.html">
+			跳转本地连接
+		</a>
+		
+		<!--10，图片标签-->
+		
+		<img src="img/classQQ.png"/>
+	</body>
+</html>

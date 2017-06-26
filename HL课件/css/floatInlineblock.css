@@ -1,0 +1,178 @@
+		/*公用样式*/
+body{
+	background: #f8f8f8;
+}
+.full-width{
+	width: 100%;
+}
+.with-control{
+	width: 1150px;
+	margin: auto;
+	/*border: 1px solid deepskyblue;*/
+	overflow: hidden;
+}
+.fr{
+	float: right;
+}
+.fl{
+	float: left;
+}
+.light-blue{
+	color: #08accf;
+}
+.green{
+	color: #36ac00;
+}
+.blue{
+	color: #1a6cb8;
+}
+.gray{
+	color: #a3a3a3;
+}
+.bg-red{
+	background: #d81233;
+}
+.bg-blue{
+	background: #2878bd;
+}
+/*导航*/
+h1{
+	float: left;
+	height: 78px;
+	/*border: 1px solid red;*/
+	line-height: 90px;
+	margin-right: 100px;
+}
+.nav{
+	border-bottom: 1px solid #D8D8D8;
+	background: #FFF;
+	/*height: 78px;*/
+	overflow: hidden;
+	/*为了解决子元素浮动之后的高度塌陷问题*/
+}
+.nav ul{
+	height: 78px;
+	/*border: 1px solid red;*/
+	line-height: 90px;
+	float: left;
+}
+.nav li{
+	float: left;
+	padding: 0 20px;
+	/*border: 1px solid blue;*/
+}
+.nav .fr{
+	float: right;
+}
+.nav li:hover{
+	background: #2f3b4b;
+	color: #FFF;
+}
+
+/*内容区*/
+.cont{
+	width: 756px;
+/*	min-height: 300px;*/
+	/*border: 1px solid red;*/
+	float: left;
+}
+
+/*.box{
+	height: 100px;
+	width: 100px;
+	background: red;
+}*/
+.tit{
+	height: 48px;
+	padding-top: 20px;
+	/*border: 1px solid red;*/
+	line-height: 48px;
+}
+.cont .tit strong{
+	font-size: 22px;
+	margin-left: 30px;
+}
+.cont .tit span{
+	margin-right: 28px;
+}
+.cont .movie{
+	padding: 30px;
+	border-bottom: 1px solid #D8D8D8;
+	width: auto;
+	overflow: hidden;	
+}
+.cont .movie img{
+	margin-right: 40px;
+	width: 110px;
+	height: 156px;
+}
+.movie-cont{
+	border: 1px solid #D8D8D8;
+	background: #FFF;
+}
+.movie h2{
+	margin-bottom: 10px;
+	font-size: 22px;
+}
+.movie .fr span{
+	font-size: 14px;
+	color: #a3a3a3;
+	margin-top: 10px;
+	display: inline-block;
+	}
+.movie h2 em{
+	/*border: 1px solid red;*/
+	font-size: 14px;
+	border-radius: 5px;
+	padding: 2px 6px;
+	color: #FFF;
+}
+.movie p{
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+.movie .author{
+	margin-top: 59px;
+	margin-bottom: 0px;
+}
+.movie .time{
+	background-image:url(../img/钟.png);
+	margin-left: 20px;
+}
+.movie .name{
+	background-image:url(../img/小人.png);
+}
+.movie .author span{
+	/*border: 1px solid red;*/
+	padding-left: 15px;
+	background-repeat:no-repeat ;
+	background-position:left center; 
+}
+
+.side{
+	width: 304px;
+	min-height: 300px;
+	border: 1px solid #D8D8D8;
+	float: right;
+	margin-top: 68px;
+	background: #FFF;
+	padding: 0 30px;
+}
+.side .people{
+	padding: 10px 0;
+}
+.side .people span{
+	/*border: 1px solid red;*/	height: 40px;
+	height: auto;
+}
+.side .people img{
+	margin-right: 10px;
+	vertical-align: middle;
+	height: 30px;
+	width: 30px;
+}
+.foot{
+	height: 60px;
+	background: #303d4d;
+	margin-top: 110px;
+}

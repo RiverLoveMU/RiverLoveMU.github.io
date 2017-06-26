@@ -1,0 +1,40 @@
+.cont{
+	overflow: hidden;
+	margin: 50px;
+}
+textarea{
+	height: 100px;
+	width: 250px;
+	resize: none;
+}
+#name{
+	width: 140px;
+	height: 30px;
+}
+.fl{
+	float: left;
+}
+.cont .big-box{
+	overflow: hidden;
+	margin-bottom: 40px;
+}
+label{
+	font-size: 14px;
+	line-height:25px;
+	font-weight: bold;
+}
+.cont .big-box .name{
+	line-height: 36px;
+}
+.cont .big-box .small-box label{
+	font-size: 14px;
+	line-height:25px;
+	font-weight: normal;
+}
+.cont .big-box .small-box{
+	float: left;
+	margin-left: 50px;s
+}
+.cont .submit{
+	margin-left: 295px;
+}

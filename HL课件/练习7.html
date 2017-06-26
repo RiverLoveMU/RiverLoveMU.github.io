@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.box{
+				width: 1400px;
+				height: 2663px;
+				background-color: #f8f8f8;
+				overflow: hidden;
+			}
+			.title-box{
+				width: 100%;
+				height: 79px;
+				background-color: #ffffff;
+				overflow: hidden;
+			}
+			.web-name{
+				font-size: 25px;
+				color: #393939;
+				margin-top: 31px;
+				margin-left: 127px;
+				margin-right: 44px;
+				float: left;
+			}
+			.select-button{
+				font-size: 14px;
+				text-align: center;
+				color: #9b9b9b;
+				float: left;
+				line-height: 94px;
+				height: 79px;
+				width: 73px;
+			}
+			.select-button:hover{
+				background-color: #2e3c49;
+				color: #e9eeea;
+			}
+			.loggin-button{
+				margin-left: 453px;
+				margin-top: 37px;
+				color: #9b9b9b;
+				font-size: 14px;
+				float: left;
+			}
+			.register-button{
+				margin-left: 19px;
+				margin-top: 37px;
+				color: #9b9b9b;
+				font-size: 14px;
+				float: left;
+			}
+			.intro{
+				margin-top: 37px;
+				margin-left: 157px;
+				height: 28px;
+			}
+			h2{
+				font-size: 20px;
+				font-weight: bold;
+				float: left;
+			}
+			.vice-intro{
+				font-size: 18px;
+				line-height: 26px;
+				color: #8d8d8d;
+				float: left;
+			}
+			.vice-intro.first{
+				margin-left: 340px;
+			}
+			.vice-intro.sec{
+				margin-left: 31px;
+			}
+			.vice-intro:hover{
+				font-weight: bold;
+				color: #000000;
+			}
+			.left-box{
+				width: 755px;
+				height: 2376px;
+				margin-left: 127px;
+				background-color: white;
+				float: left;
+			}
+			.movie-list li{
+				height: 215px;
+				width: 100%;
+				border-bottom: 1px solid #f0f0f0;
+				overflow: hidden;
+			}
+			.movie-picture{
+				margin-left: 30px;
+				margin-top: 30px;
+				height: 155px;
+				width: 105px;
+				float: left;
+			}
+			.movie-name{
+				margin-left: 40px;
+				margin-top: 30px;
+				font-size: 25px;
+				font-weight: bold;
+				float: left;
+			}
+			.movie-inf{
+				margin-top: 32px;
+				margin-left: 6px;
+				height: 30px;
+				width: 50px;
+				font-size: 20px;
+				float: left;
+				text-align: center;
+				line-height: 30px;
+				color: white;
+				background: url(img/inf_03.png) no-repeat;
+				background-size: 100% 100%;
+			}
+			.movie-inf2{
+				margin-top: 32px;
+				margin-left: 6px;
+				height: 30px;
+				width: 100px;
+				font-size: 20px;
+				float: left;
+				text-align: center;
+				line-height: 30px;
+				color: white;
+				background: url(img/inf_07.png) no-repeat;
+				background-size: 100% 100%;
+			}
+			.fansub{
+				font-size: 15px;
+				margin-top: 40px;
+				margin-right: 35px;
+				color: #a6a6a6;
+				float: right;
+			}
+			.movie-intro{
+				margin-left: 177px;
+				margin-top: 72px;
+				font-size: 15px;
+			}
+			.trans-inf{
+				margin-left: 177px;
+				margin-top: 5px;
+				color: #757575;
+				font-size: 15px;
+			}
+			.trans-inf span{
+				font-size: 15px;
+				color: #478c15;
+			}
+			.right-box{
+				width: 365px;
+				height: 2287px;
+				margin-right: 127px;
+				background-color: white;
+				float: right;
+				overflow: hidden;
+			}
+			.top-box{
+				width: 100%;
+				height: 1403px;
+				border-bottom: 1px solid #f0f0f0;
+				overflow: hidden;
+			}
+			.bottom-box{
+				width: 100%;
+				height: 883px;
+				overflow: hidden;
+			}
+			.user-intro{
+				margin-left: 30px;
+				margin-top: 30px;
+				font-size: 20px;
+				font-weight: bold;
+			}
+			.user-list{
+				margin-left: 30px;
+				width: 335px;
+				height: 1305px;
+				margin-top: 40px;
+			}
+			.user-list li{
+				height: 65px;
+				width: 100%;
+				overflow: hidden;
+			}
+			.user-picture{
+				width: 47px;
+				height: 47px;
+				border-radius: 25px;
+				float: left;
+			}
+			.user-name{
+				font-size: 18px;
+				margin-top: 12px;
+				margin-left: 10px;
+				color: #656565;
+				float: left;
+			}
+			.user-num{
+				font-size: 18px;
+				margin-top: 12px;
+				margin-right: 35px;
+				color: #c0c0c0;
+				float: right;
+			}
+			.subtitle-list{
+				margin-left: 30px;
+				width: 335px;
+				height: 785px;
+				margin-top: 40px;
+				overflow: hidden;
+			}
+			.subtitle-list li{
+				height: 154px;
+				width: 100%;
+				overflow: hidden;
+			}
+			.subtitle-picture{
+				width: 81px;
+				height: 117px;
+				float: left;
+			}
+			.subtitle-name{
+				font-size: 18px;
+				margin-left: 10px;
+				color: #d42b4a;
+				float: left;
+			}
+			.vice-name{
+				color: #ababab;
+				font-size: 18px;
+			}
+			.subtitle-intro{
+				font-size: 18px;
+				margin-top: 30px;
+				margin-left: 91px;
+				line-height: 26px;
+				word-break: break-all;
+				color: #696969;
+			}
+			.page{
+				width: 210px;
+				height: 35px;
+				float: left;
+				margin-top: 2400px;
+				margin-left: -510px;
+			}
+			.page-picture{
+				height: 100%;
+				width: 15px;
+			}
+			.page-picture.left{
+				float: left;
+				margin-right: 24px;
+			}
+			.page-picture.right{
+				float: right;
+			}
+			.page-num{
+				float: left;
+				height: 35px;
+				width: 28px;
+				line-height: 35px;
+				font-size: 20px;
+				color: #878787;
+				text-align: center;
+			}
+			.page-num:hover{
+				border: 1px solid #333438;
+				color: #333438;
+			}
+			.company{
+				height: 70px;
+				width: 1400px;
+				background: #303d4d;
+				line-height: 70px;
+			}
+			.company-title{
+				height: 70px;
+				line-height: 70px;
+				margin-left: 127px;
+				font-size: 15px;
+				color: #76808c;
+				margin-right: 340px;
+				float: left;
+			}
+			.company-select{
+				height: 70px;
+				line-height: 70px;
+				font-size: 15px;
+				color: #76808c;
+				margin-right: 40px;
+				float: left;
+			}
+			.company-logo{
+				margin-right: 30px;
+				height: 25px;
+				width: 25px;
+				vertical-align: middle;
+			}
+			.small-img{
+				height: 20px;
+				width: 20px;
+				margin-left: 40px;
+				margin-top: 50px;
+				float: left;
+			}
+			.group{
+				float: left;
+				margin-left: 5px;
+				margin-top: 51px;
+				font-size: 15px;
+				color: #6b7b8b;
+			}
+			.group span{
+				font-size: 15px;
+				color: #8e8e8e;
+			}
+			.clock{
+				height: 20px;
+				width: 20px;
+				margin-top: 51px;
+				margin-left: 50px;	
+				float: left;			
+			}
+			.time{
+				float: left;
+				margin-left: 5px;
+				margin-top: 50px;
+				font-size: 15px;
+				color: #8e8e8e;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="title-box">
+				<h1 class="web-name">Sub HD</h1>
+				<h1 class="select-button">首页</h1>
+				<h1 class="select-button">最新</h1>
+				<h1 class="select-button">热门</h1>
+				<h1 class="select-button">专题</h1>
+				<h1 class="select-button">求字幕</h1>
+				<h1 class="select-button">上传</h1>
+				<h1 class="loggin-button">登录</h1>
+				<h1 class="register-button">注册</h1>
+			</div>
+			<div class="intro">
+				<h2>最新字幕</h2>
+				<p class="vice-intro first">全部字幕</p>
+				<p class="vice-intro sec">电影字幕</p>
+				<p class="vice-intro sec">电视字幕</p>
+			</div>
+			<div class="left-box">
+				<ul class="movie-list">
+					<li>
+						<img  class="movie-picture" src="img/movie1.jpg"/>
+						<h1 class="movie-name">泰坦尼克号</h1>
+						<span class="movie-inf">电影</span>
+						<span class="fansub">人人字幕组</span>
+						<p class="movie-intro">泰坦尼克号 Titanic (1997)</p>
+						<p class="trans-inf"><span>简体</span> 字幕翻译</p>
+						<img src="img/小人.png" class="small-img"/>
+						<p class="group">人人字幕组 <span>@</span> 人人字幕组</p>
+						<img src="img/钟.png" class="clock"/>
+						<p class="time">1小时前</p>
+					</li>
+					<li>
+						<img  class="movie-picture" src="img/movie7.jpg"/>
+						<h1 class="movie-name">亿万 第二季</h1>
+						<span class="movie-inf2">S02E08</span>
+						<span class="fansub">YYeTs字幕组</span>
+						<p class="movie-intro">亿万 第2季第08集.Billions.[WEB.1080P]中英文字幕</p>
+						<p class="trans-inf"><span>简体</span> 字幕翻译</p>
+						<img src="img/小人.png" class="small-img"/>
+						<p class="group">YYeTs <span>@</span>  YYeTs字幕组</p>
+						<img src="img/钟.png" class="clock"/>
+						<p class="time">1小时前</p>
+					</li>
+					<li>
+						<img  class="movie-picture" src="img/movie2.jpg"/>
+						<h1 class="movie-name">三傻大闹宝莱坞</h1>
+						<span class="movie-inf">电影</span>
+						<span class="fansub">人人字幕组</span>
+						<p class="movie-intro">三傻大闹宝莱坞 3 Idiots (2009)</p>
+						<p class="trans-inf"><span>简体</span> 字幕翻译</p>
+						<img src="img/小人.png" class="small-img"/>
+						<p class="group">人人字幕组 <span>@</span> 人人字幕组</p>
+						<img src="img/钟.png" class="clock"/>
+						<p class="time">2小时前</p>
+					</li>
+					<li>
+						<img  class="movie-picture" src="img/movie8.jpg"/>
+						<h1 class="movie-name">破产姐妹 第六季</h1>
+						<span class="movie-inf2">S06E21</span>
+						<span class="fansub">YYeTs字幕组</span>
+						<p class="movie-intro">打工姐妹花 第6季第21集(2 Broke Girls S06E21)</p>
+						<p class="trans-inf"><span>简体</span> 字幕翻译</p>
+						<img src="img/小人.png" class="small-img"/>
+						<p class="group">YYeTs <span>@</span> YYeTs字幕组</p>
+						<img src="img/钟.png" class="clock"/>
+						<p class="time">2小时前</p>
+					</li>
+					<li>
+						<img  class="movie-picture" src="img/movie3.jpg"/>
+						<h1 class="movie-name">星际穿越</h1>
+						<span class="movie-inf">电影</span>
+						<span class="fansub">人人字幕组</span>
+						<p class="movie-intro">星际穿越 Interstellar (2014)</p>
+						<p class="trans-inf"><span>简体</span> 字幕翻译</p>
+						<img src="img/小人.png" class="small-img"/>
+						<p class="group">人人字幕组 <span>@</span> 人人字幕组</p>
+						<img src="img/钟.png" class="clock"/>
+						<p class="time">2小时前</p>
+					</li>
+					<li>
+						<img  class="movie-picture" src="img/movie9.jpg"/>
+						<h1 class="movie-name">谍网 第二季</h1>
+						<span class="movie-inf2">S02E15</span>
+						<span class="fansub">Orange字幕组</span>
+						<p class="movie-intro">Quantico.S02E15.720p.WEB-DL.DD5.1.H264-RTN</p>
+						<p class="trans-inf"><span>简体</span> 字幕翻译</p>
+						<img src="img/小人.png" class="small-img"/>
+						<p class="group">还是踢球吧 <span>@</span> Orange字幕组</p>
+						<img src="img/钟.png" class="clock"/>
+						<p class="time">3小时前</p>
+					</li>
+					<li>
+						<img  class="movie-picture" src="img/movie4.jpg"/>
+						<h1 class="movie-name">忠犬八公的故事</h1>
+						<span class="movie-inf">电影</span>
+						<span class="fansub">人人字幕组</span>
+						<p class="movie-intro">忠犬八公的故事 Hachi: A Dog's Tale (2009)</p>
+						<p class="trans-inf"><span>简体</span> 字幕翻译</p>
+						<img src="img/小人.png" class="small-img"/>
+						<p class="group">anti <span>@</span> 人人字幕组</p>
+						<img src="img/钟.png" class="clock"/>
+						<p class="time">3小时前</p>
+					</li>
+					<li>
+						<img  class="movie-picture" src="img/movie10.jpg"/>
+						<h1 class="movie-name">警魂 第二季</h1>
+						<span class="movie-inf2">S02E07</span>
+						<span class="fansub">大家字幕组</span>
+						<p class="movie-intro">Shades.of.Blue.S02E07.720p.HDTV.x264-KILLERS</p>
+						<p class="trans-inf"><span>简体</span> 字幕翻译</p>
+						<img src="img/小人.png" class="small-img"/>
+						<p class="group">流氓1452 <span>@</span> 大家字幕组</p>
+						<img src="img/钟.png" class="clock"/>
+						<p class="time">3小时前</p>
+					</li>
+					<li>
+						<img  class="movie-picture" src="img/movie5.jpg"/>
+						<h1 class="movie-name">辛德勒的名单</h1>
+						<span class="movie-inf">电影</span>
+						<span class="fansub">人人字幕组</span>
+						<p class="movie-intro">辛德勒的名单 Schindler's List (1993)</p>
+						<p class="trans-inf"><span>简体</span> 字幕翻译</p>
+						<img src="img/小人.png" class="small-img"/>
+						<p class="group">camac <span>@</span> 人人字幕组</p>
+						<img src="img/钟.png" class="clock"/>
+						<p class="time">4小时前</p>
+					</li>
+					<li>
+						<img  class="movie-picture" src="img/movie11.jpg"/>
+						<h1 class="movie-name">纽约屁民 第二季</h1>
+						<span class="movie-inf2">S02E04</span>
+						<span class="fansub">翻托邦字幕组</span>
+						<p class="movie-intro">纽约屁民.Animals.S02E04.720p.FLEET.x264.中英字幕-Fantopia</p>
+						<p class="trans-inf"><span>简体</span> 字幕翻译</p>
+						<img src="img/小人.png" class="small-img"/>
+						<p class="group">Chingyun <span>@</span> 翻托邦字幕组</p>
+						<img src="img/钟.png" class="clock"/>
+						<p class="time">5小时前</p>
+					</li>
+					<li>
+						<img  class="movie-picture" src="img/movie6.jpg"/>
+						<h1 class="movie-name">海上钢琴师</h1>
+						<span class="movie-inf">电影</span>
+						<span class="fansub">FIX字幕组</span>
+						<p class="movie-intro">海上钢琴师 La leggenda del pianista sull'oceano (1998)</p>
+						<p class="trans-inf"><span>简体</span> 字幕翻译</p>
+						<img src="img/小人.png" class="small-img"/>
+						<p class="group">风吹来的那片云 <span>@</span> FIX字幕组</p>
+						<img src="img/钟.png" class="clock"/>
+						<p class="time">6小时前</p>
+					</li>
+				</ul>
+			</div>
+			<div class="right-box">
+				<div class="top-box">
+					<h1 class="user-intro">一周字幕达人</h1>
+					<ul class="user-list">
+						<li>
+							<img class="user-picture" src="img/头像1.jpg"/>
+							<p class="user-name">camac</p>
+							<p class="user-num">12612</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像2.jpg"/>
+							<p class="user-name">风吹来的那片云</p>
+							<p class="user-num">10972</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像3.jpg"/>
+							<p class="user-name">Orange字幕组</p>
+							<p class="user-num">8164</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像4.jpg"/>
+							<p class="user-name">101eagle</p>
+							<p class="user-num">4414</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像5.jpg"/>
+							<p class="user-name">irenerista</p>
+							<p class="user-num">3546</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像6.jpg"/>
+							<p class="user-name"> 老王家隔壁</p>
+							<p class="user-num">3353</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像7.jpg"/>
+							<p class="user-name">FIX字幕侠</p>
+							<p class="user-num">3102</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像8.jpg"/>
+							<p class="user-name">Chingyun</p>
+							<p class="user-num">2799</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像9.jpg"/>
+							<p class="user-name">流氓1452</p>
+							<p class="user-num">2462</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像10.jpg"/>
+							<p class="user-name">SSK字幕组</p>
+							<p class="user-num">2324</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像11.jpg"/>
+							<p class="user-name">anti</p>
+							<p class="user-num">2291</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像12.jpg"/>
+							<p class="user-name">凤梨酥</p>
+							<p class="user-num">2036</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像13.jpg"/>
+							<p class="user-name">EF字幕组</p>
+							<p class="user-num">2000</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像14.jpg"/>
+							<p class="user-name">独立字幕组</p>
+							<p class="user-num">1998</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像15.jpg"/>
+							<p class="user-name">风骨字幕组</p>
+							<p class="user-num">1380</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像16.jpg"/>
+							<p class="user-name">三角字幕组</p>
+							<p class="user-num">1289</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像17.jpg"/>
+							<p class="user-name">树屋字幕组</p>
+							<p class="user-num">1222</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像18.jpg"/>
+							<p class="user-name">GA字幕组</p>
+							<p class="user-num">1113</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/头像19.jpg"19/>
+							<p class="user-name">启点字幕组</p>
+							<p class="user-num">1078</p>
+						</li>
+						<li>
+							<img class="user-picture" src="img/timg (1).jpg"/>
+							<p class="user-name">还是踢球吧</p>
+							<p class="user-num">1024</p>
+						</li>
+					</ul>
+				</div>
+				<div class="bottom-box">
+					<h1 class="user-intro">热门字幕</h1>
+					<ul class="subtitle-list">
+						<li>
+							<img class="subtitle-picture" src="img/字幕1.jpg"/>
+							<h1 class="subtitle-name"><span class="vice-name">feng0571hz</span></h1>
+							<p class="subtitle-intro">金刚：骷髅岛/骷髅岛 Kong.Skull.Island.2017.CN.TW 对应STUTTERSHIT及WEBRip</p>
+						</li>
+						<li>
+							<img class="subtitle-picture" src="img/字幕2.jpg"/>
+							<h1 class="subtitle-name">SSK字幕组&nbsp;&nbsp;<span class="vice-name">SSK字幕组</span></h1>
+							<p class="subtitle-intro">【SSK字幕组】爱乐之城 LA LA LAND 蓝光版 双语特效字幕</p>
+						</li>
+						<li>
+							<img class="subtitle-picture" src="img/字幕3.jpg"/>
+							<h1 class="subtitle-name">凤梨酥&nbsp;&nbsp;<span class="vice-name">圣城家园SCG字幕组</span></h1>
+							<p class="subtitle-intro">生活大爆炸/The Big Bang Theory S10E21/第十季第二十一集/圣城家园双语字幕/普高清同轴</p>
+						</li>
+						<li>
+							<img class="subtitle-picture" src="img/字幕4.jpg"/>
+							<h1 class="subtitle-name">Orange&nbsp;&nbsp;<span class="vice-name">Orange字幕组</span></h1>
+							<p class="subtitle-intro">神盾局特工. Marvels.Agents.of.S.H.I.E.L.D.S04E17.Orange字幕组</p>
+						</li>
+						<li>
+							<img class="subtitle-picture" src="img/字幕5.jpg"/>
+							<h1 class="subtitle-name"><span class="vice-name">lele47</span></h1>
+							<p class="subtitle-intro">金刚狼3：殊死一战Logan 2017 720p HD-TS V.2 x264 AC3-CPG</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="page">
+				<img class="page-picture left" src="img/page_03.png"/>
+				<p class="page-num">1</p>
+				<p class="page-num">2</p>
+				<p class="page-num">3</p>
+				<p class="page-num">4</p>
+				<p class="page-num">5</p>
+				<img class="page-picture right" src="img/page_05.png"/>
+			</div>
+		</div>
+		<div class="company">
+			<p class="company-title" id="test2">SubHD.com 成立于2014年11月</p>
+			<p class="company-select">RSS</p>
+			<p class="company-select">电影订阅</p>
+			<p class="company-select">电视订阅</p>
+			<p class="company-select">联系我们</p>
+			<p class="company-select">问题反馈</p>
+			<img class="company-logo" src="img/图标1.png"/>
+			<img class="company-logo" src="img/图标2.png"/>
+		</div>
+	</body>
+</html>

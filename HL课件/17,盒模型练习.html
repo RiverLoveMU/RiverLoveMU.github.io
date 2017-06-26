@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.cont{
+				width: 672px;
+				height: 510px;
+				border: 1px solid red;
+			}
+			.cont .l-box{
+				width: 336px;
+				height: 100%;
+				background: cadetblue;
+				display: inline-block;
+				overflow: hidden;
+				vertical-align: top;
+			}
+			.cont .r-box{
+				width: 326px;
+				height: 100%;
+				background: pink;
+				display: inline-block;
+				margin-left: 10px;
+			}
+			.cont .square{
+				height: 336px;
+				width: 100%;
+				background: blueviolet;
+				margin-bottom: 10px;
+			}
+			.cont .sm-square{
+				width: 164px;
+				height: 164px;
+				background: indianred;
+				display: inline-block;
+			}
+			.cont .has-m-left{
+				margin-left: 8px;
+			}
+			/*.cont .l-box .sm-square{
+				margin-top: 5px;
+			}*/
+			.cont .w-box{
+				height: 162px;
+				width: 100%;
+				background: darkslateblue;
+				margin-bottom: 12px;
+			}
+			.cont .h-box{
+				height: 336px;
+				width: 164px;
+				background: cornflowerblue;
+				display: inline-block;
+				overflow: hidden;
+			}
+			.cont .h-box.other{
+				width: 152px;
+				margin-left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="l-box">
+				<div class="square"></div>
+				<div class="sm-square"></div><!--
+			 --><div class="sm-square has-m-left"></div>
+			</div><!--
+		 --><div class="r-box">
+		 		<div class="w-box"></div>
+		 		<div class="h-box">
+		 			<div class="sm-square"></div><!--
+				 --><div class="sm-square"></div>
+		 		</div><!--
+		 	 --><div class="h-box other"></div>
+		 	</div>
+		</div>
+	</body>
+</html>

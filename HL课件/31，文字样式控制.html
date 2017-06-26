@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				text-indent: 2em;
+				/*文本缩进,相对单位em*/
+				font-size: 20px;
+				/*letter-spacing: 5px;*/
+				/*字符间距,字母间距*/
+				/*word-spacing: 100px;*/
+				/*单词间距*/
+				font-family: "楷体";
+				height: 30px;
+				line-height: 30px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				/*文字超出省略号*/
+				white-space: nowrap;
+				/*强制不换行*/
+				border: 1px solid red;
+			}
+			body { color:#333; }
+			#text{ color:red; }
+			.content { color:#00f; }
+			.gray { color:#f00; }
+
+			/*css中文全称:层叠样式表*/
+			/*talk is cheap,show me the code.*/
+			.box{
+				border: 1px solid black;
+				Height: 100px;
+				width: 100px;
+				float: right;
+			}
+			.bigBox{
+				height: 300px;
+				width: 300px;
+				background: blue;
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			我是文字我是文字我是文字我是文字我是文字我是文字
+			<!--hello world hello world hello world hello world--> 
+		</div>
+		<p id="text" class="content gray">我是前端开发者~</p>
+		<div class="box">1</div>
+		<div class="box">2</div>
+		<div class="box">3</div>
+		<div class="box">4</div>
+		<div class="box">5</div>
+		<div class="bigBox"></div>
+		<table border="" cellspacing="0">
+		      <tr><td colspan="2">姓名</td></tr>
+		      <tr><td rowspan="2">成绩</td>
+		          <td align="center">语文</td>
+		     </tr>
+		      <tr><td colspan="2" align="center">数学</td></tr>
+		</table>
+
+	</body>
+</html>

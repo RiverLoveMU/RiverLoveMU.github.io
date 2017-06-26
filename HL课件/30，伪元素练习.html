@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			html,body{
+				background: #f1f1f1;
+			}
+			.fr{
+				float: right;
+				margin-right:15px ;
+			}
+			.list{
+				position: relative;
+				margin-top: 10px;
+				background: #FFF;
+			}
+			.list li{
+				padding: 10px;
+				position: relative;
+			}
+			.list:before{
+				content: '';
+				height: 1px;
+				width: 100%;
+				background: #D8D8D8;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			.list:after{
+				content: '';
+				height: 1px;
+				width: 100%;
+				background: #D8D8D8;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+			}
+			/*.list li:before,*/
+			.list li:after{
+				content: '';
+				height: 1px;
+				width: 97%;
+				background: #D8D8D8;
+				position: absolute;
+				left: 3%;
+				bottom: 0;
+			}
+			/*.list li:after{
+			}*/
+			/*.list li:before{
+				top: 0;
+			}*/
+			.jump{
+				background: url(img/right_icon.png) no-repeat 98% center;
+				background-size:10px 18px ;
+			}
+			.infor h3,
+			.infor p{
+				margin: 8px 0;
+				padding-left: 30px;
+			}
+			.infor p{
+				background: url(img/address.png) no-repeat 10px center;
+				background-size:14px 14px;
+			}
+			.infor:before{
+				content: '';
+				height: 2px;
+				width: 100%;
+				background: url(img/line.png);
+				background-size:100% 100% ;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.infor:after{
+				content: '';
+				height: 2px;
+				width: 100%;
+				background: url(img/line.png);
+				background-size:100% 100% ;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="list infor">
+			<li class="jump">
+				<h3>李慕白  1880887888</h3>
+				<p>
+					四川省成都市高新区金融城金融中心2号楼
+				</p>
+			</li>
+		</ul>
+		<ul class="list">
+			<li class="jump">
+				<span>优惠券</span>
+				<span class="fr">无可用优惠券</span>
+			</li>
+			<li class="jump">
+				<span>优惠券</span>
+				<span class="fr">无可用优惠券</span>
+			</li>
+			<li class="jump">
+				<span>优惠券</span>
+				<span class="fr">无可用优惠券</span>
+			</li>
+		</ul>
+		<ul class="list">
+			<li>
+				<span>优惠券</span>
+				<span class="fr">无可用优惠券</span>
+			</li>
+			<li>
+				<span>优惠券</span>
+				<span class="fr">无可用优惠券</span>
+			</li>
+		</ul>
+	</body>
+</html>

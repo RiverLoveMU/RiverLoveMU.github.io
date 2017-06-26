@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.cont{
+				width: 500px;
+				margin: auto;
+			}
+			h4{
+				text-align: center;
+			}
+			table{
+				border-right: 1px solid gainsboro;
+				border-top: 1px solid gainsboro;
+				
+			}
+			th{
+				border-left: 1px solid gainsboro;
+				border-bottom: 1px solid gainsboro;
+				background: #f7f7f7;
+				height: 42px;
+				text-align: center;
+				width: 145px;
+				padding-left: 15px;
+				text-align: left;
+				font-size: 13px;
+			}
+			td{
+				border-left: 1px solid gainsboro;
+				border-bottom: 1px solid gainsboro;
+				height: 42px;
+				text-align: left;
+				padding-left: 15px;
+				font-size: 13px;
+			}
+			th:first-child{
+				width: 65px
+			}
+			td:first-child{
+				background: #f7f7f7;
+			}
+			table tr .special{
+				background: white;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<h4>运费详情</h4>
+			<table cellspacing="0">
+				<tr>
+					<th>区域</th>
+					<th>寄达地方</th>
+					<th>首重(元/1000g)</th>
+					<th>首重(元/1000g)</th>					
+				</tr>
+				<tr>
+					<td rowspan="2">一区</td>
+					<td>浙江、上海、江苏</td>
+					<td>6</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td class="special">江西、安徽</td>
+					<td>7</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>二区</td>
+					<td>吉林、黑龙江、云南</td>
+					<td>10</td>
+					<td>6</td>
+				</tr>
+				<tr>
+					<td>三区</td>
+					<td>新疆、西藏</td>
+					<td>15</td>
+					<td>10</td>
+				</tr>
+			</table>	
+		</div>
+	</body>
+</html>

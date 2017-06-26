@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.outer{
+				background: red;
+				height: 100px;
+				width: 100px;
+				/*border: 1px solid red;*/
+				overflow: hidden;
+				/*margin: 20px;*/
+			}
+			.inner{
+				background: blue;
+				height: 50px;
+				width: 50px;
+				margin-top: 20px;
+			}
+			/*1,margin在垂直方向的传递问题
+			   解决方法：
+			   	（1）给父级加border: 1px solid red;
+			   	（2）给父级加overflow:hidden;
+			 * */
+			/*2,垂直方向的margin叠加现象,
+			 * 取上面盒子的下margin与下面盒子的上margin中的较大值*/
+			/*3,margin可以通过负值让元素反向移动*/
+			
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="inner"></div>
+		</div>
+		<div class="outer" style="margin-top: 30px;">
+			<div class="inner"></div>
+		</div>
+		<div class="outer">
+			<p>我是文字</p>
+			<p>我是文字</p>
+		</div>
+	</body>
+</html>

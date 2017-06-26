@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#text{
+				color: black;
+			}
+			.box .text{
+				color: palegreen;
+			}
+			span.text{
+				color: red;
+			}
+			span{
+				color: yellow;
+			}
+			div{
+				color: blue;
+			}
+		</style>
+		<!--<link rel="stylesheet" type="text/css" href="css/style.css"/>-->
+		<!--一，css样式优先级-->
+		<!--默认，后面添加的样式会覆盖前面添加的样式（前提是选择器是相同的）-->
+		<!--二，选择器的权重。-->
+		<!--1，继承的属性     权重0.1
+		2，标签选择器    权重为1
+		3，class选择器   权重为10
+		4，id选择器      权重100-->
+		<!--三，权重的计算
+			权重可以叠加计算
+			一般是越长的选择器权重越高（没有id选择器的情况下）
+		-->
+	</head>
+	<body>
+		<div class="box">
+			<span class="text" id="text">我是span</span>
+		</div>
+	</body>
+</html>

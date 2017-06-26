@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*1,标签选择器
+			 独立使用的时候要慎重
+			 * */
+			div{
+				height: 100px;
+				width: 100px;
+				border: 1px solid red;
+				transition: all 1s;
+			}
+			/*2,类选择器，class选择器
+			 	(1)给标签名称
+			 	(2)通过class名称选中标签 .class
+			 	(3)注意名称前的.
+			 	一，class命名规则:
+				1,不能以数字命名,也不能以数字开头
+				2,名字里可以出现的字符包括:字母(建议小写),中划线,中间或结尾可以出现数字
+				3,逐步培养以英文单词或缩写命名的习惯,尽量避免拼音命名
+			*/
+			.zhangsan{
+				background: black;
+			}
+			/*3,包含选择器*/
+			.zhangsan span{
+				color: red;
+			}
+			.list li span{
+				color: green;
+			}
+			/*4,多名称选择器*/
+			.zhangsan.bigzhang{
+				height: 300px;
+			}
+			/*5,id选择器
+			 一个html结构当中，相同的id只能出现一次
+			 注意跟class名称的区别：class可以反复出现
+			 * */
+			#box{
+				width: 200px;
+			}
+			/*6,伪类选择器
+			 选中的是标签的某种状态
+			 * */
+			/*div:hover{
+				background: red;
+				margin-left: 20px;
+			}*/
+			.bigzhang:hover,
+			.smzhang:hover{
+				background: red;
+				margin-left: 20px;
+			}
+			/*.smzhang:hover{
+				background: red;
+				margin-left: 20px;
+			}*/
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<span>我是span</span>
+		</div>
+		<div id="box1" class="zhangsan bigzhang">
+			<span>我是span</span>
+		</div>
+		<div class="zhangsan smzhang">
+			<span>我是span</span>
+		</div>
+		<div>
+			<span>我是span</span>
+		</div>
+		<div>
+			<span>我是span</span>
+		</div>
+		<p></p>
+		<ul class="list">
+			<li>
+				<span>我是li里面的span</span>
+			</li>
+		</ul>
+	</body>
+</html>
