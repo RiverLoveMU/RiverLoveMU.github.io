@@ -79,10 +79,11 @@
 				oDiv.className = 'pen';
 				oDiv.style.cssText = 'top:'+ newEvent.clientY +'px;left:' + newEvent.clientX + 'px;width:' + size + 'px;height:' + size + 'px;background:' + $('color').value;
 				$('cannava').appendChild(oDiv);		
-			}else if (!control&&use) {
-				for (var i=0;i<aPen.length;i++) {
-					aPen[i].index = i;
-					aPen[i].onmouseover = function(){
+			}
+			for (var i=0;i<aPen.length;i++) {
+				aPen[i].index = i;
+				aPen[i].onmouseover = function(){
+					if (!control&&use) {
 						$('cannava').removeChild(this);
 					}
 				}
