@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				padding: 40px;
+				background: red;
+			}
+			#box{
+				position: relative;
+			}
+			#outer{
+				background: blue;
+				position: relative;
+			}
+			#inner{
+				background: green;
+			}
+			body{
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="outer">
+				<div id="inner"></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+//		1,获取元素到定位父级的距离
+//		alert($('box').offsetTop);
+//		alert($('outer').offsetTop);
+//		var iTop=0;
+//		var obj=$('inner');
+//		while(obj){
+//			iTop+=obj.offsetTop;
+//			obj = obj.offsetParent;
+//			console.log(1);
+//		}
+//		console.log(iTop);
+//		alert(getElementTop($('inner')));
+//		alert(getPos($('inner')).left);
+//		2,封装一个函数,只要调用该函数并出入指定对象,就会返回这个元素距离文档顶部/文档左边的 值
+		function getElementLeft(obj){
+			var iLeft = obj.offsetLeft;
+			var current = obj.offsetParent;
+			while(current !== null){
+				iLeft += current.offsetLeft;
+				current = current.offsetParent;
+			}
+			return iLeft;
+		}
+		function getElementTop(obj){
+			var iTop = obj.offsetTop;
+			var current = obj.offsetParent;
+			while(current !== null){
+				iTop += current.offsetTop;
+				current = current.offsetParent;
+			}
+			return iTop;
+		}
+		function getPos(obj){
+			var pos = {
+				'left':0,
+				'top':0
+			};
+			while (obj){
+				pos.left += obj.offsetLeft;
+				pos.top += obj.offsetTop;
+				obj = obj.offsetParent;
+			}
+			return pos;
+		}
+	</script>
+</html>
