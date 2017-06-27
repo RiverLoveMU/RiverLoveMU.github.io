@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.box{
+				overflow: hidden;
+				background: #222222;
+			}
+			.cont{
+				margin-top: 100px;
+				width: 510px;
+				height: 150px;
+				background: #222222;
+				position: relative;
+				z-index: 100;
+			}
+			.cont div{
+				height: 15px;
+				width: 15px;
+				box-sizing: border-box;
+				float: left;
+			}
+			.cont div.ground{
+				border: 3px solid #323232;
+				background: #444444;
+			}
+			.cont div.fire{
+				background: #EF5454;
+			}
+			.cont div.score{
+				background: #DCE237;
+				border: 3px solid #222222;
+				border-radius: 50%;
+				position: relative;
+				top: 0;
+				left: 0;
+				transition: all 0.2s;
+			}
+			.cont .move{
+				position: absolute;
+				height:16px;
+				width:10px;
+				background: #325699;
+				top: 59px;
+				left: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="cont" id="cont">
+				<div id="move" class="move">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var arrScreen = [
+			[0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+			[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,1,1],
+			[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+			[0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,1,1],
+			[0,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+			[0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0],
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,2,2,2,0,1],
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,2,2,2,0,1],
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,2,2,2,0,1],
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1]
+		]
+		var Len = arrScreen.length;
+		for (var i=0;i<Len;i++) {
+			var sLen = arrScreen[i].length
+			for (var k=0;k<sLen;k++) {
+				var oDiv = document.createElement('div');
+				switch (arrScreen[i][k]){
+					case 0:
+					oDiv.className = 'ground';
+						break;
+					case 2:
+					oDiv.className = 'fire';
+						break;
+					case 3:
+					oDiv.className = 'score';
+						break;
+					default:
+						break;
+				}
+				$('cont').appendChild(oDiv);
+			}
+			
+		}
+		var oScore = $('cont').getElementsByClassName('score');
+		for (var i=0;i<oScore.length;i++) {
+			oScore[i].controlTremble = true;
+			setTremble(i);
+		}
+//		document.onkeydown = function(ev){
+//			var newEv = ev || event;
+//			if (newEv.keyCode == 39) {
+//				$('move').style.left = parseInt(getStyle($('move'),'left')) + 5 + 'px';
+//			}else if(newEv.keyCode == 38){
+//				$('move').style.top = parseInt(getStyle($('move'),'top')) - 5 + 'px';
+//			}
+//		}
+        bind(document,'keydown',function(ev){
+        	var newEv = ev || event;
+			if (newEv.keyCode == 39) {
+				$('move').style.left = parseInt(getStyle($('move'),'left')) + 3 + 'px';
+			}
+        })
+        $('move').control = true;
+         bind(document,'keydown',function(ev){
+        	var newEv = ev || event;
+			if (newEv.keyCode == 38 &&  $('move').control) {
+				$('move').control = false;
+				Go($('move'),'top',-3,10,function(){
+					Go($('move'),'top',3,59,function(){
+						$('move').control = true;
+					});
+				});
+			}
+        })
+		function setTremble (num){
+			setInterval(function(){
+				if (oScore[num].controlTremble) {
+					oScore[num].style.top = '1px';
+				} else{
+					oScore[num].style.top = '-1px';
+				}
+				oScore[num].controlTremble = !oScore[num].controlTremble;
+			},200)
+		}
+	</script>
+</html>
