@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			button{
+				display: block;
+				margin: 0;
+			}
+			img{
+				position: relative;
+				top: 0;
+				left: 0;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="playback">回放</button>
+		<img id="pic" src="img/bg.png"/>
+	</body>
+	<script src="js/js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var pos = [];
+		$('pic').onmousedown = function(ev){
+				var newEv = ev || event;
+				var beginX = newEv.clientX - getPos(this).left;
+				var beginY = newEv.clientY - getPos(this).top;
+				var bHeight = $('playback').offsetHeight;
+				document.onmousemove = function (ev){
+					var jason = new Object();
+					var newEv = ev || event;
+					var L = newEv.clientX - beginX ;
+					var T = newEv.clientY - beginY - bHeight;
+					if (L <=0) {
+						L = 0;
+					}
+					if (L >= this.offsetWidth - $('pic').offsetWidth) {
+						L = this.offsetWidth - $('pic').offsetWidth;
+					}
+					if (T <=0) {
+						T = 0;
+					}
+					if (T >= this.offsetHeight - $('pic').offsetHeight) {
+						T = this.offsetHeight - $('pic').offsetHeight;
+					}
+					jason.top = T + 'px';
+					jason.left = L + 'px';
+					pos.push(jason);
+					$('pic').style.top = T + 'px';
+					$('pic').style.left = L + 'px';
+				}
+				document.onmouseup = function (){
+					document.onmousemove = null;
+				}
+				return false;
+			}
+		$('playback').onclick = function(){
+			clearInterval($('playback').timer);
+			$('playback').timer = setInterval(function(){
+				var oPos = pos.pop();
+				$('pic').style.top = oPos.top;
+				$('pic').style.left =oPos.left;
+				if (pos.length == 0) {
+					clearInterval($('playback').timer);
+				}
+			},100)
+		}
+	</script>
+</html>

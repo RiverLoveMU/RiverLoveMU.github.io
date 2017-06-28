@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.box{
+				overflow: hidden;
+				width: 1800px;
+			}
+			.in{
+				height: 500px;
+				width: 300px;
+				border-radius: 10px;
+				border: 1px solid red;
+				float: left;
+				overflow: hidden;
+				margin: 10px;
+				background: lightcyan;
+			}
+			#user{
+				display: block;
+				margin: 10px auto;
+				padding: 0;
+				height: 30px;
+				line-height: 30px;
+				width: 200px;
+			}
+			#mood{
+				display: block;
+				width: 250px;
+				height: 300px;
+				overflow: auto;
+				margin: 30px auto;
+				resize: none;
+				line-height: 30px;
+			}
+			#btn{
+				display: block;
+				margin: auto;
+			}
+			.cont{
+				float: left;
+				overflow: hidden;
+				width: 1300px;
+				height: 800px;
+				margin: 10px;
+				border-radius: 20px;
+				background: pink;
+				position: relative;
+			}
+			.stick{
+				position: absolute;
+				background: url(img/bg.png);
+				background-size: 100% 100%;
+				height: 250px;
+				width: 250px;
+				top: -250px;
+				left: 0px;
+				opacity: 1;
+			}
+			.stick span{
+				display: inline-block;
+				float: right;
+				padding: 3px 10px;
+				text-align: center;
+				color: white;
+				font-weight: bold;
+				font-size: 16px;
+				cursor: pointer;
+			}
+			.stick h3{
+				padding: 15px 15px;
+			}
+			.stick p{
+				padding: 0px 15px;
+				width: 100%;
+				height: 180px;
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="in">
+				<input type="text" name="" id="user" value="" placeholder="请输入你的昵称"/>
+				<textarea id="mood" placeholder="请输入你的心情"></textarea>
+				<button id='btn'>确认</button>	
+			</div>
+			<div class="cont" id="cont"></div>
+		</div>
+	</body>
+	<script src="js/js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('btn').onclick = function () {
+			var oDiv = document.createElement('div');
+			var oSpan = document.createElement('span');
+			var oH = document.createElement('h3');
+			var oP = document.createElement('p');
+			var user = document.createTextNode($('user').value);
+			var mood = document.createTextNode($('mood').value);
+			oDiv.className = 'stick';
+			oSpan.className = 'del';
+			oSpan.innerHTML = 'x';
+			oH.appendChild(user);
+			oP.appendChild(mood);
+			oDiv.appendChild(oSpan);
+			oDiv.appendChild(oH);
+			oDiv.appendChild(oP);
+			var target = Math.random()*560;
+			oDiv.style.left = Math.random()*1050 + 'px';
+			$('cont').appendChild(oDiv);
+			Go(oDiv,'top',20,target);
+			oSpan.onclick = function (ev) {
+				var newEv = ev || event;
+				newEv.cancelBubble = true;
+				changeOpa(this.parentNode,-0.1);
+				shake(this.parentNode,'left',function(){
+					$('cont').removeChild(oSpan.parentNode);
+				})
+			}
+			oDiv.onmousedown = function(ev){
+				var newEv = ev || event;
+				var beginX = newEv.clientX - getPos(this).left;
+				var beginY = newEv.clientY - getPos(this).top;
+				$('cont').onmousemove = function (ev){
+					var newEv = ev || event;
+					var L = newEv.clientX - beginX - getPos($('cont')).left;
+					var T = newEv.clientY - beginY - getPos($('cont')).top;
+					if (L <=0) {
+						L = 0;
+					}
+					if (L >= this.offsetWidth - oDiv.offsetWidth) {
+						L = this.offsetWidth - oDiv.offsetWidth;
+					}
+					if (T <=0) {
+						T = 0;
+					}
+					if (T >= this.offsetHeight - oDiv.offsetHeight) {
+						T = this.offsetHeight - oDiv.offsetHeight;
+					}
+					oDiv.style.top = T + 'px';
+					oDiv.style.left = L + 'px';
+				}
+				$('cont').onmouseleave = function(){
+					$('cont').onmousemove = null;
+				}
+				$('cont').onmouseup = function (){
+					$('cont').onmousemove = null;
+				}
+				return false;
+			}
+			
+		}
+	</script>
+</html>

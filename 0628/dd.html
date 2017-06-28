@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#win{
+				height: 300px;
+				width: 300px;
+				background: white;
+				position: absolute;
+				left: 200px;
+				top: 200px;
+				box-sizing: border-box;
+				border: 2px dashed black;
+				z-index: -1;
+			}
+			#innerbox{
+				height: 300px;
+				width: 300px;
+				background: pink;
+				position: absolute;
+				left: -2px;
+				top: -2px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="win">
+			<div id="innerbox">
+				
+			</div>
+		</div>
+	</body>
+	<script src="js/js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('win').onmousedown = function(ev){
+			var newEv = ev || event;
+			var mouseX = newEv.clientX;
+			var mouseY = newEv.clientY;
+			var w = this.offsetWidth;
+			var h = this.offsetHeight;
+			var topDistance = this.offsetTop;
+			var leftDistance = this.offsetLeft;
+			var loc = '';
+			if (mouseX >= leftDistance && mouseX<= leftDistance+10) {
+				loc = 'left';
+			}
+			if (mouseX >= leftDistance + w - 10 && mouseX<= leftDistance + w) {
+				loc = 'right';
+			}
+			if (mouseY >= topDistance && mouseY<= topDistance+10) {
+				loc = 'top';
+			}
+			if (mouseY >= topDistance + h - 10 && mouseY<= topDistance + h) {
+				loc = 'bottom';
+			}
+			document.onmousemove = function(ev){
+				var newEv = ev || event;
+				var addWidth = newEv.clientX - mouseX;
+				var addHeight = newEv.clientY - mouseY;
+				var sWidth = document.documentElement.clientWidth;
+				var sHeight = document.documentElement.clientHeight;
+				if (loc == 'right') {
+					$('win').style.width = w + addWidth + 'px';
+					if($('win').offsetWidth <= 150){
+						$('win').style.width = 150 + 'px';
+					}
+					if (sWidth <= leftDistance + $('win').offsetWidth) {
+						$('win').style.width = sWidth - leftDistance + 'px';
+					}
+				}
+				if (loc == 'bottom') {
+					$('win').style.height = h + addHeight + 'px';
+					if($('win').offsetHeight <= 150){
+						$('win').style.height = 150 + 'px';
+					}
+					if (sHeight <= topDistance + $('win').offsetHeight) {
+						$('win').style.height = sHeight - topDistance + 'px';
+					}
+				}
+				if (loc == 'top') {
+					$('win').style.height = h - addHeight + 'px';
+					$('win').style.top = topDistance + addHeight + 'px';
+					if($('win').offsetHeight <= 150 || $('win').offsetTop >= topDistance - 150 + h){
+						$('win').style.height = 150 + 'px';
+						$('win').style.top = topDistance - 150 + h + 'px';
+					}
+					if ($('win').offsetTop <= 0) {
+						$('win').style.height = h + topDistance + 'px';
+						$('win').style.top = 0;
+						
+					}
+					
+				}
+				if (loc == 'left') {
+					$('win').style.width = w - addWidth + 'px';
+					$('win').style.left = leftDistance + addWidth + 'px';
+					if($('win').offsetWidth <= 150 || $('win').offsetLeft >= leftDistance - 150 + w){
+						$('win').style.width = 150 + 'px';
+						$('win').style.left = leftDistance - 150 + w + 'px';
+					}
+					if ($('win').offsetLeft <= 0) {
+						$('win').style.width = w + leftDistance + 'px';
+						$('win').style.left = 0;
+					}
+				}
+			}
+			document.onmouseup = function(){
+				this.onmousemove = null;
+			}
+			
+		}
+	</script>
+</html>
