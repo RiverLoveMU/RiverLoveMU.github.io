@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#outer{
+				width: 10px;
+				height: 400px;
+				background: #d8d8d8;
+				position: relative;
+				float: left;
+			}
+			#inner{
+				width: 10px;
+				height: 50px;
+				background: cyan;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#cont{
+				width: 200px;
+				height: 400px;
+				background: greenyellow;
+				margin-left: 10px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="outer">
+			<div id="inner">
+			</div>
+		</div>
+		<div id="cont">
+			<div id="text">
+				前端工程师的职责是制作标准优化的代码，并增加交互动态功能，开发JavaScript以及Flash模块，同时结合后台开发技术模拟整体效果，进行丰富互联网的Web开发，致力于通过技术改善用户体验。
+				前端工程师[1]属于IT技术职业的一种，是近5年发展起来的职业，旧的体系将其定义为Web前端工程师，主要的技术包含：HTML、JavaScript、CSS。但IT技术属于变化比较快的领域，最近发生了很大的变革，新的体系下，前端工程师技术又增加了：nodejs、Hybrid App。
+				Node.js[2]是一个Javascript运行环境(runtime)。实际上它是对Google V8引擎进行了封装。V8引 擎执行Javascript的速度非常快，性能非常好。Node.js对一些特殊用例进行了优化，提供了替代的API，使得V8在非浏览器环境下运行得更好。 [3]  
+				Hybrid App（混合模式移动应用）是指介于web-app、native-app这两者之间的app，兼具“Native App良好用户交互体验的优势”和“Web App跨平台开发的优势”。主要采用JavaScript语言作为中间语言开发。
+				因此，前端工程师所涵盖的职责范[2]围，已经包含后端、跨平台等多种职能，不能简单地认为只是Web前端工程师。Web前端开发工程师，主要职责是利用HTML/CSS/JavaScript/DOM/Flash等各种Web技术进行产品的界面开发。
+				制作标准优化的代码，并增加交互动态功能，开发JavaScript以及Flash模块，同时结合后台开发技术模拟整体效果，进行丰富互联网的Web开发，致力于通过技术改善用户体验。
+			</div>
+		</div>
+	</body>
+	<script src="js/myquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	   //   T/maxT = &H/$('cont').offsetHeight
+	   //   T/maxT = &H/$('cont').offsetHeight=&m/maxM
+	    var maxM=$('text').scrollHeight-$('cont').offsetHeight;
+		var maxT=$('outer').offsetHeight-$('inner').offsetHeight;
+		$('inner').onmousedown=function(ev){
+			var newEv=ev||event;
+			var beginY=newEv.clientY;
+			var beginT=$('inner').offsetTop;
+//			alert(1);
+			document.onmousemove=function(ev){
+				var newEv=ev ||event;
+				var addY=newEv.clientY-beginY;
+				var T=beginT+addY;
+				if (T<0) {
+					T=0
+				}
+				if (T>maxT) {
+					T=maxT
+				}
+				$('inner').style.top=T+'px';
+//				$('cont').style.height=400-(T/maxT)*400+'px';
+                $('text').style.marginTop=-T/maxT*maxM+'px';
+			}
+			document.onmouseup=function(){
+				this.onmousemove=null;
+			}
+			return false;
+		}
+		
+		$('cont').onmousewheel=fn;
+		$('cont').addEventListener('DOMMouseScroll',fn,false);
+		function fn(ev){
+			var newEv=ev||event;
+			var control=true;
+			var T= $('inner').offsetTop;
+//			console.log(T);
+			if (newEv.wheelDelta) {
+				newEv.wheelDelta>0? control=false : control=true;
+			}else{
+				newEv.detail<0? control=false : control=true;
+			}
+			if (control) {
+				T+=10;
+				if (T>maxT) {
+					T=maxT;
+				}
+				$('inner').style.top=T+'px';
+				$('text').style.marginTop=-T/maxT*maxM+'px';
+			} else{
+				T-=10;
+				if(T<0){
+					T=0;
+				}
+				$('inner').style.top=T+'px';
+				$('text').style.marginTop=-T/maxT*maxM+'px';
+			}
+		}
+	</script>
+</html>
