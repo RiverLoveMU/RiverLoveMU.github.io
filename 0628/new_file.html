@@ -21,11 +21,24 @@
 				top: 100px;
 				left: 100px;
 				background: pink;
+				display: none;
+			}
+			#btn{
+				height: 50px;
+				width: 50px;
+				background: yellow;
+				text-align: center;
+				line-height: 100px;
+				position: absolute;
+				/*z-index: -1;*/
 			}
 		</style>
 	</head>
 	<body>
-		<div id="outer">
+		<div id="btn">
+			
+		</div>
+		<div id="outer" >
 			<div id="inner">
 				
 			</div>
@@ -33,7 +46,14 @@
 	</body>
 	<script src="js/js/myQuery.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
+		$('btn').ondblclick = function(){
+			$('outer').style.display = 'block';
+		}
+		//拉出边缘恢复的长度；
+		var originHeight = parseInt(getStyle($('inner'),'height'));
+		var originWidth = parseInt(getStyle($('inner'),'width'));
 		$('outer').onmousedown = function(ev){
+			$('btn').onclick = null;
 			var newEv = ev||event;
 			var mouseX = newEv.clientX;
 			var mouseY = newEv.clientY;
@@ -93,6 +113,7 @@
 					if ($('inner').offsetWidth >= screenWidth - outerLeft) {
 						$('inner').style.width = screenWidth - outerLeft + 'px';
 					}
+					originWidth = $('inner').offsetWidth;
 				}
 				//向下拉伸窗口
 				if (loc == 'bottom') {
@@ -104,6 +125,7 @@
 					if ($('inner').offsetHeight >= screenHeight - outerTop) {
 						$('inner').style.height = screenHeight - outerTop + 'px';
 					}
+					originHeight = $('inner').offsetHeight;
 				}
 				//向上拉伸窗口
 				if (loc == 'top') {
@@ -124,6 +146,7 @@
 						$('inner').style.top = -outerTop + 'px';
 						addHeight = -outerTop;
 					}
+					originHeight = $('inner').offsetHeight;
 				}
 				//向左拉伸窗口
 				if (loc == 'left') {
@@ -141,19 +164,21 @@
 						$('inner').style.left = -outerLeft + 'px';
 						addWidth = -outerLeft;
 					}
+					originWidth = $('inner').offsetWidth;
 				}
 				//控制其拖动
 				if (loc == 'drag'){
+					$('inner').style.borderColor = 'gray';
 					//恢复原本的高度宽度
-					$('inner').style.height = outerHeight + 'px';
-					$('inner').style.width = outerWidth + 'px';
+					$('inner').style.height = originHeight + 'px';
+					$('inner').style.width = originWidth + 'px';
 					//控制预显示框移动
 					L = newEv.clientX - beginX - getPos($('outer')).left;
 					T = newEv.clientY - beginY - getPos($('outer')).top;
-					//防止div移到屏幕线边缘
-					if (T >= screenHeight - outerTop - outerHeight) {
-						T = screenHeight - outerTop - outerHeight;
-					}
+//					//防止div移到屏幕线边缘
+//					if (T >= screenHeight - outerTop - outerHeight) {
+//						T = screenHeight - outerTop - outerHeight;
+//					}
 					$('inner').style.left = L + 'px';
 					$('inner').style.top = T + 'px';
 					control = 0;
@@ -176,7 +201,7 @@
 						$('inner').style.left = -outerLeft + 'px';
 						control = 2;
 					}
-					//鼠标一道最右边
+					//鼠标移到最右边
 					if (newEv.clientX >= screenWidth - 5) {
 						$('inner').style.height = screenHeight + 'px';
 						$('inner').style.width = screenWidth*0.5 + 'px';
@@ -185,6 +210,7 @@
 						control = 3;
 					}
 				}
+				return false;
 			}
 			document.onmouseup = function(){
 				//清除鼠标移动
@@ -221,7 +247,7 @@
 					}
 				}
 			}
-
+			return false;
 		}
 		
 	</script>
