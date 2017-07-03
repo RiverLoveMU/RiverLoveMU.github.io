@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>
+				我是文字
+				<a href="javascript:;">删除</a>
+			</li>
+			<li>我是文字</li>
+			<li>我是文字</li>
+			<li class="active">我是文字11</li>
+			<li>我是文字</li>
+			<li>我是文字</li>
+		</ul>
+		<div>
+			<em>我是em</em>
+			<p>我是p</p>
+			<h3>我是h3</h3>
+		</div>
+		<div>
+			<em>我是em</em>
+			<p>我是p</p>
+			<h3>我是h3</h3>
+		</div>
+		<div>
+			<em>我是em</em>
+			<p>我是p</p>
+			<h3>我是h3</h3>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+//		$('.active').click(function(){
+			//	1,兄弟元素之间操作
+//			$(this).prev().css('background','red');  //选中前一个兄弟节点
+//			$(this).prevAll().css('background','red');  //选中前面所有的兄弟节点
+//			$(this).next().css('background','blue');  //选中后面一个的兄弟节点
+//			$(this).nextAll().css('background','blue');  //选中后面所有的兄弟节点
+//			$(this).siblings().css('background','blue');  //选中除自身之外的所有兄弟节点
+//		})
+		
+//		2,通过父级元素查找并操作子级元素
+//		$('ul').click(function(){
+//			$(this).children().css('background','red');
+			
+//		})
+//		$('div').click(function(){
+//			$('div').find('em').css('background','red');
+//		})
+//		3,过滤选择器
+//		$('div').first().css('background','red');
+//		$('div').last().css('background','red');
+//		$('li').not('.active').css('background','red');
+		$('li').filter('.active').css('background','red');
+//		4,通过子级操作父级
+		$('a').click(function(){
+//			$(this).parent().css('display','none'); //选中直属的单个父级元素
+//			$(this).parents().css('display','none'); //会选中所有的包裹元素
+//			$(this).parents('li').css('display','none'); //会选中所有的包裹元素是li标签的
+//			$(this).closest('li').css('display','none');  //
+		})
+	</script>
+</html>

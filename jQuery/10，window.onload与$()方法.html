@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				height: 100px;
+				width: 100px;
+				border: 1px solid red;
+			}
+			.box.active{
+				background: red;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+//			window.onload=function(){
+//				$('#btn').click(function(){
+//					$('.box').addClass('active');
+//				})
+//				$('#del').click(function(){
+//					$('.box').removeClass('active');
+//				})
+//				$('#auto').click(function(){
+//					$('.box').toggleClass('active');
+//				})
+//			}
+			$(function(){
+				$('#btn').click(function(){
+					$('.box').addClass('active');
+				})
+				$('#del').click(function(){
+					$('.box').removeClass('active');
+				})
+				$('#auto').click(function(){
+					$('.box').toggleClass('active');
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button id="btn">添加</button>
+		<button id="del">移除</button>
+		<button id="auto">自动识别</button>
+		<div class="box"></div>
+	</body>
+</html>

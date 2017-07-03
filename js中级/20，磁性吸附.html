@@ -42,8 +42,9 @@
 				$('pic').setAttribute('style','top:'+T+'px;left:'+L+'px;');
 			};
 			
-			document.onmouseup=function(){
-				this.onmousemove=null;
+			$('pic').onmouseup=function(){
+				console.log(1);
+				document.onmousemove=null;
 			}
 			return false;
 		}

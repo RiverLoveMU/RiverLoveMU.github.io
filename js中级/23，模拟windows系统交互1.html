@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#page{
+				height: 700px;
+				width: 300px;
+				border: 4px solid rgba(0,0,0,0.5);
+				position: absolute;
+				top: 200px;
+				left:200px;
+				box-sizing: border-box;
+				z-index: 1;
+				display: none;
+			}
+			#inner{
+				height: 700px;
+				width: 300px;
+				position: absolute;
+				top: 200px;
+				left:200px;
+			}
+			/*#inner:hover{
+				cursor: w-resize;
+			}*/
+		</style>
+	</head>
+	<body>
+		<img id="QQ" src="img/QQ.jpg"/>
+		<div id="page"></div>
+		<img id="inner" src="img/QQpage.jpg"/>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+		var L=$('inner').offsetLeft;  //为了让图片跟容器框的left同步
+		var T=$('inner').offsetTop;  //为了让图片跟容器框的top同步
+		$('inner').onmousedown=function(ev){
+			var newEv=ev || event;
+			var cX = newEv.clientX;  //保存鼠标初始指针位置
+			var cY = newEv.clientY;
+			
+			var w = $('inner').offsetWidth; //offsetWidth无法获取display：none元素的值
+			
+			var beginX=newEv.clientX-$('inner').offsetLeft;
+			var beginY=newEv.clientY-$('inner').offsetTop;
+			
+			var loc = '';
+			if(beginY>10 && beginY<40){
+				loc='drag';
+			}
+			if(beginX<10){
+				loc='left';
+			}
+			if(beginY<10){
+				loc='top';
+			}
+			if(beginX>this.offsetWidth-10){
+				loc='right';
+			}
+			if(beginY>this.offsetHeight-10){
+				loc='bottom';
+			}
+		
+			document.onmousemove=function(ev){
+				var newEv=ev || event;
+				$('page').style.display='block';
+				L=newEv.clientX-beginX;
+				T=newEv.clientY-beginY;
+				switch (loc){
+					case 'drag':
+						$('page').style.left=L+'px';
+						$('page').style.top=T+'px';
+						if(newEv.clientX<10){
+							$('page').style.left=0;
+							$('page').style.top=0;
+							$('page').style.height='100%';
+							L=0;
+							T=0;
+						}
+						break;
+					case 'left':
+						$('page').style.width=w-(newEv.clientX-cX)+'px';
+						$('page').style.left=(cX-beginX)+(newEv.clientX-cX)+'px';
+						$('page').style.cursor='w-resize';
+					default:
+						break;
+				}
+			}
+			document.onmouseup=function(ev){
+				var newEv=ev || event;
+				this.onmousemove=null;
+				switch (loc){
+					case 'drag':
+						$('inner').style.left=L+'px';
+						$('inner').style.top=T+'px';
+						$('inner').style.height=$('page').offsetHeight+'px';
+						break;
+					case 'left':
+						console.log($('page').offsetWidth);
+						$('inner').style.width=w-(newEv.clientX-cX)+'px';
+						$('inner').style.left=(cX-beginX)+(newEv.clientX-cX)+'px';
+					default:
+						break;
+				}
+				$('page').style.display='none';
+				loc = '';
+			}
+							
+			return false;
+		}
+		
+		$('inner').onmouseout=function(){
+			var s = getStyle($('page'),'display');
+			
+			if(L<=10 && s=='none'){
+				var l=$('inner').offsetWidth;
+				Go($('inner'),'left',-10,-l,40);
+			}
+		}
+		
+		document.addEventListener('mousemove',pageMove,false);
+		
+		function pageMove(ev){
+			var newEv=ev || event;
+			var offL=$('inner').offsetLeft;
+			if(newEv.clientX<=10 && offL<0){
+				var l=$('inner').offsetWidth;
+				Go($('inner'),'left',10,0,40);
+			}
+		}
+	</script>
+</html>

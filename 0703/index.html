@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 200px;
+				height: 350px;
+				border: 1px solid black;
+				padding: 0 10px;
+				overflow: scroll;
+			}
+			#box div{
+				/*border: 1px solid black;*/
+				overflow: hidden;
+			}
+			#box p{
+				line-height: 30px;
+				border-radius: 5px;
+				color: #FFF;
+				padding:0 10px;
+				word-break: break-all;
+			}
+			.boy{
+				background: cornflowerblue;
+			}
+			.girl{
+				background: hotpink;
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<!--<p class="boy">
+				一起聊天
+				一起聊天
+				一起聊天
+				一起聊天
+				一起聊天
+				
+			</p>
+			<p class="girl">
+				聊天
+				聊天
+			</p>-->
+		</div>
+		<input type="text" name="input1" id="input1" />
+		<button id="btn">小明</button>
+		<br />
+		<input type="text" name="input2" id="input2" />
+		<button id="btn1">小红</button>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('#btn').click(function(){
+			var str = $('#box').html() + '<p class="boy">' + $('#input1').val() + '</p>';
+			$('#box').html(str);
+		})
+	</script>
+</html>

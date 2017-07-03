@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.footer{
+				height: 50px;
+				width: 100%;
+				background: #F3F0FC;
+				line-height: 50px;
+				text-align: center;
+			}
+			.footer span{
+				color: #0099FD;
+				font-weight: bold;
+				
+			}
+			.footer span.back{
+				float: left;
+				margin-left: 10px;
+			}
+			.footer span.edit{
+				float: right;
+				margin-right: 10px;
+			}
+			.cont .card{
+				width: 90%;
+				height: 200px;
+				padding: 25px 50px;
+				background: red;
+				margin:  20px auto;
+				border-radius: 20px;
+				box-sizing: border-box;
+				color: white;
+			}
+			.cont .card:nth-child(1){
+				background: #AFEEEE;
+			}
+			.cont .card:nth-child(2){
+				background: #FFB6C1;
+			}
+			.cont .card:nth-child(3){
+				background: #87CEFA
+			}
+			.cont .card p{
+				line-height: 35px;
+			}
+			.cont .card p.number{
+				text-indent: 50px;
+			}
+			.cont .card div{
+				font-size: 22px;
+				color: blue;
+				text-decoration: underline;
+				display: none;
+			}
+			.cover{
+				position: fixed;
+				height: 100%;
+				width: 100%;
+				top: 0;
+				left: 0;
+				background: rgba(0,0,0,0.5);
+				z-index: 100;
+				display: none;
+			}
+			.cover .conf{
+				position: absolute;
+				height: 130px;
+				width: 230px;
+				background: white;
+				border-radius: 20px;
+				top: 50%;
+				left: 50%;
+				margin-top: -65px;
+				margin-left: -115px;
+				text-align: center;
+				line-height: 70px;
+			}
+			.cover .conf span{
+				display: block;
+				line-height: 30px;
+				border-radius: 5px;
+				background: #D9D9DB;
+				color: white;
+				height: 30px;
+				width: 70px;
+			}
+			.cover .conf span.yes{
+				float: left;
+				margin: 10px 20px;
+			}
+			.cover .conf span.no{
+				float: right;
+				margin: 10px 20px;
+			}
+			.cover .conf span:hover{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="footer">
+			我的银行卡
+			<span class="back">
+				<
+			</span>
+			<span class="edit">
+				编辑
+			</span>
+		</div>
+		<div class="cont">
+			<div class="card">
+				<p class="back">中国建设银行</p>
+				<p class="type">储蓄卡</p>
+				<p class="number">*****************</p>
+				<div class="del">
+					删除
+				</div>
+			</div>
+			<div class="card">
+				<p class="back">中国农业银行</p>
+				<p class="type">储蓄卡</p>
+				<p class="number">*****************</p>
+				<div class="del">
+					删除
+				</div>
+			</div>
+			<div class="card">
+				<p class="back">中国银行</p>
+				<p class="type">储蓄卡</p>
+				<p class="number">*****************</p>
+				<div class="del">
+					删除
+				</div>
+			</div>
+		</div>
+		<div class="cover">
+			<div class="conf">
+				确定删除银行卡？
+				<span class="yes">确定</span>
+				<span class="no">取消</span>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('.footer .back').click(function(){
+			$('.cont .card').show();
+		})
+		$('.footer .edit').click(function(){
+			var index = 0;
+			$('.cont .del').toggle();
+			$('.cont .del').click(function(){
+				$('.cover').show();
+				index = $(this).parent().index();
+			})
+			$('.cover').find('.yes').click(function(){
+				$(this).parents('.cover').hide();
+				$('.cont .del').eq(index).parent().hide();
+			})
+			$('.cover').find('.no').click(function(){
+				$(this).parents('.cover').hide();
+			})
+		})
+	</script>
+</html>

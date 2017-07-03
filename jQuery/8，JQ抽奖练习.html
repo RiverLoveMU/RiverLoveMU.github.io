@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.cont{
+				height: 408px;
+				width: 408px;
+				border: 1px solid blue;
+				position: relative;
+			}
+			.box{
+				height: 100px;
+				width: 100px;
+				border: 1px solid #000;
+				float: left;
+				line-height: 100px;
+				text-align: center;
+			}
+			.midCont{
+				width: 102px;
+				float: right;
+				overflow: hidden;
+				/*border: 1px solid red;*/
+			}
+			.botm{
+				clear: both;
+			}
+			.botm .box{
+				float: right;
+			}
+			.box11,
+			.box12{
+				position: absolute;
+				left: 0;
+			}
+			.box11{
+				top: 204px;
+			}
+			.box12{
+				top: 102px;
+			}
+			.bigBox{
+				height: 204px;
+				width: 204px;
+				float: right;
+				text-align: center;
+				line-height: 204px;
+			}
+			.box.active{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="box active">1</div>
+			<div class="box">2</div>
+			<div class="box">3</div>
+			<div class="box">4</div>
+			<div class="midCont">
+				<div class="box">5</div>
+				<div class="box">6</div>
+			</div>
+			<div class="bigBox">点击抽奖</div>
+			<div class="botm">
+				<div class="box">7</div>
+				<div class="box">8</div>
+				<div class="box">9</div>
+				<div class="box">10</div>
+			</div>
+			<div class="box box11">11</div>
+			<div class="box box12">12</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		var num=0;
+		$('.bigBox').click(function(){
+			var step=Math.round(Math.random()*20+40);
+			console.log(step);
+			var timer = setInterval(function(){
+				$('.box').removeClass('active');
+				$('.box').eq(num%12).addClass('active');
+				num++;
+				if(num>=step){
+					clearInterval(timer);
+					alert('恭喜你抽中了'+$('.box').eq((num-1)%12).html());
+					num=0;
+				}
+			},50)
+		})
+	</script>
+</html>
