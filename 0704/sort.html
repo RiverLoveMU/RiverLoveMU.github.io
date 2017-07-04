@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.new,
+			.origin{
+				float: left;
+				border: 1px solid black;
+				width: 120px;
+				height: 600px;
+				padding: 15px;
+				overflow: auto;
+			}
+			.new li,
+			.origin li{
+				height: 30px;
+				line-height: 30px;
+			}
+			.change{
+				float: left;
+				width: 120px;
+				height: 600px;
+				padding: 15px;
+			}
+			button{
+				margin: 50px auto;
+				display: block;
+				width: 80px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="origin">
+			<li>javascript</li>
+			<li>jquery</li>
+			<li>html</li>
+			<li>css</li>
+			<li>php</li>
+			<li>node.js</li>
+			<li>c++</li>
+			<li>java</li>
+			<li>python</li>
+			<li>c#</li>
+			<li>ruby</li>
+			<li>vb</li>
+		</ul>
+		<div class="change">
+			<button id="add">添加</button>
+			<button id="addAll">添加全部</button>
+			<button id="del">删除</button>
+			<button id="delAll">删除全部</button>
+		</div>
+		<ul class="new">
+			
+		</ul>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('.origin li').each(function(i,elem){
+			$(elem).attr('myIndex',i);
+			$(elem).attr('choose','unchoosed');
+		})
+		$('.origin li').click(function(){
+			clickList($(this));
+		})
+		$('.new li').click(function(){
+			clickList($(this));
+		})
+		$('#add').click(function(){
+			move($('.origin li'),$('.new'));
+			change($('.new li'));
+		})
+		$('#addAll').click(function(){
+			moveAll($('.origin li'),$('.new'))
+			change($('.new li'));
+		})
+		$('#del').click(function(){
+			move($('.new li'),$('.origin'));
+			change($('.origin li'));
+		})
+		$('#delAll').click(function(){
+			moveAll($('.new li'),$('.origin'));
+			change($('.origin li'));
+		})
+		function change(obj){
+			var arr = [];
+			var $father = obj.eq(0).parent();
+			for (var i = 0;i<obj.length;i++) {
+				arr.push(obj.eq(i));
+			}
+			for (var i=1;i<arr.length;i++) {
+				if (parseInt(arr[i].attr('myIndex'))<parseInt(arr[i-1].attr('myIndex'))) {
+					var j = i - 2;
+					var $x = arr[i];
+					arr[i] = arr[i-1];
+					if (j>=0) {
+						while (parseInt($x.attr('myIndex'))<parseInt(arr[j].attr('myIndex')) && j>=0){
+							arr[j+1] = arr[j];
+							j--;
+						}
+					}
+					arr[j+1] = $x;
+				}
+			}
+			for (var i = 0;i<obj.length;i++) {
+				$father.append(arr[i]);
+			}
+		}
+		function clickList(obj){
+			if (obj.attr('choose') == 'unchoosed') {
+				obj.attr('choose','choosed');
+				obj.css('background','lightcyan')
+			}else{
+				obj.attr('choose','unchoosed');
+				obj.css('background','transparent')
+			}
+		}
+		function move (obj,newObj){
+			obj.each(function(i,elem){
+				if ($(elem).attr('choose')=='choosed') {
+					$(elem).appendTo(newObj);
+					clickList($(elem));
+				}
+			})
+		}
+		function moveAll(obj,newObj){
+			obj.each(function(i,elem){
+				$(elem).appendTo(newObj);
+				$(elem).css('background','transparent')
+				$(elem).attr('choose','unchoosed');
+			})
+		}
+	</script>
+</html>

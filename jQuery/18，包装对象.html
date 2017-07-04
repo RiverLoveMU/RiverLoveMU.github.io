@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>操作</button>
+		<button>取消操作</button>
+		<div>我是span</div>
+		<div>我是span</div>
+		<div>我是span</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+//		包装对象的方法:wrap()  wrapAll()  wrapInner() unwrap()
+		$('button').eq(0).click(function(){
+			$('div').wrap('<a href="http://www.qq.com"></a>');
+//			$('div').wrapAll('<a href="http://www.qq.com"></a>');
+//			$('div').wrapInner('<a href="http://www.qq.com"></a>');
+			
+		})
+		$('button').eq(1).click(function(){
+			$('div').unwrap();
+		})
+	</script>
+</html>

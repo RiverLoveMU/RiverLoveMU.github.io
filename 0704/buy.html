@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			<ul id="list">
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" /> 单价：
+				<em>12.3元</em> 小计：
+				<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" /> 单价：
+				<em>10.1元</em> 小计：
+				<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" /> 单价：
+				<em>8.5元</em> 小计：
+				<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" /> 单价：
+				<em>8元</em> 小计：
+				<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" /> 单价：
+				<em>14.5元</em> 小计：
+				<span>0元</span>
+			</li>
+		</ul>
+
+		<p>
+			商品合计共：
+			<span id="all">0</span>
+			件，共花费了：
+			<span id="allMoney">0</span>
+			元<br />
+			
+		</p>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('input[value="+"]').click(function(){
+			buy(true,$(this));
+		});
+		$('input[value="-"]').click(function(){
+			buy(false,$(this));
+		});
+		function buy (bool,obj) {
+			var num = obj.parent().find('strong').html();
+			if (bool) {
+				num++;
+			} else{
+				if (num>0) {
+					num--
+				}
+			}
+			obj.parent().find('strong').html(num);
+			obj.parent().find('span').html((parseFloat(obj.parent().find('em').html())*num).toFixed(2)+'元');
+			var total = 0;
+			var totalMoney = 0;
+			$('li').each(function(i,elem){
+				total += parseInt($(elem).find('strong').html());
+				totalMoney +=parseFloat($(elem).find('span').html())
+			})
+			$('#all').html(total);
+			$('#allMoney').html(totalMoney.toFixed(2));
+		}
+	</script>
+</html>

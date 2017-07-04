@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>1 <button class="top">向上</button> <button class="up">向下</button></li>
+			<li>2 <button class="top">向上</button> <button class="up">向下</button></li>
+			<li>3 <button class="top">向上</button> <button class="up">向下</button></li>
+			<li>4 <button class="top">向上</button> <button class="up">向下</button></li>
+			<li>5 <button class="top">向上</button> <button class="up">向下</button></li>
+		</ul>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('.top').click(function(){
+			if ($(this).parent().prev().length == 0) {
+				alert('到头了');
+			}else{
+				$(this).parent().insertBefore($(this).parent().prev());
+			}
+		})
+		$('.up').click(function(){
+			if ($(this).parent().next().length == 0) {
+				alert('到头了');
+			}else{
+				$(this).parent().insertAfter($(this).parent().next());
+			}
+		})
+	</script>
+</html>

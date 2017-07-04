@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>文字</li>
+			<li>文字</li>
+			<li>文字</li>
+			<li>文字</li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+//		for(var i=0;i<4;i++){
+//			console.log($('li').eq(i).html());
+//		}
+//		each() 方法
+		$('li').each(function(i,elem){
+//			$(elem).html(i);
+//			elem.innerHTML=i;
+//			this.innerHTML=i;
+			$(this).html(i);
+//			elem==this 是一个原生js,如果要使用JQ的方法进行操作，一定不要忘记$(elem)
+			
+		})
+	</script>
+</html>

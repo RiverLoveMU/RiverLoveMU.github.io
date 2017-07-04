@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				$('input[value=上移]').click(function(){
+					var $prev=$(this).closest('li').prev();
+					if($prev.length==0){
+						alert('已经到顶部了~')
+					}
+					$(this).closest('li').insertBefore($prev);
+				});
+				
+				$('input[value=下移]').click(function(){
+					var $next=$(this).closest('li').next();
+					if($next.length==0){
+						alert('已经到底部了~')
+					}
+					$(this).closest('li').insertAfter($next);
+				})
+//				排序原理(逐个对比)：
+//					(1)默认情况下,给每个li一个顺序的编号 (attr,each)
+//					(2)可以用each的嵌套去实现
+				$('li').each(function(i,elem){
+					$(elem).attr('myIndex',i);	
+				})
+				$('button').click(function(){
+					$('li').each(function(i,elem){
+//						i=0;
+						$('li').each(function(j,ele){
+							var _index=$(ele).attr('myIndex');
+							if(_index==i){
+								$(ele).appendTo($('ul'));
+							}
+						})
+					})
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button>排序</button>
+		<ul>
+			<li>
+				1,
+				<input type="button" name="" id="" value="上移" />
+				<input type="button" name="" id="" value="下移" />
+			</li>
+			<li>
+				2,
+				<input type="button" name="" id="" value="上移" />
+				<input type="button" name="" id="" value="下移" />
+			</li>
+			<li>
+				3,
+				<input type="button" name="" id="" value="上移" />
+				<input type="button" name="" id="" value="下移" />
+			</li>
+			<li>
+				4,
+				<input type="button" name="" id="" value="上移" />
+				<input type="button" name="" id="" value="下移" />
+			</li>
+			<li>
+				5,
+				<input type="button" name="" id="" value="上移" />
+				<input type="button" name="" id="" value="下移" />
+			</li>
+			
+		</ul>
+	</body>
+	
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<button>操作</button>
+		<div class="from">
+			<span>我是span</span>
+		</div>
+		<div class="to"></div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+//		1,remove()移除标签,跟hide()方法有所区别
+//		$('button').click(function(){
+//			$('.from').remove();
+//		})
+//		2,克隆
+//		(1)只克隆结构
+//		$('button').click(function(){
+//			var $clone=$('span').clone();
+//			$clone.appendTo($('.to'));
+//		})
+//		(2)结构跟事件一起克隆
+		$('span').click(function(){
+			alert(2);
+		})
+		$('button').click(function(){
+			var $clone=$('span').clone(true);
+			$clone.appendTo($('.to'));
+		})
+	</script>
+</html>

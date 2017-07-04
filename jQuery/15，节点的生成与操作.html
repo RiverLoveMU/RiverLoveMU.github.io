@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>生成</button>
+		<ul>
+			<li>我是li1</li>
+			<li>我是li2</li>
+			<li>我是li2</li>
+			<li>我是li2</li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+//		1,节点的生成(创建节点)，$('<标签名>')
+//		$('button').click(function(){
+//			var $Li=$('<li>');  //生成新的标签元素
+//			$Li.html('文字');
+//			$Li.click(function(){
+//				console.log(1);
+//			})
+//			$('ul').append($Li);
+//		})
+		
+//		2,操作节点
+		$('button').click(function(){
+			var $Li=$('<li>');  //生成新的标签元素
+			$Li.html('新的li');
+			$Li.click(function(){
+				console.log(1);
+			})
+//		(1) append  appendTo (动词)  ,从后面追加
+//			$('ul').append($Li);
+//			$Li.appendTo($('ul'));
+//		(2) prepend prependTo   ,往前面添加
+//			$('ul').prepend($Li);
+//			$Li.prependTo($('ul'));
+//		(3)after()   insertAfter()动词  ，添加到某同级元素之后
+//			$('li').eq(0).after($Li);
+//			$Li.insertAfter($('li').eq(0));
+//		(4)before()  insertBefore()
+//			$('li').eq(1).before($Li);
+//			$Li.insertBefore($('li').eq(1));
+//		3,选择器获取到元素的个数(长度)
+//		console.log($('li').length);
+//		4,获取特殊位置的节点
+//		 $('li').eq(1).prev();
+		 console.log($('li').eq(3).length);
+		})
+	</script>
+</html>
