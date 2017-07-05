@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: red;
+			}
+		</style>-->
+		<style type="text/css">
+			div{
+				padding: 20px;
+			}
+			#box1{
+				background: blue;
+			}
+			#box2{
+				background: green;
+			}
+			#box3{
+				background: pink;
+				/*position: relative;
+				top: 100px;*/
+			}
+			#share{
+				height: 200px;
+				width: 100px;
+				background: pink;
+				position: fixed;
+				top: 50%;
+				right: -140px;
+				margin-top: -100px;
+			}
+			#btn{
+				padding: 0;
+				height: 100px;
+				width: 25px;
+				text-align: center;
+				background: cornflowerblue;
+				position: absolute;
+				top: 70px;
+				left: -25px;
+			}
+		</style>
+
+	</head>
+	<body style="height: 2000px;">
+		<div></div>
+		<span>我是span</span>
+		<div id="box1">
+			<div id="box2">
+				<div id="box3"></div>
+			</div>
+		</div>
+		<div id="share">
+			<div id="btn">
+				分享该网页
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+//		1,JQ常用的事件
+//		click  dbclick mouseover mouserout
+//		keypress keydown keyup
+//		resize
+//		scroll
+//		focus blur 
+//		2,JQ事件绑定的新方法on()
+//		$('div').on('click mouseover',function(){
+//			console.log(1);
+//		})
+//		3,事件的取消off();不传参数是取消元素的所有事件
+//		$('div').on('click mouseover',function(){
+//			console.log(1);
+//			$('div').off('mouseover');
+//		})
+//		$('div').click(function(){
+//			console.log(2);
+//			$('div').off();
+//		})
+//		4,为什么要取消事件? 为了避免事件的多次添加与触发。
+//		$('div').click(function(){
+//			$('span').off().click(function(){
+//				alert(1);
+//			})
+//		})
+//		5,JQ中的event对象
+//		$(document).on('mousemove',function(ev){
+//			console.log(ev.clientY); //获取鼠标相对于浏览器窗口坐标点
+//			console.log(ev.pageY);  //获取鼠标距离文档边缘的坐标
+//		})
+//		(2)获取键盘编号
+//		$(document).on('keydown',function(ev){
+//			console.log(ev.which);
+//		})
+//		(3)获取热键
+//		$(document).on('keydown',function(ev){
+//			console.log(ev.ctrlKey);
+//		})
+//		(4)事件的冒泡,阻止冒泡的方法ev.stopPropagation();
+//		function fn(obj){
+//			alert(obj.id)
+//		}
+//		$('#box3').click(function(ev){
+//			fn(this);
+//			ev.stopPropagation();
+//		})
+//		$('#box2').click(function(){
+//			fn(this);
+//		})
+//		$('#box1').click(function(){
+//			fn(this);
+//		})
+//		(5)事件的默认行为
+		$(document).on('contextmenu',function(ev){
+//			return false;
+			ev.preventDefault();
+		})
+	</script>
+</html>

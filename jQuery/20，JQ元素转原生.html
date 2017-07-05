@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				height: 100px;
+				width: 100px;
+				border: 1px solid red;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+		</div>
+		<div class="box">
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+//		var oDiv=document.getElementById('box')
+		
+		console.log($('.box').get(1).scrollHeight);
+		
+	</script>
+</html>

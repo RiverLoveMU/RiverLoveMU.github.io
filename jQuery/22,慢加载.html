@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				margin-bottom: 500px;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="" mysrc="img/mu1.jpg">
+		<img src="" mysrc="img/mu1.jpg">
+		<img src="" mysrc="img/mu1.jpg">
+		<img src="" mysrc="img/mu1.jpg">
+		<img src="" mysrc="img/mu1.jpg">
+		<img src="" mysrc="img/mu1.jpg">
+		<img src="" mysrc="img/mu1.jpg">
+		<img src="" mysrc="img/mu1.jpg">
+		<img src="" mysrc="img/mu1.jpg">
+		<img src="" mysrc="img/mu1.jpg">
+		<img src="" mysrc="img/mu1.jpg">
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var screenHight = $(window).height();
+		$('img').each(function(i,elem){
+			if ($(document).scrollTop()+screenHight>=$(elem).offset().top) {
+				$(elem).attr('src',$(elem).attr('mysrc'));
+			}
+		})
+		$(document).scroll(function(){
+			$('img').each(function(i,elem){
+				if ($(document).scrollTop()+screenHight>=$(elem).offset().top) {
+					$(elem).attr('src',$(elem).attr('mysrc'));
+				}
+			})
+		})
+	</script>
+</html>

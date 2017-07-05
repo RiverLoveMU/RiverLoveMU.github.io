@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.box,.mid{
+				width: 150px;
+				height: 400px;
+				border: 1px solid #000;
+				float: left;
+			}
+			.box li{
+				line-height: 30px;
+				border: 1px solid #D8D8D8;
+			}
+			.box li.active{
+				background: cornflowerblue;
+				color: #FFF;
+			}
+			.mid button{
+				width: 80%;
+				margin: 10px 10%;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="box">
+			<li class="active">Alipay1</li>
+			<li>Alipay2</li>
+			<li>Alipay3</li>
+			<li>Alipay4</li>
+			<li>Alipay5</li>
+		</ul>
+		<div class="mid">
+			<button>全部添加》</button>
+			<button>添加》</button>
+			<button>《全部删除</button>
+			<button>《删除</button>
+		</div>
+		<ul class="box"></ul>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		var $ulLeft=$('.box').eq(0);
+		var $ulRight=$('.box').eq(1);
+		
+		$('li').each(function(i,elem){
+			$(elem).attr('myIndex',i);
+		})
+		$('li').click(function(ev){
+			if(ev.shiftKey){
+				var begin=$('.active').index();
+				var end=$(this).index();
+				$('li').each(function(i,elem){
+					if(i>=begin && i<=end){
+						$(elem).addClass('active');
+					}
+				})
+			}else{
+				$('li').removeClass('active');
+				$(this).addClass('active');
+			}
+			return false;
+		})
+		
+		$('button').eq(1).click(function(){
+			$ulLeft.find('.active').appendTo($ulRight);
+//			order($ulRight);
+			rank($ulRight.find('li'));
+		})
+		
+		$('button').eq(1).click(function(){
+			$ulLeft.find('.active').appendTo($ulRight);
+//			排序的解决方案:
+//				(1)获取所有需要排序的元素的myIndex
+//				(2)定义一个arr[]对这些myIndex进行从小到大的排序
+//				(3)使用each,对需要排序的元素按照数组里面数字的先后顺序进行一次排序
+			
+			var arr=[];
+			$ulRight.find('li').each(function(i,elem){
+				arr.push($(elem).attr('myIndex'));
+			})
+			arr.sort(function(a,b){
+				return a-b;
+			})
+			for(var i=0;i<arr.length;i++){
+				var num=arr[i];
+				$ulRight.find('li').each(function(i,elem){
+					if($(elem).attr('myIndex')==num){
+						$(elem).appendTo($ulRight);
+					}
+				})
+			}
+//			console.log(arr);
+		})
+		
+		$('button').eq(3).click(function(){
+			$ulRight.find('.active').appendTo($ulLeft);
+//			排序的解决方案:
+//				(1)获取所有需要排序的元素的myIndex
+//				(2)定义一个arr[]对这些myIndex进行从小到大的排序
+//				(3)使用each,对需要排序的元素按照数组里面数字的先后顺序进行一次排序
+			
+			var arr=[];
+			$ulLeft.find('li').each(function(i,elem){
+				arr.push($(elem).attr('myIndex'));
+			})
+			arr.sort(function(a,b){
+				return a-b;
+			})
+			for(var i=0;i<arr.length;i++){
+				var num=arr[i];
+				$ulLeft.find('li').each(function(i,elem){
+					if($(elem).attr('myIndex')==num){
+						$(elem).appendTo($ulLeft);
+					}
+				})
+			}
+//			console.log(arr);
+		})
+		function rank(obj){
+			obj.each(function(i,elem){
+				var a = $(elem).attr('myIndex');
+				obj.each(function(j,ele){
+					var c = $(ele).attr('myIndex');
+					if (parseInt(c)>parseInt(a)) {
+						obj.parent().append($(ele));
+					}
+				})
+			})
+		}
+	</script>
+</html>

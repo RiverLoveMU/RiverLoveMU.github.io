@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>生成li</button>
+		<ul>
+			<li>我是文字</li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+//		$('li').on('click',function(){
+//			alert(1);
+//		})
+		$('button').on('click',function(){
+			var $Li=$('<li>新的li</li>');
+//			$Li.appendTo($('ul'));
+			$('ul').append($Li)
+		})
+//		为什么使用事件委托? 为了避免新生成的元素无法触发事件
+		$('ul').delegate('li','click',function(ev){
+			$(this).css('background','red');  //事件委托里的this指的是被点击的li
+//			$(ev.delegateTarget).css('background','red');  //设置的对象为ul
+			$(ev.delegateTarget).undelegate();   //取消事件委托
+		})
+	</script>
+</html>

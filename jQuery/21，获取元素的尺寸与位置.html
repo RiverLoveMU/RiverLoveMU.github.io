@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				height: 2000px;
+				width: 100px;
+				border: 1px solid red;
+				padding: 10px;
+				overflow: hidden;
+				margin: 10px;
+				/*display: none;*/
+				/*width: 200%;*/
+				position: relative;
+				box-sizing: border-box;
+			}
+			span{
+				position: absolute;
+				top: 20px;
+				left: 20px;
+				background: red;
+			}
+			body{
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<!--我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字
+			我是文字-->
+			<span>我是span</span>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<!--<script type="text/javascript" src="js/myQuery.js" ></script>-->
+	<script type="text/javascript">
+//		1,获取元素尺寸
+//		 (1)width()
+//		console.log($('.box').width());  //width
+//		 (2)innerWidth()
+//		console.log($('.box').innerWidth());  //width+padding
+//		 (3)outerWidth()
+//		console.log($('.box').outerWidth());  //width+padding+border
+//		 (4)
+//		console.log($('.box').outerWidth(true));  //width+padding+border+margin
+//		2,设置尺寸
+//		$('.box').width(200);
+//		$('.box').innerWidth(200);
+//		$('.box').outerWidth(200);
+//		3,width()方法与原生JS获取元素尺寸的区别,原生方法无法获取display：none元素的尺寸
+//		var oDiv=document.getElementsByClassName('box')[0];
+//		console.log(oDiv.offsetHeight);
+//		console.log($('.box').innerHeight());
+//		4,浏览器窗口尺寸,文档尺寸
+//		console.log($(window).height());
+//		console.log($(document).height());
+//		5,滚动距离
+//		$(document).scroll(function(){
+//			console.log($(document).scrollTop());
+////			console.log($(document).scrollLeft());
+//		})
+//		$(document).scrollTop();
+//		$('.box').click(function(){
+////			document.body.scrollTop=200;
+//			$(document).scrollTop(200);
+//		})
+//		6,获取元素的位置
+//		 (1)offset().top/offset().left
+//			无论父级是否有定位,或者自身是否有定位，都是获取元素距离文档边缘（body）的距离
+//		console.log($('span').offset().top);
+//		 (2)position().top/position().left
+//			如果要精确获取,父级跟子级都加定位
+//		console.log($('span').position().top);
+//		7,JQ常用的事件
+//		click  dbclick mouseover mouserout
+//		keypress keydown keyup
+//		resize
+//		scroll
+//		focus blur 
+	</script>
+</html>

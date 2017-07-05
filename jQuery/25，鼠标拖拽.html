@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			img{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/mu1.jpg"/>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('img').on('mousedown',function(ev){
+			var beginX = ev.clientX;
+			var beginY = ev.clientY;
+			var l = $(this).offset().left;
+			var t = $(this).offset().top;
+			$(document).on('mousemove',function(ev){
+				var addX = ev.clientX - beginX;
+				var addY = ev.clientY - beginY;
+				$('img').css({left: l+addX+'px',top:t+addY+'px'});
+			})
+			$(document).on('mouseup',function(){
+				$(this).off('mousemove');
+			})
+			return false;
+		})
+	</script>
+</html>

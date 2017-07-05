@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.sidebar{
+				height: 200px;
+				width: 30px;
+				background: red;
+				position: fixed;
+				right: 0;
+				top: 50%;
+				margin-top: -100px;
+			}
+			.cont{
+				height: 5000px;
+				width: 1080px;
+				margin: auto;
+			}
+			.topbar{
+				position: fixed;
+				top: 0;
+				left: 0;
+				height: 100px;
+				width: 100%;
+				background: yellow;
+				display: none;
+			}
+			.cont div{
+				width: 100%;
+				height: 500px;
+			}
+			.cont .top{
+				height: 1000px;
+				width: 100%;
+				background: black;
+			}
+			.cont .orange{
+				background: orange;
+			}
+			.cont .yellow{
+				background: yellow;
+			}
+			.cont .green{
+				background: green;
+			}
+			.cont .blue{
+				background: blue;
+			}
+			.cont .purple{
+				background: purple;
+			}
+			.leftbar{
+				height: 300px;
+				width: 60px;
+				position: fixed;
+				background: papayawhip;
+				left: 0;
+				top: 50%;
+				margin-top: -150px;
+				display: none;
+			}
+			.leftbar li{
+				height: 60px;
+				width: 100%;
+				text-align: center;
+				line-height: 60px;
+			}
+			.leftbar li.active{
+				background: palevioletred;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="sidebar" id="sidebar"> </div>
+		<div class="cont">
+			<div class="top"> </div>
+			<div class="orange"> </div>
+			<div class="yellow"> </div>
+			<div class="green"> </div>
+			<div class="blue"> </div>
+			<div class="purple"> </div>
+		</div>
+		<div class="topbar">
+			
+		</div>
+		<ul class="leftbar">
+			<li class="active">橙色</li>
+			<li>黄色</li>
+			<li>绿色</li>
+			<li>蓝色</li>
+			<li>紫色</li>
+		</ul>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var sTop = $(document).scrollTop();
+		var sH = $(window).height();
+		$('#sidebar').click(function(){
+			var iTop = $(document).scrollTop();
+			var timer = setInterval(function(){
+				iTop -=500;
+				if (iTop<=0) {
+					iTop = 0;
+					clearInterval(timer);
+				}
+				$(document).scrollTop(iTop)
+			},50)
+		})
+		var gap = $('.leftbar').height()+(sH-$('.leftbar').height())/2;
+		$(document).scroll(function(){
+			sTop = $(document).scrollTop();
+			if (sTop>=500) {
+				$('.topbar').css('display','block');
+			} else{
+				$('.topbar').css('display','none');
+			}
+			if (sTop+sH>=$('.orange').offset().top+ gap && sTop + (sH-$('.leftbar').height())/2 <= $('.purple').offset().top + $('.purple').height()) {
+				$('.leftbar').css('display','block');
+			}else{
+				$('.leftbar').css('display','none');
+			}
+			if (sTop+sH>=$('.orange').offset().top+gap && sTop+sH<$('.yellow').offset().top+gap) {
+				$('.leftbar li').removeClass('active');
+				$('.leftbar li').eq(0).addClass('active');
+			}
+			if (sTop+sH>=$('.yellow').offset().top+gap && sTop+sH<$('.green').offset().top+gap) {
+				$('.leftbar li').removeClass('active');
+				$('.leftbar li').eq(1).addClass('active');
+			}
+			if (sTop+sH>=$('.green').offset().top+gap && sTop+sH<$('.blue').offset().top+gap) {
+				$('.leftbar li').removeClass('active');
+				$('.leftbar li').eq(2).addClass('active');
+			}
+			if (sTop+sH>=$('.blue').offset().top+gap && sTop+sH<$('.purple').offset().top+gap) {
+				$('.leftbar li').removeClass('active');
+				$('.leftbar li').eq(3).addClass('active');
+			}
+			if (sTop+sH>=$('.purple').offset().top+gap) {
+				$('.leftbar li').removeClass('active');
+				$('.leftbar li').eq(4).addClass('active');
+			}
+			
+		})
+		$('.leftbar li').click(function(){
+			switch ($(this).index()){
+				case 0:
+					sTop = $('.orange').offset().top+ gap - sH + 1;
+					$(document).scrollTop(sTop);
+					break;
+				case 1:
+					sTop = $('.yellow').offset().top+ gap - sH + 1;
+					$(document).scrollTop(sTop);
+					break;
+				case 2:
+					sTop = $('.green').offset().top+ gap - sH + 1;
+					$(document).scrollTop(sTop);
+					break;
+				case 3:
+					sTop = $('.blue').offset().top+ gap - sH + 1;
+					$(document).scrollTop(sTop);
+					break;
+				case 4:
+					sTop = $('.purple').offset().top+ gap - sH + 1;
+					$(document).scrollTop(sTop);
+				break;
+				default:
+					break;
+			}
+		})
+	</script>
+</html>
