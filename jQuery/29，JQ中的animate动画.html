@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<button>动起来</button>
+		<button>停下来</button>
+		<!--<button>隐藏</button>
+		<button>自动识别</button>-->
+		<div></div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+//		$obj.animate({想要改变的样式},运动时间,运动形式,回调函数)
+		$('button').eq(0).click(function(){
+//			$('div').animate({'margin-left':400},1000,'swing',function(){
+//				console.log(1);
+//			})
+//			链式运动,运动队列,动画延时
+			$('div').animate({'margin-left':400},1000,'swing').delay(1000)
+					.animate({'margin-top':400},1000,'swing')
+					.animate({'margin-left':0},1000,'swing')
+		})
+		//停止运动的多种方式:
+//		$('button').eq(1).click(function(){
+//			$('div').stop();  //默认情况：只会停止当前正在执行的运动
+//			$('div').stop(true);   //所有跟元素相关的动画都会停止
+//			$('div').stop(true,true);  //让元素停止在当前动画的目标点
+//			$('div').finish();  //停到所有动画的最终目标点
+//		})
+	</script>
+</html>

@@ -1,0 +1,126 @@
+.mui-content>.mui-table-view.avatar:first-child{
+	margin-top: 0;
+}
+.mui-table-view:before{
+	height: 0;
+}
+.mui-table-view.avatar:after{
+	background: #363639;
+	height: 1px;
+}
+.mui-table-view:after{
+	height: 0px;
+}
+.mui-table-view.avatar .mui-media-object{
+	max-width: none;
+	height: 50px;
+	border-radius: 50%;
+}
+.mui-table-view.avatar .mui-media-body{
+	margin-top: 7px;
+}
+.mui-table-view.avatar .mui-ellipsis{
+	font-size: 8px;
+	border: 1px solid #363639;
+	color: #868687;
+	width: 30px;
+	height: 12px;
+	line-height: 11px;
+	text-align: center;
+	border-radius: 6px;
+	margin-top: 3px;
+	color: #363639;
+}
+body{
+	background: #201F23;
+}
+.mui-content{
+	background: #201F23;
+}
+.mui-table-view.avatar .register{
+	display: block;
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	color: #BE0B0B;
+	border: 1px solid #BE0B0B;
+	font-size: 12px;
+	height: 22px;
+	line-height: 20px;
+	margin-top: -11px;
+	width: 50px;
+	text-align: center;
+	border-radius: 11px;
+}
+.mui-grid-view.mui-grid-9{
+	background: #232226;
+	border: none;
+}
+.mui-grid-view.mui-grid-9 .mui-table-view-cell p{
+	font-size: 10px;
+	line-height: 10px;
+	color: #363639;
+	margin-bottom: 5px;
+}
+.mui-grid-view.mui-grid-9 .mui-table-view-cell p.under{
+	margin: 0;
+}
+.mui-grid-view.mui-grid-9 .mui-table-view-cell span{
+	font-size: 11px;
+	line-height: 11px;
+	color: #89898A;
+	display: block;
+}
+.mui-grid-view.mui-grid-9 .mui-table-view-cell>a:not(.mui-btn){
+	padding: 5px 0;
+}
+.mui-grid-view.mui-grid-9 .mui-table-view-cell:after{
+	content: '';
+	position: absolute;
+	width: 1px;
+	height: 36px;
+	top: 0px;
+	left: inherit;
+	right: 0;
+	background: #363639;
+}
+.mui-grid-view.mui-grid-9 .mui-table-view-cell:last-child:after{
+	width: 0;
+}
+.mui-table-view{
+	margin-top: 15px;
+}
+.mui-table-view-cell:after{
+	left: 50px;
+}
+.mui-content .mui-table-view .mui-table-view-cell{
+	font-size: 13px;
+}
+.mui-content .mui-table-view .mui-table-view-cell .iconfont{
+	color: #CCCCCD;
+	margin-right: 12px;
+	font-size: 13px ;
+}
+.mui-btn-block{
+	margin-top: 15px;
+	background: #232226;
+	border: none;
+	padding: 10px 0;
+	color: #BE0B0B;
+}
+.mui-content .mui-table-view .mui-table-view-cell .skin-name{
+	float: right;
+	margin-right: 20px;
+	font-size: 11px;
+	color: #363639;
+}
+.nightmode .mui-navigate-right:after{
+	content: '';
+}
+.mui-switch-blue.mui-active{
+	border-color: #BE0B0B;
+	background-color: #BE0B0B;
+}
+.mui-switch .mui-switch-handle{
+	background-color: #2D2C30;
+}

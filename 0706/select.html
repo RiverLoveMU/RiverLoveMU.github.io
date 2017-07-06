@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.head{
+				float: left;
+				height: 60px;
+				width: 110px;
+				margin-right: 30px;
+				text-align: center;
+				line-height: 60px;
+				background: cornsilk;
+			}
+			.dropList{
+				background: cornsilk;
+				width: 110px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="head">
+			<span>重庆</span>
+			<ul class="dropList">
+				<li>重庆</li>
+				<li>上海</li>
+				<li>成都</li>
+			</ul>
+		</div>
+		<div class="head">
+			<span>沙坪坝</span>
+			<ul class="dropList">
+				<li>江北</li>
+				<li>渝北</li>
+				<li>沙坪坝</li>
+			</ul>
+		</div>
+		<div class="head">
+			<span>小龙坎</span>
+			<ul class="dropList">
+				<li>小龙坎</li>
+				<li>观音桥</li>
+				<li>杨公桥</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('.head').click(function(ev){
+			$('.head .dropList').slideUp();
+			$(this).find('.dropList').slideDown();
+			ev.stopPropagation();
+		})
+		$('.head .dropList li').click(function(ev){
+			$(this).closest('.head').find('span').html($(this).html());
+			$(this).parent().slideUp();
+			ev.stopPropagation();
+		})
+		$(document).click(function(){
+			$('.head .dropList').slideUp();
+		})
+	</script>
+</html>

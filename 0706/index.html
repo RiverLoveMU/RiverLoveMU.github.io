@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			#content {
+				position: relative;
+				width: 790px;
+				height: 340px;
+				overflow: hidden;
+			}
+			
+			ul {
+				position: absolute;
+				background: rgba(255, 255, 255, 0.5);
+				bottom: 15px;
+				overflow: hidden;
+				border-radius: 11px;
+				left: 50%;
+				margin-left: -112px;
+				cursor: pointer;
+			}
+			
+			li {
+				height: 12px;
+				width: 12px;
+				float: left;
+				border-radius: 50%;
+				background: white;
+				margin: 5px 8px;
+			}
+			
+			.active {
+				background: #DB192A;
+			}
+			
+			#prev,
+			#next {
+				position: absolute;
+				width: 30px;
+				height: 60px;
+				top: 50%;
+				margin-top: -30px;
+				background: rgba(0, 0, 0, 0.1);
+				line-height: 60px;
+				color: white;
+				text-align: center;
+				font-size: 20px;
+				display: none;
+				cursor: pointer;
+			}
+			
+			#prev {
+				left: 0;
+			}
+			
+			#next {
+				right: 0;
+			}
+			
+			#content:hover #prev,
+			#content:hover #next {
+				display: block;
+			}
+			
+			.img-cont {
+				height: 340px;
+				width: 6320px;
+			}
+			
+			.img-cont img {
+				display: block;
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="content">
+			<div class="img-cont">
+				<img src="img/jd1.jpg" />
+				<img src="img/jd2.jpg" />
+				<img src="img/jd3.jpg" />
+				<img src="img/jd4.jpg" />
+				<img src="img/jd5.jpg" />
+				<img src="img/jd6.jpg" />
+				<img src="img/jd7.jpg" />
+				<img src="img/jd8.jpg" /> s </div>
+			<ul>
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div id="prev">
+				< </div>
+					<div id="next">
+						>
+					</div>
+			</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var num = 0;
+		$('ul li').click(function() {
+			num = $(this).index();
+			change(num);
+		})
+		var timer = setInterval(interval, 2000);
+		$('#content').mouseover(function() {
+			clearInterval(timer);
+		})
+		$('#content').mouseout(function() {
+			timer = setInterval(interval, 2000);
+		})
+		$('#next').click(function(){
+			num = (++num) % $('ul li').length;
+			change(num);
+		})
+		$('#prev').click(function(){
+			if (num == 0) {
+				num = $('ul li').length-1;
+			} else{
+				num--;
+			}
+			change(num);
+		})
+		function change(n) {
+			$('.img-cont').animate({
+				'margin-left': -(n * 790)
+			}, 500, 'linear');
+			$('ul li').removeClass('active');
+			$('ul li').eq(n).addClass('active');
+		}
+		
+		function interval() {
+			num = (++num) % $('ul li').length;
+			change(num);
+		}
+	</script>
+
+</html>
