@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.player{
+				height: 670px;
+				width: 1022px;
+			}
+			.top{
+				display: block;
+			}
+			.mid{
+				height: 570px;
+				width: 100%;
+				background:linear-gradient(#D4D3D5,#666,#D4D3D5);
+			}
+			.mid > div{
+				float: left;
+				/*border: 1px solid red;*/
+				height: 100%;
+				width: 50%;
+				overflow: hidden;
+			}
+			.mid .fl img{
+				display: block;
+				margin: auto;
+				position: relative;
+			}
+			.mid .bar{
+				top: -40px;
+				z-index: 1;
+				-webkit-transform-origin: center top;
+				-webkit-transform: rotate(-45deg);
+				transition: all 1s;
+			}
+			.mid .bar.active{
+				-webkit-transform: rotate(0);
+			}
+			.mid .circle{
+				height: 300px;
+				width: 300px;
+				background: url(img/player/play_disc.png) center center;
+				background-size:100% 100%;
+				/*border: 1px solid red;*/
+				position: relative;
+				top: -85px;
+				margin: auto;
+				overflow: hidden;
+				/*transition: all 2s;*/
+				/*border: 5px solid #c9c9cb;*/
+				/*border-radius: 50%;*/
+			}
+			.mid .circle.active{
+				-webkit-transform: rotate(3600deg);
+			}
+			.mid .circle img{
+				height: 200px;
+				width: 200px;
+				border-radius: 50%;
+				margin-top: 50px;
+			}
+			.mid h3{
+				margin: 20px 0;
+			}
+			.foot{
+				height: 50px;
+				border-top:1px solid #d8d8d8 ;
+				background: #F6F6F8;
+			}
+			.foot li{
+				float: left;
+			}
+			.control{
+				width: 208px;
+				height: 100%;
+				text-align: center;
+				/*line-height: 50px;
+				height: 50px;*/
+			}
+			.control span{
+				display: inline-block;
+				height: 36px;
+				width: 36px;
+				border-radius: 50%;
+				margin: 7px 5px;
+				/*background: ;*/
+			}
+			.control .prev{
+				background:#de4035 url(img/player/play_btn_prev.png) no-repeat center center;
+				background-size:100% 100%;
+			}
+			.control .next{
+				background:#de4035 url(img/player/play_btn_next.png) no-repeat center center;
+				background-size:100% 100%;
+			}
+			.control .play{
+				background:#de4035 url(img/player/play_rdi_btn_play.png) no-repeat center center;
+				background-size:100% 100%;
+			}
+			.drag{
+				width: 520px;
+				height: 100%;
+				line-height: 50px;
+			}
+			.drag .outer{
+				width: 410px;
+			}
+			.foot .outer{
+				display: inline-block;
+				height: 6px;
+				margin: 0 5px;
+				background:#e7e7e9 ;
+				border-radius: 3px;
+				position: relative;
+				top: -2px;
+			}
+			.foot .inner{
+				width: 0;
+				height: 100%;
+				background: #E83C3C;
+				position: relative;
+				border-radius: 3px;
+			}
+			.foot em{
+				display: inline-block;
+				height: 14px;
+				width: 14px;
+				border: 1px solid #D8D8D8;
+				border-radius: 50%;
+				position: absolute;
+				top: -5px;
+				left: -5px;
+				background: #FFF;
+			}
+			.foot em:before{
+				content: '';
+				height: 4px;
+				width: 4px;
+				background:#E83C3C ;
+				position: absolute;
+				top: 5px;
+				left: 5px;
+				border-radius: 50%;
+			}
+			.voice{
+				width: 130px;
+				line-height: 50px;
+				width: 166px;
+				text-align: center;
+			}
+			.voice .outer{
+				width: 102px;
+			}
+			.voice span{
+				display: inline-block;
+				width: 20px;
+				height: 16px;
+				background: url(img/player/voice.png) no-repeat center center;
+				background-size:100% 100% ;
+				position: relative;
+				top: 3px;
+			}
+			.foot-img,.foot-img img{
+				width: 126px;
+			}
+			.lrc{
+				height: 400px;
+				margin-top: 20px;
+				overflow: hidden;
+			}
+			.lrc li{
+				line-height: 30px;
+			}
+			.lrc li.active{
+				color: #FFF;
+			}
+			/*.drag{
+				spa
+			}*/
+		</style>
+	</head>
+	<body>
+		<div class="player">
+			<audio src="audio/moon.mp3"></audio>
+			<img class="top" src="img/player/playerTop.jpg"/>
+			<div class="mid">
+				<div class="fl">
+					<img class="bar" src="img/player/play_needle.png"/>
+					<div class="circle">
+						<img src="img/17554496974687737543.jpg"/>
+					</div>
+				</div>
+				<div class="fr">
+					<h3>青花瓷</h3>
+					<div class="info">
+						专辑：<span>我很忙</span>
+						歌手：<span>周杰伦</span>
+						来源：<span>我很忙</span>
+					</div>
+					<div class="lrc">
+						<ul>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="foot">
+				<ul>
+					<li class="control">
+						<span class="prev"></span>
+						<span class="play" state='true'></span>
+						<span class="next"></span>
+					</li>
+					<li class="drag">
+						<span>00:00</span>
+						<div class="outer">
+							<div class="inner">
+								<em></em>
+							</div>
+						</div>
+						<span>00:00</span>
+					</li>
+					<li class="voice">
+						<span></span>
+						<div class="outer">
+							<div class="inner">
+								<em></em>
+							</div>
+						</div>
+					</li>
+					<li class="foot-img">
+						<img src="img/player/foot_img.jpg"/>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/song.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var str = '';
+		var oAudio = $('audio').get(0);
+		var oCircle = $('.circle').get(0);
+		var angle = 0;
+		for (attr in song[0].lrc) {
+			str += '<li time = "' + attr + '">' + song[0].lrc[attr] + '</li>'
+		}
+		$('.lrc ul').html(str);
+		$('.play').click(function(){
+			if ($(this).attr('state') == 'true') {
+				$(this).attr('state','false');
+				$(this).css('background-image','url(img/play_rdi_btn_pause.png)');
+				oAudio.play();
+				$('.mid .bar').addClass('active');
+				$('.drag span').eq(1).html(changeTime(oAudio.duration));
+				aTimer();
+				oCircle.timer = setInterval(function(){
+					angle += 1;
+					$('.mid .circle').css('-webkit-transform','rotate('+ angle +'deg)');
+				},50)
+			} else{
+				$(this).attr('state','true');
+				$(this).css('background-image','url(img/player/play_rdi_btn_play.png)');
+				oAudio.pause();
+				clearInterval(oAudio.timer);
+				clearInterval(oCircle.timer);
+				$('.mid .bar').removeClass('active');
+			}
+		})
+		function changeTime(d){
+			var m= double(Math.floor(d/60));
+			var s= double(Math.floor(d%60));
+			return m+':'+s;
+		}
+		
+		function double(n){
+			return n<10 ? n='0'+n :n;
+		}
+		$('.drag em').eq(0).mousedown(function(ev){
+			var cTimer = 0;
+			var beginX = ev.clientX;
+			var oX = $(this).position().left;
+			var inW = $('.drag .inner').width();
+			oAudio.currentTime = 20;
+			console.log(oAudio.currentTime);
+			clearInterval(oAudio.timer);
+			$(document).mousemove(function(ev){
+				var addX = ev.clientX - beginX;
+				if (addX + oX >= $('.drag .outer').width() - 5) {
+					addX = $('.drag .outer').width() - oX - 5;
+				}else if(addX + oX <= -5){
+					addX = -oX - 5;
+				}
+				$('.drag .inner').css('width',inW + addX + 'px');
+				$('.drag em').eq(0).css('left',oX + addX + 'px');
+				cTimer = $('.drag .inner').width()/ $('.drag .outer').width()*oAudio.duration;
+				$('.drag span').eq(0).html(changeTime(cTimer));
+			})
+			$(document).mouseup(function(){
+				oAudio.currentTime = cTimer;
+				console.log(oAudio.currentTime + ':' + cTimer);
+				aTimer();
+				$(document).off();
+			})
+			return false;
+		})
+		function aTimer (){
+			oAudio.timer = setInterval(function(){
+					var currentT = changeTime(oAudio.currentTime);
+					var inW = oAudio.currentTime/oAudio.duration*$('.drag .outer').width();
+					$('.drag .inner').css('width',inW + 'px');
+					$('.drag em').eq(0).css('left',inW - 5 + 'px');
+					$('.drag span').eq(0).html(currentT);
+					$('.lrc li').each(function(i,elem){
+						if ($(elem).attr('time')==currentT) {
+							$('.lrc li').removeClass('active');
+							$(elem).addClass('active');
+							_index=$(elem).index();
+							$(elem).parent().animate({'margin-top':-_index*30 + 'px'},500,'linear');
+							return;
+						}
+					})
+				},1000);
+		}
+	</script>
+</html>

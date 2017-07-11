@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				background: #6495ED;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+		<button id="plus">+</button>
+		<button id="mus">-</button>
+		<select id="color">
+			<option value="red">红色</option>
+			<option value="green">绿色</option>
+			<option value="yellow">黄色</option>
+			<option value="black">黑色</option>
+			<option value="white">白色</option>
+		</select>
+	</body>
+	<script type="text/javascript">
+		var oC = document.getElementById('canvas');
+		var oP = document.getElementById('plus');
+		var oM = document.getElementById('mus');
+		var oS = document.getElementById('color');
+		var context = oC.getContext('2d');
+		var size = 1;
+		oP.onclick = function(){
+			size++;
+		}
+		oM.onclick = function(){
+			if (size>1) {
+				size--
+			}
+		}
+		oC.onmousedown = function(ev){
+			var newEv = ev || event;
+			var beginX = newEv.clientX - oC.offsetLeft;
+			var beginY = newEv.clientY - oC.offsetTop;
+			context.beginPath();
+			context.moveTo(beginX,beginY);
+			context.lineWidth = size;
+			context.strokeStyle = oS.value;
+			oC.onmousemove = function(ev){
+				var newEv = ev || event;
+				var x = newEv.clientX - oC.offsetLeft;
+				var y = newEv.clientY - oC.offsetTop;
+				context.lineTo(x,y);
+				context.stroke();
+			}
+			document.onmouseup = function(){
+				oC.onmousemove = false;
+				context.closePath();
+			}
+			return false;
+		}
+	</script>
+</html>

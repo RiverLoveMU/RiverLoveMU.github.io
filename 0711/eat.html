@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				background: lavender;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var oC = document.getElementById('canvas');
+		var context = oC.getContext('2d');
+		var angle = 0;
+		var control = true;
+		createP();
+		setInterval(function(){
+			if (control) {
+				if (angle>=Math.PI/4) {
+					control = false;					
+				} else{
+					angle += Math.PI/180;
+				}
+			} else{
+				if (angle<=0) {
+					control = true;
+				} else{
+					angle -= Math.PI/180;		
+				}
+			}
+			createP();
+		},10)
+		function createP (){
+			context.clearRect(0,0,500,500);
+			context.beginPath();
+			context.moveTo(250,250);
+			context.arc(250,250,200,angle,2*Math.PI-angle,false);
+			context.fillStyle = '#FFEBCD';
+			context.fill();
+			context.closePath();
+			context.beginPath();
+			context.arc(230,135,20,0,2*Math.PI,true);
+			context.fillStyle = 'black';
+			context.fill();
+			context.closePath();
+		}
+	</script>
+</html>

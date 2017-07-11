@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<style type="text/css">
+			.cont{
+				height: 300px;
+				border:1px solid red;
+				text-align: center;
+				overflow: hidden;
+			}
+			li{
+				height: 40px;
+				line-height: 40px;
+			}
+			li.active{
+				color: red;
+			}
+			ul{
+				margin-top: 150px;
+			}
+		</style>
+	</head>
+	<body>
+		<audio src="audio/moon.mp3" controls="controls"></audio>
+		<div class="cont">
+			<ul></ul>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lrc.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var str='';
+		for(attr in lrc){
+			str+='<li time="'+attr+'">'+lrc[attr]+'</li>';
+		}
+		$('ul').html(str);
+		var num=0;
+		setInterval(function(){
+			$('li').removeClass('active');
+			$('li').eq(num).addClass('active');
+			if(num<$('li').length){
+				num++;
+			}
+			$('ul').animate({'margin-top':150-(num*40)+'px'},500);
+		},1000)
+		
+		
+	</script>
+</html>

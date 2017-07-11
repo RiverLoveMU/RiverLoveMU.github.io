@@ -12,6 +12,9 @@
 				top: 0;
 				left: 0;
 			}
+			body{
+				height: 3000px;
+			}
 		</style>
 	</head>
 	<body>
@@ -21,8 +24,9 @@
 	<script type="text/javascript">
 		document.onmousemove=function(ev){
 			var newEV= ev || event;
-//			console.log('X坐标:'+newEV.clientX+',Y坐标'+newEV.clientY);
-			$('box').setAttribute('style','top:'+newEV.clientY+'px;left:'+newEV.clientX+'px;')
+			var myTop = document.body.scrollTop || document.documentElement.scrollTop;
+			console.log('X坐标:'+newEV.clientX+',Y坐标'+newEV.clientY);
+			$('box').setAttribute('style','top:'+(newEV.clientY+myTop)+'px;left:'+newEV.clientX+'px;')
 		}
 	</script>
 </html>

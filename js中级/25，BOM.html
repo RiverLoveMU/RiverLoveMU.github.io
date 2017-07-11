@@ -60,18 +60,18 @@
 //				console.log(document.documentElement.clientWidth)
 //			}
 //		5,滚动条距离
-//		$('btn').onclick=function(){
+		$('btn').onclick=function(){
 //			console.log(document.documentElement.scrollTop); //firfox，IE
 //			console.log(document.body.scrollTop);  //chrom
 //			兼容性处理
-//			var myTop=document.documentElement.scrollTop || document.body.scrollTop;
-//			console.log(myTop);
-//		}
-//		6,内容高度
-		$('btn').onclick=function(){
-//			console.log(document.body.scrollHeight);
-			console.log($('outer').scrollHeight);
+			var myTop=document.documentElement.scrollTop || document.body.scrollTop;
+			console.log(myTop);
 		}
+//		6,内容高度
+//		$('btn').onclick=function(){
+////			console.log(document.body.scrollHeight);
+//			console.log($('outer').scrollHeight);
+//		}
 //		7,事件
 //		var i=0;
 //		window.onscroll=function(){

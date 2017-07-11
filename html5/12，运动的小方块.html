@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				background: cornflowerblue;
+				/*border: 2px solid #000;*/
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+		var oC=document.getElementById('canvas');
+		var context=oC.getContext('2d');  
+		context.fillRect(0,0,50,50);
+		var num=0;
+		var timer = setInterval(function(){
+			context.clearRect(0,0,oC.width,oC.height);
+			if(num<=400){
+				num+=5;
+			}else{
+				clearInterval(timer);
+			}
+			context.fillRect(num,num,50,50);
+		},40)
+	</script>
+</html>
