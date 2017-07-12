@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				display: block;
+				background: lavender;
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="oldCanvas" width="400" height="250"></canvas>
+		<canvas id="newCanvas" width="400" height="250"></canvas>
+		<button>反色</button>
+		<button>灰度</button>
+	</body>
+	<button>黑白</button>
+	<script type="text/javascript">
+		var oOldCanvas = document.getElementById('oldCanvas');
+		var oNewCanvas = document.getElementById('newCanvas');
+		var aBtn = document.getElementsByTagName('button');
+		var oldContext = oOldCanvas.getContext('2d');
+		var newContext = oNewCanvas.getContext('2d');
+		var oImg = new Image();
+		oImg.src = 'img/origin.jpg';
+		oImg.onload = function(){
+			oldContext.drawImage(oImg,0,0,oImg.width,oImg.height,0,0,oOldCanvas.width,oOldCanvas.height);
+			aBtn[0].onclick = function(){
+				var oldData = oldContext.getImageData(0,0,oOldCanvas.width,oOldCanvas.height);
+				var pxData = oldData.data;
+				for (var i = 0;i<pxData.length/4;i++) {
+					var r = pxData[i*4+0];
+					var g = pxData[i*4+1];
+					var b = pxData[i*4+2];
+					pxData[i*4+0]=255-r;
+					pxData[i*4+1]=255-g;
+					pxData[i*4+2]=255-b;
+				}
+				newContext.putImageData(oldData,0,0,0,0,oNewCanvas.width,oNewCanvas.height);
+			}
+			aBtn[1].onclick = function(){
+				var oldData = oldContext.getImageData(0,0,oOldCanvas.width,oOldCanvas.height);
+				var pxData = oldData.data;
+				for (var i = 0;i<pxData.length/4;i++) {
+					var r = pxData[i*4+0];
+					var g = pxData[i*4+1];
+					var b = pxData[i*4+2];
+					var gray = r*0.3 + g*0.59 + b*0.11;
+					pxData[i*4+0]=gray;
+					pxData[i*4+1]=gray;
+					pxData[i*4+2]=gray;
+				}
+				newContext.putImageData(oldData,0,0,0,0,oNewCanvas.width,oNewCanvas.height);
+			}
+			aBtn[2].onclick = function(){
+				var oldData = oldContext.getImageData(0,0,oOldCanvas.width,oOldCanvas.height);
+				var pxData = oldData.data;
+				for (var i = 0;i<pxData.length/4;i++) {
+					var r = pxData[i*4+0];
+					var g = pxData[i*4+1];
+					var b = pxData[i*4+2];
+					var gray = r*0.3 + g*0.59 + b*0.11;
+					if (gray>128) {
+						gray = 255;
+					} else{
+						gray = 0;
+					}
+					pxData[i*4+0]=gray;
+					pxData[i*4+1]=gray;
+					pxData[i*4+2]=gray;
+				}
+				newContext.putImageData(oldData,0,0,0,0,oNewCanvas.width,oNewCanvas.height);
+			}
+		}
+	</script>
+</html>

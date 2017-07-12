@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				background: cornflowerblue;
+				/*border-radius: 50%;*/
+				/*border: 2px solid #000;*/
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+		var oC=document.getElementById('canvas');
+		var context=oC.getContext('2d');
+		function draw(n){
+			context.clearRect(0,0,400,400);
+			context.beginPath();
+			context.moveTo(200,200);
+			context.arc(200,200,100,n,-n,false);
+			context.fillStyle='lightpink';
+			context.fill();
+			context.closePath();
+			
+			context.beginPath();
+			context.arc(160,160,10,0,2*Math.PI,false);
+			context.fillStyle='#000';
+			context.fill();
+			context.closePath();
+		}
+		var num=45;
+		var s=true;
+		setInterval(function(){
+			s ? num--:num++;
+			if(num<=0 || num>=45){
+				s=!s;
+			}
+			draw(2*Math.PI*num/360);
+		},20)
+	</script>
+</html>

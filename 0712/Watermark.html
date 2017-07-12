@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#waterMark{
+				display: none;
+			}
+			#myPic{
+				
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="waterMark" width="200" height="50"></canvas>
+		<canvas id="myPic" width="600" height="300"></canvas>
+	</body>
+	<script type="text/javascript">
+		var oWatermark = document.getElementById('waterMark');
+		var waterMarkContext = oWatermark.getContext('2d');
+		waterMarkContext.font = '16px arial';
+		waterMarkContext.textBaseline = 'middle';
+		waterMarkContext.textAlign = 'center';
+		waterMarkContext.fillStyle = 'rgba(0,0,0,.5)'
+		waterMarkContext.fillText('ManchesterUnited',100,25);
+		var oPic = document.getElementById('myPic');
+		var picContext = oPic.getContext('2d');
+		var oImage = new Image();
+		oImage.src = 'img/origin.jpg';
+		oImage.onload = function(){
+			picContext.drawImage(oImage,0,0,oImage.width,oImage.height,0,0,oPic.width,oPic.height);
+			var x = oPic.width-oWatermark.width;
+			var y = oPic.height-oWatermark.height;
+			picContext.drawImage(oWatermark,0,0,oWatermark.width,oWatermark.height,x,y,oWatermark.width,oWatermark.height);
+		}
+		
+	</script>
+</html>

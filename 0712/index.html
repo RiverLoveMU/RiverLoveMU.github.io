@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#myImg{
+				width: 320px;
+			}
+			.cont{
+				width: 320px;
+				position: relative;
+				overflow:hidden;
+			}
+			#cover{
+				position: absolute;
+				height: 50px;
+				width: 50px;
+				top: 0;
+				left: 0;
+				background: rgba(0,0,0,.5);
+				display: none;
+			}
+			#myCanvas{
+				background: lightblue;
+				display: none;
+			}			
+		</style>
+	</head>
+		<div class="cont">
+			<img id="myImg" src="img/origin.jpg"/>
+			<div id="cover">
+				
+			</div>
+		</div>
+		<canvas id="myCanvas" width="200" height="200"></canvas>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var oImg = document.getElementById('myImg');
+		var oC = document.getElementById('myCanvas');
+		var oCover = document.getElementById('cover');
+		var oCont = document.getElementsByClassName('cont')[0];
+		var context = oC.getContext('2d');
+		oImg.onload = function(){
+			oCont.onmousemove = function(ev){
+				var newEv = ev || event;
+				var beginX = (newEv.clientX - oCont.offsetLeft - 25)*4;
+				var beginY = (newEv.clientY - oCont.offsetTop - 25)*4;
+				var size = 50*4;
+				oCover.style.display = 'block';
+				oCover.style.left = (newEv.clientX - oCont.offsetLeft - 25) + 'px';
+				oCover.style.top = (newEv.clientY - oCont.offsetTop - 25) + 'px';
+				oC.style.display = 'block';
+				context.clearRect(0,0,200,200);
+				context.drawImage(oImg,beginX,beginY,size,size,0,0,200,200);
+			}
+		}
+		oCont.onmouseout = function(){
+			oC.style.display = 'none';
+			oCover.style.display = 'none';
+		}
+	</script>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				width: 750px;
+				height: 1206px;
+				background: url(img/cover_bg.jpg) no-repeat;
+				background-size: 100% 100%;
+				position: relative;
+			}
+			#myCanvas{
+				z-index: 99;
+				position: relative;
+			}
+			#share{
+				position: absolute;
+				top: 28px;
+				right:150px;
+				height: 78px;
+				width: 76px;
+				background: url(img/share.png);
+				z-index: 100;
+			}
+			#music{
+				position: absolute;
+				top:15px;
+				right:10px;
+				height: 100px;
+				width: 120px;
+				background: url(img/music.png) -15px;
+				z-index: 100;
+			}
+			.title,.titleCover{
+				position: absolute;
+				top: 30px;
+				left: 80px;
+			}
+			.title img,.titleCover img{
+				width: 700px;
+			}
+			.time{
+				position: absolute;
+				top: 60px;
+				left: 260px;
+				width: 85px;
+				height: 260px;
+				background: url(img/cover.png) no-repeat 0 -130px;
+				-webkit-animation: move 1s forwards;
+				opacity: 0;
+			}
+			.decorationOne{
+				height: 110px;
+				width: 60px;
+				position: absolute;
+				top: 390px;
+				right: 10px;
+				background: url(img/cover.png) no-repeat -237px 0;
+				-webkit-animation: fishmove 2s infinite linear;
+				-webkit-transform-origin: 30px 0;
+			}
+			.decorationTwo{
+				height: 115px;
+				width: 115px;
+				position: absolute;
+				top: 380px;
+				left: 230px;
+				background: url(img/cover.png) no-repeat -125px 0;
+				-webkit-animation: dmove 1s forwards linear;
+				-webkit-transform: rotate(-60deg);
+				opacity: 0;
+			}
+			#btn{
+				height: 130px;
+				width: 140px;
+				position: absolute;
+				bottom: 50px;
+				left: 50%;
+				margin-left: -70px;
+				background: url(img/cover.png) no-repeat -805px 0;
+				z-index: 100;
+			}
+			#btn:after{
+				content: '';
+				height: 130px;
+				width: 140px;
+				position: absolute;
+				top: -19px;
+				left: -7px;
+				background: url(img/cover.png) no-repeat -662px 0;
+				-webkit-animation: bmove 0.8s infinite linear;
+				-webkit-transform: scale(0.9);
+			}
+			@-webkit-keyframes move{
+				from{
+					
+				}
+				to{
+					top: 150px;
+					opacity: 1;
+				}
+			}
+			@-webkit-keyframes bmove{
+				0%{
+					
+				}
+				50%{
+					-webkit-transform: scale(0.95);
+				}
+				100%{
+					-webkit-transform: scale(0.9);
+				}
+			}
+			@-webkit-keyframes dmove{
+				from{
+					
+				}
+				to{
+					-webkit-transform: rotate(-0deg);
+					top: 260px;
+					left: 70px;
+					opacity: 1;
+				}
+			}
+			@-webkit-keyframes fishmove{
+				0%{
+					
+				}
+				25%{
+					-webkit-transform: rotate(10deg);
+				}
+				50%{
+					-webkit-transform: rotate(0deg);
+				}
+				75%{
+					-webkit-transform: rotate(-10deg);
+				}
+				100%{
+					-webkit-transform: rotate(0deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<canvas id="myCanvas" width="750" height="1206"></canvas>
+			<div id="share"></div>
+			<div id="music"></div>
+			<audio src="audio/moon.mp3"></audio>
+			<div class="titleCover">
+				<img src="img/title_bg.gif"/>
+			</div>
+			<div class="title">
+				<img src="img/title.gif"/>
+			</div>
+			<div class="time"></div>
+			<div class="decorationOne"></div>
+			<div class="decorationTwo"></div>
+			<div id="btn"></div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var oMusic = $('audio').get(0);
+		var musicIconChange = 0;
+		var oC = $('#myCanvas').get(0);
+		var context = oC.getContext('2d');
+		var firstDown = true;
+		var oImg = new Image();
+		var changePointX = 750;
+		var changePointY = 1206;
+		var arrImg = ['img/1.jpg','img/2.jpg','img/2.jpg']
+		var imgNumber = 0;
+		var add = 0;
+		var canvasTimer = null;
+		oImg.src = arrImg[imgNumber];
+		var musicTimer = setInterval(function(){
+			musicIconChange++;
+			$('#music').css('background-position-x',-musicIconChange*140 - 15 +'px');
+		},50)
+		oMusic.play();
+		$('#music').click(function(ev){
+			ev.stopPropagation();
+			if (!oMusic.paused) {
+				oMusic.pause();
+				clearInterval(musicTimer);
+			} else{
+				oMusic.play();
+				musicTimer = setInterval(function(){
+					musicIconChange++;
+					$('#music').css('background-position-x',-musicIconChange*140 - 15 +'px');
+				},50)
+			}
+		})
+		oImg.onload = function(){
+			$('#btn').mousedown(function(){
+				if (firstDown) {
+					context.drawImage(oImg,0,0,oImg.width,oImg.height,0,0,oC.width,oC.height);
+					firstDown = false;
+				}
+				if (changePointX == 750 && changePointY == 1206) {
+					oImg.src = arrImg[++imgNumber];
+					oImg.onload = function(){
+						context.drawImage(oImg,1376,93,385,613,0,0,oC.width,oC.height);
+					}
+					changePointX = 0;
+					changePointY = 0;
+				}
+				if (changePointX == 0 && changePointY == 0) {
+					canvasTimer = setInterval(function(){
+						add++;
+						var beginX = 1376-add;
+						var beginY =93-add;
+						var x = 385+2*add;
+						var y = 613+2*add;
+						if (beginX<0) {
+							beginX = 0;
+						}
+						if (beginY<0) {
+							beginY = 0;
+						}
+						if (beginX+x>oImg.width && beginX!=0) {
+							x=oImg.width-beginX+add;
+							beginX= 1376-2*add
+						}
+						if (beginY+y>oImg.height && beginY!=0) {
+							y=oImg.height-beginY+add;
+							beginY= 93-2*add;
+						}
+						context.drawImage(oImg,beginX,beginY,x,y,0,0,oC.width,oC.height);
+						
+					},10)
+				}
+			})
+		}
+	</script>
+</html>
