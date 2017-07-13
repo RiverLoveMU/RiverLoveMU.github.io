@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.box{
+				height: 300px;
+				border: 1px solid red;
+				margin: 700px 0;
+				background: url(img/img4.jpg) no-repeat 0 0;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		$(document).scroll(function(){
+//			已知: 最小top,最大top(-500),滚动滚动的距离(实时获取),滚动条最大滚动距离(1000)
+//			求出:top实时改变多少?
+//			sT/maxSt= t/maxT
+			var sT=$(document).scrollTop();
+//			console.log(sT)
+			$('.box').css('background-position','0px -'+sT*500/982+'px');
+		})
+	</script>
+</html>

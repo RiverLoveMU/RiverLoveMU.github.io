@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 400px;
+			}
+			canvas{
+				background: cornflowerblue;
+				/*display: none;*/
+			}
+			body{
+				margin: 0;
+				height: 100%;
+				width: 100%;
+				/*border: 1px solid red;*/
+			}
+			button{
+				position: fixed;
+				bottom: 0;
+				left: 50%;
+				height: 40px;
+				width: 60px;
+				padding: 0;
+				margin-left: -30px;
+			}
+			html,body,.cover{
+				height: 100%;
+				width: 100%;
+				background: url(img/cover_bg.jpg) no-repeat;
+				background-size:100% 100% ;
+				/*position: relative;*/
+			}
+			.btn{
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				height: 140px;
+				width: 140px;
+				margin-left: -70px;
+				/*border: 1px solid red;*/
+				background: url(img/cover.png) no-repeat 10px 10px;
+				-webkit-transform: scale(0.5);
+				-webkit-animation: scaleBtn 1s infinite alternate-reverse linear;
+			}
+			@-webkit-keyframes scaleBtn{
+				from{
+					-webkit-transform: scale(0.5);
+				}
+				to{
+					-webkit-transform: scale(0.6);
+				}
+			}
+			.music{
+				width: 140px;
+				height: 100px;
+				/*border: 1px solid blue;*/
+				position: absolute;
+				top: 0;
+				right: 0;
+				background: url(img/music.png);
+				-webkit-transform: scale(0.7);
+			}
+			.tit{
+				width: 200px;
+				height: 300px;
+				/*border: 1px solid red;*/
+				position: absolute;
+				top: 70px;
+				right: 80px;
+			}
+			.tit img{
+				height: 150%;
+				width: 150%;
+				position: absolute;
+				top: -15%;
+				left: -35%;
+			}
+			.renyu{
+				width: 110px;
+				height: 130px;
+				background: url(img/cover.png) -128px 0;
+				position: absolute;
+				top: 28%;
+				left: 25%;
+				-webkit-transform: rotate(-60deg);
+				transition: all 2s;
+			}
+			.renyu.active{
+				top: 15%;
+				left: 15%;
+				-webkit-transform: rotate(0);
+			}
+			.yu{
+				width: 60px;
+				height: 130px;
+				background: url(img/cover.png) -248px 0;
+				position: absolute;
+				top: 34%;
+				right: 5%;
+				-webkit-transform-origin: center top;
+				-webkit-animation: shake 2s infinite linear alternate-reverse;
+			}
+			@-webkit-keyframes shake{
+				from{
+					-webkit-transform: rotate(15deg);
+				}
+				to{
+					-webkit-transform: rotate(-15deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cover">
+			<div class="btn"></div>
+			<div class="music"></div>
+			<div class="renyu"></div>
+			<div class="tit">
+				<img src="img/title_bg.gif"/>
+				<img src="img/title (1).gif"/>
+			</div>
+			<div class="yu"></div>
+		</div>
+		<audio id="audio" src="audio/sjsznh.mp3"></audio>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+	<script type="text/javascript">
+		$('audio').get(0).autoplay=true;
+		var pos=0;
+		var timer=setInterval(function(){
+			pos-=140;
+			$('.music').css('background-position',pos+'px 0px');
+		},40);
+		$('.renyu').addClass('active');
+		$('.music').click(function(){
+			if($('audio').get(0).paused){
+				timer=setInterval(function(){
+					pos-=140;
+					$('.music').css('background-position',pos+'px 0px');
+				},40);
+				$('audio').get(0).play();
+			}else{
+				clearInterval(timer);
+				$('audio').get(0).pause();
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			body{
+				-webkit-transform-style: preserve-3d;  
+				-webkit-perspective: 0;
+
+			}
+			html,body,.firstcont{
+				width: 100%;
+				height: 100%;
+				position: relative;
+				overflow: hidden;
+			}
+			.title,.browsergif{
+				margin: auto;
+				text-align: center;
+				top: 800px;
+				left: 50%;
+				margin-left: -440px;
+				-webkit-animation: goin 0.8s forwards cubic-bezier(0.360, 0.940, 0.550, 0.965);
+				-webkit-transform: rotateX(45deg) scale(3);
+				position: absolute;
+			}
+			.browsergif{
+				-webkit-animation-delay:  0.1s;
+			}
+			@-webkit-keyframes goin{
+				from{
+					
+				}
+				to{
+					top: 360px;
+					-webkit-transform: scale(1);
+				}
+			}
+			.btnBox{
+				width: 880px;
+				margin: auto;
+				margin-top: 185px;
+				overflow: hidden;
+			}
+			.btn,.titleicon{
+				-webkit-animation: showbtn 1s forwards linear;
+			}
+			.btn{
+				float: right;
+				vertical-align: middle;
+				margin-left: 25px;
+				opacity: 0;
+				-webkit-animation-delay:1.2s;
+			}
+			.titleicon{
+				margin-top: 13px;
+				opacity: 0;
+				-webkit-animation-delay:0.8s;
+			}
+			@-webkit-keyframes showbtn{
+				from{
+					opacity: 0;
+				}
+				to{
+					opacity: 1;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="firstcont">
+			<div class="title">
+				<img src="img/skin.png"/>
+			</div>
+			<div class="browsergif">
+				<img src="img/skin.gif"/>
+			</div>
+			<div class="btnBox">
+				<img class="titleicon" src="img/title2_1.png"/>
+				<img class="btn" src="img/btn.png"></img>
+				<img class="btn" src="img/Betabtn.png"></img>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+	</script>
+</html>

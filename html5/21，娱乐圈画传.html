@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 400px;
+			}
+			canvas{
+				background: cornflowerblue;
+				/*display: none;*/
+			}
+			body{
+				margin: 0;
+				height: 100%;
+				width: 100%;
+				/*border: 1px solid red;*/
+			}
+			button{
+				position: fixed;
+				bottom: 0;
+				left: 50%;
+				height: 40px;
+				width: 60px;
+				padding: 0;
+				margin-left: -30px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div>
+			<img id="myImg" src="img/img.jpg"/>
+			<div id="cover"></div>
+		</div>-->
+		<canvas id="myCanvas"></canvas>
+		<button id="btn">长按</button>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+	<script type="text/javascript">
+		
+//		截取图片的x起点:385 ~ 0    //  385/5
+//		截取图片的y起点:853~0    //  m/853=5/385  m=11.08
+//		截取图片宽度:265~1875   //  m/(1875-265)=5/385 m=20.90909090909091
+//		截取图片高度:365~3015   //  m/(3015-365)=5/385  m=34.41558441558442
+//		
+//		绘制的起点x:0不变
+//		绘制的起点y:0不变
+//		绘制宽度:屏幕宽度,不变
+//		绘制高度:屏幕高度,不变
+		
+		
+		var oC=document.getElementById('myCanvas');
+		var context=oC.getContext('2d');
+		oC.width=$(window).width();
+		oC.height=$(window).height();
+		var oImg=new Image();
+		oImg.src='img/5.jpg';
+		oImg.onload=function(){
+			context.drawImage(oImg,385,853,265,365,0,0,oC.width,oC.height);
+		}
+		var n=1;
+		var timer =null;
+		$('button').on('touchstart',function(){
+			timer = setInterval(function(){
+				n++;
+				context.clearRect(0,0,oC.width,oC.height);
+				context.drawImage(oImg,385-(n*5),853-(n*11),265+(n*21),365+(n*34),0,0,oC.width,oC.height);
+				if(385-(n*5)<=0){
+					clearInterval(timer);
+					
+				}
+			},100)
+		})
+		$('button').on('touchend',function(){
+			clearInterval(timer);
+		})
+	</script>
+</html>

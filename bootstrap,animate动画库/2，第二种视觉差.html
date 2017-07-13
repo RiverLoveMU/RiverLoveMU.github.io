@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.box{
+				height: 350px;
+				overflow: hidden;
+				position: relative;
+				min-width: 800px;
+				margin: auto;
+			}
+			.box img{
+				position: absolute;
+			}
+			.land{
+				width: 100%;
+				position: relative;
+			}
+			.person{
+				top: 90px;
+				left: 35%;
+				z-index: 2;
+			}
+			.personSd{
+				bottom: 10px;
+				left: 36%;
+			}
+			.fly{
+				bottom: 40px;
+				left: 43%;
+				z-index: 1;
+			}
+			.flySd{
+				bottom: 10px;
+				left: 43%;
+			}
+			.bigH{
+				top: 60px;
+				left: 50%;
+			}
+			.smH{
+				top: 130px;
+				left: 85%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<img class="land" src="img/land.jpg"/>
+			<img class="bigH" src="img/bigHouse.png"/>
+			<img class="smH" src="img/smHouse.png"/>
+			<img class="person" src="img/person.png"/>
+			<img class="personSd" src="img/person_shadow.png"/>
+			<img class="fly" src="img/fly.png"/>
+			<img class="flySd" src="img/fly_shadow.png"/>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		var h=$(window).height();
+		var w=$(window).width();
+		$(document).mousemove(function(ev){
+			var y=ev.clientY;
+			var x=ev.clientX;
+			var scaleY=y/h;
+			var scaleX=x/w;
+			console.log(w*35/100);
+			$('.person').css({'top':90-(scaleY*20)+'px','left':parseInt(w*35/100)-(scaleX*40)+'px'});
+			$('.personSd').css({'bottom':10+(scaleY*20)+'px','left':parseInt(w*36/100)-(scaleX*40)+'px'});
+			$('.land').css('top',-(scaleY*10)+'px');
+		})
+	</script>
+</html>
