@@ -184,135 +184,135 @@
 				'y': 385*scale,
 			},
 			{
-				'beginX': 789,
-				'beginY': 1193,
-				'x': 156,
-				'y': 156*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 856,
-				'beginY': 415,
-				'x': 287,
-				'y': 287*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 384,
-				'beginY': 849,
-				'x': 237,
-				'y': 237*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 358,
-				'beginY': 1228,
-				'x': 190,
-				'y': 190*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 128,
-				'beginY': 852,
-				'x': 793,
-				'y': 793*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 794,
-				'beginY': 784,
-				'x': 282,
-				'y': 282*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 428,
-				'beginY': 453,
-				'x': 941,
-				'y': 941*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 1275,
-				'beginY': 666,
-				'x': 296,
-				'y': 296*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 976,
-				'beginY': 560,
-				'x': 786,
-				'y': 786*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 1205,
-				'beginY': 2309,
-				'x': 241,
-				'y': 241*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 893,
-				'beginY': 1608,
-				'x': 674,
-				'y': 674*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 285,
-				'beginY': 44,
-				'x': 249,
-				'y': 249*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 259,
-				'beginY': 21,
-				'x': 940,
-				'y': 940*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 1058,
-				'beginY': 190,
-				'x': 438,
-				'y': 438*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 1036,
-				'beginY': 678,
-				'x': 786,
-				'y': 786*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 226,
-				'beginY': 2212,
-				'x': 419,
-				'y': 419*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 352,
-				'beginY': 1654,
-				'x': 787,
-				'y': 787*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 1492,
-				'beginY': 525,
-				'x': 293,
-				'y': 293*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 1016,
-				'beginY': 484,
-				'x': 784,
-				'y': 784*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 1158,
-				'beginY': 2312,
-				'x': 102,
-				'y': 102*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			},
 			{
-				'beginX': 1004,
-				'beginY': 2035,
-				'x': 473,
-				'y': 473*scale,
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
 			}
 		];
 		
 		var imgNumber = 0;
-		var positionNumber = -1;
+		var positionNumber = 0;
 		var add = 0;
 		var canvasTimer = null;
 		oImg.src = arrImg[imgNumber];
@@ -341,43 +341,31 @@
 					firstDown = false;
 				}
 				if (changeControl) {
-					positionNumber++;
 					change();
 				}
 				if (!changeControl) {
-					magnify(arrPosition[positionNumber].beginX,arrPosition[positionNumber].beginY,arrPosition[positionNumber].x,arrPosition[positionNumber].y);
+					canvasTimer = setInterval(function(){
+						add++;
+						var addY = add*93/1376;
+						var beginX = 1376-add;
+						var beginY =93-addY;
+						var x = 385+add+add*(oImg.width-1376-385)/1376;
+						var y = 613+addY+addY*(oImg.height-93-613)/93;
+						if (beginY+y>=oImg.height && beginY<=0 && beginX+x>=oImg.width && beginX<=0) {
+							clearInterval(canvasTimer);
+						}
+						context.drawImage(oImg,beginX,beginY,x,y,0,0,oC.width,oC.height);
+						
+					},10)
 				}
-			})
-			$('#btn').mouseup(function(){
-				clearInterval(canvasTimer);
 			})
 		}
 		function change(){
 			oImg.src = arrImg[++imgNumber];
 					oImg.onload = function(){
-						context.drawImage(oImg,arrPosition[positionNumber].beginX,arrPosition[positionNumber].beginY,arrPosition[positionNumber].x,arrPosition[positionNumber].y,0,0,oC.width,oC.height);
+						context.drawImage(oImg,1376,93,385,619,0,0,oC.width,oC.height);
 					}
 			changeControl = false;
-		}
-		function magnify(bx,by,width,height){
-			canvasTimer = setInterval(function(){
-				add++;
-				var addY = add*by/bx;
-				var beginX = bx-add;
-				var beginY =by-addY;
-				var x = width+add+add*(oImg.width-bx-width)/bx
-				var y = height+addY+addY*(oImg.height-by-height)/by;
-				if (beginY+y>=oImg.height && beginY<=0 && beginX+x>=oImg.width && beginX<=0) {
-					positionNumber++;
-					add = 0;
-					clearInterval(canvasTimer);
-					oImg.src = arrImg[++imgNumber];
-					oImg.onload = function(){
-						magnify(arrPosition[positionNumber].beginX,arrPosition[positionNumber].beginY,arrPosition[positionNumber].x,arrPosition[positionNumber].y);
-					}
-				}
-				context.drawImage(oImg,beginX,beginY,x,y,0,0,oC.width,oC.height);
-			},1)
 		}
 	</script>
 </html>
