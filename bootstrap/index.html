@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>	
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<style type="text/css">
+			body{
+				background: #2D2D2D;
+				/*height: 3000px;*/
+			}
+			.row.top-content{
+				padding-top: 75px;
+				padding-bottom: 100px;
+				position: relative;
+			}
+			.titlePic img{
+				width: 100%;
+				opacity: 0;
+			}
+			.title{
+				color: white;
+				margin-top: 235px;
+				position: relative;
+			}
+			.top-content.active .title h1,.top-content.active .title .lead,.top-content.active .titlePic img{
+				-webkit-animation: fadein 1.5s linear forwards;
+			}
+			.title h1{
+				font-size: 46px;
+				line-height: 54px;
+				font-weight: 300;
+				letter-spacing: -1px;
+				margin: 0;
+				margin-bottom: 45px;
+				opacity: 0;
+			}
+			.title .lead{
+				margin-bottom: 55px;
+				opacity: 0;
+			}
+			.top-content.active .title .btn{
+				-webkit-animation: fadeinup 1.5s 2s linear forwards;
+			}
+			.top-content.active .title h1{
+				-webkit-animation-delay: 1s;
+			}
+			.top-content.active .title .lead{
+				-webkit-animation-delay: 1.5s;
+			}
+			.btn{
+				display: inline-block;
+				height: 55px;
+				padding: 0 36px;
+				line-height: 50px;
+				font-size: 15px;
+				font-weight: 400;
+				color: white;
+				border: 1px solid #ffcd05;
+				border-radius: 100px;
+				opacity: 0;
+				position: relative;
+			}
+			@-webkit-keyframes fadein{
+				from{
+					opacity: 0;
+				}
+				to{
+					opacity: 1;
+				}
+			}
+			@-webkit-keyframes fadeinup{
+				from{
+					opacity: 0;
+					top: 20px;
+				}
+				to{
+					opacity: 1;
+					top: 0;
+				}
+			}
+			.btn:hover{
+				color: #2D2D2D;
+				border-color: #ffcd05;
+				background: #ffcd05;
+			}
+			.row.middle-content{
+				padding: 200px 0 40px 0;
+				position: relative;
+				color: white;
+			}
+			.row.middle-content .example.active img,.row.middle-content .example.active h2{
+				-webkit-animation: fadein 1.5s linear forwards;
+			}
+			.row.middle-content .example{
+				position: relative;
+				margin-bottom: 120px;
+			}
+			.row.middle-content .example img{
+				width: 100%;
+				margin-bottom: 25px;
+				opacity: 0;
+			}
+			.row.middle-content .example h2{
+				font-size: 36px;
+				line-height: 44px;
+				font-weight: 300;
+				padding: 35px 0 10px 0;
+				margin-bottom: 15px;
+				opacity: 0;
+			}
+			.row.middle-content .example.active:nth-child(2) img{
+				-webkit-animation-delay: 0.5s;
+			}
+			.row.middle-content .example.active:nth-child(3) img{
+				-webkit-animation-delay: 1s;
+			}
+			.row.middle-content .example.active:nth-child(1) h2{
+				-webkit-animation-delay: 1.5s;
+			}
+			.row.middle-content .example.active:nth-child(2) h2{
+				-webkit-animation-delay: 2s;
+			}
+			.row.middle-content .example.active:nth-child(3) h2{
+				-webkit-animation-delay: 2.5s;
+			}
+			.row.bottom-content{
+				position: relative;
+				padding: 75px 0 100px 0;
+				overflow: hidden;
+			}
+			.row.bottom-content .detail{
+				position: relative;
+				opacity: 0;
+			}
+			.row.bottom-content .detail.active:nth-child(1){
+				left: -700px;
+				-webkit-animation: leftToRight 1.5s linear forwards;
+			}
+			.row.bottom-content .detail.active:nth-child(2){
+				right: -700px;
+				-webkit-animation: rightToLeft 1.5s linear forwards;
+			}
+			.row.bottom-content .detail img{
+				width: 100%;
+			}
+			.row.foot{
+				color: white;
+				position: relative;
+				padding-bottom: 100px;
+			}
+			.row.foot h3{
+				font-size: 33px;
+				font-weight: 300;
+				color: #fff;
+				letter-spacing: 1px;
+				line-height: 54px;
+				margin-bottom: 75px;
+				opacity: 0;
+			}
+			.row.foot h3.active{
+				-webkit-animation: fadein 3s linear forwards;
+			}
+			.foot .btn.active{
+				-webkit-animation: fadeinup 1.5s 0.5s linear forwards;
+			}
+			@-webkit-keyframes leftToRight{
+				0%{
+					
+				}
+				50%{
+					opacity: 0;
+				}
+				100%{
+					left: 0;
+					opacity: 1;
+				}
+			}
+			@-webkit-keyframes rightToLeft{
+				0%{
+					
+				}
+				50%{
+					opacity: 0;
+				}
+				100%{
+					right: 0;
+					opacity: 1;
+				}
+			}
+			@media only screen and (max-width: 1200px){
+				.title{
+					margin-top: 178px;
+				}
+				.title h1{
+					font-size: 40px;
+					line-height: 48px;
+				}
+				.row.middle-content .example h2{
+					font-size: 30px;
+					line-height: 38px;
+				}
+				.row.foot h3{
+					font-size: 30px;
+					line-height: 38px;
+				}
+			}
+			@media only screen and (max-width: 992px){
+				.title{
+					margin-top: 112px;
+				}
+				.title h1{
+					font-size: 32px;
+					line-height: 40px;
+			    }
+			    .row.middle-content .example h2{
+			    	font-size: 26px;
+			    	line-height: 30px;
+			    }
+			    .row.foot h3{
+			    	font-size: 26px;
+					line-height: 30px;
+			    }
+			}
+			@media only screen and (max-width: 768px){
+				.title{
+					margin-top: 0;
+				}
+				.title h1{
+					margin-bottom: 25px;
+					margin-top: 0;
+				}
+				.title .lead{
+					font-size: 16px;
+					line-height: 24px;
+					margin-bottom: 20px;
+				}
+				.btn{
+					height: 31px;
+					line-height: 28px;
+					font-size: 10px;
+					padding: 0 20px;
+					margin-bottom: 40px;
+				}
+				.row.top-content{
+					padding: 40px 0;
+				}
+				.row.middle-content{
+					padding: 40px 0 20px 0;
+				}
+				.row.middle-content .example img{
+					margin-bottom: 10px;
+				}
+				.row.middle-content .example{
+					margin-bottom: 40px;
+				}
+				.row.bottom-content{
+					padding: 40px 0;
+				}
+				.row.bottom-content .detail img{
+					margin-bottom: 100px;
+				}
+			}
+		</style>
+	</head>
+	<div class="container">
+		<div class="row top-content">
+			<div class="col-md-6 col-sm-6 text-center title center-block">
+				<h1>SHRN°</h1>
+				<p class="lead">Immersive weather</p>
+				<a href="#" class="btn">DOWNLOAD</a>
+			</div>
+			<div class="col-md-6 col-sm-6 titlePic">
+				<img src="img/shrn-today.png"/>
+			</div>
+		</div>
+		<div class="row middle-content text-center">
+			<div class="col-md-4 col-sm-4 example">
+				<img src="img/shrn-11.png"/>
+				<h2>11°</h2>
+			</div>
+			<div class="col-md-4 col-sm-4  example">
+				<img src="img/shrn-55.png"/>
+				<h2>55°</h2>
+			</div>
+			<div class="col-md-4 col-sm-4  example">
+				<img src="img/shrn-9.png"/>
+				<h2>-9°</h2>
+			</div>
+		</div>
+		<div class="row bottom-content text-center">
+			<div class="col-md-6 col-sm-6 detail">
+				<img src="img/shrn-details.png"/>
+			</div>
+			<div class="col-md-6 col-sm-6 detail">
+				<img src="img/shrn-forecast.png"/>
+			</div>
+		</div>
+		<div class="row foot text-center">
+			<h3>it's just beautiful</h3>
+			<a class="btn" href="#">GET IT</a>
+		</div>
+	</div>
+	<body>
+		
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		testPositio();
+		$(document).scroll(function(){
+			testPositio();
+		})
+		function testPositio(){
+			if ($(document).scrollTop()<$('.row.top-content').innerHeight()) {
+				$('.row.top-content').addClass('active');
+			}
+			$('.row.middle-content .example').each(function(i,elem){
+				if ($(document).scrollTop()+$(window).height()>$(elem).offset().top && $(document).scrollTop()<$(elem).offset().top+$(elem).height()) {
+					$(elem).addClass('active');
+				}
+			})
+			$('.row.bottom-content .detail').each(function(i,elem){
+				if ($(document).scrollTop()+$(window).height()>$(elem).offset().top && $(document).scrollTop()<$(elem).offset().top+$(elem).height()) {
+					$(elem).addClass('active');
+				}
+			})
+			if ($(document).scrollTop()+$(window).height()>$('.row.foot .btn').offset().top && $(document).scrollTop()<$('.row.foot .btn').offset().top+$('.row.foot .btn').height()) {
+				$('.row.foot .btn').addClass('active');
+			}
+			if ($(document).scrollTop()+$(window).height()>$('.row.foot h3').offset().top && $(document).scrollTop()<$('.row.foot h3').offset().top+$('.row.foot h3').height()) {
+				$('.row.foot h3').addClass('active');
+			}
+		}
+	</script>
+</html>
