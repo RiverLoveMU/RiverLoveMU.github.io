@@ -15,14 +15,14 @@
 				position: absolute;
 				top: 190px;
 				left: 0;
-				-webkit-transform-origin: center -700px;
-				-webkit-transform: rotate(90deg) scale(2);
+				-webkit-transform-origin: center -190px;
+				-webkit-transform: rotate(90deg) scale(3);
 				opacity: 0;
 				-webkit-animation: rotationBall 3s forwards ;
 			}
 			@-webkit-keyframes rotationBall{
 				0%{
-					-webkit-transform: rotate(145deg) scale(2);
+					-webkit-transform: rotate(145deg) scale(3);
 					opacity: 0;
 				}
 				100%{
@@ -100,6 +100,18 @@
 				width: 350px;
 				left: 2900px;
 				bottom: 0px;
+			}
+			.ballScreen div.active{
+				-webkit-transform-origin: center center;
+				-webkit-animation: roundC 3s infinite linear;
+			}
+			@-webkit-keyframes roundC{
+				from{
+					-webkit-transform: rotate(0);
+				}
+				to{
+					-webkit-transform: rotate(-360deg);
+				}
 			}							
 		</style>
 	</head>
@@ -120,6 +132,21 @@
 	</body>
 	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		
+		var ballMove = [7000,5000,5800,8000,5500,9000,7000,8000,10000,7000,8800];
+		var screenWidth = $(document).width();
+		setTimeout(function(){
+			$('.ballScreen div').each(function(i,elem){
+				$(elem).addClass('active');
+				$(elem).animate({'left': -$(elem).width() + 'px'},($(elem).offset().left+$(elem).width())/(screenWidth+$(elem).width())*ballMove[i]*3,'linear',function(){
+					loopMove($(elem),i);
+				})
+			})
+		},3000)
+		function loopMove (obj,i) {
+			obj.css('left',screenWidth);
+			obj.delay(1000).animate({'left': -obj.width() + 'px'},ballMove[i]*3,'linear',function(){
+				loopMove(obj,i);
+			})
+		}
 	</script>
 </html>
