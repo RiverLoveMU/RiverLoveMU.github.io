@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="" value="yooye" placeholder="名称"/>
+		<input type="text" name="" id="" value="boy" placeholder="性别"/>
+		<input type="text" name="" id="" value="18" placeholder="年龄"/>
+		<input type="text" name="" id="" value="100" placeholder="分数"/>
+		<br />
+		<button id="btn">提交</button>
+	</body>
+	<script type="text/javascript">
+		var oBtn=document.getElementById('btn');
+		oBtn.onclick=function(){
+//			1,创建一个ajax对象
+			var xhr=new XMLHttpRequest();
+//			2,打开链接
+			xhr.open('get','5,ajax.php?id=1',true);
+//			3,发送
+			xhr.send();
+//			4,监听发送的状态,从而做出响应
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4){
+					if(xhr.status==200){  //404页面丢失，200成功的状态码
+						console.log(xhr.responseText);
+					}
+				}
+			}
+		}
+	</script>
+</html>

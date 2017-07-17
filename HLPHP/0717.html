@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="" value="yooye" placeholder="名称"/>
+		<input type="text" name="" id="" value="boy" placeholder="性别"/>
+		<input type="text" name="" id="" value="18" placeholder="年龄"/>
+		<input type="text" name="" id="" value="100" placeholder="分数"/>
+		<br />
+		<button id="btn">提交</button>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('#btn').click(function(){
+			var xhr = new XMLHttpRequest();
+			var arrName = ['name','sex','age','score'];
+			var myUrl = '0717.php?';
+			$('input').each(function(i,elem){
+				if (i<arrName.length-1) {
+					myUrl+= arrName[i] + '=' + $(elem).val() + '&';
+				}else{
+					myUrl+= arrName[i] + '=' + $(elem).val();
+				}
+			})
+			console.log(myUrl);
+			xhr.open('get',myUrl,true);
+			xhr.send();
+			xhr.onreadystatechange=function(){
+				if (xhr.readyState==4) {
+					if (xhr.status==200) {
+						console.log(xhr.responseText);
+					}
+				}
+			}
+		})
+	</script>
+</html>
