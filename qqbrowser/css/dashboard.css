@@ -3,7 +3,7 @@
 	width: 381px;
 	overflow: hidden;
 	position: absolute;
-	-webkit-animation: boardRotate 1.5s linear forwards;
+	-webkit-animation: boardRotate 1.5s 0.3s linear forwards;
 	-webkit-transform-origin: left center 0;
 	left: 381px;
 	top: 80%;
@@ -50,10 +50,10 @@
 }
 
 .bigTitle {
-	-webkit-animation: showTitle 1s 1s linear forwards;
+	-webkit-animation: showTitle 1s 1.3s linear forwards;
 	opacity: 0;
 }
-.fadeout .bigTitle{
+.fadeout.bigTitle{
 	-webkit-animation: hideTitle 0.7s linear forwards;
 	opacity: 1;
 }
