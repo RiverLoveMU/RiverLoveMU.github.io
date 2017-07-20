@@ -1,0 +1,30 @@
+.top-nav li:hover{
+	cursor: pointer;
+}
+.top-nav .website li:hover a{
+	color: #FF7900;
+}
+.top-nav .website li:first-child:hover a{
+	color: black;
+}
+.top-nav .enter li:hover {
+	background: white;
+}
+.top-nav .enter li:nth-child(2):hover a,
+.top-nav .enter li:nth-child(3):hover a {
+	color: #FF7900;
+}
+.top-nav .enter li a .iconfont{
+	transition: all 1s; 
+	display: block;
+	float: right;
+	-webkit-transform-origin: center 16px;
+}
+.top-nav .enter li:hover a .iconfont{
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+.top-nav .enter li .show div:hover{
+	background: #F8F8F8;
+}

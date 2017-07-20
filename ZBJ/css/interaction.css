@@ -1,0 +1,61 @@
+.top-nav .website li .show{
+	width: 215px;
+	height: 220px;
+	position: absolute;
+	border: 1px solid gainsboro;
+	background: white;
+	border-top: none;
+	margin-left: -8px;
+	margin-top: -3px;
+}
+.top-nav .website li .show .qr-pic{
+	height: 80px;
+	width: 80px;
+	display: block;
+	float: left;
+	margin-right: 5px;
+}
+.top-nav .website li .show .qr{
+	width: 185px;
+	margin-left: 25px;
+	padding: 13px 0;
+	overflow: hidden;
+}
+.top-nav .website li .show .qr:first-child{
+	border-bottom: 1px solid gainsboro;
+}
+.top-nav .website li .show .qr-arrow{
+	position: absolute;
+	top: -3px;
+	left: 1px;
+}
+.top-nav .website li .show p{
+	word-break: break-all;
+	text-align: center;
+	line-height: 16px;
+	font-size: 16px;
+}
+.top-nav .website li .show .qr .btn{
+	float: left;
+	width: 70px;
+	height: 20px;
+	background: #FF7900;
+	margin-top: 18px;
+	margin-left: 5px;
+	color: white;
+	line-height: 20px;
+	text-align: center;
+	border-radius: 3px;
+	font-size: 13px;
+}
+.top-nav .enter .show{
+	background: white;
+	position: absolute;
+	margin-left: -9px;
+}
+.top-nav .enter .show div{
+	height: 25px;
+	padding: 0 10px;
+	line-height: 25px;
+	font-size: 12px;
+}

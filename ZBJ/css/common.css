@@ -60,3 +60,6 @@ body{
 .bg-fff3e9{
 	background-color: #fff3e9;
 }
+.hide {
+	display: none;
+}

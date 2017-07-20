@@ -17,7 +17,7 @@
 /*顶部固定菜单左侧网址栏 begin*/
 .top .top-nav .website{
 	float: left;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 .top .top-nav .website li{
 	float: left;
