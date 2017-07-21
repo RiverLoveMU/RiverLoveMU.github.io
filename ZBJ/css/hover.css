@@ -28,3 +28,38 @@
 .top-nav .enter li .show div:hover{
 	background: #F8F8F8;
 }
+.bajie-icon .close:hover{
+	cursor: pointer;
+	color: #ff6901;
+}
+.top-nav .enter li .website-nav li{
+	cursor: pointer;
+}
+.top-nav .enter li .website-nav li:hover a{
+	color: #ff7900;
+}
+.search .city:hover .name{
+	color: #FFCA8D;
+}
+.search .city:hover .name .iconfont{
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
+	color: #ff6901;
+}
+.search .city .city-list .hot-city .hot-city-list li:hover a{
+	color: #ff7900;
+}
+.search .search-box .sort{
+	cursor: pointer;
+}
+.more-search-box .more-search:hover{
+	background: gainsboro;
+	cursor: pointer;
+}
+.more-search-box .more-search:first-child:hover{
+	background: transparent;
+}
+.search .search-box ul li:hover a{
+	text-decoration: underline;
+}

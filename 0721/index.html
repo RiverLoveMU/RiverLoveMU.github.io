@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=0d65222cbaa1d7c44821707c4ba21f71"></script>
+		<style type="text/css">
+			html,
+			body,
+			#container {
+				width: 100%;
+				height: 100%;
+			}
+			
+			#panel {
+				position: absolute;
+				background-color: white;
+				max-height: 90%;
+				overflow-y: auto;
+				top: 10px;
+				right: 10px;
+				width: 280px;
+			}
+			
+			#tip {
+				background-color: #ddf;
+				color: #333;
+				border: 1px solid silver;
+				box-shadow: 3px 4px 3px 0px silver;
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				border-radius: 5px;
+				overflow: hidden;
+				line-height: 20px;
+			}
+			
+			#tip input[type="text"] {
+				height: 25px;
+				border: 0;
+				padding-left: 5px;
+				width: 280px;
+				border-radius: 3px;
+				outline: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="container"></div>
+		<div id="panel"></div>
+		<div id="tip">
+			<input type="text" id="keyword" name="keyword" value="请输入关键字：(选定后搜索)" onfocus='this.value=""' />
+		</div>
+	</body>
+	<script type="text/javascript">
+		var map, geolocation;
+		var map = new AMap.Map('container', {
+			resizeEnable: true,
+		});
+		map.plugin('AMap.Geolocation', function() {
+			geolocation = new AMap.Geolocation({
+				enableHighAccuracy: true, //是否使用高精度定位，默认:true
+				timeout: 10000, //超过10秒后停止定位，默认：无穷大
+				buttonOffset: new AMap.Pixel(10, 20), //定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+				zoomToAccuracy: true, //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+				buttonPosition: 'RB'
+			});
+			map.addControl(geolocation);
+			geolocation.getCurrentPosition();
+			AMap.event.addListener(geolocation, 'complete', onComplete); //返回定位信息
+			AMap.event.addListener(geolocation, 'error', onError); //返回定位出错信息
+		});
+		AMap.plugin(['AMap.Autocomplete', 'AMap.PlaceSearch'], function() {
+			var autoOptions = {
+				city: "重庆", //城市，默认全国
+				input: "keyword" //使用联想输入的input的id
+			};
+			autocomplete = new AMap.Autocomplete(autoOptions);
+			var placeSearch = new AMap.PlaceSearch({
+				city: '重庆',
+				map: map
+			})
+			AMap.event.addListener(autocomplete, "select", function(e) {
+				//TODO 针对选中的poi实现自己的功能
+				placeSearch.search(e.poi.name)
+			});
+		});
+	</script>
+
+</html>

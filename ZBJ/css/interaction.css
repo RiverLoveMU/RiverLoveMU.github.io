@@ -59,3 +59,221 @@
 	line-height: 25px;
 	font-size: 12px;
 }
+.top-nav .enter li .website-nav{
+	width: 1190px;
+	height: 225px;
+	background: white;
+	padding: 20px 0 10px 0;
+	box-sizing: border-box;
+	border: 1px solid gainsboro;
+	border-top: none;
+	position: absolute;
+	left: 0px;
+	z-index: 1000;
+}
+.top-nav .enter li .website-nav div:after{
+	content: '';
+	border-left: 1px dashed gainsboro;
+	width: 1px;
+	height: 170px;
+	position: absolute;
+	right: -1px;
+	top: 0px;
+}
+.top-nav .enter li .website-nav h3{
+	font-size: 18px;
+	color: #ff7900;
+	margin-bottom: 2px;
+}
+.top-nav .enter li .website-nav .detail,.website-nav h3{
+	margin-left: 25px;
+}
+.top-nav .enter li .website-nav .detail{
+	padding-right: 23px;
+	overflow: hidden;
+}
+.top-nav .enter li .website-nav .detail li{
+	margin-top: 11px;
+	width: 75px;
+	font-size: 12px;
+	float: left;
+	line-height: 12px;
+	padding: 0;
+}
+.top-nav .enter li .website-nav div{
+	float: left;
+	position: relative;
+}
+.top-nav .enter li .website-nav .basic-service .detail,
+.top-nav .enter li .website-nav .transaction-security .detail{
+	width: 75px;
+}
+.top-nav .enter li .website-nav .seller-service .detail,
+.top-nav .enter li .website-nav .bajie-consultation .detail{
+	width: 150px;
+}
+.top-nav .enter li .website-nav .industry-market .detail,
+.top-nav .enter li .website-nav .special-market .detail{
+	width: 225px;
+}
+.top-nav .enter li .website-nav .special-market img{
+	width: 62px;
+	margin-top: 13px;
+	margin-left: 7px;
+}
+.top-nav .enter li .website-nav .special-market img.first{
+	margin-left: 25px;
+}
+.top-nav .enter li .website-nav .transaction-security:after{
+	border: none;
+}
+
+.bajie-icon{
+	height: 42px;
+	width: 108px;
+	position: absolute;
+	top: -4px;
+	left: 188px;
+}
+.bajie-icon .bg{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background: rgba(0,0,0,.7);
+	height: 35px;
+	border-radius: 2px;
+}
+.bajie-icon .bajie{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: url(../img/interaction/bajie.png) no-repeat;
+	
+}
+.bajie-icon .bajie-text{
+	position: absolute;
+	bottom: 4px;
+	left: 41px;
+	color: #fff;
+	line-height: 14px;
+	font-size: 12px;
+}
+.bajie-icon .close{
+	position: absolute;
+	top: 8px;
+	right: 0;
+	width: 10px;
+	height: 10px;
+	line-height: 10px;
+	color: white;
+}
+.city-list{
+	width: 275px;
+	position: absolute;
+	overflow: hidden;
+	top: -35px;
+	left: -4px;
+	z-index: 99;
+}
+.city-list:before{
+	content: '';
+	height: 2px;
+	width: 84px;
+	position: absolute;
+	top: 33px;
+	left: 1px;
+	background: white;
+	
+}
+.city-list .country{
+	height: 32px;
+	width: 84px;
+	border: 1px solid gainsboro;
+	background: white;
+}
+.city-list .select-city{
+	width: 273px;
+	border: 1px solid gainsboro;
+	background: white;
+}
+.city-list .select-city .guess-city{
+	padding: 15px 0px 7px;
+	margin: 0 11px;
+	border-bottom: 1px dashed gainsboro;
+	font-size: 12px;
+	color: gray;
+	line-height: 12px;
+}
+.city-list .select-city .guess-city span{
+	color: #ff7900;
+	margin-left: 5px;
+}
+.city-list .select-city .hot-city{
+	margin: 0px 11px;
+	overflow: hidden;
+	font-size: 12px;
+	line-height: 12px;
+}
+.city-list .select-city .hot-city .title{
+	border-left: 2px solid #FF5931;
+	padding-left: 10px;
+	margin: 14px 0;
+}
+.city-list .select-city .hot-city .hot-city-list{
+	overflow: hidden;
+	border-bottom: 1px dashed gainsboro;
+}
+.city-list .select-city .hot-city .hot-city-list li{
+	padding: 0 18px;
+	margin-bottom: 14px;
+	float: left;
+	border-right: 1px solid gainsboro;
+}
+.city-list .select-city .hot-city .hot-city-list li a{
+	color: gray;
+}
+.city-list .select-city .hot-city .hot-city-list li:nth-child(4n){
+	border: none;
+}
+.city-list .select-city .hot-city .waitmore{
+	text-align: center;
+	color: gray;
+	line-height: 30px;
+}
+.more-search-box{
+	position: absolute;
+	border-bottom: 1px solid #ff6901;
+	left: -3px;
+	top: 0;
+	z-index: 50;
+}
+.more-search-box:before{
+	content: '';
+	width: 2px;
+	height: 33px;
+	position: absolute;
+	top: 0;
+	left: 1px;
+	background: white;
+}
+.more-search:first-child{
+	background: transparent;
+}
+.more-search{
+    width: 75px;
+    padding: 7px 0px 6px 17px;
+    height: 20px;
+    z-index: 10;
+    color: #7d7d7d;
+    font-size: 12px;
+    line-height: 20px;
+    border-left: 1px solid #ff6901;
+    border-right: 1px solid #ff6901;
+    background: white;
+}
+.search .search-box .input-box .sort span{
+	margin: 0;
+	padding: 0;
+	position: relative;
+	line-height: 20px;
+}

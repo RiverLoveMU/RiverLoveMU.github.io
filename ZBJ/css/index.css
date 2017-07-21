@@ -4,7 +4,8 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 50;
+	z-index: 1000;
+	border-bottom: 1px solid gainsboro;
 }
 .top .top-nav{
 	width: 1190px;
@@ -13,6 +14,7 @@
 	font-size: 12px;
 	color: #555;
 	line-height: 33px;
+	position: relative;
 }
 /*顶部固定菜单左侧网址栏 begin*/
 .top .top-nav .website{
@@ -66,6 +68,7 @@
 	margin: auto;
 	margin-top: 3px;
 	margin-bottom: 8px;
+	position: relative;
 }
 /*企业图标 begin*/
 .search .pic{
@@ -78,6 +81,7 @@
 .search .city{
 	display: inline-block;
 	vertical-align: middle;
+	position: relative;
 }
 .search .city .name{
 	margin-top: -25px;
@@ -86,6 +90,7 @@
 	padding-left: 7px;
 	padding-right: 8px;
 	position: relative;
+	z-index: 100;
 }
 .search .city .more{
 	color: #bbb;
@@ -95,10 +100,11 @@
 	padding-left: 7px;
 }
 .search .city .name .iconfont{
+	transition: all 1s;
 	font-size: 8px;
 	position: absolute;
-	top: 7px;
-	left: 60px;
+	top: 6px;
+	left: 50px;
 }
 /*改变城市 end*/
 .search .gif{
@@ -106,7 +112,6 @@
 	vertical-align: middle;
 	height: 80px;
 	width: 80px;
-	border: 1px solid red;
 	margin-left: 28px;
 }
 /*搜索框 begin*/
@@ -128,9 +133,11 @@
 }
 .search .search-box .zhubajie{
 	color: white;
+	cursor: pointer;
 }
 .search .search-box .tianpengwang{
-	color: #de352f;
+	color: #DE352F;
+	cursor: pointer;
 }
 .search .search-box .input-box{
 	float: left;
@@ -154,6 +161,7 @@
 	width: 56px;
 	font-size: 16px;
 	float: left;
+	background-color: #ff6901;
 }
 .search .search-box .input-box span{
 	padding: 0 9px 0 15px;
@@ -185,12 +193,16 @@
 }
 .search .search-box .input-box .sort .iconfont{
 	vertical-align: middle;
-	margin-left: 15px;
+	float:right;
+	margin-right: 5px;
+	margin-top: 1px;
 }
 .search .search-box ul{
 	clear: both;
 	float: left;
 	overflow: hidden;
+	margin-top: -20px;
+	margin-left: 3px;
 }
 .search .search-box ul li{
 	float: left;
