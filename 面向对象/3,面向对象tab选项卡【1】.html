@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			ul{
+				overflow: hidden;
+			}
+			li{
+				width: 100px;
+				line-height: 40px;
+				background: #d8d8d8;
+				text-align: center;
+				float: left;
+			}
+			li.active{
+				background: red;
+				color: #FFF;
+			}
+			.cont{
+				width: 300px;
+				height: 300px;
+				border: 1px solid #000;
+				display: none;
+			}
+			.cont.active{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="tab">
+			<ul>
+				<li class="active">菜单1</li>
+				<li>菜单2</li>
+				<li>菜单3</li>
+			</ul>
+			<div class="cont active">内容1</div>
+			<div class="cont">内容2</div>
+			<div class="cont">内容3</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		1,先把面向过程的代码写出来
+//		2,把上面面向过程当中的属性跟方法，全部提取出来
+//			尽量不要进行函数的嵌套
+//			需要对this指向做一定的调整
+//		3,根据提取出来的属性跟方法,通过构造函数+原型的方式,制造一个通用对象
+		
+		
+//		1,面向过程编写
+//		var oTab=document.getElementById('tab');
+//		var aLi=oTab.getElementsByTagName('li');
+//		var aCont=oTab.getElementsByTagName('div');
+//		
+//		for(var i=0;i<aLi.length;i++){
+//			aLi[i].index=i;
+//			aLi[i].onclick=function(){
+//				for(var i=0;i<aLi.length;i++){
+//					aLi[i].className='';
+//					aCont[i].className='cont';
+//				}
+//				this.className='active';
+//				aCont[this.index].className='cont active';
+//			}
+//		}
+		
+//		2,提取属性跟方法
+//		var oTab=document.getElementById('tab');
+//		var aLi=oTab.getElementsByTagName('li');
+//		var aCont=oTab.getElementsByTagName('div');
+//		
+//		function init(){
+//			for(var i=0;i<aLi.length;i++){
+//				aLi[i].index=i;
+//				aLi[i].onclick=change;
+//			}
+//		}
+//		
+//		function change(){
+//			function(){
+//				for(var i=0;i<aLi.length;i++){
+//					aLi[i].className='';
+//					aCont[i].className='cont';
+//				}
+//				this.className='active';
+//				aCont[this.index].className='cont active';
+//			}
+//		}
+		
+//		3,构造函数+原型  生成通用对象
+
+		function Tab(id){
+			this.oTab=document.getElementById(id);
+			this.aLi=this.oTab.getElementsByTagName('li');
+			this.aCont=this.oTab.getElementsByTagName('div');
+		}
+		
+		Tab.prototype.init=function(){
+			var _This=this;  //this指向创建出的tab对象
+			for(var i=0;i<this.aLi.length;i++){
+				this.aLi[i].index=i;
+				this.aLi[i].onclick=_This.change;  //如果不用_This，而用this的话，则this指向被点击li，因为change方法目前挂载到了对象下面，所以会报错
+			}
+		}
+		
+		Tab.prototype.change=function(){
+			alert(this.index);  //this指向被点击的li
+			for(var i=0;i<this.aLi.length;i++){
+				this.aLi[i].className='';
+				this.aCont[i].className='cont';
+			}
+			this.className='active';
+			aCont[this.index].className='cont active';
+		}
+		
+		var tab1=new Tab('tab');
+		tab1.init();
+	</script>
+</html>

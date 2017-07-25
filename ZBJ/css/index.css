@@ -171,6 +171,12 @@
 .search .search-box .input-box .demand{
 	width: 120px;
 	float: left;
+	position: relative;
+	overflow: visible;
+}
+.search .search-box .input-box .demand button{
+	width: 100%;
+	cursor: pointer;
 }
 .search .search-box .input-box .demand .iconfont{
 	font-size: 8px;
@@ -215,7 +221,7 @@
 	color: #999;
 }
 .search .search-box ul li .orange{
-	color: #ff6901;
+	color: #ff6901 !important;
 }
 /*搜索框 end*/
 /*搜索栏 end*/

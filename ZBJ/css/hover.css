@@ -63,3 +63,11 @@
 .search .search-box ul li:hover a{
 	text-decoration: underline;
 }
+.search .search-box .zhubajie:hover{
+	background: #ff6901 !important;
+	color: white !important;
+}
+.search .search-box .tianpengwang:hover{
+	background: #DE352F !important;
+	color: white !important;
+}
