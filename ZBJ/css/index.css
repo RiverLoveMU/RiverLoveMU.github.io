@@ -230,6 +230,7 @@
 	width: 1190px;
 	margin: auto;
 	overflow: hidden;
+	position: relative;
 }
 /*主导航栏左侧导航栏begin*/
 .nav .left-nav{
@@ -282,6 +283,7 @@
 	line-height: 22px;
 	font-size: 12px;
 	padding-left: 12px;
+	position: relative;
 }
 .nav .left-nav ul li{
 	padding-right: 18px;

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#inner{
+				height: 400px;
+				width: 500px;
+				border: 5px solid transparent;
+				box-sizing: border-box;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			#outer{
+				height: 400px;
+				width: 500px;
+				position: absolute;
+				top: 100px;
+				left: 100px;
+				background: pink;
+				display: none;
+			}
+			#btn{
+				height: 50px;
+				width: 50px;
+				background: yellow;
+				text-align: center;
+				line-height: 100px;
+				position: absolute;
+				/*z-index: -1;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div id="btn">
+			
+		</div>
+		<div id="outer" >
+			<div id="inner">
+				
+			</div>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var screenWidth = document.documentElement.clientWidth;
+		var screenHeight = document.documentElement.clientHeight;
+		function createWindow (outer,inner){
+			this.oIn = document.getElementById(inner);
+			this.oOut = document.getElementById(outer);
+			this.mouseX = 0;
+			this.mouseY = 0;
+			this.innerWidth = this.oIn.offsetWidth;
+			this.innerHeight = this.oIn.offsetHeight;
+			this.outerWidth = this.oOut.offsetWidth;
+			this.outerHeight = this.oOut.offsetHeight;
+			this.outerLeft = this.oOut.offsetLeft;
+			this.outerTop = this.oOut.offsetTop;
+			this.innerLeft = parseInt(getStyle(this.oIn,'left'));
+			this.innerTop = parseInt(getStyle(this.oIn,'top'));
+			this.loc = '';
+			this.addWidth = 0;//增加的宽度
+			this.addHeight = 0;//增加的高度
+			//拖动时鼠标相对于div的位置差
+			this.beginX = 0;
+			this.beginY = 0;
+			this.L = 0;
+			this.T = 0;
+			this.control = 0;
+			this.originHeight = parseInt(getStyle(this.oIn,'height'));
+			this.originWidth = parseInt(getStyle(this.oIn,'width'));
+		}
+		createWindow.prototype.init = function(){
+			var _this = this;
+			this.oOut.onmousedown = function(){
+				_this.fnDown();
+			}
+		}
+		createWindow.prototype.fnDown = function(ev){
+			var _this = this;
+			var newEv = ev || event;
+			this.mouseX = newEv.clientX;
+			this.mouseY = newEv.clientY;
+			this.innerWidth = this.oIn.offsetWidth;
+			this.innerHeight = this.oIn.offsetHeight;
+			this.outerWidth = this.oOut.offsetWidth;
+			this.outerHeight = this.oOut.offsetHeight;
+			this.outerLeft = this.oOut.offsetLeft;
+			this.outerTop = this.oOut.offsetTop;
+			this.innerLeft = parseInt(getStyle(this.oIn,'left'));
+			this.innerTop = parseInt(getStyle(this.oIn,'top'));
+			this.loc = '';
+			this.beginX = newEv.clientX - getPos(this.oIn).left;
+			this.beginY = newEv.clientY - getPos(this.oIn).top;
+			if (this.mouseX >= this.outerLeft && this.mouseX<= this.outerLeft+10) {
+				this.loc = 'left';
+			}
+			if (this.mouseX >= this.outerLeft + this.outerWidth - 10 && this.mouseX<= this.outerLeft + this.outerWidth) {
+				this.loc = 'right';
+			}
+			if (this.mouseY >= this.outerTop && this.mouseY<= this.outerTop+10) {
+				this.loc = 'top';
+			}
+			if (this.mouseY >= this.outerTop + 10 && this.mouseY<= this.outerTop+30) {
+				this.loc = 'drag';
+			}
+			if (this.mouseY >= this.outerTop + this.outerHeight - 10 && this.mouseY<= this.outerTop + this.outerHeight) {
+				this.loc = 'bottom';
+			}
+			document.onmousemove = function(){
+				_this.fnMove();
+			}
+			document.onmouseup = function(){
+				_this.fnUp();
+			}
+			return false;
+		}
+		createWindow.prototype.fnMove = function(ev){
+			var newEv = ev || event;
+			this.oIn.style.borderColor = 'black';
+			this.addWidth = newEv.clientX - this.mouseX;
+			this.addHeight = newEv.clientY - this.mouseY;
+			//当向右拉伸窗口
+			if (this.loc == 'right') {
+				this.oIn.style.borderRightColor = 'gray';
+				//改变预显示框的宽度
+				this.oIn.style.width = this.innerWidth + this.addWidth + 'px';
+				//控制预显示框的最小宽度
+				if(this.oIn.offsetWidth <= 150){
+					this.oIn.style.width = 150 + 'px';
+				}
+				//预显示框到边界停止拉动
+				if (this.oIn.offsetWidth >= screenWidth - this.outerLeft) {
+					this.oIn.style.width = screenWidth - this.outerLeft + 'px';
+				}
+				this.originWidth = this.oIn.offsetWidth;
+			}
+			//向下拉伸窗口
+			if (this.loc == 'bottom') {
+				this.oIn.style.borderBottomColor = 'gray';
+				this.oIn.style.height = this.innerHeight + this.addHeight + 'px';
+				if(this.oIn.offsetHeight <= 150){
+					this.oIn.style.height = 150 + 'px';
+				}
+				if (this.oIn.offsetHeight >= screenHeight - this.outerTop) {
+					this.oIn.style.height = screenHeight - this.outerTop + 'px';
+				}
+				this.originHeight = this.oIn.offsetHeight;
+			}
+			//向上拉伸窗口
+			if (this.loc == 'top') {
+				this.oIn.style.borderTopColor = 'gray';
+				this.oIn.style.height = this.innerHeight - this.addHeight + 'px';
+				//改变高度的同时改变其top值
+				this.oIn.style.top = this.innerTop + this.addHeight + 'px';
+				//控制最小高度，第二个判断条件是为了防止鼠标不灵敏
+				if(this.oIn.offsetHeight <= 150 || this.addHeight > this.outerHeight - 150){
+					this.oIn.style.height = 150 + 'px';
+					this.oIn.style.top = this.outerHeight - 150 + 'px';
+					//控制未来粉色框的位置
+					this.addHeight = this.outerHeight - 150;
+				}
+				//控制边界时停止拉动
+				if ( this.oIn.offsetHeight >= this.outerTop + this.outerHeight) {
+					this.oIn.style.height = this.outerTop + this.outerHeight + 'px';
+					this.oIn.style.top = -this.outerTop + 'px';
+					this.addHeight = -this.outerTop;
+				}
+				this.originHeight = this.oIn.offsetHeight;
+			}
+			//向左拉伸窗口
+			if (this.loc == 'left') {
+				this.oIn.style.borderLeftColor = 'gray';
+				this.oIn.style.width = this.innerWidth - this.addWidth + 'px';
+				//改变宽的同时改变其left值
+				this.oIn.style.left = this.innerLeft + this.addWidth + 'px';
+				if(this.oIn.offsetWidth <= 150 || this.addWidth > this.outerWidth - 150){
+					this.oIn.style.width = 150 + 'px';
+					this.oIn.style.left = this.outerWidth - 150 + 'px';
+					this.addWidth = this.outerWidth - 150;
+				}
+				if ( this.oIn.offsetWidth >= this.outerLeft + this.outerWidth) {
+					this.oIn.style.width = this.outerLeft + this.outerWidth + 'px';
+					this.oIn.style.left = -this.outerLeft + 'px';
+					this.addWidth = -this.outerLeft;
+				}
+				this.originWidth = this.oIn.offsetWidth;
+			}
+			//控制其拖动
+			if (this.loc == 'drag'){
+				this.oIn.style.borderColor = 'gray';
+				//恢复原本的高度宽度
+				this.oIn.style.height = this.originHeight + 'px';
+				this.oIn.style.width = this.originWidth + 'px';
+				//控制预显示框移动
+				this.L = newEv.clientX - this.beginX - getPos(this.oOut).left;
+				this.T = newEv.clientY - this.beginY - getPos(this.oOut).top;
+//					//防止div移到屏幕线边缘
+//					if (T >= screenHeight - outerTop - outerHeight) {
+//						T = screenHeight - outerTop - outerHeight;
+//					}
+				this.oIn.style.left = this.L + 'px';
+				this.oIn.style.top = this.T + 'px';
+				this.control = 0;
+				//鼠标移到最顶部
+				if (newEv.clientY <= 5) {
+					//改变高度宽度
+					this.oIn.style.height = screenHeight + 'px';
+					this.oIn.style.width = screenWidth + 'px';
+                    //改变其位置
+					this.oIn.style.top = -this.outerTop + 'px';
+					this.oIn.style.left = -this.outerLeft + 'px';
+					//控制粉色框最后的位置
+					this.control = 1;
+				}
+				//鼠标移到最左边
+				if (newEv.clientX <= 5) {
+					this.oIn.style.height = screenHeight + 'px';
+					this.oIn.style.width = screenWidth*0.5 + 'px';
+					this.oIn.style.top = -this.outerTop + 'px';
+					this.oIn.style.left = -this.outerLeft + 'px';
+					this.control = 2;
+				}
+				//鼠标移到最右边
+				if (newEv.clientX >= screenWidth - 5) {
+					this.oIn.style.height = screenHeight + 'px';
+					this.oIn.style.width = screenWidth*0.5 + 'px';
+					this.oIn.style.top = -this.outerTop + 'px';
+					this.oIn.style.left = (screenWidth - this.outerLeft - screenWidth*0.5) + 'px';
+					this.control = 3;
+				}
+			}
+			return false;
+		}
+		createWindow.prototype.fnUp = function(ev){
+			document.onmousemove = null;
+			this.oIn.style.borderColor = 'transparent';
+			//改变粉色框高度宽度
+			this.oOut.style.height = this.oIn.style.height;
+			this.oOut.style.width = this.oIn.style.width;
+			//使预显示框归位
+			this.oIn.style.left = 0;
+			this.oIn.style.top = 0;
+			//向上拉伸改变粉色框位置
+			if (this.loc == 'top') {
+				this.oOut.style.top = this.outerTop + this.addHeight + 'px';
+			}
+			//向左拉伸改变粉色框位置
+			if (this.loc == 'left') {
+				this.oOut.style.left = this.outerLeft + this.addWidth + 'px';
+			}
+			//拉拽的时候改变粉色框位置
+			if (this.loc == 'drag') {
+				//正常情况
+				this.oOut.style.left = this.oOut.offsetLeft + this.L + 'px';
+				this.oOut.style.top = this.oOut.offsetTop + this.T + 'px';
+				//拉到最左边和最上边
+				if (this.control == 1 || this.control == 2) {
+					this.oOut.style.left = 0;
+					this.oOut.style.top = 0;
+				}
+				//拉到最右边
+				if (this.control == 3) {
+					this.oOut.style.left = screenWidth*0.5 + 'px';
+					this.oOut.style.top = 0;
+				}
+			}
+			this.loc = '';
+		}
+		$('btn').ondblclick = function(){
+			$('outer').style.display = 'block';
+			var oWindow = new createWindow('outer','inner');
+			oWindow.init();
+		}
+	</script>
+</html>

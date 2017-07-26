@@ -122,3 +122,29 @@ $('.search .search-box .input-box .demand').mouseover(function(){
 $('.search .search-box .input-box .demand').mouseout(function(){
 	$(this).find('.demand-list').addClass('hide');
 })
+$('.nav .left-nav .ul-content').mouseover(function(){
+	$(this).find('.nav-detail-list').removeClass('hide');
+})
+$('.nav .left-nav .ul-content').mouseout(function(){
+	$(this).find('.nav-detail-list').addClass('hide');
+})
+$('.nav .left-nav .ul-content .cover').each(function(i,elem){
+	if (i<3) {
+		$(elem).css('top',i*22+72+'px')
+	}
+	if(i>=3 && i<6){
+		$(elem).css('top',i*22+72+24+'px')
+	}
+	if(i>=6 && i<9){
+		$(elem).css('top',i*22+72+48+'px')
+	}
+	if(i>=9 && i<11){
+		$(elem).css('top',i*22+72+72+'px')
+	}
+	if(i>=11 && i<14){
+		$(elem).css('top',i*22+72+96+'px')
+	}
+	if(i>=14 && i<16){
+		$(elem).css('top',i*22+72+120+'px')
+	}
+})

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#inner{
+				height: 400px;
+				width: 500px;
+				border: 5px solid transparent;
+				box-sizing: border-box;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			#outer{
+				height: 400px;
+				width: 500px;
+				position: absolute;
+				top: 100px;
+				left: 100px;
+				background: pink;
+				display: none;
+			}
+			#btn{
+				height: 50px;
+				width: 50px;
+				background: yellow;
+				text-align: center;
+				line-height: 100px;
+				position: absolute;
+				/*z-index: -1;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div id="btn">
+			
+		</div>
+		<div id="outer" >
+			<div id="inner">
+				
+			</div>
+		</div>
+	</body>
+	<script src="js/myQuery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('btn').ondblclick = function(){
+			$('outer').style.display = 'block';
+		}
+		//拉出边缘恢复的长度；
+		var originHeight = parseInt(getStyle($('inner'),'height'));
+		var originWidth = parseInt(getStyle($('inner'),'width'));
+		$('outer').onmousedown = function(ev){
+			$('btn').onclick = null;
+			var newEv = ev||event;
+			var mouseX = newEv.clientX;
+			var mouseY = newEv.clientY;
+			var innerWidth = $('inner').offsetWidth;
+			var innerHeight = $('inner').offsetHeight;
+			var outerWidth = $('outer').offsetWidth;
+			var outerHeight = $('outer').offsetHeight;
+			var outerLeft = $('outer').offsetLeft;
+			var outerTop = $('outer').offsetTop;
+			var innerLeft = parseInt(getStyle($('inner'),'left'));
+			var innerTop = parseInt(getStyle($('inner'),'top'));
+			var loc = '';
+			var addWidth = 0;//增加的宽度
+			var addHeight = 0;//增加的高度
+			//拖动时鼠标相对于div的位置差
+			var beginX = newEv.clientX - getPos($('inner')).left;
+			var beginY = newEv.clientY - getPos($('inner')).top;
+			var L = 0;
+			var T = 0;
+			//控制拖动到上左右最好粉色框的状态
+			var control = 0;
+			//屏幕大小
+			var screenWidth = document.documentElement.clientWidth;
+			var screenHeight = document.documentElement.clientHeight;
+			//根据鼠标点在不同区域控制要展现的效果
+			if (mouseX >= outerLeft && mouseX<= outerLeft+10) {
+				loc = 'left';
+			}
+			if (mouseX >= outerLeft + outerWidth - 10 && mouseX<= outerLeft + outerWidth) {
+				loc = 'right';
+			}
+			if (mouseY >= outerTop && mouseY<= outerTop+10) {
+				loc = 'top';
+			}
+			if (mouseY >= outerTop + 10 && mouseY<= outerTop+30) {
+				loc = 'drag';
+			}
+			if (mouseY >= outerTop + outerHeight - 10 && mouseY<= outerTop + outerHeight) {
+				loc = 'bottom';
+			}
+			document.onmousemove = function(ev){
+				//出现预显示框的边框
+				$('inner').style.borderColor = 'black';
+				var newEv = ev || event;
+				addWidth = newEv.clientX - mouseX;
+				addHeight = newEv.clientY - mouseY;
+				//当向右拉伸窗口
+				if (loc == 'right') {
+					$('inner').style.borderRightColor = 'gray';
+					//改变预显示框的宽度
+					$('inner').style.width = innerWidth + addWidth + 'px';
+					//控制预显示框的最小宽度
+					if($('inner').offsetWidth <= 150){
+						$('inner').style.width = 150 + 'px';
+					}
+					//预显示框到边界停止拉动
+					if ($('inner').offsetWidth >= screenWidth - outerLeft) {
+						$('inner').style.width = screenWidth - outerLeft + 'px';
+					}
+					originWidth = $('inner').offsetWidth;
+				}
+				//向下拉伸窗口
+				if (loc == 'bottom') {
+					$('inner').style.borderBottomColor = 'gray';
+					$('inner').style.height = innerHeight + addHeight + 'px';
+					if($('inner').offsetHeight <= 150){
+						$('inner').style.height = 150 + 'px';
+					}
+					if ($('inner').offsetHeight >= screenHeight - outerTop) {
+						$('inner').style.height = screenHeight - outerTop + 'px';
+					}
+					originHeight = $('inner').offsetHeight;
+				}
+				//向上拉伸窗口
+				if (loc == 'top') {
+					$('inner').style.borderTopColor = 'gray';
+					$('inner').style.height = innerHeight - addHeight + 'px';
+					//改变高度的同时改变其top值
+					$('inner').style.top = innerTop + addHeight + 'px';
+					//控制最小高度，第二个判断条件是为了防止鼠标不灵敏
+					if($('inner').offsetHeight <= 150 || addHeight > outerHeight - 150){
+						$('inner').style.height = 150 + 'px';
+						$('inner').style.top = outerHeight - 150 + 'px';
+						//控制未来粉色框的位置
+						addHeight = outerHeight - 150;
+					}
+					//控制边界时停止拉动
+					if ( $('inner').offsetHeight >= outerTop + outerHeight) {
+						$('inner').style.height = outerTop + outerHeight + 'px';
+						$('inner').style.top = -outerTop + 'px';
+						addHeight = -outerTop;
+					}
+					originHeight = $('inner').offsetHeight;
+				}
+				//向左拉伸窗口
+				if (loc == 'left') {
+					$('inner').style.borderLeftColor = 'gray';
+					$('inner').style.width = innerWidth - addWidth + 'px';
+					//改变宽的同时改变其left值
+					$('inner').style.left = innerLeft + addWidth + 'px';
+					if($('inner').offsetWidth <= 150 || addWidth > outerWidth - 150){
+						$('inner').style.width = 150 + 'px';
+						$('inner').style.left = outerWidth - 150 + 'px';
+						addWidth = outerWidth - 150;
+					}
+					if ( $('inner').offsetWidth >= outerLeft + outerWidth) {
+						$('inner').style.width = outerLeft + outerWidth + 'px';
+						$('inner').style.left = -outerLeft + 'px';
+						addWidth = -outerLeft;
+					}
+					originWidth = $('inner').offsetWidth;
+				}
+				//控制其拖动
+				if (loc == 'drag'){
+					$('inner').style.borderColor = 'gray';
+					//恢复原本的高度宽度
+					$('inner').style.height = originHeight + 'px';
+					$('inner').style.width = originWidth + 'px';
+					//控制预显示框移动
+					L = newEv.clientX - beginX - getPos($('outer')).left;
+					T = newEv.clientY - beginY - getPos($('outer')).top;
+//					//防止div移到屏幕线边缘
+//					if (T >= screenHeight - outerTop - outerHeight) {
+//						T = screenHeight - outerTop - outerHeight;
+//					}
+					$('inner').style.left = L + 'px';
+					$('inner').style.top = T + 'px';
+					control = 0;
+					//鼠标移到最顶部
+					if (newEv.clientY <= 5) {
+						//改变高度宽度
+						$('inner').style.height = screenHeight + 'px';
+						$('inner').style.width = screenWidth + 'px';
+                        //改变其位置
+						$('inner').style.top = -outerTop + 'px';
+						$('inner').style.left = -outerLeft + 'px';
+						//控制粉色框最后的位置
+						control = 1;
+					}
+					//鼠标移到最左边
+					if (newEv.clientX <= 5) {
+						$('inner').style.height = screenHeight + 'px';
+						$('inner').style.width = screenWidth*0.5 + 'px';
+						$('inner').style.top = -outerTop + 'px';
+						$('inner').style.left = -outerLeft + 'px';
+						control = 2;
+					}
+					//鼠标移到最右边
+					if (newEv.clientX >= screenWidth - 5) {
+						$('inner').style.height = screenHeight + 'px';
+						$('inner').style.width = screenWidth*0.5 + 'px';
+						$('inner').style.top = -outerTop + 'px';
+						$('inner').style.left = (screenWidth - outerLeft - screenWidth*0.5) + 'px';
+						control = 3;
+					}
+				}
+				return false;
+			}
+			document.onmouseup = function(){
+				//清除鼠标移动
+				this.onmousemove = null;
+				$('inner').style.borderColor = 'transparent';
+				//改变粉色框高度宽度
+				$('outer').style.height = $('inner').style.height;
+				$('outer').style.width = $('inner').style.width;
+				//使预显示框归位
+				$('inner').style.left = 0;
+				$('inner').style.top = 0;
+				//向上拉伸改变粉色框位置
+				if (loc == 'top') {
+					$('outer').style.top = outerTop + addHeight + 'px';
+				}
+				//向左拉伸改变粉色框位置
+				if (loc == 'left') {
+					$('outer').style.left = outerLeft + addWidth + 'px';
+				}
+				//拉拽的时候改变粉色框位置
+				if (loc == 'drag') {
+					//正常情况
+					$('outer').style.left = $('outer').offsetLeft + L + 'px';
+					$('outer').style.top = $('outer').offsetTop + T + 'px';
+					//拉到最左边和最上边
+					if (control == 1 || control == 2) {
+						$('outer').style.left = 0;
+						$('outer').style.top = 0;
+					}
+					//拉到最右边
+					if (control == 3) {
+						$('outer').style.left = screenWidth*0.5 + 'px';
+						$('outer').style.top = 0;
+					}
+				}
+				loc = '';
+			}
+			return false;
+		}
+		
+	</script>
+</html>

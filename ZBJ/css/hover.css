@@ -71,3 +71,35 @@
 	background: #DE352F !important;
 	color: white !important;
 }
+.nav-detail-list a:hover{
+	color: #E7AE83 !important;
+}
+.nav .left-nav .ul-content:hover{
+	background: white;
+}
+.nav .left-nav .ul-content .content-ul li a:hover{
+	text-decoration: underline;
+}
+.nav .left-nav .ul-content:hover .content-ul li a{
+	color: #ff5931;
+}
+.nav .left-nav .ul-content:hover .content-ul li{
+	transition: margin-left 0.5s;
+}
+.nav .left-nav .ul-content:hover .content-ul li:first-child{
+	margin-left: -5px;
+}
+.nav .left-nav .ul-content .cover{
+	position: absolute;
+	left: 194px;
+	color: #ff5931;
+	top: 72px;
+}
+.nav .left-nav .ul-content .cover .iconfont{
+	font-size: 12px;
+	line-height: 12px;
+	display: block;
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
