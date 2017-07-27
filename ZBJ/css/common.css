@@ -66,3 +66,6 @@ body{
 .hide {
 	display: none;
 }
+button{
+	outline: none;
+}

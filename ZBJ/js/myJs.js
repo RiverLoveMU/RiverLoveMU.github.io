@@ -148,3 +148,27 @@ $('.nav .left-nav .ul-content .cover').each(function(i,elem){
 		$(elem).css('top',i*22+72+120+'px')
 	}
 })
+$('.nav .right-nav .welcome .manu ul li').each(function(i,elem){
+	$(elem).mouseover(function(){
+		var myIndex = $(this).index();
+		var myOp = 0
+		$(this).closest('ul').find('li').css({'background':'#F9F9F9','border-bottom':'1px solid gainsboro'})
+		$(this).css({'background':'white','border-bottom':'none'})
+		$('.nav .right-nav .welcome .notice .manu-detail ul').addClass('hide');
+		$('.nav .right-nav .welcome .notice .manu-detail .credit-search').addClass('hide');
+		$('.nav .right-nav .welcome .notice .manu-detail .credit-search').css('opacity',0);
+		$('.nav .right-nav .welcome .notice .manu-detail ul').eq(myIndex).css('opacity',0);
+		$('.nav .right-nav .welcome .notice .manu-detail ul').eq(myIndex).removeClass('hide');
+		if (myIndex==2) {
+			$('.nav .right-nav .welcome .notice .manu-detail .credit-search').removeClass('hide');
+		}
+		var timer = setInterval(function(){
+			myOp+=0.04;
+			$('.nav .right-nav .welcome .notice .manu-detail ul').eq(myIndex).css('opacity',myOp);
+			$('.nav .right-nav .welcome .notice .manu-detail .credit-search').css('opacity',myOp);
+			if (myOp>=1) {
+				clearInterval(timer);
+			}
+		},10)
+	})
+})

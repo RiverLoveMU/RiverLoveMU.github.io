@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.box{
+				height: 200px;
+				width: 200px;
+				background: pink;
+				position: absolute;
+				text-align: center;
+				overflow: hidden;
+			}
+			.box .cancel{
+				color: white;
+				position: absolute;
+				right: 5px;
+				top: 0;
+				font-size: 20px;
+				cursor: pointer;
+			}
+			.box .title{
+				margin-top: 20px;
+				margin-bottom: 5px;
+			}
+			.box .content{
+				padding: 5px 20px;
+				font-size: 12px;
+				text-align: left;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div class="box">
+			<div class="cancel">
+				x
+			</div>
+			<h3 class="title">
+				标题
+			</h3>
+			<div class="content">
+				内容
+			</div>
+		</div>-->
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		(function (win){
+			var start = function(){
+				return new madel();
+			}
+			var madel = function(){
+				this.obj = null;
+				this.settings={
+					'height':200,
+					"width":200,
+					'pos':'center'
+				}
+			}
+			win.start = start;
+			madel.prototype.init= function(option){
+				for (attr in option) {
+					this.settings[attr]=option[attr];
+				}
+				this.create();
+				this.setData();
+				this.cancel();
+			}
+			madel.prototype.create = function(){
+				this.obj = document.createElement('div');
+				this.obj.className = 'box';
+				this.obj.innerHTML = '<div class="cancel">x</div>'
+									 +'<h3 class="title">标题 </h3>'
+									 +'<div class="content">内容 </div>';
+				document.body.appendChild(this.obj);
+			}
+			madel.prototype.setData = function(){
+				this.obj.style.width = this.settings.width + 'px';
+				this.obj.style.height = this.settings.height + 'px';
+				if (this.settings.pos == 'center') {
+					this.obj.style.left = (document.documentElement.clientWidth - this.settings.width)/2 + 'px';
+					this.obj.style.top = (document.documentElement.clientHeight - this.settings.height)/2 + 'px';
+				}
+				if (this.settings.pos == 'BR') {
+					this.obj.style.bottom = 0;
+					this.obj.style.right = 0;
+				}
+			}
+			madel.prototype.cancel = function(){
+				var btn = this.obj.getElementsByClassName('cancel')[0];
+				btn.onclick = function(){
+					document.body.removeChild(this.parentNode);
+				}
+			}
+		})(window)
+		
+		start().init({
+			'height':100,
+			"width":100,
+			'pos':'BR'
+		});
+	</script>
+</html>

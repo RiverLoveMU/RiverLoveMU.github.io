@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="star"></div>
+		<input class="score" type="hidden" name="" id="" value="5" />
+		<button>提交</button>
+	</body>
+	<script type="text/javascript" src="js/jquery.min.js" ></script>
+	<script type="text/javascript" src="js/jquery.raty.min.js" ></script>
+	<script type="text/javascript">
+//		JS组件:反复出现，但功能点变化比较多的交互效果,通过raty评分组件，说明组件的使用场景以及组件开发完成之后的使用方式
+		$('#star').raty({
+			score:5,
+//			readOnly:true,
+			starOff  : 'star-off-big.png',
+  			starOn   : 'star-on-big.png',
+
+			click: function(score, evt) {
+		    	$('.score').val(score);
+		  }
+		});
+		$('button').click(function(){
+			alert($('.score').val());
+		})
+	</script>
+</html>

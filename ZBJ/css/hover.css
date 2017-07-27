@@ -89,17 +89,34 @@
 .nav .left-nav .ul-content:hover .content-ul li:first-child{
 	margin-left: -5px;
 }
-.nav .left-nav .ul-content .cover{
-	position: absolute;
-	left: 194px;
-	color: #ff5931;
-	top: 72px;
+.nav .right-nav .welcome .button a:first-child:hover button{
+	background: #EC8014;
 }
-.nav .left-nav .ul-content .cover .iconfont{
-	font-size: 12px;
-	line-height: 12px;
-	display: block;
-	-webkit-transform: rotate(-90deg);
-	-moz-transform: rotate(-90deg);
-	transform: rotate(-90deg);
+.nav .right-nav .welcome .button a:last-child:hover button{
+	background: #E96000;
+}
+.nav .right-nav .welcome .manu ul li:hover{
+	cursor: pointer;
+}
+.nav .right-nav .welcome .notice .manu-detail a:hover{
+	cursor: pointer;
+	color: #ff9400;
+}
+.discover .carte .sub-carte li a:hover{
+	color: #ff9400;
+}
+.classify .classify-box .content a:hover{
+	color: #ff9400;
+}
+.pinpai .pinpai-com .pinpai-box:hover .pinpai-cover{
+	top: 0;
+}
+.market .market-list .submarket-list ul li:hover a{
+	color: #ff9400;
+}
+.guess ul li p.guess-name:hover a{
+	color: #ff9400;
+}
+.guess ul li p.guess-location:hover a{
+	color: #ff9400;
 }

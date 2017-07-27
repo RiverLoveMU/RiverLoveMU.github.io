@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: pink;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#box1{
+				background: cadetblue;
+				left: 100px;
+			}
+			#box2{
+				background: blueviolet;
+				left: 200px;
+			}
+			#box3{
+				background: black;
+				left: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<div id="box3"></div>
+	</body>
+	<script type="text/javascript">
+		function Drag(){
+			this.obj=null;
+			this.beginX=0;
+			this.beginY=0;
+			this.settings={  //默认的配置参数
+				fnD:function(){},
+				fnM:function(){},
+				fnU:function(){}
+			}
+		}
+		Drag.prototype.init=function(option){
+			this.obj=document.getElementById(option.id);
+			for(attr in option){
+				this.settings[attr]=option[attr];
+			}
+			var _this=this;
+			this.obj.onmousedown=function(){
+				_this.fnDown(_this.settings.fnM,_this.settings.fnU);
+				_this.settings.fnD();
+			};
+		}
+		Drag.prototype.fnDown=function(fn,fn1,ev){
+			var newEv=ev||event;
+			var _this=this;
+			this.beginX=newEv.clientX-this.obj.offsetLeft;
+			this.beginY=newEv.clientY-this.obj.offsetTop;
+			document.onmousemove=function(){
+				_this.fnMove();
+				fn();
+			};
+			document.onmouseup=function(){
+				_this.fnUp();
+				fn1();
+			};
+			return false;
+		}
+		Drag.prototype.fnMove=function(ev){
+			
+			var newEv=ev||event;
+			this.obj.style.left=newEv.clientX-this.beginX+'px';
+			this.obj.style.top=newEv.clientY-this.beginY+'px';
+		}
+		Drag.prototype.fnUp=function(){
+			document.onmousemove=null;
+		}
+		
+		var d1=new Drag();
+		d1.init({
+			id:'box'
+		});
+		
+		var d2=new Drag();
+		d2.init({
+			id:'box1',
+			fnD:function(){
+				document.body.style.background='cornflowerblue';
+			}
+		});
+		
+		var d3=new Drag();
+		d3.init({
+			id:'box2',
+			fnD:function(){
+				document.body.style.background='dodgerblue';
+			},
+			fnM:function(){
+				document.body.style.background='deeppink';
+			}
+		});
+		
+		
+		var d4=new Drag();
+		d4.init({
+			id:'box3',
+			fnU:function(){
+				document.body.style.background='';
+			}
+		});
+//		
+//		var d3=new Drag();
+//		d3.init('box2',function(){
+//			document.body.style.background='dodgerblue';
+//		},function(){
+//			document.body.style.background='deeppink';
+//		})
+//		
+//		var d4=new Drag();
+//		d4.init('box3',function(){},function(){},function(){
+//			document.body.style.background='';
+//		});
+//		熟悉面向对象编程，熟悉OOP编程
+	</script>
+</html>
