@@ -172,3 +172,17 @@ $('.nav .right-nav .welcome .manu ul li').each(function(i,elem){
 		},10)
 	})
 })
+var autoChange = null;
+var autoIndex = 0;
+aChange();
+$('.facilitator .fa-tit .sub-tit').mouseover(function(){
+	var index = $(this).index();
+	clearInterval(autoChange);
+	autoIndex = index;
+	$(this).siblings().css('border-bottom-color','#e8e8e8');
+	$(this).css('border-bottom-color','#ff6600');
+	changeFa(index);
+})
+$('.facilitator .fa-tit .sub-tit').mouseout(function(){
+	aChange();
+})

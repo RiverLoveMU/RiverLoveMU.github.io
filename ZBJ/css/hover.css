@@ -120,3 +120,9 @@
 .guess ul li p.guess-location:hover a{
 	color: #ff9400;
 }
+.facilitator .fa-tit .sub-tit:hover{
+	cursor: pointer;
+}
+.facilitator .fa-list ul li .recom-company a:hover{
+	color: #ff9400;
+}

@@ -504,3 +504,52 @@
     color: rgb(255,145,37);
     cursor: pointer;	
 }
+.facilitator .fa-list ul li .price-amount{
+	margin: 0;
+	padding: 15px 7px 5px;
+    color: #666;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.facilitator .fa-list ul li .price-amount .price{
+	float: left;
+	font-weight: bold;
+    font-size: 16px;
+    color: #ff6f26;
+    line-height: 14px;
+}
+.facilitator .fa-list ul li .price-amount .amount{
+	float: right;
+	color: #666;
+}
+.facilitator .fa-list ul li .recom-serviece{
+	padding: 5px 7px;
+    color: #666;
+    font-size: 12px;
+    margin: 0;
+    height: 32px;
+    overflow: visible !important;
+    white-space: normal !important;
+}
+.facilitator .fa-list ul li .recom-serviece a{
+	color: 	#0b73bb;
+}
+.facilitator .fa-list ul li .recom-company{
+	padding: 5px 7px;
+    color: #666;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+}
+.facilitator .fa-list ul li .recom-company a{
+	color: #666;
+}
+.facilitator .fa-list ul li .recom-place{
+	margin: 0;
+	padding: 0 7px;
+	color: #666;
+}

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.content{
+				overflow: hidden;
+				background: black;
+			}
+			.content div{
+				position: absolute;
+				border: 2px solid red;
+				border-radius: 5px;
+				height: 70px;
+				width: 70px;
+				text-align: center;
+				line-height: 70px;
+				font-size: 20px;
+				font-weight: bold;
+				cursor: pointer;
+			}
+			.content div.green{
+				border-color: #07FB65;
+				color: #07FB65;
+			}
+			.content div.green.active{
+				-webkit-animation: green 0.5s linear forwards;
+			}
+			@-webkit-keyframes green{
+				0%{
+					background: #07FB65;
+					color: white;
+					-webkit-transform: scale(1);
+				}
+				50%{
+					background: #07FB65;
+					color: white;
+					-webkit-transform: scale(1.1);
+				}
+				100%{
+					background: white;
+					color: #07FB65;
+					-webkit-transform: scale(1);
+				}
+			}
+			.content div.purple{
+				border-color: #9600FF;
+				color: #9600FF;
+			}
+			.content div.purple.active{
+				-webkit-animation: purple 0.5s linear forwards;
+			}
+			@-webkit-keyframes purple{
+				0%{
+					background: #9600FF;
+					color: white;
+					-webkit-transform: scale(1);
+				}
+				50%{
+					background: #9600FF;
+					color: white;
+					-webkit-transform: scale(1.1);
+				}
+				100%{
+					background: white;
+					color: #9600FF;
+					-webkit-transform: scale(1);
+				}
+			}
+			.content div.red{
+				border-color: #FF014A;
+				color: #FF014A;
+			}
+			.content div.red.active{
+				-webkit-animation: red 0.5s linear forwards;
+			}
+			@-webkit-keyframes red{
+				0%{
+					background: #FF014A;
+					color: white;
+					-webkit-transform: scale(1);
+				}
+				50%{
+					background: #FF014A;
+					color: white;
+					-webkit-transform: scale(1.1);
+				}
+				100%{
+					background: white;
+					color: #FF014A;
+					-webkit-transform: scale(1);
+				}
+			}
+			.content div.orange{
+				border-color: #FF6400;
+				color: #FF6400;
+			}
+			.content div.orange.active{
+				-webkit-animation: orange 0.5s linear forwards;
+			}
+			@-webkit-keyframes orange{
+				0%{
+					background: #FF6400;
+					color: white;
+					-webkit-transform: scale(1);
+				}
+				50%{
+					background: #FF6400;
+					color: white;
+					-webkit-transform: scale(1.1);
+				}
+				100%{
+					background: white;
+					color: #FF6400;
+					-webkit-transform: scale(1);
+				}
+			}
+			.content div.gray{
+				border-color: #373737;
+				color: #373737;
+			}
+			.content div.gray.active{
+				-webkit-animation: gray 0.5s linear forwards;
+			}
+			@-webkit-keyframes gray{
+				0%{
+					background: #373737;
+					color: white;
+					-webkit-transform: scale(1);
+				}
+				50%{
+					background: #373737;
+					color: white;
+					-webkit-transform: scale(1.1);
+				}
+				100%{
+					background: white;
+					color: #373737;
+					-webkit-transform: scale(1);
+				}
+			}
+			.content div.yellow{
+				border-color: #CCC942;
+				color: #CCC942;
+			}
+			.content div.yellow.active{
+				-webkit-animation: yellow 0.5s linear forwards;
+			}
+			@-webkit-keyframes yellow{
+				0%{
+					background: #CCC942;
+					color: white;
+					-webkit-transform: scale(1);
+				}
+				50%{
+					background: #CCC942;
+					color: white;
+					-webkit-transform: scale(1.1);
+				}
+				100%{
+					background: white;
+					color: #CCC942;
+					-webkit-transform: scale(1);
+				}
+			}
+			.content div.blue{
+				border-color: #0096FF;
+				color: #0096FF;
+			}
+			.content div.blue.active{
+				-webkit-animation: blue 0.5s linear forwards;
+			}
+			@-webkit-keyframes blue{
+				0%{
+					background: #0096FF;
+					color: white;
+					-webkit-transform: scale(1);
+				}
+				50%{
+					background: #0096FF;
+					color: white;
+					-webkit-transform: scale(1.1);
+				}
+				100%{
+					background: white;
+					color: #0096FF;
+					-webkit-transform: scale(1);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var arr = [
+			{
+				kCode:'49',
+				cCode:'1'
+			},
+			{
+				kCode:'50',
+				cCode:'2'
+			},
+			{
+				kCode:'51',
+				cCode:'3'
+			},
+			{
+				kCode:'52',
+				cCode:'4'
+			},
+			{
+				kCode:'53',
+				cCode:'5'
+			},
+			{
+				kCode:'54',
+				cCode:'6'
+			},
+			{
+				kCode:'55',
+				cCode:'7'
+			},
+			{
+				kCode:'56',
+				cCode:'8'
+			},
+			{
+				kCode:'57',
+				cCode:'9'
+			},
+			{
+				kCode:'58',
+				cCode:'0'
+			},
+			{
+				kCode:'189',
+				cCode:'-'
+			},
+			{
+				kCode:'81',
+				cCode:'Q'
+			},
+			{
+				kCode:'87',
+				cCode:'W'
+			},
+			{
+				kCode:'69',
+				cCode:'E'
+			},
+			{
+				kCode:'82',
+				cCode:'R'
+			},
+			{
+				kCode:'84',
+				cCode:'T'
+			},
+			{
+				kCode:'89',
+				cCode:'Y'
+			},
+			{
+				kCode:'85',
+				cCode:'U'
+			},
+			{
+				kCode:'73',
+				cCode:'I'
+			},
+			{
+				kCode:'79',
+				cCode:'O'
+			},
+			{
+				kCode:'80',
+				cCode:'P'
+			},
+			{
+				kCode:'65',
+				cCode:'A'
+			},
+			{
+				kCode:'83',
+				cCode:'S'
+			},
+			{
+				kCode:'68',
+				cCode:'D'
+			},
+			{
+				kCode:'70',
+				cCode:'F'
+			},
+			{
+				kCode:'71',
+				cCode:'G'
+			},
+			{
+				kCode:'72',
+				cCode:'H'
+			},
+			{
+				kCode:'74',
+				cCode:'J'
+			},
+			{
+				kCode:'75',
+				cCode:'K'
+			},
+			{
+				kCode:'76',
+				cCode:'L'
+			},
+			{
+				kCode:'90',
+				cCode:'Z'
+			},
+			{
+				kCode:'88',
+				cCode:'X'
+			},
+			{
+				kCode:'67',
+				cCode:'C'
+			},
+			{
+				kCode:'86',
+				cCode:'V'
+			},
+			{
+				kCode:'66',
+				cCode:'B'
+			},
+			{
+				kCode:'78',
+				cCode:'N'
+			},
+			{
+				kCode:'77',
+				cCode:'M'
+			},
+			{
+				kCode:'188',
+				cCode:','
+			},
+			{
+				kCode:'32',
+				cCode:'SPACE'
+			}
+		]
+		
+		for (var i = 0;i<39;i++) {
+			var $div = $('<div>');
+			$div.attr('myCode',arr[i].kCode);
+			if (i<11) {
+				$div.css('left',90*i+'px');
+				if (i<4) {
+					$div.addClass('green');
+				} else{
+					$div.addClass('purple');
+				}
+			}
+			if (i>=11 && i<21) {
+				$div.css({'left':90*(i-11)+45+'px','top':'82px'});
+				if (i<15) {
+					$div.addClass('green');
+				} else if(i>=15 && i<16){
+					$div.addClass('gray');
+				}else if(i>=16 && i<18){
+					$div.addClass('red');
+				}else{
+					$div.addClass('yellow');
+				}
+			}
+			if (i>=21 && i<30) {
+				$div.css({'left':90*(i-21)+90+'px','top':'164px'});
+				if (i<25) {
+					$div.addClass('green');
+				} else if(i>=25 && i<26){
+					$div.addClass('gray');
+				}else if(i>=26 && i<28){
+					$div.addClass('red');
+				}else{
+					$div.addClass('orange');
+				}
+			}
+			if (i>=30 && i<38) {
+				$div.css({'left':90*(i-30)+135+'px','top':'246px'});
+				if (i<34) {
+					$div.addClass('green');
+				} else if(i>=34 && i<36){
+					$div.addClass('gray');
+				}else{
+					$div.addClass('orange');
+				}
+			}
+			if (i == 38) {
+				$div.css({'left':270+'px','top':'328px','width':'450px'});
+				$div.addClass('blue');
+			}
+			$div.html(arr[i].cCode);
+			$div.appendTo($('.content'));
+		}
+		$('.content div').click(function(){
+			$(this).addClass('active');
+			$obj = $(this);
+			timer = setTimeout(function(){
+				$obj.removeClass('active');
+			},500)
+		})
+		$(document).keydown(function(ev){
+			$('.content div').each(function(i,elem){
+				if (ev.keyCode == $(elem).attr('myCode')) {
+					$(elem).addClass('active');
+				}
+			})
+		})
+		$(document).keyup(function(ev){
+			$('.content div').each(function(i,elem){
+				timer = setTimeout(function(){
+					$(elem).removeClass('active');
+				},500)
+			})
+		})
+	</script>
+</html>

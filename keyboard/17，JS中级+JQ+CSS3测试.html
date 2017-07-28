@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.cont{
+				text-align: center;
+				width: 1100px;
+			}
+			.cont div{
+				height: 80px;
+				width: 80px;
+				border: 2px solid black;
+				border-radius: 6px;
+				line-height: 80px;
+				text-align: center;
+				display: inline-block;
+				margin: 5px;
+				transition: all 0.5s;
+			}
+			.cont div.green{
+				border-color: #00FF64;
+				color: #00FF64;
+			}
+			.cont div.purple{
+				border-color: #9600FF;
+			}
+			.cont div.red{
+				border-color:#FF004A;
+			}
+			.cont div.orange{
+				border-color: #FF6400;
+			}
+			.cont div.yellow{
+				border-color: #F5D739;
+			}
+			.cont div.active{
+				-webkit-transform: scale(1.2);
+			}
+			.cont .green.active{
+				background: #00FF64;
+				color: #3a3a3a;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont"></div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+//		动态生成键盘结构
+		var str='1234567890-qwertyuiopasdfghjklzxcvbnm';
+		str=str.toUpperCase();
+		for(var i=0;i<str.length;i++){
+			var $div=$('<div>');
+			$div.html(str.charAt(i));
+			if(i>=0&&i<4 || i>10&&i<15 || i>20&&i<25){
+				$div.addClass('green');
+			}
+			$div.appendTo($('.cont'));
+			if(i==10 || i==20 || i==29){
+				var $br=$('<br/>');
+				$br.appendTo($('.cont'));
+			}
+		}
+		
+//		如何让我们点击键盘获取到的键值,跟html结构中对应按键相匹配
+//		0~9之间的键值是48~57
+//		A~Z之间的键值  65~90
+		
+		var boardValue=[];
+		
+//		往boardValue里面push一些数组，格式是[0,48],[1,49]，方便后面使用它去给所有的键盘按钮div加自定义属性
+//		而且可以保证自定义属性跟字符在键盘上的键值相对应
+		var num=48;
+		for(var i=0;i<10;i++){
+			boardValue.push([i,num]);
+			num++;
+		}
+		
+		var letterNum=65;
+		for(var i=65;i<91;i++){
+			var letter=String.fromCharCode(i);
+			boardValue.push([letter,letterNum]);
+			letterNum++;
+		}
+		boardValue.push(['-',189]);
+		console.log(boardValue);
+//		console.log('A'.charCodeAt(0));
+		
+		$('.cont div').each(function(i,elem){
+			for(var i=0;i<boardValue.length;i++){
+				if(boardValue[i][0]==$(elem).html()){
+					$(elem).attr('data-key',boardValue[i][1]);
+				}
+			}
+			if($(elem).html=='-'){
+				$(elem).attr('data-key',189);
+			}
+		})
+		
+		
+		
+		$(document).on('keydown',function(ev){
+			$('.cont div').each(function(i,elem){
+				if($(elem).attr('data-key')==ev.which){
+					$(elem).addClass('active');
+				}
+			})
+		})
+		
+		$(document).on('keyup',function(ev){
+			$('.cont div').each(function(i,elem){
+				if($(elem).attr('data-key')==ev.which){
+					$(elem).removeClass('active');
+				}
+			})
+		})
+	</script>
+</html>
