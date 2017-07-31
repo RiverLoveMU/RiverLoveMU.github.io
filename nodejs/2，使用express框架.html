@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--1，什么是express框架？以及它的用途-->
+		<!--2，如何使用express框架-->
+			<!--（1）安装express模块，将命令窗口打开，将操作目录定位到当前项目文件 D: =》cd \目录名称-->
+			<!--（2）在该项目下通过npm init命令对npm进行初始化-->
+			<!--（3）通过npm install express --save -->
+		<!--3,express框架的使用流程-->
+		<!--var express=require('express');  //引入模块
+		var app=express();   //调用模块
+		app.listen(8081);   //开启服务，监听请求
+		app.get('/list',function (req,res) {   //对用户发出的get请求做出响应
+		    res.send('this is article List');
+		});-->
+		<!--4，如何给前端发送一个html页面-->
+		<!--使用res.sendFile('文件的路径')-->
+		<!--__dirname 可以让我们获取到项目的根目录-->
+		<!--5，如何让前端引用静态资源（css,js,img）-->
+		<!--静态资源文件托管的方式：-->
+		<!--app.use('/public',express.static(__dirname+'/public'));
+		当前端以 /public目录进行请求的时候，
+		上面这句话会把请求的路径重新规划，规划后的结构http://172.18.61.215:8081/public-->
+	</body>
+	
+</html>
