@@ -885,6 +885,8 @@ right: 0px;
 .guess ul li .guess-pic{
 	height: 190px;
 	width: 100%;
+	position: relative;
+	overflow: hidden;
 }
 .guess ul li p{
 	font-size: 12px;
@@ -944,6 +946,7 @@ right: 0px;
 }
 .facilitator .fa-tit .sub-tit.cur{
 	border-bottom: 3px solid #ff6600;
+	color: #ff6600;
 }
 .facilitator .fa-list{
 	width: 100%;
@@ -1038,6 +1041,7 @@ right: 0px;
 	display: inline-block;
 	border-bottom: 3px solid #e8e8e8;
 	float: left;
+	cursor: pointer;
 }
 .demand .de-tit span{
 	float: left;
@@ -1047,6 +1051,7 @@ right: 0px;
 }
 .demand .de-tit .sub-tit.cur{
 	border-bottom: 3px solid #ff6600;
+	color: #ff6600;
 }
 .demand .de-tit .de-more{
 	font-size: 12px;
@@ -1060,6 +1065,9 @@ right: 0px;
 	overflow: hidden;
 	width: 974px;
 	border-right: 1px solid gainsboro;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 .demand .de-list .sub-de-list{
 	float: left;
@@ -1115,6 +1123,9 @@ right: 0px;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	font-size: 12px;
+	color: #999;
+}
+.demand .de-free .free-list li p .free-position{
 	color: #999;
 }
 .demand .de-free .free-list li p .free-money{
@@ -1207,6 +1218,7 @@ right: 0px;
 	margin-bottom: 12px;
 	float: left;
 	position: relative;
+	overflow: hidden;
 }
 .case .case-middle li img{
 	height: 140px;

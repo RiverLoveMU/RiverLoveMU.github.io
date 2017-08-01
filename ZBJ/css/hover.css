@@ -126,3 +126,56 @@
 .facilitator .fa-list ul li .recom-company a:hover{
 	color: #ff9400;
 }
+.guess ul li .guess-pic .find-more a:hover{
+	color: #ff9400;
+}
+.guess ul li .guess-pic:hover .find-more{
+	bottom: 0;
+}
+.demand .de-list .sub-de-list p .de-position:hover{
+	color: #ff9400;
+	cursor: pointer;
+}
+.demand .de-free .de-btn:hover{
+	background: #ff9400;
+	cursor: pointer;
+}
+.demand .de-free .free-list li p .free-position:hover{
+	color: #ff9400;
+	cursor: pointer;
+}
+.case .learn-more .inf p a:hover{
+	color: #ff9400;
+}
+.case .learn-more .btn a:hover{
+	background: #ff9400;
+}
+.case .learn-more .more-ti a:hover{
+	color: #ff9400;
+}
+.case .case-left:hover .learn-more{
+	bottom: 0;
+}
+.case .case-middle li:hover .learn-more{
+	bottom: 0;
+}
+.case .case-right .case-top:hover{
+	color: #ff9400;
+	cursor: pointer;
+}
+.case .case-right .case-center .case-service:hover{
+	color: #ff9400;
+}
+.case .case-right .case-btn:hover{
+	background: #ff9400;
+}
+.hot a:hover{
+	color: #ff9400 !important;
+}
+.first-footer a:hover{
+	color: white;
+	text-decoration: underline;
+}
+.second-footer a:hover{
+	color: #80756F;
+}

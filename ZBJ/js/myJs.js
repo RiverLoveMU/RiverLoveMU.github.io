@@ -174,15 +174,36 @@ $('.nav .right-nav .welcome .manu ul li').each(function(i,elem){
 })
 var autoChange = null;
 var autoIndex = 0;
+var autoChangeDemand = null;
+var autoIndexDemand = 0;
 aChange();
 $('.facilitator .fa-tit .sub-tit').mouseover(function(){
 	var index = $(this).index();
 	clearInterval(autoChange);
-	autoIndex = index;
-	$(this).siblings().css('border-bottom-color','#e8e8e8');
-	$(this).css('border-bottom-color','#ff6600');
-	changeFa(index);
+	if (autoIndex != index) {
+		autoIndex = index;
+		$(this).siblings().css({'border-bottom-color':'#e8e8e8','color':'#999'});
+		$(this).css({'border-bottom-color':'#ff6600','color':'#ff6600'});
+		changeFa(index);
+	}
 })
 $('.facilitator .fa-tit .sub-tit').mouseout(function(){
 	aChange();
+})
+aChangeDemand();
+$('.demand .de-tit .sub-tit').mouseover(function(){
+	var index = $(this).index();
+	if (index == 2) {
+		index = 1;
+	}
+	clearInterval(autoChangeDemand);
+	if (autoIndexDemand != index) {
+		autoIndexDemand = index;
+		$(this).siblings('li').css({'border-bottom-color':'#e8e8e8','color':'#999'});
+		$(this).css({'border-bottom-color':'#ff6600','color':'#ff6600'});
+	  	changeFaDemand(index);
+	}
+})
+$('.demand .de-tit .sub-tit').mouseout(function(){
+	aChangeDemand();
 })

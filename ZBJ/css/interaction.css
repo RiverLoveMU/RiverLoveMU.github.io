@@ -553,3 +553,98 @@
 	padding: 0 7px;
 	color: #666;
 }
+.guess ul li .guess-pic .find-more{
+	position: absolute;
+	left: 0;
+	bottom: -30px;
+	height: 20px;
+	width: 100%;
+	padding: 5px 0;
+	background: rgba(0,0,0,.5);
+	transition: all 0.5s;
+}
+.guess ul li .guess-pic .find-more a{
+	color: white;
+	font-size: 12px;
+	text-align: center;
+	box-sizing: border-box;
+	width: 50%;
+	text-align: center;
+	line-height: 20px;
+	display: block;
+	float: left;
+}
+.guess ul li .guess-pic .find-more a:first-child{
+	border-right: 1px solid white;
+}
+.demand .de-list-content{
+	position: relative;
+}
+.case .learn-more{
+	position: absolute;
+	left: 0;
+	bottom: -130px;
+	width: 100%;
+	background: rgba(251, 251, 251, .95);
+	overflow: hidden;
+	text-align: left;
+	transition: bottom 0.5s; 
+}
+.case .learn-more .more-ti{
+	height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: normal;
+    padding-top: 3px;
+    margin: 0 16px;
+}
+.case .learn-more a{
+	color: #555;
+}
+.case .learn-more .inf{
+	margin: 0 16px 7px;
+	line-height: 20px;
+	color: #999;
+}
+.case .learn-more .inf p{
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 20px;
+    overflow: hidden;
+    font-size: 12px;
+}
+.case .learn-more .inf p em{
+	font-style: normal;
+	color: #ff8400;
+}
+.case .learn-more .btn{
+	margin: 0 16px 10px;
+}
+.case .learn-more .btn a{
+	height: 30px;
+    line-height: 30px;
+    display: block;
+    background: #f60;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+}
+.case .learn-more.special .inf{
+	float: left;
+	margin-right: 0;
+	overflow: hidden;
+}
+.case .learn-more.special .inf p{
+	float: left;
+	margin-right: 7px;
+	margin-top: 5px;
+}
+.case .learn-more.special .btn{
+	float: right;
+	width: 130px;
+	margin-left: 0;
+}
