@@ -179,3 +179,9 @@
 .second-footer a:hover{
 	color: #80756F;
 }
+.right-sidebar .right-sidebar-top ul li:hover{
+	background: #FF9125 !important;
+}
+.right-sidebar .right-sidebar-top ul li:hover .intr{
+	display: block;
+}

@@ -207,3 +207,73 @@ $('.demand .de-tit .sub-tit').mouseover(function(){
 $('.demand .de-tit .sub-tit').mouseout(function(){
 	aChangeDemand();
 })
+$(document).scroll(function(){
+	if ($(this).scrollTop()>=300) {
+		$('.scroll-show').removeClass('hide');
+	}else{
+		$('.scroll-show').addClass('hide');
+	}
+})
+var rightControl = false;
+var rightNumber = 0;
+$('.right-sidebar .right-sidebar-top ul li').click(function(){
+	if ($(this).index() != 3) {
+		if (!rightControl) {
+			$(this).css('background','#FF9125');
+			$(this).siblings('li').css('background','#7d7d7d');
+			$('.right-sidebar').css('right','0px');
+			switch ($(this).index()){
+				case 0:
+					$('.right-sidebar .right-coloumn .first-cloumn').removeClass('hide').siblings('div').addClass('hide');
+					rightNumber = $(this).index();
+					break;
+				case 1:
+					$('.right-sidebar .right-coloumn .second-cloumn').removeClass('hide').siblings('div').addClass('hide');
+					rightNumber = $(this).index();
+					break;
+				case 2:
+					$('.right-sidebar .right-coloumn .third-coloumn').removeClass('hide').siblings('div').addClass('hide');
+					rightNumber = $(this).index();
+					break;
+				case 4:
+					$('.right-sidebar .right-coloumn .fourth-coloumn').removeClass('hide').siblings('div').addClass('hide');
+					rightNumber = $(this).index();
+					break;	
+				default:
+					break;
+			}
+			rightControl=true;
+		}else{
+			if (rightNumber == $(this).index()) {
+				$('.right-sidebar').css('right','-250px');
+				$('.right-sidebar .right-sidebar-top ul li').css('background','#7d7d7d');
+				rightControl=false;
+			} else{
+				$(this).css('background','#FF9125');
+				$(this).siblings('li').css('background','#7d7d7d');
+				switch ($(this).index()){
+				case 0:
+					$('.right-sidebar .right-coloumn .first-cloumn').removeClass('hide').siblings('div').addClass('hide');
+					rightNumber = $(this).index();
+					break;
+				case 1:
+					$('.right-sidebar .right-coloumn .second-cloumn').removeClass('hide').siblings('div').addClass('hide');
+					rightNumber = $(this).index();
+					break;
+				case 2:
+					$('.right-sidebar .right-coloumn .third-coloumn').removeClass('hide').siblings('div').addClass('hide');
+					rightNumber = $(this).index();
+					break;
+				case 4:
+					$('.right-sidebar .right-coloumn .fourth-coloumn').removeClass('hide').siblings('div').addClass('hide');
+					rightNumber = $(this).index();
+					break;	
+				default:
+					break;
+			}
+			}
+		}
+	}else{
+		 $("html, body").animate({scrollTop:$('.guess').offset().top-200},300,'linear');
+	}
+})

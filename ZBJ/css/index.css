@@ -349,6 +349,10 @@
 }
 .nav .right-nav .main-pic{
 	float: left;
+	position: relative;
+	overflow: hidden;
+	width: 450px;
+	height: 497px;
 }
 .nav .right-nav .sub-pic{
 	float: left;
@@ -1470,15 +1474,27 @@ right: 0px;
 /*右侧固定栏 begin*/
 .right-sidebar{
 	position: fixed;
-	z-index: 100;
+	z-index: 2000;
 	top: 0;
-	right: 0px;
+	right: -250px;
 	-webkit-transition: right .6s;
 	transition: right .6s;
-	width: 35px;
+	width: 285px;
 	min-height: 600px;
 	height: 100%;
+	background-color: #EEEEEE;
+}
+.right-sidebar .left-coloumn{
 	background-color: #7d7d7d;
+	width: 35px;
+	float: left;
+	height: 100%;
+}
+.right-sidebar .right-coloumn{
+	width: 250px;
+	float: left;
+	height: 100%;
+	box-sizing: ;
 }
 .right-sidebar a{
 	color: white;
@@ -1492,7 +1508,8 @@ right: 0px;
 	width: 23px;
 	text-align: center;
 	font-size: 12px;
-	padding: 3px 6px;
+	padding: 0px 6px;
+	position: relative;
 }
 .right-sidebar  ul li.first-icon{
 	padding-bottom: 6px;

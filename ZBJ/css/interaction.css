@@ -99,6 +99,10 @@
 	float: left;
 	line-height: 12px;
 	padding: 0;
+	position: relative;
+}
+.top-nav .enter li .website-nav .detail li a{
+	position: relative;
 }
 .top-nav .enter li .website-nav div{
 	float: left;
@@ -436,6 +440,7 @@
 }
 .nav .left-nav .nav-detail-list .nav-detail-column .column-list li a{
 	color: #555;
+	position: relative;
 }
 .nav .left-nav .nav-detail-list .nav-detail-column .column-list li a.orange{
 	color: #ff7900;
@@ -647,4 +652,110 @@
 	float: right;
 	width: 130px;
 	margin-left: 0;
+}
+.scroll-show{
+	position: fixed;
+	top: 34px;
+	left: 0;
+	background: white;
+	z-index: 1000;
+	border-bottom: 1px solid gainsboro;
+	box-shadow: 0 1px 5px #ddd;
+}
+.scroll-show .search{
+	margin: 0 auto;
+}
+.scroll-show .search .pic img{
+	width: 85px;
+	margin-right: 10px;
+}
+.scroll-show .search .gif{
+	height: 50px;
+	width: 50px;
+	margin-top: -10px;
+}
+.scroll-show .search .gif img{
+	width: 100%;
+}
+.scroll-show .search .search-box{
+	margin-left: 200px;
+	margin-top: 10px;
+	height: 80px;
+}
+.right-sidebar ul li .intr{
+	height: 37px;
+	width: 35px;
+	background: #666;
+	position: absolute;
+	top: 0;
+	left: -35px;
+	text-align: center;
+	line-height: 37px;
+	color: white;
+	font-size: 12px;
+	display: none;
+}
+.right-sidebar ul li:last-of-type .intr{
+	line-height: 17px;
+}
+.right-sidebar ul li .intr:before{
+	content: '';
+	height: 0;
+	width: 0;
+	border: 5px solid transparent;
+	border-left-color: #666;
+	position: absolute;
+	top: 50%;
+	margin-top: -5px;
+	right: -10px;
+}
+.right-sidebar .right-coloumn > div{
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+.right-sidebar .right-coloumn .entry{
+	margin: 15px;
+}
+.right-sidebar .right-coloumn .entry img{
+	width: 100%;
+	cursor: pointer;
+}
+.right-sidebar .right-coloumn .third-coloumn p{
+	font-size: 12px;
+    line-height: 18px;
+    color: #999;
+    margin-top: 300px;
+    margin-left: 73px;
+    margin-right: 30px;
+}
+.right-sidebar .right-coloumn .fourth-coloumn{
+	text-align: center;
+}
+.right-sidebar .right-coloumn .fourth-coloumn .open-earn{
+	width: 205px;
+    height: 324px;
+    margin-top: 60px;
+}
+.right-sidebar .right-coloumn .fourth-coloumn a{
+	display: inline-block;
+    text-decoration: none;
+    margin-top: 35px;
+    width: 176px;
+    height: 44px;
+    line-height: 44px;
+    background: #ff6800;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.top-nav .enter li .website-nav .detail li i,
+.nav .left-nav .nav-detail-list .nav-detail-column .column-list li i{
+	position: absolute;
+	width: 13px;
+	height: 16px;
+	top: -10px;
+	right: -13px;
+	background: url(../img/interaction/hot-icon.png);
 }
