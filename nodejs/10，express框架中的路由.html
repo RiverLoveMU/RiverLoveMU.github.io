@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		1,当我们的项目复杂的时候，如果所有的请求都在app.js里面处理，
+//		那后期的维护将会越来越难，为了避免这个问题，我们利用路由的思想，将请求的接口进行分类
+//		不同类型的请求处理逻辑放在不同的js模块下面
+//		使用的流程
+//		(1)在项目下新建一个routers文件夹，并在里面创建adminRouter.js。
+//		(2)把所有来自后台管理用户的接口请求，全部剪切到adminRouter.js
+//		(3)在app.js里面添加路由方法，将所有来自/admin的请求，转发到adminRouter.js里面去
+//			app.use('/admin',require('./routers/adminRouter'));
+//		(4)在新的路由文件adminRouter.js里面接受转发过来的路由并处理后返回路由结果
+//			路由文件中接口路径要做一下调整,将/admin去除掉,因为通过/admin路由转发过来的接口,必然是以/admin打头的
+//			var express=require('express');
+//			var artModel=require('../models/artModel');
+//			var router=express.Router();
+//			// 前端请求发布文章的页面
+//			router.get('/',function (req,res) {
+//			    res.render('public');
+//			})
+//			router.post('/add',function (req,res) {
+//			    new artModel({
+//			        tit:req.body.title,
+//			        author:req.body.author,
+//			        time:req.body.time,
+//			        detail:req.body.content
+//			    }).save().then(function (result) {
+//			        msgData.msg='发布成功';
+//			        msgData.code=1;
+//			        res.send(msgData);
+//			    })
+//			    // console.log(req.body);
+//			    // res.send('接收到了post请求');
+//			});
+//			
+//			module.exports=router;
+		/**
+ * Created by Administrator on 2017/8/4 0004.
+ */
+	</script>
+</html>

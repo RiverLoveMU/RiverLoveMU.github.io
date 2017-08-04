@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--1,观察项目页面中哪些html结构（标签结构，引入文件），然后将公用的部分提取出来放到一个新的layout.html页面中-->
+		<!--2，在layout.html中通过swig的语法，预留出变动内容的填入空间
+			 { % block content % }{ % endblock % }
+		-->
+		<!--3，把其他页面中，跟公共部分相同的结构全部删除
+			把变化的不同内容放在跟之前预留空间相对应名称的block块儿当中
+			 { % block content % }此页面不同于其他页面的内容{ % endblock % }
+		-->
+		<!--4，block空间模块可以出现多个，根据不同的需求，取不同的名字-->
+		
+		<!--6，路由器（华为，思科）-->
+	</body>
+</html>
