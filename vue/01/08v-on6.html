@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <button @click="show()">按钮0</button>
+    <button @contextmenu ="show($event)">按钮1</button>
+    <button @contextmenu.prevent="show()">按钮2</button>
+    <button @contextmenu.prevent>按钮3</button>
+</div>
+<script>
+//    <!-- 阻止默认行为 -->
+//    <button @click.prevent="doThis"></button>
+//    <!-- 阻止默认行为，没有表达式 -->
+//    <form @submit.prevent></form>
+
+    new Vue({
+        el:'#demo',
+        data:{
+
+        },
+        methods:{
+            show:function(ev){
+                alert('右键菜单事件');
+                ev.preventDefault();
+            }
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

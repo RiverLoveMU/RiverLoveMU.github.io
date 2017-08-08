@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="demo">
+    <p v-text="'姓名是：'+person.name"></p>
+    <hr>
+    <p>姓名是：{{person.name}}</p>
+</div>
+<script>
+    var app = new Vue({
+        el:'#demo',
+        data:{
+            person:{
+                name:'jack',
+                sex:'保密',
+                age:100
+            }
+        }
+    });
+</script>
+</body>
+</html>

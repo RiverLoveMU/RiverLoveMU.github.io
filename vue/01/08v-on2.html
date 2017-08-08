@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <button onclick="alert(0)">按钮1</button>
+    <button v-on:click="show(1)">单击click</button>
+    <button v-on:dblclick="show(2)">双击dblclick</button>
+    <button v-on:mouseover="show(3)">鼠标移入/mouseover</button>
+    <button v-on:mouseout="show(4)">鼠标移出/mouseout</button>
+    <button v-on:mousedown="show(5)">鼠标按下/mousedown</button>
+    <button v-on:mouseup="show(6)">鼠标抬起/mouseup</button>
+</div>
+<script>
+    var vm = new Vue({
+        el:'#demo',
+        data:{
+
+        },
+        methods:{
+            show:function(n){//方法
+                alert(n);
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

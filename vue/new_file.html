@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="demo" v-html="msg">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		new Vue({
+			el:'#demo',
+			data:{
+				msg:'<h1>vue.js从入门到实践</h1>'
+			}
+		})
+	</script>
+</html>

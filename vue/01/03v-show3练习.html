@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background: #5cb85c;
+        }
+    </style>
+
+
+</head>
+<body>
+<div id="app">
+    <button v-on:click="display=true">显示/隐藏</button>
+    <hr>
+    <div class="box" v-show="display"></div>
+</div>
+<!--    <script>
+        var oBtn = document.querySelector('button');
+        var oBox = document.querySelector('.box');
+        var on = true;
+        oBtn.onclick = function(){
+            if(on){
+                oBox.style.display = 'none';
+            }else{
+                oBox.style.display = 'block';
+            }
+             on = !on;
+        }
+    </script>-->
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                display:false
+            }
+        });
+    </script>
+
+</body>
+</html>

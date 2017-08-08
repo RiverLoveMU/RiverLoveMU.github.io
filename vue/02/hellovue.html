@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <!-- <script src="vue.js"></script>-->
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app" class="box">
+       <!--hello vue-->
+        {{msg}}
+    </div>
+
+    <script>
+       var v1 =  new Vue({//
+            el:'#app',//element 元素
+            data:{//数据
+                msg:'hello vue'
+            }
+        });
+    </script>
+
+   <!-- <script>
+        var app = document.getElementById('app');
+        app.innerHTML = 'hello vue'
+    </script>-->
+</body>
+</html>

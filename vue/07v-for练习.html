@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+    	th{
+    		width: 50px;
+    		background: lightblue;
+    	}
+    	td{
+    		text-align: center;
+    	}
+    </style>
+</head>
+<body>
+<table border="1" cellspacing="0" cellpadding="5" id="app">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Sex</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr v-for="item in people">
+			<td>{{item.name}}</td>
+			<td>{{item.age}}</td>
+			<td>{{item.sex}}</td>
+		</tr>
+	</tbody>
+	
+</table>
+
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data: {
+            people: [{
+                name: 'Jack',
+                age: 30,
+                sex: 'Male'
+            }, {
+                name: 'Bill',
+                age: 26,
+                sex: 'Male'
+            }, {
+                name: 'Tracy',
+                age: 22,
+                sex: 'Female'
+            }, {
+                name: 'Chris',
+                age: 36,
+                sex: 'Male'
+            }]
+        }
+    })
+</script>
+</body>
+</html>

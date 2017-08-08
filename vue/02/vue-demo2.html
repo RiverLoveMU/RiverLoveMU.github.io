@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <ol>
+          <!--  <li>张三1 18 vue1</li>
+            <li>张三2 18 vue2</li>
+            <li>张三3 18 vue3</li>
+            <li>张三4 18 vue4</li>
+            <li>张三5 18 vue5</li>
+            <li>张三6 18 vue6</li>-->
+            <li v-for="list in msg">
+                {{list.name}}
+                {{list.age}}
+                {{list.addr}}
+            </li>
+        </ol>
+    </div>
+    <hr>
+    <div id="app2">
+        <ol>
+            <li></li>
+        </ol>
+    </div>
+<script>
+   var v1 =  new Vue({
+        el:'#app',
+        data:{
+            msg:[
+                {name:'张三1',age:'18a',addr:'重庆1'},
+                {name:'张三2',age:'18b',addr:'重庆2'},
+                {name:'张三3',age:'18c',addr:'重庆3'},
+                {name:'张三4',age:'18d',addr:'重庆4'},
+                {name:'张三5',age:'18e',addr:'重庆5'},
+                {name:'张三6',age:'18f',addr:'重庆6'}
+            ]
+        }
+    });
+</script>
+
+    <script>
+        var arr=[
+                {name:'张三1',age:'18a',addr:'重庆1'},
+                {name:'张三2',age:'18b',addr:'重庆2'},
+                {name:'张三3',age:'18c',addr:'重庆3'},
+                {name:'张三4',age:'18d',addr:'重庆4'},
+                {name:'张三5',age:'18e',addr:'重庆5'},
+                {name:'张三6',age:'18f',addr:'重庆6'}
+            ]
+        var li = '';
+        for(var i=0;i<arr.length;i++){
+            li += '<li>'+arr[i].name+'&nbsp;&nbsp;'+arr[i].age+'&nbsp;&nbsp;'+arr[i].addr+'</li>';
+        }
+        document.querySelector('#app2 ol').innerHTML = li;
+
+    </script>
+</body>
+</html>

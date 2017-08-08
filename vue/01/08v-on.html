@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <button onclick="alert(1)">按钮1</button>
+    <button v-on:click="show(5)">按钮2</button>
+</div>
+<script>
+    //<!-- 方法处理器 -->
+   // <button v-on:click="doThis"></button>
+
+    var vm = new Vue({
+        el:'#demo',
+        data:{
+
+        },
+        methods:{
+            show:function(n){//方法
+                alert(n);
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

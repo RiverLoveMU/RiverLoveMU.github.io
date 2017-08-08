@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body id="bo">
+    <ul>
+        <li v-if="type == 'a'">a/列表1</li>
+        <li v-else-if="type === 'b'">b/列表2</li>
+        <li v-else-if="type === 'c'">c/列表3</li>
+        <li v-else>列表4</li>
+        <li>列表5</li>
+    </ul>
+
+    <script>
+        var vm = new Vue({
+            el:'ul',//这个元素不能是body
+            data:{
+                type:'a'
+            }
+        });
+
+        /*
+        v-if  true 显示
+               false remove掉
+        *
+        * */
+    </script>
+
+</body>
+</html>

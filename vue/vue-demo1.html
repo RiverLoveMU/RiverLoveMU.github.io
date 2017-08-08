@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+       <span>{{fruit}}</span>
+       <span v-text="'水果有'+fruit"></span>
+       <hr />
+       <span v-text="'班级是'+myClass.id+'级'+myClass.name+'班'"></span>
+       <span></span>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                fruit:['苹果','香蕉','橘子'],
+                myClass:{
+                	id:1001,
+                	name:'class01'
+                }
+            }
+        });
+    </script>
+</body>
+</html>

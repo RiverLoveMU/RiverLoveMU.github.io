@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+
+    <button v-on="{ mousedown: show, mouseup: show2}">按钮</button>
+
+    <button v-on:click.once="show">按钮0000</button>
+</div>
+
+<script>
+//    <!-- 对象语法 (2.4.0+) -->
+//    <button v-on="{ mousedown: doThis, mouseup: doThat }"></button>
+
+    new Vue({
+        el:'#app',
+        methods:{
+            show:function(){
+                console.log(1);
+            },
+            show2:function(){
+                console.log(2);
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

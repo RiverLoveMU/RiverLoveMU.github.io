@@ -1,0 +1,187 @@
+.top-nav li:hover{
+	cursor: pointer;
+}
+.top-nav .website li:hover a{
+	color: #FF7900;
+}
+.top-nav .website li:first-child:hover a{
+	color: black;
+}
+.top-nav .enter li:hover {
+	background: white;
+}
+.top-nav .enter li:nth-child(2):hover a,
+.top-nav .enter li:nth-child(3):hover a {
+	color: #FF7900;
+}
+.top-nav .enter li a .iconfont{
+	transition: all 1s; 
+	display: block;
+	float: right;
+	-webkit-transform-origin: center 16px;
+}
+.top-nav .enter li:hover a .iconfont{
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+.top-nav .enter li .show div:hover{
+	background: #F8F8F8;
+}
+.bajie-icon .close:hover{
+	cursor: pointer;
+	color: #ff6901;
+}
+.top-nav .enter li .website-nav li{
+	cursor: pointer;
+}
+.top-nav .enter li .website-nav li:hover a{
+	color: #ff7900;
+}
+.search .city:hover .name{
+	color: #FFCA8D;
+}
+.search .city:hover .name .iconfont{
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
+	color: #ff6901;
+}
+.search .city .city-list .hot-city .hot-city-list li:hover a{
+	color: #ff7900;
+}
+.search .search-box .sort{
+	cursor: pointer;
+}
+.more-search-box .more-search:hover{
+	background: gainsboro;
+	cursor: pointer;
+}
+.more-search-box .more-search:first-child:hover{
+	background: transparent;
+}
+.search .search-box ul li:hover a{
+	text-decoration: underline;
+}
+.search .search-box .zhubajie:hover{
+	background: #ff6901 !important;
+	color: white !important;
+}
+.search .search-box .tianpengwang:hover{
+	background: #DE352F !important;
+	color: white !important;
+}
+.nav-detail-list a:hover{
+	color: #E7AE83 !important;
+}
+.nav .left-nav .ul-content:hover{
+	background: white;
+}
+.nav .left-nav .ul-content .content-ul li a:hover{
+	text-decoration: underline;
+}
+.nav .left-nav .ul-content:hover .content-ul li a{
+	color: #ff5931;
+}
+.nav .left-nav .ul-content:hover .content-ul li{
+	transition: margin-left 0.5s;
+}
+.nav .left-nav .ul-content:hover .content-ul li:first-child{
+	margin-left: -5px;
+}
+.nav .right-nav .welcome .button a:first-child:hover button{
+	background: #EC8014;
+}
+.nav .right-nav .welcome .button a:last-child:hover button{
+	background: #E96000;
+}
+.nav .right-nav .welcome .manu ul li:hover{
+	cursor: pointer;
+}
+.nav .right-nav .welcome .notice .manu-detail a:hover{
+	cursor: pointer;
+	color: #ff9400;
+}
+.discover .carte .sub-carte li a:hover{
+	color: #ff9400;
+}
+.classify .classify-box .content a:hover{
+	color: #ff9400;
+}
+.pinpai .pinpai-com .pinpai-box:hover .pinpai-cover{
+	top: 0;
+}
+.market .market-list .submarket-list ul li:hover a{
+	color: #ff9400;
+}
+.guess ul li p.guess-name:hover a{
+	color: #ff9400;
+}
+.guess ul li p.guess-location:hover a{
+	color: #ff9400;
+}
+.facilitator .fa-tit .sub-tit:hover{
+	cursor: pointer;
+}
+.facilitator .fa-list ul li .recom-company a:hover{
+	color: #ff9400;
+}
+.guess ul li .guess-pic .find-more a:hover{
+	color: #ff9400;
+}
+.guess ul li .guess-pic:hover .find-more{
+	bottom: 0;
+}
+.demand .de-list .sub-de-list p .de-position:hover{
+	color: #ff9400;
+	cursor: pointer;
+}
+.demand .de-free .de-btn:hover{
+	background: #ff9400;
+	cursor: pointer;
+}
+.demand .de-free .free-list li p .free-position:hover{
+	color: #ff9400;
+	cursor: pointer;
+}
+.case .learn-more .inf p a:hover{
+	color: #ff9400;
+}
+.case .learn-more .btn a:hover{
+	background: #ff9400;
+}
+.case .learn-more .more-ti a:hover{
+	color: #ff9400;
+}
+.case .case-left:hover .learn-more{
+	bottom: 0;
+}
+.case .case-middle li:hover .learn-more{
+	bottom: 0;
+}
+.case .case-right .case-top:hover{
+	color: #ff9400;
+	cursor: pointer;
+}
+.case .case-right .case-center .case-service:hover{
+	color: #ff9400;
+}
+.case .case-right .case-btn:hover{
+	background: #ff9400;
+}
+.hot a:hover{
+	color: #ff9400 !important;
+}
+.first-footer a:hover{
+	color: white;
+	text-decoration: underline;
+}
+.second-footer a:hover{
+	color: #80756F;
+}
+.right-sidebar .right-sidebar-top ul li:hover{
+	background: #FF9125 !important;
+}
+.right-sidebar .right-sidebar-top ul li:hover .intr{
+	display: block;
+}

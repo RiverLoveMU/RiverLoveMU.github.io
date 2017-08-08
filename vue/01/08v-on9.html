@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @keyup="show($event)">按钮</button>
+
+    <button @keyup="show2.13()">按钮</button>
+    <button @keyup="show2.enter()">按钮</button>
+    <button @keyup="show2.up()">按钮</button>
+    <button @keyup="show2.down()">按钮</button>
+    <button @keyup="show2.left()">按钮</button>
+    <button @keyup="show2.right()">按钮</button>
+
+    <button @keydown="show2.13()">按钮</button>
+</div>
+
+<script>
+//    <!-- 键修饰符，键别名 -->
+//    <input @keyup.enter="onEnter">
+//    <!-- 键修饰符，键代码 -->
+//    <input @keyup.13="onEnter">
+
+    new Vue({
+        el:'#app',
+        methods:{
+            show:function(ev){
+                alert(ev.keyCode);
+            },
+            show2:function(){
+                alert('1423456789');
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

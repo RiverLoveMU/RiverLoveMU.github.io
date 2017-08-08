@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="demo">
+        <ul v-show="display">
+            <li>我是列表1</li>
+            <li>我是列表2</li>
+            <li>我是列表3</li>
+            <li>我是列表4</li>
+            <li>我是列表5</li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el:'#demo',
+            data:{
+                display:false
+            }
+        });
+    </script>
+</body>
+</html>
+<!--
+display:block none
+-->

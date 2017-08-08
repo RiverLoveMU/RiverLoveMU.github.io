@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @keyup="show($event)">按钮</button>
+</div>
+
+<script>
+//    <!-- 键修饰符，键别名 -->
+//    <input @keyup.enter="onEnter">
+//    <!-- 键修饰符，键代码 -->
+//    <input @keyup.13="onEnter">
+
+    new Vue({
+        el:'#app',
+        methods:{
+            show:function(ev){
+                alert(ev.keyCode);
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

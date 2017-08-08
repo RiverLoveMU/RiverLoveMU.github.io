@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <template v-if="login">你好，请登录</template>
+
+    <template v-else="login">admin</template>
+
+    <hr>
+    <div v-if="Math.random() > 0.5">
+        Now you see me
+    </div>
+    <div v-else>
+        Now you don't
+    </div>
+</div>
+<script>
+   var vm = new Vue({
+        el:'#app',
+        data:{
+            login:true
+        }
+    });
+</script>
+</body>
+</html>

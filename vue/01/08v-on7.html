@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .first{
+            width: 200px;
+            height: 200px;
+            background: #5cb85c;
+        }
+        .second{
+            width: 100px;
+            height: 100px;
+            background: #4078c0;
+        }
+        .three{
+            width: 50px;
+            height: 50px;
+            background: #FF0000;
+        }
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="show">按钮</button>
+
+
+    <div class="first" @contextmenu="show(1)">
+        <div class="second" @contextmenu.stop.prevent="show(2)">
+            <div class="three" @click="show(3)"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+//    <!--  串联修饰符 -->
+//    <button @click.stop.prevent="doThis"></button>
+
+    new Vue({
+        el:'#app',
+        data:{
+
+        },
+        methods:{
+            show:function(n){
+               alert(n)
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				width: 750px;
+				height: 1206px;
+				background: url(img/cover_bg.jpg) no-repeat;
+				background-size: 100% 100%;
+				position: relative;
+			}
+			#myCanvas{
+				z-index: 99;
+				position: relative;
+			}
+			#share{
+				position: absolute;
+				top: 28px;
+				right:150px;
+				height: 78px;
+				width: 76px;
+				background: url(img/share.png);
+				z-index: 100;
+			}
+			#music{
+				position: absolute;
+				top:15px;
+				right:10px;
+				height: 100px;
+				width: 120px;
+				background: url(img/music.png) -15px;
+				z-index: 100;
+			}
+			.title,.titleCover{
+				position: absolute;
+				top: 30px;
+				left: 80px;
+			}
+			.title img,.titleCover img{
+				width: 700px;
+			}
+			.time{
+				position: absolute;
+				top: 60px;
+				left: 260px;
+				width: 85px;
+				height: 260px;
+				background: url(img/cover.png) no-repeat 0 -130px;
+				-webkit-animation: move 1s forwards;
+				opacity: 0;
+			}
+			.decorationOne{
+				height: 110px;
+				width: 60px;
+				position: absolute;
+				top: 390px;
+				right: 10px;
+				background: url(img/cover.png) no-repeat -237px 0;
+				-webkit-animation: fishmove 2s infinite linear;
+				-webkit-transform-origin: 30px 0;
+			}
+			.decorationTwo{
+				height: 115px;
+				width: 115px;
+				position: absolute;
+				top: 380px;
+				left: 230px;
+				background: url(img/cover.png) no-repeat -125px 0;
+				-webkit-animation: dmove 1s forwards linear;
+				-webkit-transform: rotate(-60deg);
+				opacity: 0;
+			}
+			#btn{
+				height: 130px;
+				width: 140px;
+				position: absolute;
+				bottom: 50px;
+				left: 50%;
+				margin-left: -70px;
+				background: url(img/cover.png) no-repeat -805px 0;
+				z-index: 100;
+			}
+			#btn:after{
+				content: '';
+				height: 130px;
+				width: 140px;
+				position: absolute;
+				top: -19px;
+				left: -7px;
+				background: url(img/cover.png) no-repeat -662px 0;
+				-webkit-animation: bmove 0.8s infinite linear;
+				-webkit-transform: scale(0.9);
+			}
+			@-webkit-keyframes move{
+				from{
+					
+				}
+				to{
+					top: 150px;
+					opacity: 1;
+				}
+			}
+			@-webkit-keyframes bmove{
+				0%{
+					
+				}
+				50%{
+					-webkit-transform: scale(0.95);
+				}
+				100%{
+					-webkit-transform: scale(0.9);
+				}
+			}
+			@-webkit-keyframes dmove{
+				from{
+					
+				}
+				to{
+					-webkit-transform: rotate(-0deg);
+					top: 260px;
+					left: 70px;
+					opacity: 1;
+				}
+			}
+			@-webkit-keyframes fishmove{
+				0%{
+					
+				}
+				25%{
+					-webkit-transform: rotate(10deg);
+				}
+				50%{
+					-webkit-transform: rotate(0deg);
+				}
+				75%{
+					-webkit-transform: rotate(-10deg);
+				}
+				100%{
+					-webkit-transform: rotate(0deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<canvas id="myCanvas" width="750" height="1206"></canvas>
+			<div id="share"></div>
+			<div id="music"></div>
+			<audio src="audio/moon.mp3"></audio>
+			<div class="titleCover">
+				<img src="img/title_bg.gif"/>
+			</div>
+			<div class="title">
+				<img src="img/title.gif"/>
+			</div>
+			<div class="time"></div>
+			<div class="decorationOne"></div>
+			<div class="decorationTwo"></div>
+			<div id="btn"></div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var oMusic = $('audio').get(0);
+		var musicIconChange = 0;
+		var oC = $('#myCanvas').get(0);
+		var context = oC.getContext('2d');
+		var firstDown = true;
+		var oImg = new Image();
+		var changeControl = true;
+		var scale = 1206/750;
+		var arrImg = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg','img/5.jpg','img/6.jpg','img/6_5.jpg','img/7.jpg','img/7_5.jpg','img/8.jpg','img/8_5.jpg'
+			,'img/9.jpg','img/9_5.jpg','img/10.jpg','img/10_5.jpg','img/11.jpg','img/11_5.jpg','img/12.jpg','img/12_5.jpg','img/13.jpg','img/13_5.jpg','img/14.jpg',
+			'img/15.jpg'
+		]
+		var arrPosition = [
+			{
+				'beginX': 1376,
+				'beginY': 93,
+				'x': 385,
+				'y': 385*scale,
+			},
+			{
+				'beginX': 789,
+				'beginY': 1193,
+				'x': 156,
+				'y': 156*scale,
+			},
+			{
+				'beginX': 856,
+				'beginY': 415,
+				'x': 287,
+				'y': 287*scale,
+			},
+			{
+				'beginX': 384,
+				'beginY': 849,
+				'x': 237,
+				'y': 237*scale,
+			},
+			{
+				'beginX': 358,
+				'beginY': 1228,
+				'x': 190,
+				'y': 190*scale,
+			},
+			{
+				'beginX': 128,
+				'beginY': 852,
+				'x': 793,
+				'y': 793*scale,
+			},
+			{
+				'beginX': 794,
+				'beginY': 784,
+				'x': 282,
+				'y': 282*scale,
+			},
+			{
+				'beginX': 428,
+				'beginY': 453,
+				'x': 941,
+				'y': 941*scale,
+			},
+			{
+				'beginX': 1275,
+				'beginY': 666,
+				'x': 296,
+				'y': 296*scale,
+			},
+			{
+				'beginX': 976,
+				'beginY': 560,
+				'x': 786,
+				'y': 786*scale,
+			},
+			{
+				'beginX': 1205,
+				'beginY': 2309,
+				'x': 241,
+				'y': 241*scale,
+			},
+			{
+				'beginX': 893,
+				'beginY': 1608,
+				'x': 674,
+				'y': 674*scale,
+			},
+			{
+				'beginX': 285,
+				'beginY': 44,
+				'x': 249,
+				'y': 249*scale,
+			},
+			{
+				'beginX': 259,
+				'beginY': 21,
+				'x': 940,
+				'y': 940*scale,
+			},
+			{
+				'beginX': 1058,
+				'beginY': 190,
+				'x': 438,
+				'y': 438*scale,
+			},
+			{
+				'beginX': 1036,
+				'beginY': 678,
+				'x': 786,
+				'y': 786*scale,
+			},
+			{
+				'beginX': 226,
+				'beginY': 2212,
+				'x': 419,
+				'y': 419*scale,
+			},
+			{
+				'beginX': 352,
+				'beginY': 1654,
+				'x': 787,
+				'y': 787*scale,
+			},
+			{
+				'beginX': 1492,
+				'beginY': 525,
+				'x': 293,
+				'y': 293*scale,
+			},
+			{
+				'beginX': 1016,
+				'beginY': 484,
+				'x': 784,
+				'y': 784*scale,
+			},
+			{
+				'beginX': 1158,
+				'beginY': 2312,
+				'x': 102,
+				'y': 102*scale,
+			},
+			{
+				'beginX': 1004,
+				'beginY': 2035,
+				'x': 473,
+				'y': 473*scale,
+			}
+		];
+		
+		var imgNumber = 0;
+		var positionNumber = -1;
+		var add = 0;
+		var canvasTimer = null;
+		oImg.src = arrImg[imgNumber];
+		var musicTimer = setInterval(function(){
+			musicIconChange++;
+			$('#music').css('background-position-x',-musicIconChange*140 - 15 +'px');
+		},50)
+		oMusic.play();
+		$('#music').click(function(ev){
+			ev.stopPropagation();
+			if (!oMusic.paused) {
+				oMusic.pause();
+				clearInterval(musicTimer);
+			} else{
+				oMusic.play();
+				musicTimer = setInterval(function(){
+					musicIconChange++;
+					$('#music').css('background-position-x',-musicIconChange*140 - 15 +'px');
+				},50)
+			}
+		})
+		oImg.onload = function(){
+			$('#btn').mousedown(function(){
+				if (firstDown) {
+					context.drawImage(oImg,0,0,oImg.width,oImg.height,0,0,oC.width,oC.height);
+					firstDown = false;
+				}
+				if (changeControl) {
+					positionNumber++;
+					change();
+				}
+				if (!changeControl) {
+					magnify(arrPosition[positionNumber].beginX,arrPosition[positionNumber].beginY,arrPosition[positionNumber].x,arrPosition[positionNumber].y);
+				}
+			})
+			$('#btn').mouseup(function(){
+				clearInterval(canvasTimer);
+			})
+		}
+		function change(){
+			oImg.src = arrImg[++imgNumber];
+					oImg.onload = function(){
+						context.drawImage(oImg,arrPosition[positionNumber].beginX,arrPosition[positionNumber].beginY,arrPosition[positionNumber].x,arrPosition[positionNumber].y,0,0,oC.width,oC.height);
+					}
+			changeControl = false;
+		}
+		function magnify(bx,by,width,height){
+			canvasTimer = setInterval(function(){
+				add++;
+				var addY = add*by/bx;
+				var beginX = bx-add;
+				var beginY =by-addY;
+				var x = width+add+add*(oImg.width-bx-width)/bx
+				var y = height+addY+addY*(oImg.height-by-height)/by;
+				if (beginY+y>=oImg.height && beginY<=0 && beginX+x>=oImg.width && beginX<=0) {
+					positionNumber++;
+					add = 0;
+					clearInterval(canvasTimer);
+					oImg.src = arrImg[++imgNumber];
+					oImg.onload = function(){
+						magnify(arrPosition[positionNumber].beginX,arrPosition[positionNumber].beginY,arrPosition[positionNumber].x,arrPosition[positionNumber].y);
+					}
+				}
+				context.drawImage(oImg,beginX,beginY,x,y,0,0,oC.width,oC.height);
+			},1)
+		}
+	</script>
+</html>

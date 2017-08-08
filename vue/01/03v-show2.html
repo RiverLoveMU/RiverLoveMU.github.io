@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="demo">
+        <ul>
+            <li v-show="yes">我是列表1/ yes(true)</li>
+            <li v-show="no">我是列表2/ no(false)</li>
+            <li v-show="num > 100">我是列表3/ num(20)>100 ====> false </li>
+            <li v-show="str.indexOf('dataoedu100')!=-1">我是列表4/ str.indexOf('dataoedu100') 没有找到 返回的结果是-1 ，-1！=-1  ==>false</li>
+            <li>我是列表5</li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el:'#demo',
+            data:{
+                yes:true,
+                no:false,
+                num:20,
+                str:'www.dataoedu.com'
+            }
+        });
+
+
+       // str = 'www.dataoedu.com';
+       // alert(str.indexOf('m'));//如果找到子串 返回所在的位置 否则返回-1
+        //正则
+        //indexOf
+    </script>
+</body>
+</html>
+<!--
+display:block none 
+-->

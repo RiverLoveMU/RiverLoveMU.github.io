@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <span v-text="'今年是：'+year+'年'+month+'月'"></span>
+        <hr>
+        <span>今年是:{{year}} 年{{month}}月</span>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                year:new Date().getFullYear(),
+                month:new Date().getMonth()+1
+            }
+        });
+    </script>
+</body>
+</html>

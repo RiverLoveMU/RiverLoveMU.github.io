@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div class="wrap">
+    <div class="head">
+        <div class="w600">
+            <h1>todolist</h1>
+            <input type="text" v-model="todo" v-on:keyup.13="addTodo" >
+        </div>
+
+    </div>
+    <div class="content">
+        <div class="w600">
+            <div class="doing">
+                <h2>正在进行 <em>{{list.length}}</em></h2>
+                <ul>
+                    <li v-for="item in list" >
+                        <input type="checkbox" v-model="item.isChecked">
+                        {{item.title}}
+                        <span>-</span>
+                    </li>
+
+
+                </ul>
+            </div>
+            <div class="did">
+                <h2>已经完成 <em>20</em></h2>
+                <ul>
+                    <li><input type="checkbox" name="" id="">打豆豆 <span>-</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var vm = new Vue({
+        el:'.wrap',
+        data:{
+            /*list:[
+                {name:'张三1',age:'18a',addr:'重庆1'},
+                {name:'张三2',age:'18b',addr:'重庆2'},
+                {name:'张三3',age:'18c',addr:'重庆3'},
+                {name:'张三4',age:'18d',addr:'重庆4'},
+                {name:'张三5',age:'18e',addr:'重庆5'},
+                {name:'张三6',age:'18f',addr:'重庆6'}
+            ]*/
+            todo:"",
+            list:[],
+        },
+        methods:{
+            addTodo(){//添加
+               this.list.push({
+                   title:this.todo,
+                   isChecked:false
+               });
+                   this.todo = '';
+                   console.log(this.list)
+
+            },
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <button onclick="alert(0)">按钮1</button>
+    <button @click="show($event)">单击click</button>
+    <button @click="show($event,11)">单击click</button>
+</div>
+<script>
+    //  <!-- 内联语句 -->
+    //   <button v-on:click="doThat('hello', $event)"></button>
+
+    var vm = new Vue({
+        el:'#demo',
+        data:{
+
+        },
+        methods:{
+            show:function(ev,n){//方法
+                alert(ev.clientX);
+                alert(n);
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

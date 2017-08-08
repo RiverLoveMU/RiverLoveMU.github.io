@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <ol>
+        <li v-for="z in json">
+            {{z}}
+        </li>
+    </ol>
+    <hr>
+    <ol>
+        <li v-for="(item,index) in json">
+            {{index}}:{{item}}
+        </li>
+    </ol>
+    <hr>
+    <ol>
+        <li v-for="(val,key) in json">
+            {{key}}:{{val}}
+        </li>
+    </ol>
+    <hr>
+    <ol>
+        <li v-for="(val,key,index) in json">
+            {{index}}++++{{key}}:{{val}}
+        </li>
+    </ol>
+    <hr size="10" color="red">
+    <ul>
+        <li v-for="val in arr">{{val}}</li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="(val,key) in arr">{{key}}+{{val}}</li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="(val,index) in arr">{{index}}+{{val}}</li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="(val,index) in arr" :key="val.id">{{index}}+{{val}}</li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="(val,index) in arr" :key="val.id">{{val}}</li>
+    </ul>
+</div>
+
+
+<script>
+    new Vue({
+        el:'#demo',
+        data:{
+            json:{
+                a:'aa',b:'bb',c:'cc','d':'dd',e:100,f:true
+            },
+            arr:['hello','vue','react','jquery','prototype']
+        }
+    });
+</script>
+</body>
+</html>
+<!--
+json:
+'key':'value'
+
+
+-->

@@ -1,0 +1,126 @@
+.ballScreen {
+	-webkit-transform-style: preserve-3d;
+	-webkit-perspective: 1000;
+}
+
+html,
+body,
+.firstcont {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	-webkit-transform-style: preserve-3d;
+	-webkit-perspective: 1000;
+}
+
+.show {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
+
+.title,
+.browsergif {
+	margin: auto;
+	text-align: center;
+	top: 800px;
+	left: 50%;
+	margin-left: -440px;
+	opacity: 0;
+	-webkit-animation: goin 0.8s 1s forwards cubic-bezier(0.360, 0.940, 0.550, 0.965);
+	-webkit-transform: rotateX(45deg) scale(3);
+	position: absolute;
+}
+
+.browsergif {
+	-webkit-animation-delay: 1.1s;
+}
+
+@-webkit-keyframes goin {
+	from {
+		opacity: 0;
+	}
+	to {
+		top: 360px;
+		-webkit-transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.btnBox {
+	width: 880px;
+	margin: auto;
+	margin-top: 185px;
+	overflow: hidden;
+}
+
+.btn,
+.titleicon {
+	-webkit-animation: showbtn 1s forwards linear;
+}
+
+.btn {
+	float: right;
+	vertical-align: middle;
+	margin-left: 25px;
+	opacity: 0;
+	-webkit-animation-delay: 2.2s;
+}
+
+.titleicon {
+	margin-top: 13px;
+	opacity: 0;
+	-webkit-animation-delay: 1.8s;
+}
+
+@-webkit-keyframes showbtn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.fadeout .title,
+.fadeout .browsergif,
+.fadeout .btnBox {
+	-webkit-animation: firstFadeout 0.7s linear forwards;
+}
+
+@-webkit-keyframes firstFadeout {
+	from {
+		opacity: 1;
+		top: 360px;
+		-webkit-transform: scale(1);
+	}
+	to {
+		opacity: 0;
+		top: 360px;
+		-webkit-transform: scale(1);
+	}
+}
+
+.nav {
+	position: fixed;
+	z-index: 1000;
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	margin-top: -80px;
+}
+
+.nav li {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #CACACA;
+	margin-bottom: 30px;
+}
+
+.nav li.active {
+	background: #1981FF;
+}

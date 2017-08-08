@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background: #5cb85c;
+        }
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="toggle()">显示/隐藏</button>
+    <hr>
+    <div class="box" v-show="display"></div>
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            display:true
+        },
+        methods:{
+            toggle:function(){
+                return this.display = this.display === true ? false : true
+            }
+        }
+    });
+</script>
+</body>
+</html>

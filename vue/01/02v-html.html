@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<p id="p1">123456</p>
+<hr>
+
+
+<div id="app">
+    <div class="img" v-html="msg"></div>
+    <hr>
+    {{msg}}
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            msg:'<img src="fe.jpg"/>'
+        }
+    });
+
+
+//v-html 更新元素的 innerHTML
+    var str = '<img src="fe.jpg"/>';
+    document.getElementById('p1').innerHTML = str;
+    document.getElementById('p1').innerText = str;
+
+</script>
+
+
+</body>
+</html>
+<!--
+innerHTML
+innerText
+-->

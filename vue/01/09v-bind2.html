@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <!-- class 绑定 -->
+    <div :class="{ red: isRed }"></div>
+    <div :class="[classA, classB]"></div>
+    <div :class="[classA, { classB: isB, classC: isC }]"></div>
+
+
+    <hr>
+
+    <!-- style 绑定 -->
+    <div :style="{ fontSize: size + 'px' }"></div>
+    <div :style="[styleObjectA, styleObjectB]"></div>
+
+    <hr>
+
+    <!-- 绑定一个有属性的对象 -->
+    <div v-bind="{ id: someProp, 'other-attr': otherProp ,class:myclass}"></div>
+</div>
+<script>
+new Vue({
+    el:'#demo',
+    data:{
+        //red:'red',
+        isRed:false,
+        classA:'a',
+        classB:'b',
+        isB:true,
+        isC:false,
+        size:18,
+        styleObjectA:{fontSize:'18px',color:'red',width:'200px',height:'200px',background:'blue'},
+        styleObjectB:{},
+        someProp:'div10',
+        otherProp:'other',
+        myclass:'red'
+    }
+});
+</script>
+</body>
+</html>

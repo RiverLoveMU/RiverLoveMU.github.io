@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <img src="" v-bind:src="path" alt="">
+        <a v-bind:href="alink">去百度</a>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                path:'tupian.jpg',
+                alink:'http://www.baidu.com'
+            }
+        });
+    </script>
+
+</body>
+</html>

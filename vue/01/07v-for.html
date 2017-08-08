@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in arr">
+            {{item}}
+        </li>
+    </ul>
+
+    <ul>
+        <li v-for="z in json">
+            {{z}}
+        </li>
+    </ul>
+
+    <ul>
+        <li v-for="s in str">
+            {{s}}
+        </li>
+    </ul>
+
+    <ul>
+        <li v-for="n in num">
+            {{n}}
+        </li>
+    </ul>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            arr:['apple','banner','orange','pear'],
+            json:{a:'a',b:'b',c:'c'},
+            str:'helloworld',
+            num:5
+        }
+    });
+
+</script>
+</body>
+</html>

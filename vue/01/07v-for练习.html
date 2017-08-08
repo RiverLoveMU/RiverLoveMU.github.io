@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://unpkg.com/vue"></script>
+    <style type="text/css">
+        table{
+            border: 1px solid #ccc;
+            width: 300px;
+        }
+        table thead{
+            background: #42b983;
+        }
+        th{
+            border-left:1px solid #F00;
+        }
+        td{
+            border-left:1px solid #F00;
+            border-top:1px solid #F00
+        }
+    </style>
+
+</head>
+<body>
+<div id="app">
+    <table cellspacing="0">
+        <thead>
+        <tr>
+            <th>Key</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Sex</th>
+        </tr>
+        </thead>
+        <tbody>
+           <!-- <tr v-for='person in people'>
+                <td>{{person.name}}</td>
+                <td>{{person.age}}</td>
+                <td>{{person.sex}}</td>
+            </tr>-->
+           <tr v-for='(val,key) in people'>
+               <td>{{key}}</td>
+               <td>{{val.name}}</td>
+               <td>{{val.age}}</td>
+               <td>{{val.sex}}</td>
+           </tr>
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    var vm=new Vue({
+        el:'#app',
+        data: {
+            people: [{
+                name: 'Jack',
+                age: 30,
+                sex: 'Male'
+            }, {
+                name: 'Bill',
+                age: 26,
+                sex: 'Male'
+            }, {
+                name: 'Tracy',
+                age: 22,
+                sex: 'Female'
+            }, {
+                name: 'Chris',
+                age: 36,
+                sex: 'Male'
+            }]
+        }
+    })
+</script>
+</body>
+</html>

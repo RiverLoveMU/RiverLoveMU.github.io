@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            color:red;
+        }
+    </style>
+
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <a  v-bind:href="hrefValue" v-bind:class="active">百度</a>
+    <hr>
+    <a  :href="hrefValue" :class="active">百度</a>
+
+    <img :src="img" alt="">
+
+    <img :src="'img/01/'+img2" alt="">
+</div>
+
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            hrefValue:'http://www.baidu.com',
+            active:'red',
+            img:'fe.jpg',
+            img2:'1.jpg'
+        }
+    });
+</script>
+</body>
+</html>

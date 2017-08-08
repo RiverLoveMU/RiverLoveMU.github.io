@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .first{
+            width: 200px;
+            height: 200px;
+            background: #5cb85c;
+        }
+        .second{
+            width: 100px;
+            height: 100px;
+            background: #4078c0;
+        }
+        .three{
+            width: 50px;
+            height: 50px;
+            background: #FF0000;
+        }
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+<div id="demo">
+    <button onclick="alert(0)">按钮1</button>
+    <button @click="show(10)">单击click</button>
+
+    <div class="first" @click="show(1)">
+        <div class="second" @click="show2($event)">
+            <div class="three" @click.stop="show(3)"></div>
+        </div>
+    </div>
+
+
+</div>
+<script>
+  //  <!-- 停止冒泡 -->
+  //  <button @click.stop="doThis"></button>
+
+    var vm = new Vue({
+        el:'#demo',
+        data:{
+
+        },
+        methods:{
+            show:function(n){//方法
+                //alert(ev.clientX);
+                alert(n);
+            },
+            show2:function(ev){
+                ev.cancelBubble = true;//阻止事件冒泡
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

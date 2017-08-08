@@ -1,0 +1,761 @@
+.top-nav .website li .show{
+	width: 215px;
+	height: 220px;
+	position: absolute;
+	border: 1px solid gainsboro;
+	background: white;
+	border-top: none;
+	margin-left: -8px;
+	margin-top: -3px;
+}
+.top-nav .website li .show .qr-pic{
+	height: 80px;
+	width: 80px;
+	display: block;
+	float: left;
+	margin-right: 5px;
+}
+.top-nav .website li .show .qr{
+	width: 185px;
+	margin-left: 25px;
+	padding: 13px 0;
+	overflow: hidden;
+}
+.top-nav .website li .show .qr:first-child{
+	border-bottom: 1px solid gainsboro;
+}
+.top-nav .website li .show .qr-arrow{
+	position: absolute;
+	top: -3px;
+	left: 1px;
+}
+.top-nav .website li .show p{
+	word-break: break-all;
+	text-align: center;
+	line-height: 16px;
+	font-size: 16px;
+}
+.top-nav .website li .show .qr .btn{
+	float: left;
+	width: 70px;
+	height: 20px;
+	background: #FF7900;
+	margin-top: 18px;
+	margin-left: 5px;
+	color: white;
+	line-height: 20px;
+	text-align: center;
+	border-radius: 3px;
+	font-size: 13px;
+}
+.top-nav .enter .show{
+	background: white;
+	position: absolute;
+	margin-left: -9px;
+}
+.top-nav .enter .show div{
+	height: 25px;
+	padding: 0 10px;
+	line-height: 25px;
+	font-size: 12px;
+}
+.top-nav .enter li .website-nav{
+	width: 1190px;
+	height: 225px;
+	background: white;
+	padding: 20px 0 10px 0;
+	box-sizing: border-box;
+	border: 1px solid gainsboro;
+	border-top: none;
+	position: absolute;
+	left: 0px;
+	z-index: 1000;
+}
+.top-nav .enter li .website-nav div:after{
+	content: '';
+	border-left: 1px dashed gainsboro;
+	width: 1px;
+	height: 170px;
+	position: absolute;
+	right: -1px;
+	top: 0px;
+}
+.top-nav .enter li .website-nav h3{
+	font-size: 18px;
+	color: #ff7900;
+	margin-bottom: 2px;
+}
+.top-nav .enter li .website-nav .detail,.website-nav h3{
+	margin-left: 25px;
+}
+.top-nav .enter li .website-nav .detail{
+	padding-right: 23px;
+	overflow: hidden;
+}
+.top-nav .enter li .website-nav .detail li{
+	margin-top: 11px;
+	width: 75px;
+	font-size: 12px;
+	float: left;
+	line-height: 12px;
+	padding: 0;
+	position: relative;
+}
+.top-nav .enter li .website-nav .detail li a{
+	position: relative;
+}
+.top-nav .enter li .website-nav div{
+	float: left;
+	position: relative;
+}
+.top-nav .enter li .website-nav .basic-service .detail,
+.top-nav .enter li .website-nav .transaction-security .detail{
+	width: 75px;
+}
+.top-nav .enter li .website-nav .seller-service .detail,
+.top-nav .enter li .website-nav .bajie-consultation .detail{
+	width: 150px;
+}
+.top-nav .enter li .website-nav .industry-market .detail,
+.top-nav .enter li .website-nav .special-market .detail{
+	width: 225px;
+}
+.top-nav .enter li .website-nav .special-market img{
+	width: 62px;
+	margin-top: 13px;
+	margin-left: 7px;
+}
+.top-nav .enter li .website-nav .special-market img.first{
+	margin-left: 25px;
+}
+.top-nav .enter li .website-nav .transaction-security:after{
+	border: none;
+}
+
+.bajie-icon{
+	height: 42px;
+	width: 108px;
+	position: absolute;
+	top: -4px;
+	left: 188px;
+}
+.bajie-icon .bg{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background: rgba(0,0,0,.7);
+	height: 35px;
+	border-radius: 2px;
+}
+.bajie-icon .bajie{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: url(../img/interaction/bajie.png) no-repeat;
+	
+}
+.bajie-icon .bajie-text{
+	position: absolute;
+	bottom: 4px;
+	left: 41px;
+	color: #fff;
+	line-height: 14px;
+	font-size: 12px;
+}
+.bajie-icon .close{
+	position: absolute;
+	top: 8px;
+	right: 0;
+	width: 10px;
+	height: 10px;
+	line-height: 10px;
+	color: white;
+}
+.city-list{
+	width: 275px;
+	position: absolute;
+	overflow: hidden;
+	top: -35px;
+	left: -4px;
+	z-index: 99;
+}
+.city-list:before{
+	content: '';
+	height: 2px;
+	width: 84px;
+	position: absolute;
+	top: 33px;
+	left: 1px;
+	background: white;
+	
+}
+.city-list .country{
+	height: 32px;
+	width: 84px;
+	border: 1px solid gainsboro;
+	background: white;
+}
+.city-list .select-city{
+	width: 273px;
+	border: 1px solid gainsboro;
+	background: white;
+}
+.city-list .select-city .guess-city{
+	padding: 15px 0px 7px;
+	margin: 0 11px;
+	border-bottom: 1px dashed gainsboro;
+	font-size: 12px;
+	color: gray;
+	line-height: 12px;
+}
+.city-list .select-city .guess-city span{
+	color: #ff7900;
+	margin-left: 5px;
+}
+.city-list .select-city .hot-city{
+	margin: 0px 11px;
+	overflow: hidden;
+	font-size: 12px;
+	line-height: 12px;
+}
+.city-list .select-city .hot-city .title{
+	border-left: 2px solid #FF5931;
+	padding-left: 10px;
+	margin: 14px 0;
+}
+.city-list .select-city .hot-city .hot-city-list{
+	overflow: hidden;
+	border-bottom: 1px dashed gainsboro;
+}
+.city-list .select-city .hot-city .hot-city-list li{
+	padding: 0 18px;
+	margin-bottom: 14px;
+	float: left;
+	border-right: 1px solid gainsboro;
+}
+.city-list .select-city .hot-city .hot-city-list li a{
+	color: gray;
+}
+.city-list .select-city .hot-city .hot-city-list li:nth-child(4n){
+	border: none;
+}
+.city-list .select-city .hot-city .waitmore{
+	text-align: center;
+	color: gray;
+	line-height: 30px;
+}
+.more-search-box{
+	position: absolute;
+	border-bottom: 1px solid #ff6901;
+	left: -3px;
+	top: 0;
+	z-index: 50;
+}
+.more-search-box:before{
+	content: '';
+	width: 2px;
+	height: 33px;
+	position: absolute;
+	top: 0;
+	left: 1px;
+	background: white;
+}
+.more-search:first-child{
+	background: transparent;
+}
+.more-search{
+    width: 75px;
+    padding: 7px 0px 6px 17px;
+    height: 20px;
+    z-index: 10;
+    color: #7d7d7d;
+    font-size: 12px;
+    line-height: 20px;
+    border-left: 1px solid #ff6901;
+    border-right: 1px solid #ff6901;
+    background: white;
+}
+.search .search-box .input-box .sort span{
+	margin: 0;
+	padding: 0;
+	position: relative;
+	line-height: 20px;
+}
+.search .search-box .input-box .demand .demand-list{
+	width: 290px;
+	height: 468px;
+	background: white;
+	position: absolute;
+	border: 1px solid gainsboro;
+	overflow: hidden;
+	left: -172px;
+	top: 39px;
+	z-index: 100;
+}
+.search .search-box .input-box .demand .demand-list .title{
+	margin: 0px 15px;
+	padding: 21px 0; 
+	text-align: center;
+	border-bottom: 1px dashed gainsboro;
+	font-size: 17px;
+}
+.search .search-box .input-box .demand .demand-list .list-detail{
+	margin: 0px 38px;
+	float: none;
+}
+.search .search-box .input-box .demand .demand-list .list-detail li{
+	padding: 21px 0 0; 
+	overflow: hidden;
+	float: none;
+	margin: 0;
+	line-height: 12px;
+}
+.search .search-box .input-box .demand .demand-list .list-detail li img{
+	float: left;
+}
+.search .search-box .input-box .demand .demand-list .list-detail li p:first-of-type{
+	color: #dbddda;
+	font-size: 12px;
+	margin-top: 2px;
+	margin-left: 49px;
+}
+.search .search-box .input-box .demand .demand-list .list-detail li p:last-of-type{
+	color: #8b8474;
+	font-size: 14px;
+	margin-top: 4px;
+	margin-left: 49px;
+}
+.search .search-box .input-box .demand .demand-list .demand-btn{
+	margin: 16px 38px 24px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	background: #ff6600;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+}
+.search .search-box .input-box .demand .demand-list .demand-market{
+	border-top: 1px solid gainsboro;
+	height: 100%;
+	background: #ebedea;
+	padding: 16px 15px;
+}
+.search .search-box .input-box .demand .demand-list .demand-market .demand-market-pic{
+	background: url(../img/interaction/taskbgs.png);
+	float: right;
+	height: 40px;
+	width: 66px;
+}
+.search .search-box .input-box .demand .demand-list .demand-market .demand-market-show{
+	margin-top: -1px;
+	height: 43px;
+	width: 180px;
+	position: relative;
+	float: left;
+	overflow: hidden;
+}
+.search .search-box .input-box .demand .demand-list .demand-market .demand-market-show div{
+	font-size: 13px;
+	line-height: 21px;
+	height: 43px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+}
+.search .search-box .input-box .demand .demand-list .demand-market .demand-market-show .second-show{
+	top: 43px;
+	left: 0;
+}
+.search .search-box .input-box .demand .demand-list .demand-market .demand-market-show div p{
+	height: 21px;
+	width: 180px;
+	overflow: hidden;
+	word-break: break-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+}
+.search .search-box .input-box .demand .demand-list .demand-market .demand-market-show div p span{
+	color: #ff6600;
+	font-size: 12px;
+	display: inline-block;
+	margin-right: 5px;
+	padding: 0;
+	line-height: 12px;
+	float: none;
+}
+.search .search-box .input-box .demand .demand-list .demand-market .demand-market-show div p:last-child{
+	color: #a0a4a7;
+	font-weight: bold;
+}
+.search .search-box .input-box .demand .demand-list .demand-market .demand-market-show div p em{
+	float: right;
+}
+.nav .left-nav .nav-detail-list{
+	height: 495px;
+	width: 657px;
+	border: 1px solid #e63b0d;
+	border-left: none;
+	padding-left: 22px;
+	overflow: hidden;
+	background: white;
+	position: absolute;
+	z-index: 100;
+	top: 43px;
+	left: 205px;
+}
+.nav .left-nav .nav-detail-list .nav-detail-column{
+	width: 205px;
+	height: 130px;
+	float: left;
+	margin-top: 10px;
+}
+.nav .left-nav .nav-detail-list .nav-detail-column.firstline{
+	margin-top: 17px;
+}
+.nav .left-nav .nav-detail-list .nav-detail-column h4{
+	height: 30px;
+	font-weight: normal;
+	font-size: 15px;
+	color: #f60;
+	width: 120px;
+	border-bottom:1px solid #f60;
+	margin-bottom: 4px;
+	line-height: 25px;
+}
+.nav .left-nav .nav-detail-list .nav-detail-column .column-list li{
+	padding-top: 14px;
+	padding-right: 19px;
+	float: left;
+	font-size: 12px;
+	position: relative;
+	width: auto;
+}
+.nav .left-nav .nav-detail-list .nav-detail-column .column-list{
+	height: auto;
+	padding: 0;
+	line-height: 12px;
+}
+.nav .left-nav .nav-detail-list .nav-detail-column .column-list li a{
+	color: #555;
+	position: relative;
+}
+.nav .left-nav .nav-detail-list .nav-detail-column .column-list li a.orange{
+	color: #ff7900;
+}
+.nav .left-nav .nav-detail-list .nav-detail-pic{
+	overflow: hidden;
+	width: 200px;
+	float: left;
+	margin-top: -3px;
+}
+.nav .left-nav .nav-detail-list a{
+	cursor: pointer;
+}
+.nav .left-nav .ul-content .cover{
+	position: absolute;
+	left: 194px;
+	color: #ff5931;
+	top: 72px;
+}
+.nav .left-nav .ul-content .cover .iconfont{
+	font-size: 12px;
+	line-height: 12px;
+	display: block;
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+.pinpai .pinpai-com .pinpai-box .pinpai-cover{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 100px;
+	left: 0;
+	background: rgba(255,145,37,0.7);
+	text-align: center;
+	line-height: 14px;
+	transition: all 0.5s ease-in-out; 
+}
+.pinpai .pinpai-com .pinpai-box .pinpai-cover span{
+	font-size: 14px;
+    color: #fff;
+    width: 100%;
+    height: 14px;
+    padding-top: 12px;
+    line-height: 14px;
+    display: block;
+}
+.pinpai .pinpai-com .pinpai-box .pinpai-cover p{
+	padding: 10px 3px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #fff;
+    height: 18px;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.pinpai .pinpai-com .pinpai-box .pinpai-cover button{
+	background-color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 3px 10px;
+    outline: none;
+    width: 48%;
+    color: rgb(255,145,37);
+    cursor: pointer;	
+}
+.facilitator .fa-list ul li .price-amount{
+	margin: 0;
+	padding: 15px 7px 5px;
+    color: #666;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.facilitator .fa-list ul li .price-amount .price{
+	float: left;
+	font-weight: bold;
+    font-size: 16px;
+    color: #ff6f26;
+    line-height: 14px;
+}
+.facilitator .fa-list ul li .price-amount .amount{
+	float: right;
+	color: #666;
+}
+.facilitator .fa-list ul li .recom-serviece{
+	padding: 5px 7px;
+    color: #666;
+    font-size: 12px;
+    margin: 0;
+    height: 32px;
+    overflow: visible !important;
+    white-space: normal !important;
+}
+.facilitator .fa-list ul li .recom-serviece a{
+	color: 	#0b73bb;
+}
+.facilitator .fa-list ul li .recom-company{
+	padding: 5px 7px;
+    color: #666;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+}
+.facilitator .fa-list ul li .recom-company a{
+	color: #666;
+}
+.facilitator .fa-list ul li .recom-place{
+	margin: 0;
+	padding: 0 7px;
+	color: #666;
+}
+.guess ul li .guess-pic .find-more{
+	position: absolute;
+	left: 0;
+	bottom: -30px;
+	height: 20px;
+	width: 100%;
+	padding: 5px 0;
+	background: rgba(0,0,0,.5);
+	transition: all 0.5s;
+}
+.guess ul li .guess-pic .find-more a{
+	color: white;
+	font-size: 12px;
+	text-align: center;
+	box-sizing: border-box;
+	width: 50%;
+	text-align: center;
+	line-height: 20px;
+	display: block;
+	float: left;
+}
+.guess ul li .guess-pic .find-more a:first-child{
+	border-right: 1px solid white;
+}
+.demand .de-list-content{
+	position: relative;
+}
+.case .learn-more{
+	position: absolute;
+	left: 0;
+	bottom: -130px;
+	width: 100%;
+	background: rgba(251, 251, 251, .95);
+	overflow: hidden;
+	text-align: left;
+	transition: bottom 0.5s; 
+}
+.case .learn-more .more-ti{
+	height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: normal;
+    padding-top: 3px;
+    margin: 0 16px;
+}
+.case .learn-more a{
+	color: #555;
+}
+.case .learn-more .inf{
+	margin: 0 16px 7px;
+	line-height: 20px;
+	color: #999;
+}
+.case .learn-more .inf p{
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 20px;
+    overflow: hidden;
+    font-size: 12px;
+}
+.case .learn-more .inf p em{
+	font-style: normal;
+	color: #ff8400;
+}
+.case .learn-more .btn{
+	margin: 0 16px 10px;
+}
+.case .learn-more .btn a{
+	height: 30px;
+    line-height: 30px;
+    display: block;
+    background: #f60;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+}
+.case .learn-more.special .inf{
+	float: left;
+	margin-right: 0;
+	overflow: hidden;
+}
+.case .learn-more.special .inf p{
+	float: left;
+	margin-right: 7px;
+	margin-top: 5px;
+}
+.case .learn-more.special .btn{
+	float: right;
+	width: 130px;
+	margin-left: 0;
+}
+.scroll-show{
+	position: fixed;
+	top: 34px;
+	left: 0;
+	background: white;
+	z-index: 1000;
+	border-bottom: 1px solid gainsboro;
+	box-shadow: 0 1px 5px #ddd;
+}
+.scroll-show .search{
+	margin: 0 auto;
+}
+.scroll-show .search .pic img{
+	width: 85px;
+	margin-right: 10px;
+}
+.scroll-show .search .gif{
+	height: 50px;
+	width: 50px;
+	margin-top: -10px;
+}
+.scroll-show .search .gif img{
+	width: 100%;
+}
+.scroll-show .search .search-box{
+	margin-left: 200px;
+	margin-top: 10px;
+	height: 80px;
+}
+.right-sidebar ul li .intr{
+	height: 37px;
+	width: 35px;
+	background: #666;
+	position: absolute;
+	top: 0;
+	left: -35px;
+	text-align: center;
+	line-height: 37px;
+	color: white;
+	font-size: 12px;
+	display: none;
+}
+.right-sidebar ul li:last-of-type .intr{
+	line-height: 17px;
+}
+.right-sidebar ul li .intr:before{
+	content: '';
+	height: 0;
+	width: 0;
+	border: 5px solid transparent;
+	border-left-color: #666;
+	position: absolute;
+	top: 50%;
+	margin-top: -5px;
+	right: -10px;
+}
+.right-sidebar .right-coloumn > div{
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+.right-sidebar .right-coloumn .entry{
+	margin: 15px;
+}
+.right-sidebar .right-coloumn .entry img{
+	width: 100%;
+	cursor: pointer;
+}
+.right-sidebar .right-coloumn .third-coloumn p{
+	font-size: 12px;
+    line-height: 18px;
+    color: #999;
+    margin-top: 300px;
+    margin-left: 73px;
+    margin-right: 30px;
+}
+.right-sidebar .right-coloumn .fourth-coloumn{
+	text-align: center;
+}
+.right-sidebar .right-coloumn .fourth-coloumn .open-earn{
+	width: 205px;
+    height: 324px;
+    margin-top: 60px;
+}
+.right-sidebar .right-coloumn .fourth-coloumn a{
+	display: inline-block;
+    text-decoration: none;
+    margin-top: 35px;
+    width: 176px;
+    height: 44px;
+    line-height: 44px;
+    background: #ff6800;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.top-nav .enter li .website-nav .detail li i,
+.nav .left-nav .nav-detail-list .nav-detail-column .column-list li i{
+	position: absolute;
+	width: 13px;
+	height: 16px;
+	top: -10px;
+	right: -13px;
+	background: url(../img/interaction/hot-icon.png);
+}

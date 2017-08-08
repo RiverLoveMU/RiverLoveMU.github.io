@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <hr>
+        {{msg1}}
+        <hr>
+        {{msg2}}
+        <hr>
+        {{msg3}}
+        <hr>
+        {{msg4}
+
+    </div>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                message:'Hello Vue',//string
+                msg1:10,//number
+                msg2:true,//boolean
+                msg3:['apple','pear','banner','orange'],//array
+                msg4:{a:'张三',b:'王五'}//json
+            }
+        });
+    </script>
+</body>
+</html>
