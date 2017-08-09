@@ -3,18 +3,54 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<script src="https://unpkg.com/vue"></script>
+		<script src="01/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#demo{
+				width: 300px;
+				
+				border: 2px solid black;
+			}
+			#demo div{
+				margin: 20px 10px;
+				position: relative;
+			}
+			#demo p{
+				border: 1px solid;
+				position: absolute;
+				background: lightgoldenrodyellow;
+				top: 10px;
+				left: 5px;
+			}
+			#demo button{
+				margin: 40px 0 10px 10px;
+			}
+		</style>
 	</head>
 	<body>
-		<div id="demo" v-html="msg">
-			
-		</div>
+		<div id="demo">
+			<div class="email">
+				邮箱：<input type="text" name="" id="" value="" />
+			</div>
+			<div class="password">
+				密码：<input type="password" name="" id="" value="" />
+			</div>
+			<div v-on="{ mouseenter: toggle, mouseleave: toggle}">
+				<input type="checkbox" name="" id="" value="" />十天内免登陆
+				<p v-show="seen">为了您的信息安全，请不要在网吧或者公用电脑上使用此功能</p>
+			</div>
+			<button>登录</button>
+			<button>去注册</button>
 	</body>
 	<script type="text/javascript">
 		new Vue({
 			el:'#demo',
 			data:{
-				msg:'<h1>vue.js从入门到实践</h1>'
+				seen:false
+			},
+			methods:{
+				toggle:function(){
+					this.seen = !this.seen;
+				}
 			}
 		})
 	</script>

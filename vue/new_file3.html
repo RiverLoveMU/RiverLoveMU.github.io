@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="01/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				overflow: hidden;
+				background: lightblue;
+				margin-bottom: 10px;
+			}
+			li{
+				list-style: none;
+				float: left;
+				padding: 20px;
+				border-right: 2px solid white;
+			}
+			.active{
+				background: lightcoral;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="app">
+			<li class="active" @click="change($event)">导航1</li>
+			<li @click="change($event)">导航2</li>
+			<li @click="change($event)">导航3</li>
+			<li @click="change($event)">导航4</li>
+			<li @click="change($event)">导航5</li>
+		</ul>
+		<div id="current">
+			{{msg}}
+		</div>
+	</body>
+	<script type="text/javascript">
+		 var vList = new Vue({
+			el:'#app',
+			data:{
+				
+			},
+			methods:{
+				change:function(ev){
+					vShow.msg = ev.currentTarget.innerHTML;
+				}
+			}
+		})
+		var vShow = new Vue({
+			el:'#current',
+			data:{
+				msg:'导航1'	
+			}
+		})
+	</script>
+</html>

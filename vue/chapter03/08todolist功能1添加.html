@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="todolist.css">
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div class="page-top">
+        <div class="page-content">
+            <h2>任务计划列表</h2>
+        </div>
+    </div>
+    <div class="main">
+        <h3 class="big-title">添加任务：</h3>
+        <input
+                placeholder="例如：吃饭睡觉打豆豆；    提示：+回车即可添加任务"
+                type="text"
+                class="task-input"
+                v-model="todo"
+                @keyup.13="addTodo"
+        >
+        <ul class="task-count">
+            <li>{{list.length}}个任务未完成</li>
+            <li class="action">
+                <a href="#all" class="">所有任务</a>
+                <a href="#unfinished" class="">未完成的任务</a>
+                <a href="#finished" class="">完成的任务</a>
+            </li>
+        </ul>
+        <h3 class="big-title">任务列表：</h3>
+        <div class="tasks">
+            <span class="no-task-tip" style="display: none;">还没有添加任何任务</span>
+            <ul class="todo-list">
+                <li class="todo" v-for="item in list">
+                    <div class="view">
+                        <input type="checkbox" class="toggle">
+                        <label>{{item.title}}</label>
+                        <button class="destroy"></button>
+                    </div>
+                    <input type="text" class="edit">
+                </li>
+              <!--  <li class="todo completed">
+                    <div class="view">
+                        <input type="checkbox" class="toggle">
+                        <label>睡觉 没有</label>
+                        <button class="destroy"></button>
+                    </div>
+                    <input type="text" class="edit">
+                </li>
+                <li class="todo">
+                    <div class="view">
+                        <input type="checkbox" class="toggle">
+                        <label>打豆豆</label>
+                        <button class="destroy"></button>
+                    </div>
+                    <input type="text" class="edit">
+                </li>
+                <li class="todo">
+                    <div class="view">
+                        <input type="checkbox" class="toggle">
+                        <label>看书</label>
+                        <button class="destroy"></button>
+                    </div>
+                    <input type="text" class="edit">
+                </li>
+                <li class="todo completed">
+                    <div class="view">
+                        <input type="checkbox" class="toggle">
+                        <label>阅读</label>
+                        <button class="destroy"></button>
+                    </div> <input type="text" class="edit">
+                </li>-->
+            </ul>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'.main',
+            data:{
+               list:[
+                   {title:'123'},{'title':'102354'}
+               ],
+                todo:''
+            },
+            methods:{
+                addTodo:function(){//添加计划
+                    //向list里面添加一项计划
+                   // this.list.push({title:'abcdefg'});
+                   // console.log(this.list);
+                    this.list.push({
+                        title:this.todo
+                    });
+                    this.todo = '';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

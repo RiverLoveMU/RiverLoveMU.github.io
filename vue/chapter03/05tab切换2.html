@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #app{
+            width: 500px;
+            margin: 50px auto;
+        }
+        .btnbox {
+            margin: 20px 0;
+        }
+        button{
+            padding:10px 20px;
+        }
+        .active {
+            background: #FF0000;
+        }
+
+        ul{
+            list-style: none;
+            height: 200px;
+           /* overflow: hidden;*/
+        }
+
+        ul li{
+            width: 500px;
+            height: 200px;
+            background: #555555;
+            text-align: center;
+            font:50px/200px "微软雅黑";
+            color:#FF0000;
+        }
+
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="btnbox">
+        <!--<button>按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+        <button>按钮4</button>
+        <button>按钮5</button>-->
+        <button
+                v-for="(btn,key,index) in btns"
+                @click="change(index)"
+                :class="{active:(index == indexs)}"
+        >
+            {{btn}}
+        </button>
+    </div>
+    <ul>
+       <!-- <li>这是一段文字1</li>
+        <li>这是一段文字2</li>
+        <li>这是一段文字3</li>
+        <li>这是一段文字4</li>
+        <li>这是一段文字5</li>-->
+        <li v-for="(txt,index) in txts" v-show="index ==  indexs">{{txt}}</li>
+    </ul>
+
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            btns:{a:'按钮1',b:'按钮2',c:'按钮3',d:'按钮4',e:'按钮5'},
+            txts:['这是一段文字1','这是一段文字2','这是一段文字3','这是一段文字4','这是一段文字5'],
+            indexs:0,
+        },
+        methods:{
+            change:function(n){
+               this.indexs = n;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

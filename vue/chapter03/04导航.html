@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            background: #5cb85c;
+            margin: 50px;
+            overflow: hidden;
+        }
+
+        ul li{
+            list-style:none;
+            float:left;
+            padding:10px;
+           border-right:1px solid #fff;
+        }
+        .active{
+            background: #FF0000;
+        }
+        hr{
+            clear:both;
+        }
+
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li class="active" @click="change('导航1')">导航1</li>
+        <li @click="change('导航2')">导航2</li>
+        <li @click="change('导航3')">导航3</li>
+        <li @click="change('导航4')">导航4</li>
+        <li @click="change('导航5')">导航5</li>
+    </ul>
+    <hr>
+    <div class="current">
+        {{current}}
+    </div>
+</div>
+
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            current:'导航1'
+        },
+        methods:{
+            change:function(str){
+                this.current = str;
+            }
+        }
+    });
+</script>
+</body>
+</html>

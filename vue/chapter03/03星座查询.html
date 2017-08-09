@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <div class="search-box">
+        请输入你要查询的星座：
+        <input type="text" v-model="str" @keyup.13 = "query">
+        <button @click="query">查询</button>
+    </div>
+    <hr>
+    <div class="detail" v-html="detail">
+
+    </div>
+</div>
+
+<script>
+    var vm = new Vue({
+        el:'#demo',
+        data:{
+            str:'',//查询的星座的名称
+            detail:'我是巨蟹座'
+        },
+        methods:{
+            query:function(){
+                console.log(this.str)
+                switch (this.str){
+                    case '水瓶座':
+                        this.detail ="<img src='images/shuiping.png'>";
+                        break;
+                    case '狮子座':
+                        this.detail ="<img src='images/shizi.png'>";
+                        break;
+                    case '处女座':
+                        this.detail ="<img src='images/chunv.png'>";
+                        break;
+                    case '天蝎座':
+                        this.detail ="<img src='imagestianxie.png'>";
+                        break;
+                    case '白羊座':
+                        this.detail ="<img src='images/baiyang.png'>";
+                        break;
+                    case '金牛座':
+                        this.detail ="<img src='images/金牛.png'>";
+                        break;
+                    case '天秤座':
+                        this.detail ="<img src='images/tiancheng.png'>";
+                        break;
+                    default:
+                        this.detail  = '请输入正确的星座，例如：狮子座，天蝎座等';
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

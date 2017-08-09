@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #app{
+            width:300px;
+            margin:100px auto;
+            border:2px solid #555555;
+            padding:50px;
+        }
+        #info{
+            position: relative;
+        }
+        span{
+            position: absolute;
+            display: block;
+            width: 200px;
+            background: #fff;
+           /* height: 200px;*/
+            border:1px solid #5cb85c;
+            margin: 10px 0;
+        }
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div  id="app">
+    <form action="">
+        <p>邮箱：<input type="text" name="" id=""></p>
+        <p>密码：<input type="password" name="" id=""></p>
+       <!-- <p id="info" @mouseenter="show" @mouseleave="hidden">-->
+        <p id="info" v-on="{mouseover:show,mouseleave:hidden}">
+            <input type="checkbox" name="" id="">十天内免登录
+            <span v-show="seen">为了您的信息安全，请不要在网吧或者公用电脑上使用此功能！</span>
+        </p>
+        <button>登录</button>
+        <button>注册</button>
+    </form>
+</div>
+
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            seen:false,
+        },
+        methods:{
+            show:function(){
+                this.seen = true;
+            },
+            hidden:function(){
+                this.seen = false;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

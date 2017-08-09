@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="01/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#app div{
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div class="in">
+				请输入星座：
+				<input type="text" name="" id="" value="" v-model="intext" @keydown.13="clickButton"/>
+				<button @click="clickButton">确定</button>
+			</div>
+			<div class="out" v-html='out'>
+				
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				out:'请输入你想选择的星座',
+				intext:''
+			},
+			methods:{
+				clickButton:function(){
+					switch (this.intext){
+						case '水瓶座':
+							this.out = '<img src="images/shuiping.png"/>'
+							break;
+						case '白羊座':
+							this.out = '<img src="images/baiyang.png"/>'
+							break;
+						case '处女座':
+							this.out = '<img src="images/chunv.png"/>'
+							break;
+						case '金牛座':
+							this.out = '<img src="images/jinniu.png"/>'
+							break;
+						case '巨蟹座':
+							this.out = '<img src="images/juxie.png"/>'
+							break;
+						case '摩羯座':
+							this.out = '<img src="images/moxie.png"/>'
+							break;
+						case '射手座':
+							this.out = '<img src="images/sheshou.png"/>'
+							break;
+						case '狮子座':
+							this.out = '<img src="images/shizi.png"/>'
+							break;
+						case '双鱼座':
+							this.out = '<img src="images/shuangyu.png"/>'
+							break;
+						case '双子座':
+							this.out = '<img src="images/shuangzi.png"/>'
+							break;
+						case '天秤座':
+							this.out = '<img src="images/tiancheng.png"/>'
+							break;
+						case '天蝎座':
+							this.out = '<img src="images/tianxie.png"/>'
+							break;
+						default:
+							this.out = '没有找到，请从新输入'
+							break;
+					}
+				}
+			}
+		})
+	</script>
+</html>

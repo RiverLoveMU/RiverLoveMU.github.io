@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #app{
+            width: 800px;
+            height: 360px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .imgbox{
+            float:left;
+            width: 700px;
+            position: relative;
+        }
+        .imgbox li{
+            position: absolute;
+            left:0;
+            top:0;
+        }
+        .imgbox li.active{
+            display: block;
+        }
+        .imgbox img{
+            display: block;
+            width: 700px;
+            height: 360px;
+        }
+
+        .menu{
+            float: right;
+            width: 100px;
+        }
+        .menu li a{
+            display: block;
+            width: 100px;
+            height: 60px;
+            font:30px/60px "微软雅黑";
+            text-align: center;
+            color:#fff;
+            background: #222222;
+        }
+
+        .menu li a.on{
+            background: #FF0000;
+            position: relative;
+        }
+        .menu li a.on:before{
+            content: '';
+            border:10px solid transparent;
+            border-right:10px solid #FF0000;
+            position: absolute;
+            left:-20px;
+            top:50%;
+            margin-top: -10px;
+        }
+        .txts{
+            position: absolute;
+            bottom:20px;
+        }
+        .txts li a{
+            width: 100%;
+            height: 44px;
+            line-height: 44px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-left: 22px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 700;
+            background-image: linear-gradient(-180deg,transparent,rgba(0,0,0,.8));
+            box-sizing: border-box;
+        }
+
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <ul class="imgbox">
+        <li v-for="(img,index) in imgs" v-show="index == indexs"><a href=""><img :src="'img/'+img" alt=""></a></li>
+    </ul>
+    <ul class="menu">
+        <li v-for="(menu,index) in menus" @mouseenter = "toggle(index)" ><a href="javascript:;" :class="{on:(index==indexs)}">{{menu}}</a></li>
+    </ul>
+    <ul class="txts">
+        <li v-for="(txt,index) in txts" v-show="index == indexs"><a href="">{{txt}}</a></li>
+    </ul>
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            menus:['要闻','社会','娱乐','体育','军事','明星'],
+            imgs:['b1.jpg','b2.jpg','b3.jpg','b4.jpg','b5.jpg','b6.jpg'],
+            txts:[
+                '直击四川阿坝州九寨沟县地震现场',
+                'BBC心态崩了连熊猫都黑！最萌“外交官”沦为赚钱工具？呵呵',
+                '火烧真人？《权力的游戏》第七季第4集史诗级战役打破全美纪录',
+                '既生瑜何生亮——世界体坛都有哪些“一时瑜亮”？',
+                '这事只有战斗民族干得出——引爆3万吨当量核弹扑灭油田大火',
+                '倪妮《凰权弈天下》剧照曝光获好评'
+            ],
+            indexs:0,
+        },
+        methods:{
+            toggle:function(n){
+                this.indexs = n;
+            }
+        }
+    });
+</script>
+</body>
+</html>
