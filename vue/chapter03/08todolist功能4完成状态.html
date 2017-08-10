@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="todolist.css">
+    <script src="vue.js"></script>
+</head>
+<body>
+<div class="page-top">
+    <div class="page-content">
+        <h2>任务计划列表</h2>
+    </div>
+</div>
+<div class="main">
+    <h3 class="big-title">添加任务：</h3>
+    <input
+            placeholder="例如：吃饭睡觉打豆豆；    提示：+回车即可添加任务"
+            type="text"
+            class="task-input"
+            v-model="todo"
+            @keyup.13="addTodo"
+    >
+    <ul class="task-count">
+        <li>{{list.length}}个任务未完成</li>
+        <li class="action">
+            <a href="#all" class="">所有任务</a>
+            <a href="#unfinished" class="">未完成的任务</a>
+            <a href="#finished" class="">完成的任务</a>
+        </li>
+    </ul>
+    <h3 class="big-title">任务列表：</h3>
+    <div class="tasks">
+        <span class="no-task-tip" style="display: none;">还没有添加任何任务</span>
+        <ul class="todo-list">
+
+            <li class="todo" v-for="item in list" v-bind:class="{completed:item.isChecked, editing: item === editorTodos }" >
+                <div class="view">
+                    <input type="checkbox" class="toggle" v-model="item.isChecked">
+                    <label @dblclick="editorTodo(item)">{{item.title}}</label>
+                    <button class="destroy" @click="delTodo(item)"></button>
+                </div>
+
+                <input type="text" class="edit"
+                       v-foucs="editorTodos === item"
+                       v-model="item.title"
+                       @keyup.13="editorTodoed(item)"
+                       @blur="editorTodoed(item)"
+                       @keyup.esc="cancelTodo(item)"
+                >
+            </li>
+
+        </ul>
+    </div>
+</div>
+<script>
+    var vm = new Vue({
+        el:'.main',
+        data:{
+            list:[
+                {
+                    title:'123',
+                    isChecked:false,
+
+                },
+                {
+                    title:'102354',
+                    isChecked:true,//完成了
+                }
+            ],
+            todo:'',
+            editorTodos:'',//存储正在编辑的数据
+            beforeTitle:''//记录正在编辑的数据的title
+
+        },
+        methods:{
+            addTodo:function(){//添加计划
+                //向list里面添加一项计划
+                // this.list.push({title:'abcdefg'});
+                // console.log(this.list);
+                this.list.unshift({
+                    title:this.todo,
+                    isChecked:false,
+                });
+                this.todo = '';
+            },
+            delTodo:function(todo){//删除计划
+                console.log(todo);
+                var index = this.list.indexOf(todo);
+                this.list.splice(index,1);
+            },
+            editorTodo:function(todo){//编辑计划
+                console.log(todo);
+                this.beforeTitle = todo.title;
+
+                this.editorTodos = todo;
+
+                //console.log(this.editorTodos);
+            },
+            editorTodoed:function(todo){//保存计划
+                this.editorTodos = '';
+            },
+            cancelTodo:function(todo){//取消编辑
+                todo.title = this.beforeTitle;
+                this.beforeTitle = '';
+
+                this.editorTodos = '';
+            }
+
+        },
+        directives:{
+            "foucs":{
+                update(el,binding){
+                    if(binding.value){
+                        el.focus();
+                    }
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
