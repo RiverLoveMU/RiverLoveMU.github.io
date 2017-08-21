@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% block title %}发布文章{% endblock %}
+{% block aActive %}active{% endblock %}
+{% block content %}
+    <section class="content-header">
+      <h1>
+        发布文章
+      </h1>
+      <!--<ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Forms</a></li>
+        <li class="active">Editors</li>
+      </ol>-->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="blogPublic" class="box box-info">
+            <div class="box-header form-group">
+              <input type="text" class="form-control" name="" id="" value="又一次震惊了~~" placeholder="请输入文章标题"/>
+              <br />
+              <input type="text" class="form-control" name="" id="" value="张无忌" placeholder="请输入作者名称"/>
+              <br />
+              <input type="text" class="form-control" name="" id="" value="2017-07-21" placeholder="请输入发布时间"/>
+              <br />
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body pad">
+                <textarea id="editor1" name="editor1" rows="10" cols="80" placeholder="请输入文章内容" class="col-xs-12">
+                </textarea>
+            </div>
+           <div class="text-center">
+           		 <button class="btn btn-primary" id="public">确认发布</button>
+           </div>
+          </div>
+          <!-- /.box -->
+
+        </div>
+        <!-- /.col-->
+      </div>
+      <!-- ./row -->
+    </section>
+    <!-- /.content -->
+{% endblock %}

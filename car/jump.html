@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="//open.aboutnew.net/api/weixin/openid/?appid=wxf50915f4de21fa0e&userinfo=1&emoji=1" type="text/javascript" charset="utf-8"></script>
+<body>
+<span id="nickname"></span>
+<br>
+<span id="openid"></span>
+<script type="text/javascript">
+    window.onload=function(){
+        document.getElementById("nickname").textContent=wxUserInfo.nickname;
+        document.getElementById("openid").textContent=wxUserInfo.openid;
+    }
+</script>
+</body>
+</html>

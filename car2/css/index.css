@@ -1,0 +1,52 @@
+html,body,.cont{
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+img{
+	display: block;
+}
+.cont{
+	background: url(../img/bg.jpg);
+	background-size: 100% 100%;
+}
+.cont .lottery{
+	position: absolute;
+    height: 54%;
+    top: 3%;
+    overflow: hidden;
+}
+.cont .lottery img{
+	width: 100%;
+	position: absolute;
+}
+.cont .lottery #plate{
+	width: 78%;
+	top: 11%;
+	left: 11%;
+	-webkit-transform-origin: center center;
+}
+.cont .intro{
+	position: absolute;
+    width: 54%;
+    left: 23%;
+    top: 58%;
+}
+.cont #finger-print{
+	position: absolute;
+    width: 22%;
+    left: 41%;
+    top: 76%;
+    padding-top: 22%;
+    background: url(../img/zhiwen.png) no-repeat;
+    background-size: cover;
+    -webkit-user-select: none;
+}
+.cont .info{
+	position: absolute;
+    bottom: 3%;
+    width: 100%;
+}
+.cont #car{
+	-webkit-transform-origin: center center;
+}

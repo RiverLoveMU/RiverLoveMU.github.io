@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.min.css"/>
+</head>
+<body>
+{% for mydata in sendD %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>{{mydata.tit}}</h1>
+        <p>{{mydata.intro}}</p>
+        <p><a class="btn btn-primary btn-lg" href="/detail?id={{mydata.id}}" role="button">Learn more</a></p>
+    </div>
+</div>
+{% endfor %}
+</body>
+</html>

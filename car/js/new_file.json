@@ -1,0 +1,33 @@
+{
+	"puid": "",
+	"user_id": null,
+	"err_code": 1,
+	"err_msg": "\u5546\u6237\u6216\u7528\u6237\u4fe1\u606f\u4e0d\u80fd\u4e3a\u7a7a",
+	"wxoid": "",
+	"wbuid": "",
+	"user_info": null,
+	"user_name": null,
+	"user_tel": null,
+	"user_sex": null,
+	"time": 1502957949
+}
+ {
+	"user_id": "",
+	"err_code": 1,
+	"err_msg": "\uff1f",
+	"wxoid": "",
+	"wbuid": "",
+	"winning_prize_id": null,
+	"prize_name": null,
+	"attend_num": null,
+	"no_uid": null,
+	"my_prize_name": null,
+	"my_winning_prize_id": null,
+	"my_receive_prize_time": null,
+	"my_prize_arr": null,
+	"attend_arr": null,
+	"attend_arr_count": null,
+	"prize_now_sum": null,
+	"user_city": null,
+	"time": 1502957986
+}
